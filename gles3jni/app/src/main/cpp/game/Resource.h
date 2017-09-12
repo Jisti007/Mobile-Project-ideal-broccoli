@@ -1,0 +1,10 @@
+#ifndef GLES3JNI_RESOURCETYPE_H
+#define GLES3JNI_RESOURCETYPE_H
+
+
+class Resource {
+
+};
+
+
+#endif //GLES3JNI_RESOURCETYPE_H

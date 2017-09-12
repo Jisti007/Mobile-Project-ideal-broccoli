@@ -1,0 +1,10 @@
+#ifndef GLES3JNI_BUILDINGTYPE_H
+#define GLES3JNI_BUILDINGTYPE_H
+
+
+class BuildingType {
+
+};
+
+
+#endif //GLES3JNI_BUILDINGTYPE_H
