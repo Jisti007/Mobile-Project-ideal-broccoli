@@ -12,7 +12,7 @@ public:
 
 private:
     GLuint handle;
-    int Width, Height, Channels;
+    int width, height, channels;
 };
 
 #endif //GLES3JNI_TEXTURE_H
