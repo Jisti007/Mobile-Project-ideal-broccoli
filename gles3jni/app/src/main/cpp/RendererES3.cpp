@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 #include "gles3jni.h"
 #include <EGL/egl.h>
 
@@ -129,6 +129,7 @@ RendererES3::~RendererES3() {
      * If the context exists, it must be current. This only happens when we're
      * cleaning up after a failed init().
      */
+/*
     if (eglGetCurrentContext() != mEglContext)
         return;
     glDeleteVertexArrays(1, &mVBState);
@@ -163,3 +164,4 @@ void RendererES3::draw(unsigned int numInstances) {
     glBindVertexArray(mVBState);
     glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, numInstances);
 }
+*/
