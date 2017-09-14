@@ -4,6 +4,8 @@
 Game::Game(AssetManager *assetManager) {
 	this->assetManager = assetManager;
 	map = new GameMap();
+
+	Texture* texture = assetManager->loadTexture("Hex.png");
 }
 
 Game::~Game() {
