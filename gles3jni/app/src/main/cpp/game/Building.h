@@ -5,7 +5,7 @@
 
 class Building {
 private:
-    BuildingType* type;
+	BuildingType* type;
 };
 
 #endif //GLES3JNI_BUILDING_H

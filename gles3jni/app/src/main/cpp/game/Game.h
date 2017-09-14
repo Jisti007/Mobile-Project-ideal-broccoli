@@ -2,13 +2,20 @@
 #define GLES3JNI_GAME_H
 
 #include "GameMap.h"
+#include "AssetManager.h"
 
 class Game {
 public:
     GameMap* map;
 
-    Game();
+    Game(AssetManager *assetManager);
     ~Game();
+
+	void update();
+	void draw();
+
+private:
+	AssetManager* assetManager;
 };
 
 

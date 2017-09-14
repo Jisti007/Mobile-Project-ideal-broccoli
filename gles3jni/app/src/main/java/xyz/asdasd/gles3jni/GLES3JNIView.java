@@ -17,6 +17,7 @@
 package xyz.asdasd.gles3jni;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.opengl.GLSurfaceView;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -32,10 +33,16 @@ class GLES3JNIView extends GLSurfaceView {
         // supporting OpenGL ES 2.0 or later backwards-compatible versions.
         setEGLConfigChooser(8, 8, 8, 0, 16, 0);
         setEGLContextClientVersion(3);
-        setRenderer(new Renderer());
+        setRenderer(new Renderer(context.getAssets()));
     }
 
     private static class Renderer implements GLSurfaceView.Renderer {
+        private AssetManager assetManager;
+
+        public Renderer(AssetManager assetManager) {
+            this.assetManager = assetManager;
+        }
+
         public void onDrawFrame(GL10 gl) {
             GLES3JNILib.step();
         }
@@ -45,7 +52,8 @@ class GLES3JNIView extends GLSurfaceView {
         }
 
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-            GLES3JNILib.init();
+
+            GLES3JNILib.init(assetManager);
         }
     }
 }

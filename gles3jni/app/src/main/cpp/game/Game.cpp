@@ -1,9 +1,18 @@
 #include "Game.h"
 
-Game::Game() {
-    map = new GameMap();
+Game::Game(AssetManager *assetManager) {
+	this->assetManager = assetManager;
+	map = new GameMap();
 }
 
 Game::~Game() {
-    delete map;
+	delete map;
+}
+
+void Game::update() {
+
+}
+
+void Game::draw() {
+
 }

@@ -26,6 +26,8 @@ add_library(
     gles3jni.cpp
     RendererES2.cpp
     RendererES3.cpp
+    game/AndroidAssetManager.cpp
+    game/AssetManager.cpp
     game/Building.cpp
     game/BuildingType.cpp
     game/Campaign.cpp
