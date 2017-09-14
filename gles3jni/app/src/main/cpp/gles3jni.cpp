@@ -300,7 +300,8 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
-	glClear(GL_COLOR_BUFFER_BIT);
+	game->update();
+	game->draw();
 	/*
 	if (g_renderer) {
 		g_renderer->render();
