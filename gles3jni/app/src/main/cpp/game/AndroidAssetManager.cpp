@@ -15,10 +15,11 @@ void AndroidAssetManager::extractAssets() {
 	while ((filename = AAssetDir_getNextFileName(assetDir)) != NULL) {
 		AAsset *asset = AAssetManager_open(handle, filename, AASSET_MODE_STREAMING);
 		char buffer[BUFSIZ];
-		int nb_read = 0;
+		int size = 0;
+		const int count = 1;
 		FILE *out = fopen(filename, "w");
-		while ((nb_read = AAsset_read(asset, buffer, BUFSIZ)) > 0) {
-			fwrite(buffer, nb_read, 1, out);
+		while ((size = AAsset_read(asset, buffer, BUFSIZ)) > 0) {
+			fwrite(buffer, size, count, out);
 		}
 		fclose(out);
 		AAsset_close(asset);
