@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 #include "gles3jni.h"
 #include <EGL/egl.h>
 
@@ -105,6 +105,7 @@ RendererES2::~RendererES2() {
      * If the context exists, it must be current. This only happens when we're
      * cleaning up after a failed init().
      */
+/*
     if (eglGetCurrentContext() != mEglContext)
         return;
     glDeleteBuffers(1, &mVB);
@@ -140,3 +141,4 @@ void RendererES2::draw(unsigned int numInstances) {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }
 }
+*/

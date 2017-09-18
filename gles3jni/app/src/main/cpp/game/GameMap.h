@@ -4,6 +4,11 @@
 
 class GameMap {
 
+public:
+    GameMap();
+
+    void createMap();
+
 };
 
 
