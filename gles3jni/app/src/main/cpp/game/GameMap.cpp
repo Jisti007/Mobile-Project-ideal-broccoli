@@ -1,5 +1,5 @@
 #include "GameMap.h"
-#include "../../../../../../../../astudio-sdk/ndk-bundle/platforms/android-18/arch-arm/usr/include/GLES3/gl3.h"
+//#include "../../../../../../../../astudio-sdk/ndk-bundle/platforms/android-18/arch-arm/usr/include/GLES3/gl3.h"
 #include <jni.h>
 #include <stdlib.h>
 #include <time.h>

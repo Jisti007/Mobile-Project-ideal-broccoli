@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Units>
+<Assets>
     <Unit
         uid="test"
         texture="test_unit"
@@ -7,4 +7,4 @@
         atk="2"
         def="2"
     />
-</Units>
+</Assets>

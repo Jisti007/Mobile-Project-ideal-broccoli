@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Hexes>
+<Assets>
     <Hex
         id="test"
         texture="test_hex"
     />
-</Hexes>
+</Assets>

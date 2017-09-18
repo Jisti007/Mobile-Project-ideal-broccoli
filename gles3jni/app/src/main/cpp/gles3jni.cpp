@@ -36,6 +36,7 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
 	JavaVM *vm;
 	env->GetJavaVM(&vm);
 	vm->AttachCurrentThread(&env, NULL);
+
 	jclass activityClass = env->GetObjectClass(activity);
 	jmethodID getCacheDir = env->GetMethodID(activityClass, "getCacheDir", "()Ljava/io/File;");
 	jobject file = env->CallObjectMethod(activity, getCacheDir);
