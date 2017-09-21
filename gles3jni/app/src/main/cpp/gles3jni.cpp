@@ -1,11 +1,9 @@
 #include <jni.h>
 #include <stdlib.h>
-#include <memory>
 #include <android/asset_manager.h>
 #include <android/asset_manager_jni.h>
 #include <unistd.h>
 
-#include "gles3jni.h"
 #include "game/Game.h"
 
 Game game;

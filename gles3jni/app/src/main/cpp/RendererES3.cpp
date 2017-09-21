@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /*
-#include "gles3jni.h"
+#include "SampleCode.h"
 #include <EGL/egl.h>
 
 #define STR(s) #s

@@ -8,12 +8,12 @@ using namespace rapidxml;
 using placeholders::_1;
 
 AssetManager::AssetManager() {
-	moduleFunctions["LoadAssets"] = std::bind(&AssetManager::loadAssets, this, _1);
-	assetFunctions["Texture"] = std::bind(&AssetManager::loadTexture, this, _1);
-	assetFunctions["Hex"] = std::bind(&AssetManager::loadHexType, this, _1);
-	assetFunctions["Unit"] = std::bind(&AssetManager::loadUnitType, this, _1);
-	assetFunctions["Building"] = std::bind(&AssetManager::loadBuildingType, this, _1);
-	assetFunctions["Resource"] = std::bind(&AssetManager::loadResource, this, _1);
+	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
+	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
+	assetFunctions["Hex"] = bind(&AssetManager::loadHexType, this, _1);
+	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
+	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
+	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
 }
 
 AssetManager::~AssetManager() {
@@ -29,7 +29,7 @@ void AssetManager::unloadAll() {
 }
 
 void AssetManager::loadModule(const char *xmlPath) {
-	loadXml(xmlPath, std::bind(&AssetManager::handleModuleNode, this, _1));
+	loadXml(xmlPath, bind(&AssetManager::handleModuleNode, this, _1));
 }
 
 void AssetManager::loadXml(const char *xmlPath, function<void(xml_node<>*)> nodeFunction) {
@@ -41,7 +41,12 @@ void AssetManager::loadXml(const char *xmlPath, function<void(xml_node<>*)> node
 		text = FileHelper::ReadText(xmlPath);
 		document.parse<0>(text.data());
 	}
+	catch (runtime_error runtimeError) {
+		//TODO: Could not load file. Also a more descriptive name for the error?
+		return;
+	}
 	catch (parse_error parseError) {
+		//TODO: Could not parse xml.
 		return;
 	}
 
@@ -53,16 +58,16 @@ void AssetManager::loadXml(const char *xmlPath, function<void(xml_node<>*)> node
 	}
 }
 
-void AssetManager::handleModuleNode(rapidxml::xml_node<> *node) {
+void AssetManager::handleModuleNode(xml_node<> *node) {
 	moduleFunctions[node->name()](node);
 }
 
-void AssetManager::loadAssets(rapidxml::xml_node<> *node) {
+void AssetManager::loadAssets(xml_node<> *node) {
 	const char *assetXmlPath = node->first_attribute("path")->value();
-	loadXml(assetXmlPath, std::bind(&AssetManager::handleAssetNode, this, _1));
+	loadXml(assetXmlPath, bind(&AssetManager::handleAssetNode, this, _1));
 }
 
-void AssetManager::handleAssetNode(rapidxml::xml_node<> *node) {
+void AssetManager::handleAssetNode(xml_node<> *node) {
 	assetFunctions[node->name()](node);
 }
 
@@ -78,25 +83,25 @@ void AssetManager::loadHexType(xml_node<> *node) {
 	hexTypes[id] = unique_ptr<HexType>(new HexType(texture));
 }
 
-void AssetManager::loadUnitType(rapidxml::xml_node<> *node) {
+void AssetManager::loadUnitType(xml_node<> *node) {
 	const char* id = node->first_attribute("id")->value();
 	Texture* texture = getNodeTexture(node);
 	unitTypes[id] = unique_ptr<UnitType>(new UnitType(texture));
 }
 
-void AssetManager::loadBuildingType(rapidxml::xml_node<> *node) {
+void AssetManager::loadBuildingType(xml_node<> *node) {
 	const char* id = node->first_attribute("id")->value();
 	Texture* texture = getNodeTexture(node);
 	buildingTypes[id] = unique_ptr<BuildingType>(new BuildingType(texture));
 }
 
-void AssetManager::loadResource(rapidxml::xml_node<> *node) {
+void AssetManager::loadResource(xml_node<> *node) {
 	const char* id = node->first_attribute("id")->value();
 	Texture* texture = getNodeTexture(node);
 	resources[id] = unique_ptr<Resource>(new Resource(texture));
 }
 
-Texture *AssetManager::getNodeTexture(rapidxml::xml_node<> *node) {
+Texture *AssetManager::getNodeTexture(xml_node<> *node) {
 	const char* textureId = node->first_attribute("texture")->value();
 	return textures[textureId].get();
 }
