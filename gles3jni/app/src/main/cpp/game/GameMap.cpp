@@ -4,15 +4,26 @@
 #include <stdlib.h>
 #include <time.h>
 #include <GLES3/gl3.h>
+#include "MapHex.h"
+
+int width;
+int height;
+int xOffset;
+int yOffset;
+int side;
+float pixelWidth;
+float pixelHeight;
+MapHex hexes;
 
 
-float Hex[] = {
+/*float Hex[] = {
         0.25f, 0.5f,
         -0.25f, 0.5f,
         0.5f, 0.0f,
         0.25f, -0.5f,
         -0.25f, -0.5f,
         -0.5f, 0.0f};
+*/
 
 const char* vertexSource = R"glsl(
     #version 150 core
@@ -34,9 +45,15 @@ const char* fragmentSource = R"glsl(
     }
 )glsl";
 
+
+void Init(int width, int height, int side, float xOffset, float yOffset) {
+
+}
+
+
 void GameMap::createMap() {
 
-    GLuint vbo;
+  /*  GLuint vbo;
     glGenBuffers(1, &vbo);
 
     GLuint vao;
@@ -72,10 +89,9 @@ void GameMap::createMap() {
 
     glBindVertexArray(vao);
 
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-
-
+    glDrawArrays(GL_TRIANGLES, 0, 3);*/
 }
+
 
 GameMap::GameMap() {
     createMap();
