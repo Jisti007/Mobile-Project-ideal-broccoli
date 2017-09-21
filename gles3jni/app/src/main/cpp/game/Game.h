@@ -8,14 +8,15 @@ class Game {
 public:
     GameMap* map;
 
-    Game(AssetManager *assetManager);
+    Game();
     ~Game();
 
+	void initialize();
 	void update();
 	void draw();
 
 private:
-	AssetManager* assetManager;
+	AssetManager assetManager;
 };
 
 

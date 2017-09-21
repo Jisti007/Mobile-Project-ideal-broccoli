@@ -1,15 +1,17 @@
 #include "Game.h"
 #include <GLES3/gl3.h>
 
-Game::Game(AssetManager *assetManager) {
-	this->assetManager = assetManager;
+Game::Game() {
 	map = new GameMap();
-
-	Texture* texture = assetManager->loadTexture("Hex.png");
 }
 
 Game::~Game() {
 	delete map;
+}
+
+void Game::initialize() {
+	assetManager.loadModule("DefaultModule.xml");
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Game::update() {

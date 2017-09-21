@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Ruleset
-	id="default"
-	name="Default Ruleset"
+<Module
+	name = "Default Module"
 >
 	<LoadAssets path="Textures.xml" />
 	<LoadAssets path="Hexes.xml" />
-</Ruleset>
+</Module>

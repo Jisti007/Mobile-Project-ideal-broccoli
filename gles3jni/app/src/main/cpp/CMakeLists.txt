@@ -27,7 +27,6 @@ add_library(
     gles3jni.cpp
 #    RendererES2.cpp
 #    RendererES3.cpp
-    game/AndroidAssetManager.cpp
     game/AssetManager.cpp
     game/Building.cpp
     game/BuildingType.cpp
@@ -39,7 +38,6 @@ add_library(
     game/HexType.cpp
     game/MapHex.cpp
     game/Resource.cpp
-    game/Ruleset.cpp
     game/Scenario.cpp
     game/Texture.cpp
     game/Unit.cpp
