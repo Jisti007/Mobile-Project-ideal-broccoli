@@ -6,7 +6,6 @@ class MapHex {
 public:
 
     MapHex();
-
 private:
     HexType* type;
 };

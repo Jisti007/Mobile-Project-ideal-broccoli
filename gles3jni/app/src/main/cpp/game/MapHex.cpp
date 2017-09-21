@@ -1,13 +1,68 @@
 #include "MapHex.h"
+#include "HexType.h"
 #include "math.h"
 #include <GLES3/gl3.h>
 
-const float hex_r = 0.2;
-const float hex_dx = hex_r*cos(30.0*M_PI/180.0);
-const float hex_dy = hex_r*sin(30.0*M_PI/180.0);
-const float hex_gx = 2.0*hex_dx;
-const float hex_gy = 2.0*hex_dx*sin(60.0*M_PI/180.0);
+/*float Hex_points[] = {
+        0.25f, 0.5f,
+        -0.25f, 0.5f,
+        0.5f, 0.0f,
+        0.25f, -0.5f,
+        -0.25f, -0.5f,
+        -0.5f, 0.0f};*/
+float Hex_points[];
+float Hex_side;
+float Hex_h;
+float Hex_r;
+float Hex_x;
+float Hex_y;
+HexType* hexType;
 
-void Hex(float x, float y, float z) {
+//  h = short length (outside)
+//  r = long length (outside)
+//  side = length of a side of the hexagon, all 6 are equal length
+//
+//  h = sin (30 degrees) x side
+//  r = cos (30 degrees) x side
+//
+//		 h
+//	     ---
+//   ----     |r
+//  /    \    |
+// /      \   |
+// \      /
+//  \____/
+//
 
+
+void CalculateVertices() {
+
+    //sin(30 degrees_to_rad * side)
+    Hex_h = sinf(0.523598776 * Hex_side);
+    //cos(30 degrees_to_rad * side)
+    Hex_r = cosf(0.523598776 * Hex_side);
+
+    //define hexagon shape, this one is a flat hexagon
+    Hex_points = new float[6];
+    Hex_points[0] = (Hex_x, Hex_y);
+    Hex_points[1] = (Hex_x + Hex_side, Hex_y);
+    Hex_points[2] = (Hex_x + Hex_side + Hex_h, Hex_y + Hex_r);
+    Hex_points[3] = (Hex_x + Hex_side, Hex_y + Hex_r + Hex_r);
+    Hex_points[4] = (Hex_x, Hex_y + Hex_r + Hex_r);
+    Hex_points[5] = (Hex_x - Hex_h, Hex_y + Hex_r);
+
+
+}
+
+void Init(float Hex_x, float Hex_y, float Hex_side) {
+
+    //this.Hex_x = x;
+    //this.Hex_y = y;
+    //this.Hex_side = side;
+   // hexType = new HexType();
+    CalculateVertices();
+}
+
+MapHex::MapHex() {
+    Init(Hex_x, Hex_y, Hex_side);
 }
