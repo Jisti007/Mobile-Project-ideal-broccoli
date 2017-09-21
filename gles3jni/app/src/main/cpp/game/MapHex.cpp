@@ -10,7 +10,7 @@
         0.25f, -0.5f,
         -0.25f, -0.5f,
         -0.5f, 0.0f};*/
-float Hex_points[];
+float Hex_points[6];
 float Hex_side;
 float Hex_h;
 float Hex_r;
@@ -43,7 +43,7 @@ void CalculateVertices() {
     Hex_r = cosf(0.523598776 * Hex_side);
 
     //define hexagon shape, this one is a flat hexagon
-    Hex_points = new float[6];
+    //Hex_points = new float[6];
     Hex_points[0] = (Hex_x, Hex_y);
     Hex_points[1] = (Hex_x + Hex_side, Hex_y);
     Hex_points[2] = (Hex_x + Hex_side + Hex_h, Hex_y + Hex_r);
