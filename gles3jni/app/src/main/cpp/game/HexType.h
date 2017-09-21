@@ -4,6 +4,10 @@
 #include "Texture.h"
 
 class HexType {
+public:
+	HexType(Texture* texture);
+	~HexType();
+
 private:
     Texture* texture;
 };
