@@ -11,7 +11,6 @@ Game::~Game() {
 
 void Game::initialize() {
 	assetManager.loadModule("DefaultModule.xml");
-	Texture* texture = assetManager.getTexture("test_hex");
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 

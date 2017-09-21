@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
-    <Unit
-        uid="test"
-        texture="test_unit"
-        hp="10"
-        atk="2"
-        def="2"
-    />
+	<Unit
+		id="test"
+		texture="test_unit"
+		hp="10"
+		atk="2"
+		def="2"
+	/>
 </Assets>

@@ -17,6 +17,7 @@ public:
 	virtual ~AssetManager();
 
 	void loadModule(const char* xmlPath);
+	void unloadAll();
 	Texture* getTexture(const char* textureAssetId) { return textures[textureAssetId].get(); }
 	HexType* getHexType(const char* hexTypeAssetId) { return hexTypes[hexTypeAssetId].get(); }
 	HexType* getUnitType(const char* unitAssetId) { return hexTypes[unitAssetId].get(); }

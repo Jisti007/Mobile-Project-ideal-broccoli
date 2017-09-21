@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
-    <Texture
-        id="test_hex"
-        path="Hex.png"
-    />
+	<Texture
+		id="test_hex"
+		path="Hex.png"
+	/>
 </Assets>
