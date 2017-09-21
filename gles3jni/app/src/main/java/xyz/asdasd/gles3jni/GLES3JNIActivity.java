@@ -18,6 +18,7 @@ package xyz.asdasd.gles3jni;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 public class GLES3JNIActivity extends Activity {
 
@@ -27,6 +28,7 @@ public class GLES3JNIActivity extends Activity {
         super.onCreate(icicle);
         mView = new GLES3JNIView(getApplication(), this);
         setContentView(mView);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override protected void onPause() {

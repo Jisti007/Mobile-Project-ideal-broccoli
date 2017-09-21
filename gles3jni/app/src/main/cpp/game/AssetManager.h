@@ -25,6 +25,8 @@ public:
 	HexType* getResource(const char* resourceAssetId) { return hexTypes[resourceAssetId].get(); }
 
 private:
+	std::unordered_map<std::string, std::function<void(rapidxml::xml_node<>*)>> moduleFunctions;
+	std::unordered_map<std::string, std::function<void(rapidxml::xml_node<>*)>> assetFunctions;
 	std::unordered_map<std::string, std::unique_ptr<Texture>> textures;
 	std::unordered_map<std::string, std::unique_ptr<HexType>> hexTypes;
 	std::unordered_map<std::string, std::unique_ptr<UnitType>> unitTypes;
@@ -33,6 +35,7 @@ private:
 
 	void loadXml(const char* xmlPath, std::function<void(rapidxml::xml_node<>*)> nodeFunction);
 	void handleModuleNode(rapidxml::xml_node<> *node);
+	void loadAssets(rapidxml::xml_node<> *node);
 	void handleAssetNode(rapidxml::xml_node<> *node);
 	void loadTexture(rapidxml::xml_node<> *node);
 	void loadHexType(rapidxml::xml_node<> *node);
