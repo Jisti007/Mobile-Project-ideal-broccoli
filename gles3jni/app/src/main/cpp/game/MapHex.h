@@ -4,9 +4,14 @@
 
 class MapHex {
 public:
+	MapHex();
+    MapHex(uint16_t gridX, uint16_t gridY, HexType* type);
+	~MapHex();
 
-    MapHex();
+	void initialize(uint16_t gridX, uint16_t gridY, HexType* type);
+
 private:
+	uint16_t gridX, gridY;
     HexType* type;
 };
 

@@ -1,59 +1,60 @@
 #include "GameMap.h"
 //#include "../../../../../../../../astudio-sdk/ndk-bundle/platforms/android-18/arch-arm/usr/include/GLES3/gl3.h"
-#include <jni.h>
-#include <stdlib.h>
-#include <time.h>
-#include <GLES3/gl3.h>
-#include "MapHex.h"
+//#include <jni.h>
+//#include <stdlib.h>
+//#include <time.h>
+//#include <GLES3/gl3.h>
+//#include "MapHex.h"
 
-int width;
-int height;
-int xOffset;
-int yOffset;
-int side;
-float pixelWidth;
-float pixelHeight;
-MapHex hexes;
-
-
-/*float Hex[] = {
-        0.25f, 0.5f,
-        -0.25f, 0.5f,
-        0.5f, 0.0f,
-        0.25f, -0.5f,
-        -0.25f, -0.5f,
-        -0.5f, 0.0f};
-*/
-
-const char* vertexSource = R"glsl(
-    #version 150 core
-
-    in vec2 position;
-
-    void main(){
-        gl_Position = vec4(position, 0.0, 1.0)
-    }
-)glsl";
-
-const char* fragmentSource = R"glsl(
-    #version 150 core
-
-    in vec2 position;
-
-    void main(){
-        gl_Position = vec4(position, 0.0, 1.0)
-    }
-)glsl";
-
-
-void Init(int width, int height, int side, float xOffset, float yOffset) {
+GameMap::GameMap() {
 
 }
 
+GameMap::GameMap(uint16_t width, uint16_t height, AssetManager& assets) {
+	initialize(width, height, assets);
+}
+
+GameMap::~GameMap() {
+
+}
+
+void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets) {
+	this->width = width;
+	this->height = height;
+	hexes.resize(width * height);
+
+	HexType* testHexType = assets.getHexType("test");
+	for (uint16_t y = 0; y < width; y++) {
+		for (uint16_t x = 0; x < height; x++) {
+			getHex(x, y)->initialize(x, y, testHexType);
+		}
+	}
+}
+
+/*
+const char *vertexSource = R"glsl(
+    #version 150 core
+
+    in vec2 position;
+
+    void main(){
+        gl_Position = vec4(position, 0.0, 1.0)
+    }
+)glsl";
+
+const char *fragmentSource = R"glsl(
+    #version 150 core
+
+    in vec2 position;
+
+    void main(){
+        gl_Position = vec4(position, 0.0, 1.0)
+    }
+)glsl";
 
 void GameMap::createMap() {
 
-  /*  GLuint vbo;
+    GLuint vbo;
     glGenBuffers(1, &vbo);
 
     GLuint vao;
@@ -89,13 +90,8 @@ void GameMap::createMap() {
 
     glBindVertexArray(vao);
 
-    glDrawArrays(GL_TRIANGLES, 0, 3);*/
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
-
-
-GameMap::GameMap() {
-    createMap();
-}
-
+*/
 
 //int argc, char *argv[]

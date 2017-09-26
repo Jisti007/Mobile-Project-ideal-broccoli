@@ -8,7 +8,7 @@ using namespace rapidxml;
 using placeholders::_1;
 
 AssetManager::AssetManager() {
-	// Map functions, primarily so we won't need if-else chains.
+	// Bind functions to maps, primarily so we won't need if-else chains.
 	// moduleFunctions and assetFunctions are separate to prevent possible recursion.
 	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
 	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);

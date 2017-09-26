@@ -6,8 +6,6 @@
 
 class Game {
 public:
-    GameMap* map;
-
     Game();
     ~Game();
 
@@ -17,6 +15,7 @@ public:
 
 private:
 	AssetManager assetManager;
+	GameMap map;
 };
 
 

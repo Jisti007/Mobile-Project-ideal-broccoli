@@ -9,6 +9,8 @@ android {
 
     defaultConfig {
         applicationId 'xyz.asdasd.gles3jni'
+        versionCode 10000
+        versionName "0.1.0.0"
         minSdkVersion 19
         targetSdkVersion 25
         ndk {
