@@ -2,6 +2,6 @@
 <Assets>
 	<Texture
 		id="test_hex"
-		path="Hex.png"
+		path="textures/Hex.png"
 	/>
 </Assets>

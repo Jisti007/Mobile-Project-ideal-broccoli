@@ -10,7 +10,7 @@ Game::~Game() {
 }
 
 void Game::initialize() {
-	assetManager.loadModule("DefaultModule.xml");
+	assetManager.loadModule("modules/default");
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 

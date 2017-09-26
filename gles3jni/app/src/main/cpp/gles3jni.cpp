@@ -1,7 +1,5 @@
 #include <jni.h>
 #include <stdlib.h>
-#include <android/asset_manager.h>
-#include <android/asset_manager_jni.h>
 #include <unistd.h>
 
 #include "game/Game.h"
@@ -10,13 +8,13 @@ Game game;
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_init(JNIEnv *env, jobject obj, jobject activity, jobject assetManager);
+Java_xyz_asdasd_gles3jni_GLES3JNILib_init(JNIEnv *env, jobject obj, jobject activity);
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height);
 JNIEXPORT void JNICALL Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj);
 };
 
-void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager);
+//void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager);
 
 #if !defined(DYNAMIC_ES3)
 static GLboolean gl3stubInit() {
@@ -26,24 +24,8 @@ static GLboolean gl3stubInit() {
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
-	JNIEnv *env, jobject obj, jobject activity, jobject javaAssetManager
+	JNIEnv *env, jobject obj, jobject activity
 ) {
-	extractAssets(env, activity, javaAssetManager);
-	game.initialize();
-}
-
-JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
-
-}
-
-JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
-	game.update();
-	game.draw();
-}
-
-void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
 	JavaVM *vm;
 	env->GetJavaVM(&vm);
 	vm->AttachCurrentThread(&env, NULL);
@@ -59,6 +41,22 @@ void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
 	chdir(appDirectory);
 	env->ReleaseStringUTFChars(jpath, appDirectory);
 
+	game.initialize();
+}
+
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
+
+}
+
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
+	game.update();
+	game.draw();
+}
+/*
+void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
+	//TODO: Since this is platform specific, maybe extract the assets in Java instead?
 	AAssetManager *assetManager = AAssetManager_fromJava(env, javaAssetManager);
 	AAssetDir *assetDir = AAssetManager_openDir(assetManager, "");
 	const char *filename;
@@ -76,3 +74,4 @@ void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
 	}
 	AAssetDir_close(assetDir);
 }
+*/

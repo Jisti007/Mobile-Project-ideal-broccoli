@@ -17,7 +17,7 @@ public:
 	virtual ~AssetManager();
 
 	void unloadAll();
-	void loadModule(const char* xmlPath);
+	void loadModule(const char* directory);
 	Texture* getTexture(const char* textureAssetId) { return textures[textureAssetId].get(); }
 	HexType* getHexType(const char* hexTypeAssetId) { return hexTypes[hexTypeAssetId].get(); }
 	HexType* getUnitType(const char* unitAssetId) { return hexTypes[unitAssetId].get(); }
@@ -25,24 +25,45 @@ public:
 	HexType* getResource(const char* resourceAssetId) { return hexTypes[resourceAssetId].get(); }
 
 private:
-	std::unordered_map<std::string, std::function<void(rapidxml::xml_node<>*)>> moduleFunctions;
-	std::unordered_map<std::string, std::function<void(rapidxml::xml_node<>*)>> assetFunctions;
+	class Node;
+
+	std::unordered_map<std::string, std::function<void(Node*)>> moduleFunctions;
+	std::unordered_map<std::string, std::function<void(Node*)>> assetFunctions;
 	std::unordered_map<std::string, std::unique_ptr<Texture>> textures;
 	std::unordered_map<std::string, std::unique_ptr<HexType>> hexTypes;
 	std::unordered_map<std::string, std::unique_ptr<UnitType>> unitTypes;
 	std::unordered_map<std::string, std::unique_ptr<BuildingType>> buildingTypes;
 	std::unordered_map<std::string, std::unique_ptr<Resource>> resources;
 
-	void loadXml(const char* xmlPath, std::function<void(rapidxml::xml_node<>*)> nodeFunction);
-	void handleModuleNode(rapidxml::xml_node<> *node);
-	void loadAssets(rapidxml::xml_node<> *node);
-	void handleAssetNode(rapidxml::xml_node<> *node);
-	void loadTexture(rapidxml::xml_node<> *node);
-	void loadHexType(rapidxml::xml_node<> *node);
-	void loadUnitType(rapidxml::xml_node<> *node);
-	void loadBuildingType(rapidxml::xml_node<> *node);
-	void loadResource(rapidxml::xml_node<> *node);
-	Texture* getNodeTexture(rapidxml::xml_node<> *node);
+	void loadXml(const char *directory, const char* fileName, std::function<void(Node*)> nodeFunction);
+	void handleModuleNode(Node *node);
+	void loadAssets(Node *node);
+	void handleAssetNode(Node *node);
+	void loadTexture(Node *node);
+	void loadHexType(Node *node);
+	void loadUnitType(Node *node);
+	void loadBuildingType(Node *node);
+	void loadResource(Node *node);
+	Texture* getNodeTexture(Node *node);
+
+	class Node {
+	public:
+		Node(const char* directory, rapidxml::xml_node<>* data) {
+			this->directory = directory;
+			this->data = data;
+		}
+
+		const char* getDirectory() { return directory; }
+		rapidxml::xml_node<>* getData() { return data; }
+
+		const char* getName() { return data->name(); }
+		const char* getID() { return data->first_attribute("id")->value(); }
+		const char* getPath() { return data->first_attribute("path")->value(); }
+
+	private:
+		const char* directory;
+		rapidxml::xml_node<>* data;
+	};
 };
 
 #endif //GLES3JNI_ASSETMANAGER_H
