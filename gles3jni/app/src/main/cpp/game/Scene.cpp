@@ -66,6 +66,8 @@ GLuint createShader(const char* source, GLenum type) {
 void Scene::initializePipeline() {
 	int success;
 	char log[512];
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	shaderProgram = glCreateProgram();
 	createShader(vertexSource, GL_VERTEX_SHADER);
 	createShader(fragmentSource, GL_FRAGMENT_SHADER);
