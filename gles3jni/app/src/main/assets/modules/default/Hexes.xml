@@ -2,6 +2,6 @@
 <Assets>
 	<Hex
 		id="test"
-		texture="test_hex"
+		sprite="test_hex"
 	/>
 </Assets>

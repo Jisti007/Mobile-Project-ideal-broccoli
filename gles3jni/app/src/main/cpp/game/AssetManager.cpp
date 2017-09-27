@@ -12,10 +12,13 @@ AssetManager::AssetManager() {
 	// moduleFunctions and assetFunctions are separate to prevent possible recursion.
 	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
 	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
+	assetFunctions["Sprite"] = bind(&AssetManager::loadSprite, this, _1);
 	assetFunctions["Hex"] = bind(&AssetManager::loadHexType, this, _1);
 	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
 	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
 	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
+
+	//addAssetFunction("LoadAssets", loadAssets);
 }
 
 AssetManager::~AssetManager() {
@@ -33,7 +36,11 @@ void AssetManager::unloadAll() {
 void AssetManager::loadModule(const char *directory) {
 	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
 }
+/*
+void AssetManager::addAssetFunction(const char *key, void (*assetFunction)(Node *)) {
 
+}
+*/
 void AssetManager::loadXml(const char *directory, const char *fileName, function<void(Node*)> nodeFunction) {
 	stringstream filePath;
 	filePath << directory << "/" << fileName;
@@ -53,8 +60,8 @@ void AssetManager::loadXml(const char *directory, const char *fileName, function
 		return;
 	}
 
-	xml_node<> *root = document.first_node();
-	xml_node<> *data = root->first_node();
+	auto root = document.first_node();
+	auto data = root->first_node();
 	while (data) {
 		Node node(directory, data);
 		nodeFunction(&node);
@@ -80,27 +87,52 @@ void AssetManager::loadTexture(Node *node) {
 	textures[node->getID()] = unique_ptr<Texture>(new Texture(path.str().c_str()));
 }
 
+void AssetManager::loadSprite(AssetManager::Node *node) {
+	auto texture = textures[node->getTexture()].get();
+
+	auto width = atof(node->getW()) / texture->getWidth();
+	auto height = atof(node->getH()) / texture->getHeight();
+	auto left = atof(node->getX()) / texture->getWidth() - width / 2;
+	auto top = atof(node->getY()) / texture->getHandle() - height / 2;
+	auto right = left + width;
+	auto bottom = top + height;
+
+	std::vector<Vertex> vertices(4);
+	vertices[0] = {{left, top}, {0.0f, 0.0f}};
+	vertices[1] = {{right, top}, {1.0f, 0.0f}};
+	vertices[2] = {{left, bottom}, {0.0f, 1.0f}};
+	vertices[3] = {{right, bottom}, {1.0f, 1.0f}};
+
+	std::vector<uint16_t> indices(6);
+	indices[0] = 0;
+	indices[1] = 2;
+	indices[2] = 1;
+	indices[3] = 1;
+	indices[4] = 2;
+	indices[5] = 3;
+
+	unique_ptr<Mesh> mesh(new Mesh(vertices, indices));
+	unique_ptr<Sprite> sprite(new Sprite(texture, mesh.get()));
+	meshes[node->getID()] = move(mesh);
+	sprites[node->getID()] = move(sprite);
+}
+
 void AssetManager::loadHexType(Node *node) {
-	Texture* texture = getNodeTexture(node);
-	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(texture));
+	auto sprite = sprites[node->getSprite()].get();
+	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite));
 }
 
 void AssetManager::loadUnitType(Node *node) {
-	Texture* texture = getNodeTexture(node);
+	auto texture = textures[node->getTexture()].get();
 	unitTypes[node->getID()] = unique_ptr<UnitType>(new UnitType(texture));
 }
 
 void AssetManager::loadBuildingType(Node *node) {
-	Texture* texture = getNodeTexture(node);
+	auto texture = textures[node->getTexture()].get();
 	buildingTypes[node->getID()] = unique_ptr<BuildingType>(new BuildingType(texture));
 }
 
 void AssetManager::loadResource(Node *node) {
-	Texture* texture = getNodeTexture(node);
+	auto texture = textures[node->getTexture()].get();
 	resources[node->getID()] = unique_ptr<Resource>(new Resource(texture));
-}
-
-Texture *AssetManager::getNodeTexture(Node *node) {
-	const char* textureId = node->getData()->first_attribute("texture")->value();
-	return textures[textureId].get();
 }

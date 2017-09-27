@@ -7,18 +7,19 @@ MapHex::MapHex() {
 
 }
 
-MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType *type) {
-	initialize(gridX, gridY, type);
+MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType *type, Scene& scene) {
+	initialize(gridX, gridY, type, scene);
 }
 
 MapHex::~MapHex() {
-
+	actor->remove();
 }
 
-void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType *type) {
+void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType *type, Scene& scene) {
 	this->gridX = gridX;
 	this->gridY = gridY;
 	this->type = type;
+	this->actor = scene.addActor(type->getSprite(), {gridX, gridY});
 }
 
 /*float Hex_points[] = {

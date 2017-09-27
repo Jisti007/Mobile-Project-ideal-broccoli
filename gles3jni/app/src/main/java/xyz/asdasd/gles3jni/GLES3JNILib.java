@@ -17,7 +17,6 @@
 package xyz.asdasd.gles3jni;
 
 import android.app.Activity;
-import android.content.res.AssetManager;
 
 public class GLES3JNILib {
      static {

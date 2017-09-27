@@ -8,10 +8,10 @@ public:
 	Texture(const char *filePath);
 	virtual ~Texture();
 
-	GLuint getHandle() { return handle; }
-	int getWidth() { return width; }
-	int getHeight() { return height; }
-	//int getChannels() { return channels; }
+	inline const GLuint getHandle() const { return handle; }
+	inline const int getWidth() const { return width; }
+	inline const int getHeight() const { return height; }
+	//inline int getChannels() const { return channels; }
 
 private:
 	GLuint handle;

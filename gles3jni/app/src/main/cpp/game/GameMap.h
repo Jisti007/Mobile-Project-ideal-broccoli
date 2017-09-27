@@ -6,6 +6,9 @@
 #include <string>
 #include "MapHex.h"
 #include "AssetManager.h"
+#include "Mesh.h"
+#include "Actor.h"
+#include "Scene.h"
 
 class GameMap {
 public:
@@ -14,9 +17,12 @@ public:
 	~GameMap();
 
 	void initialize(uint16_t width, uint16_t height, AssetManager& assets);
+	void draw();
+
 	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }
 
 private:
+	Scene scene;
     std::vector<MapHex> hexes;
 	uint16_t width;
 	uint16_t height;

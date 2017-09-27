@@ -27,6 +27,7 @@ add_library(
     gles3jni.cpp
 #    RendererES2.cpp
 #    RendererES3.cpp
+    game/Actor.cpp
     game/AssetManager.cpp
     game/Building.cpp
     game/BuildingType.cpp
@@ -37,8 +38,11 @@ add_library(
     game/GameMap.cpp
     game/HexType.cpp
     game/MapHex.cpp
+    game/Mesh.cpp
     game/Resource.cpp
     game/Scenario.cpp
+    game/Scene.cpp
+    game/Sprite.cpp
     game/Texture.cpp
     game/Unit.cpp
     game/UnitType.cpp
