@@ -13,7 +13,7 @@ void Vertex::enableAttributes() {
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
 }
 
 Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
@@ -31,7 +31,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(uint16_t), indices.data(), GL_STATIC_DRAW);
 
-	Vertex::enableAttributes();
+	//Vertex::enableAttributes();
 
 	glBindVertexArray(0);
 }

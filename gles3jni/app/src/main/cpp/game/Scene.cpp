@@ -29,7 +29,7 @@ in vec2 fragmentTexture;
 layout(location = 0) out vec4 outColor;
 
 void main(){
-	outColor = texture(sampler, fragmentTexture).rgba;
+	outColor = texture(sampler, fragmentTexture);
 }
 )glsl";
 
@@ -55,7 +55,10 @@ GLuint createShader(const char* source, GLenum type) {
 	GLuint shader = glCreateShader(type);
 	glShaderSource(shader, 1, &source, NULL);
 	glCompileShader(shader);
-	glGetShaderInfoLog(shader, 512, NULL, log);
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	if (!success) {
+		glGetShaderInfoLog(shader, 512, NULL, log);
+	}
 	glAttachShader(shaderProgram, shader);
 	return shader;
 }
@@ -69,8 +72,7 @@ void Scene::initializePipeline() {
 	glLinkProgram(shaderProgram);
 	glValidateProgram(shaderProgram);
 	glGetProgramiv(shaderProgram, GL_VALIDATE_STATUS, &success);
-	if (!success)
-	{
+	if (!success) {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, log);
 	}
 }
@@ -93,16 +95,14 @@ void Scene::draw() {
 	destroyActors();
 
 	glUseProgram(shaderProgram);
-	//Vertex::enableAttributes();
+	Vertex::enableAttributes();
 	auto instancePositionLocation = glGetUniformLocation(shaderProgram, "instancePosition");
 
 	for (const auto textureActors : actors) {
 		glBindTexture(GL_TEXTURE_2D, textureActors.first->getHandle());
-
 		for (const auto meshActors : textureActors.second) {
 			auto mesh = meshActors.first;
 			glBindVertexArray(meshActors.first->getVertexArray());
-
 			for (const auto actor : meshActors.second) {
 				glUniform2f(instancePositionLocation, actor->getX(), actor->getY());
 				glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
