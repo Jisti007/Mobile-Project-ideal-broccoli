@@ -1,29 +1,22 @@
 #include <jni.h>
 #include <stdlib.h>
-#include <time.h>
-#include <memory>
-#include <android/asset_manager.h>
-#include <android/asset_manager_jni.h>
 #include <unistd.h>
 
-#include "gles3jni.h"
 #include "game/Game.h"
-#include "game/AndroidAssetManager.h"
 
-static std::unique_ptr<Game> game = NULL;
-static std::unique_ptr<AndroidAssetManager> androidAssetManager = NULL;
-//static Renderer *g_renderer = NULL;
+Game game;
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_init(JNIEnv *env, jobject obj, jobject activity, jobject assetManager);
+Java_xyz_asdasd_gles3jni_GLES3JNILib_init(JNIEnv *env, jobject obj, jobject activity);
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height);
 JNIEXPORT void JNICALL Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj);
 };
 
-#if !defined(DYNAMIC_ES3)
+//void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager);
 
+#if !defined(DYNAMIC_ES3)
 static GLboolean gl3stubInit() {
 	return GL_TRUE;
 }
@@ -31,7 +24,7 @@ static GLboolean gl3stubInit() {
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
-	JNIEnv *env, jobject obj, jobject activity, jobject javaAssetManager
+	JNIEnv *env, jobject obj, jobject activity
 ) {
 	JavaVM *vm;
 	env->GetJavaVM(&vm);
@@ -48,53 +41,37 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
 	chdir(appDirectory);
 	env->ReleaseStringUTFChars(jpath, appDirectory);
 
-	AAssetManager *assetManager = AAssetManager_fromJava(env, javaAssetManager);
-	androidAssetManager = std::unique_ptr<AndroidAssetManager>(
-		new AndroidAssetManager(assetManager)
-	);
-	androidAssetManager->extractAssets();
-
-	game = std::unique_ptr<Game>(new Game(androidAssetManager.get()));
-
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-	/*
-	if (g_renderer) {
-		delete g_renderer;
-		g_renderer = NULL;
-	}
-
-	printGlString("Version", GL_VERSION);
-	printGlString("Vendor", GL_VENDOR);
-	printGlString("Renderer", GL_RENDERER);
-	printGlString("Extensions", GL_EXTENSIONS);
-
-	const char *versionStr = (const char *) glGetString(GL_VERSION);
-	if (strstr(versionStr, "OpenGL ES 3.") && gl3stubInit()) {
-		g_renderer = createES3Renderer();
-	} else if (strstr(versionStr, "OpenGL ES 2.")) {
-		g_renderer = createES2Renderer();
-	} else {
-		ALOGE("Unsupported OpenGL ES version");
-	}
-	*/
+	game.initialize();
 }
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
-	/*
-	if (g_renderer) {
-		g_renderer->resize(width, height);
-	}
-	*/
+
 }
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
-	game->update();
-	game->draw();
-	/*
-	if (g_renderer) {
-		g_renderer->render();
-	}
-	*/
+	game.update();
+	game.draw();
 }
+/*
+void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
+	//TODO: Since this is platform specific, maybe extract the assets in Java instead?
+	AAssetManager *assetManager = AAssetManager_fromJava(env, javaAssetManager);
+	AAssetDir *assetDir = AAssetManager_openDir(assetManager, "");
+	const char *filename;
+	while ((filename = AAssetDir_getNextFileName(assetDir)) != NULL) {
+		AAsset *asset = AAssetManager_open(assetManager, filename, AASSET_MODE_STREAMING);
+		char buffer[BUFSIZ];
+		int size = 0;
+		const int count = 1;
+		FILE *out = fopen(filename, "w");
+		while ((size = AAsset_read(asset, buffer, BUFSIZ)) > 0) {
+			fwrite(buffer, size, count, out);
+		}
+		fclose(out);
+		AAsset_close(asset);
+	}
+	AAssetDir_close(assetDir);
+}
+*/

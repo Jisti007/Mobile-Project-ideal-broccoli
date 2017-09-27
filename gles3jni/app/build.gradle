@@ -8,8 +8,10 @@ android {
     buildToolsVersion '25.0.2'
 
     defaultConfig {
-        applicationId 'placeholder.gles3jni'
-        minSdkVersion 18
+        applicationId 'xyz.asdasd.gles3jni'
+        versionCode 10000
+        versionName "0.1.0.0"
+        minSdkVersion 19
         targetSdkVersion 25
         ndk {
             abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'

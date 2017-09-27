@@ -25,38 +25,35 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 class GLES3JNIView extends GLSurfaceView {
-    private static final String TAG = "GLES3JNI";
-    private static final boolean DEBUG = true;
+	private static final String TAG = "GLES3JNI";
+	private static final boolean DEBUG = true;
 
-    public GLES3JNIView(Context context, Activity activity) {
-        super(context);
-        // Pick an EGLConfig with RGB8 color, 16-bit depth, no stencil,
-        // supporting OpenGL ES 2.0 or later backwards-compatible versions.
-        setEGLConfigChooser(8, 8, 8, 0, 16, 0);
-        setEGLContextClientVersion(3);
-        setRenderer(new Renderer(activity, context.getAssets()));
-    }
+	public GLES3JNIView(Context context, Activity activity) {
+		super(context);
+		// Pick an EGLConfig with RGB8 color, 16-bit depth, no stencil,
+		// supporting OpenGL ES 2.0 or later backwards-compatible versions.
+		setEGLConfigChooser(8, 8, 8, 0, 16, 0);
+		setEGLContextClientVersion(3);
+		setRenderer(new Renderer(activity));
+	}
 
-    private static class Renderer implements GLSurfaceView.Renderer {
-        private  Activity activity;
-        private AssetManager assetManager;
+	private static class Renderer implements GLSurfaceView.Renderer {
+		private Activity activity;
 
-        public Renderer(Activity activity, AssetManager assetManager) {
-            this.activity = activity;
-            this.assetManager = assetManager;
-        }
+		public Renderer(Activity activity) {
+			this.activity = activity;
+		}
 
-        public void onDrawFrame(GL10 gl) {
-            GLES3JNILib.step();
-        }
+		public void onDrawFrame(GL10 gl) {
+			GLES3JNILib.step();
+		}
 
-        public void onSurfaceChanged(GL10 gl, int width, int height) {
-            GLES3JNILib.resize(width, height);
-        }
+		public void onSurfaceChanged(GL10 gl, int width, int height) {
+			GLES3JNILib.resize(width, height);
+		}
 
-        public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-
-            GLES3JNILib.init(activity, assetManager);
-        }
-    }
+		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+			GLES3JNILib.init(activity);
+		}
+	}
 }

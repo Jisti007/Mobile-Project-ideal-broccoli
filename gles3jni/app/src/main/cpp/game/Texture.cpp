@@ -4,7 +4,7 @@
 #include "../stb_image.h"
 
 Texture::Texture(const char* filePath) {
-	stbi_uc* pixels = stbi_load(filePath, &width, &height, &channels, STBI_rgb);
+	stbi_uc* pixels = stbi_load(filePath, &width, &height, &channels, STBI_rgb_alpha);
 
     glGenTextures(1, &handle);
     glActiveTexture(GL_TEXTURE0);

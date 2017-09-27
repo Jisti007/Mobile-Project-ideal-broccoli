@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 #ifndef GLES3JNI_H
 #define GLES3JNI_H 1
 
@@ -58,8 +58,8 @@
 // so vertices go directly from model to clip space.
 
 struct Vertex {
-    GLfloat pos[2];
-    GLubyte rgba[4];
+	GLfloat pos[2];
+	GLubyte rgba[4];
 };
 extern const Vertex QUAD[4];
 
@@ -73,36 +73,37 @@ extern GLuint createProgram(const char* vtxSrc, const char* fragSrc);
 
 class Renderer {
 public:
-    virtual ~Renderer();
-    void resize(int w, int h);
-    void render();
+	virtual ~Renderer();
+	void resize(int w, int h);
+	void render();
 
 protected:
-    Renderer();
+	Renderer();
 
-    // return a pointer to a buffer of MAX_INSTANCES * sizeof(vec2).
-    // the buffer is filled with per-instance offsets, then unmapped.
-    virtual float* mapOffsetBuf() = 0;
-    virtual void unmapOffsetBuf() = 0;
-    // return a pointer to a buffer of MAX_INSTANCES * sizeof(vec4).
-    // the buffer is filled with per-instance scale and rotation transforms.
-    virtual float* mapTransformBuf() = 0;
-    virtual void unmapTransformBuf() = 0;
+	// return a pointer to a buffer of MAX_INSTANCES * sizeof(vec2).
+	// the buffer is filled with per-instance offsets, then unmapped.
+	virtual float* mapOffsetBuf() = 0;
+	virtual void unmapOffsetBuf() = 0;
+	// return a pointer to a buffer of MAX_INSTANCES * sizeof(vec4).
+	// the buffer is filled with per-instance scale and rotation transforms.
+	virtual float* mapTransformBuf() = 0;
+	virtual void unmapTransformBuf() = 0;
 
-    virtual void draw(unsigned int numInstances) = 0;
+	virtual void draw(unsigned int numInstances) = 0;
 
 private:
-    void calcSceneParams(unsigned int w, unsigned int h, float* offsets);
-    void step();
+	void calcSceneParams(unsigned int w, unsigned int h, float* offsets);
+	void step();
 
-    unsigned int mNumInstances;
-    float mScale[2];
-    float mAngularVelocity[MAX_INSTANCES];
-    uint64_t mLastFrameNs;
-    float mAngles[MAX_INSTANCES];
+	unsigned int mNumInstances;
+	float mScale[2];
+	float mAngularVelocity[MAX_INSTANCES];
+	uint64_t mLastFrameNs;
+	float mAngles[MAX_INSTANCES];
 };
 
 extern Renderer* createES2Renderer();
 extern Renderer* createES3Renderer();
 
 #endif // GLES3JNI_H
+*/
