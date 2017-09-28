@@ -14,8 +14,6 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width
 JNIEXPORT void JNICALL Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj);
 };
 
-//void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager);
-
 #if !defined(DYNAMIC_ES3)
 static GLboolean gl3stubInit() {
 	return GL_TRUE;
@@ -54,24 +52,3 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 	game.update();
 	game.draw();
 }
-/*
-void extractAssets(JNIEnv *env, jobject activity, jobject javaAssetManager) {
-	//TODO: Since this is platform specific, maybe extract the assets in Java instead?
-	AAssetManager *assetManager = AAssetManager_fromJava(env, javaAssetManager);
-	AAssetDir *assetDir = AAssetManager_openDir(assetManager, "");
-	const char *filename;
-	while ((filename = AAssetDir_getNextFileName(assetDir)) != NULL) {
-		AAsset *asset = AAssetManager_open(assetManager, filename, AASSET_MODE_STREAMING);
-		char buffer[BUFSIZ];
-		int size = 0;
-		const int count = 1;
-		FILE *out = fopen(filename, "w");
-		while ((size = AAsset_read(asset, buffer, BUFSIZ)) > 0) {
-			fwrite(buffer, size, count, out);
-		}
-		fclose(out);
-		AAsset_close(asset);
-	}
-	AAssetDir_close(assetDir);
-}
-*/
