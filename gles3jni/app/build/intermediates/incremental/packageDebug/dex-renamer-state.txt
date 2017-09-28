@@ -1,0 +1,7 @@
+#Thu Sep 28 12:48:58 EEST 2017
+base.0=D\:\\K1697\\Mobile-Project-ideal-broccoli\\gles3jni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fd84a2b686ff2ef9441b773889af1c3872f5aa79
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\K1697\\Mobile-Project-ideal-broccoli\\gles3jni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_90484ddd801bb27eb00f574e20a112cd5ce2575e\\classes.dex
+base.1=D\:\\K1697\\Mobile-Project-ideal-broccoli\\gles3jni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_90484ddd801bb27eb00f574e20a112cd5ce2575e
+file.0=D\:\\K1697\\Mobile-Project-ideal-broccoli\\gles3jni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fd84a2b686ff2ef9441b773889af1c3872f5aa79\\classes.dex
