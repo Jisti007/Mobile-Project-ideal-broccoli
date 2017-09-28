@@ -16,7 +16,7 @@ public:
     GameMap(uint16_t width, uint16_t height, AssetManager& assets);
 	~GameMap();
 
-	void initialize(uint16_t width, uint16_t height, AssetManager& assets);
+	void initialize(uint16_t width, uint16_t height, AssetManager &assets, Pipeline* pipeline);
 	void draw();
 
 	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }

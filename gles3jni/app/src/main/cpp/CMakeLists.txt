@@ -39,6 +39,7 @@ add_library(
     game/HexType.cpp
     game/MapHex.cpp
     game/Mesh.cpp
+    game/Pipeline.cpp
     game/Resource.cpp
     game/Scenario.cpp
     game/Scene.cpp

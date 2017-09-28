@@ -3,36 +3,6 @@
 
 using namespace std;
 
-const char* vertexSource = R"glsl(
-#version 300 es
-
-uniform vec2 instancePosition;
-
-layout(location = 0) in vec2 vertexPosition;
-layout(location = 1) in vec2 vertexTexture;
-
-out vec2 fragmentTexture;
-
-void main(){
-	gl_Position = vec4(instancePosition + vertexPosition, 0.0, 1.0);
-	fragmentTexture = vertexTexture;
-}
-)glsl";
-
-const char* fragmentSource = R"glsl(
-#version 300 es
-
-uniform sampler2D sampler;
-
-in vec2 fragmentTexture;
-
-layout(location = 0) out vec4 outColor;
-
-void main(){
-	outColor = texture(sampler, fragmentTexture);
-}
-)glsl";
-
 Scene::Scene() {
 
 }
@@ -46,7 +16,7 @@ Scene::~Scene() {
 		}
 	}
 }
-
+/*
 GLuint shaderProgram;
 
 GLuint createShader(const char* source, GLenum type) {
@@ -78,6 +48,11 @@ void Scene::initializePipeline() {
 		glGetProgramInfoLog(shaderProgram, 512, NULL, log);
 	}
 }
+*/
+
+void Scene::initialize(Pipeline* pipeline) {
+	this->pipeline = pipeline;
+}
 
 Actor* Scene::addActor(Sprite* sprite, glm::vec2 position) {
 	return addActor(sprite->getTexture(), sprite->getMesh(), position);
@@ -96,9 +71,9 @@ void Scene::removeActor(Actor* actor) {
 void Scene::draw() {
 	destroyActors();
 
-	glUseProgram(shaderProgram);
+	glUseProgram(pipeline->getProgram());
 	Vertex::enableAttributes();
-	auto instancePositionLocation = glGetUniformLocation(shaderProgram, "instancePosition");
+	auto instancePositionLocation = glGetUniformLocation(pipeline->getProgram(), "instancePosition");
 
 	for (const auto textureActors : actors) {
 		glBindTexture(GL_TEXTURE_2D, textureActors.first->getHandle());

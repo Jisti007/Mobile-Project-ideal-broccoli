@@ -9,9 +9,9 @@ Game::~Game() {
 }
 
 void Game::initialize() {
-	Scene::initializePipeline();
+	pipeline.initialize();
 	assetManager.loadModule("modules/default");
-	map.initialize(32, 32, assetManager);
+	map.initialize(32, 32, assetManager, &pipeline);
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 

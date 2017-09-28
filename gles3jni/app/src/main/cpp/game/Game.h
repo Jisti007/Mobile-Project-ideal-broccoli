@@ -3,6 +3,7 @@
 
 #include "GameMap.h"
 #include "AssetManager.h"
+#include "Pipeline.h"
 
 class Game {
 public:
@@ -14,6 +15,7 @@ public:
 	void draw();
 
 private:
+	Pipeline pipeline;
 	AssetManager assetManager;
 	GameMap map;
 };

@@ -11,16 +11,18 @@ GameMap::GameMap() {
 }
 
 GameMap::GameMap(uint16_t width, uint16_t height, AssetManager& assets) {
-	initialize(width, height, assets);
+	initialize(width, height, assets, nullptr);
 }
 
 GameMap::~GameMap() {
 
 }
 
-void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets) {
+void
+GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, Pipeline* pipeline) {
 	this->width = width;
 	this->height = height;
+	scene.initialize(pipeline);
 	hexes.resize(width * height);
 
 	HexType* testHexType = assets.getHexType("test");

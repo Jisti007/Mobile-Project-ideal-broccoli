@@ -5,6 +5,7 @@
 #include <memory>
 #include "Sprite.h"
 #include "Actor.h"
+#include "Pipeline.h"
 
 class Actor;
 
@@ -13,11 +14,10 @@ public:
 	Scene();
 	~Scene();
 
-	static void initializePipeline();
+	void initialize(Pipeline* pipeline);
 	Actor* addActor(Sprite* sprite, glm::vec2 position);
 	Actor* addActor(Texture* texture, Mesh* mesh, glm::vec2 position);
 	void removeActor(Actor* actor);
-
 	void draw();
 
 private:
@@ -29,6 +29,7 @@ private:
 		>
 	> actors;
 	std::vector<Actor*> removedActors;
+	Pipeline* pipeline;
 
 	void destroyActors();
 };
