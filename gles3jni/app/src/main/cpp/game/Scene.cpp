@@ -74,6 +74,12 @@ void Scene::draw() {
 	glUseProgram(pipeline->getProgram());
 	Vertex::enableAttributes();
 	auto instancePositionLocation = glGetUniformLocation(pipeline->getProgram(), "instancePosition");
+	auto cameraPositionLocation = glGetUniformLocation(pipeline->getProgram(), "cameraPosition");
+	auto cameraSizeLocation = glGetUniformLocation(pipeline->getProgram(), "cameraSize");
+	glUniform2f(cameraPositionLocation, camera.getX(), camera.getY());
+	glUniform2f(cameraSizeLocation, camera.getSize().x, camera.getSize().y);
+
+	const float gridSize = 128;
 
 	for (const auto textureActors : actors) {
 		glBindTexture(GL_TEXTURE_2D, textureActors.first->getHandle());
@@ -81,7 +87,7 @@ void Scene::draw() {
 			auto mesh = meshActors.first;
 			glBindVertexArray(meshActors.first->getVertexArray());
 			for (const auto actor : meshActors.second) {
-				glUniform2f(instancePositionLocation, actor->getX(), actor->getY());
+				glUniform2f(instancePositionLocation, actor->getX()*gridSize, actor->getY()*gridSize);
 				glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 			}
 		}

@@ -4,4 +4,8 @@
 		id="test"
 		sprite="test_hex"
 	/>
+	<Hex
+        id="default"
+        sprite="hex_default"
+    />
 </Assets>

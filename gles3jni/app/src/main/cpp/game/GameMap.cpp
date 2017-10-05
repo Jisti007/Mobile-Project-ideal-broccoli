@@ -25,7 +25,7 @@ GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, Pipel
 	scene.initialize(pipeline);
 	hexes.resize(width * height);
 
-	HexType* testHexType = assets.getHexType("test");
+	HexType* testHexType = assets.getHexType("default");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			getHex(x, y)->initialize(x, y, testHexType, scene);

@@ -90,10 +90,10 @@ void AssetManager::loadTexture(Node *node) {
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
 
-	auto width = atof(node->getW()) / texture->getWidth();
-	auto height = atof(node->getH()) / texture->getHeight();
-	auto left = atof(node->getX()) / texture->getWidth() - width / 2;
-	auto top = atof(node->getY()) / texture->getHandle() - height / 2;
+	auto width = atof(node->getW());
+	auto height = atof(node->getH());
+	auto left = atof(node->getX())- width / 2;
+	auto top = atof(node->getY()) - height / 2;
 	auto right = left + width;
 	auto bottom = top + height;
 

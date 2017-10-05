@@ -7,6 +7,8 @@ precision highp int;
 precision lowp sampler2D;
 precision lowp samplerCube;
 
+uniform vec2 cameraSize;
+uniform vec2 cameraPosition;
 uniform vec2 instancePosition;
 
 layout(location = 0) in vec2 vertexPosition;
@@ -15,7 +17,11 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-	gl_Position = vec4(instancePosition + vertexPosition, 0.0, 1.0);
+    vec2 position = vertexPosition + instancePosition + cameraPosition;
+    position.x = position.x / cameraSize.x;
+    position.y = position.y / cameraSize.y;
+
+	gl_Position = vec4(position, 0.0, 1.0);
 	fragmentTexture = vertexTexture;
 }
 )glsl";

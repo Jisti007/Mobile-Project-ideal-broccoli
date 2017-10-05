@@ -4,4 +4,8 @@
 		id="test_hex"
 		path="textures/Hex.png"
 	/>
+	<Texture
+	    id="hex_default"
+	    path="textures/hex_default.png"
+    />
 </Assets>

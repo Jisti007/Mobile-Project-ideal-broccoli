@@ -11,7 +11,7 @@ Game::~Game() {
 void Game::initialize() {
 	pipeline.initialize();
 	assetManager.loadModule("modules/default");
-	map.initialize(32, 32, assetManager, &pipeline);
+	map.initialize(8, 8, assetManager, &pipeline);
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 
@@ -32,4 +32,8 @@ void Game::onTouch(float x, float y) {
 
 	previousX = x;
 	previousY = y;
+}
+
+void Game::onResize(int width, int height) {
+	map.getScene()->getCamera()->setSize({width, height});
 }

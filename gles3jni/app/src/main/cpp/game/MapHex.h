@@ -13,6 +13,8 @@ public:
 
 	void initialize(uint16_t gridX, uint16_t gridY, HexType *type, Scene& scene);
 
+	glm::vec2 gridToScreen();
+
 	inline const uint16_t getGridX() const { return gridX; }
 	inline const uint16_t getGridY() const { return gridY; }
 	inline const HexType* getType() const { return type; }

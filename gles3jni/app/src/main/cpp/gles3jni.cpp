@@ -47,7 +47,7 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
-
+	game.onResize(width, height);
 }
 
 JNIEXPORT void JNICALL
@@ -58,5 +58,5 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onTouch(JNIEnv *env, jobject obj, jfloat x, jfloat y) {
-
+	game.onTouch(x, y);
 }

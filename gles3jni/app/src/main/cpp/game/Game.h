@@ -14,6 +14,7 @@ public:
 	void update();
 	void draw();
 	void onTouch(float x, float y);
+	void onResize(int width, int height);
 
 private:
 	Pipeline pipeline;

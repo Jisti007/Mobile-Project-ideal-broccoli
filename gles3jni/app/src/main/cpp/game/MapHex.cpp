@@ -19,7 +19,15 @@ void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType *type, Scene& sc
 	this->gridX = gridX;
 	this->gridY = gridY;
 	this->type = type;
-	this->actor = scene.addActor(type->getSprite(), {gridX, gridY});
+	this->actor = scene.addActor(type->getSprite(), gridToScreen());
+}
+
+glm::vec2 MapHex::gridToScreen() {
+	glm::vec2 position = {gridX, gridY};
+	if (gridX % 2) {
+		position = {gridX, gridY+0.5f};
+	}
+	return position;
 }
 
 /*float Hex_points[] = {
