@@ -1,7 +1,11 @@
 #include "Pipeline.h"
 
-const char* vertexSource = R"glsl(
-#version 300 es
+const char* vertexSource = R"glsl(#version 300 es
+
+precision highp float;
+precision highp int;
+precision lowp sampler2D;
+precision lowp samplerCube;
 
 uniform vec2 instancePosition;
 
@@ -16,8 +20,12 @@ void main(){
 }
 )glsl";
 
-const char* fragmentSource = R"glsl(
-#version 300 es
+const char* fragmentSource = R"glsl(#version 300 es
+
+precision mediump int;
+precision lowp sampler2D;
+precision lowp samplerCube;
+precision mediump float;
 
 uniform sampler2D sampler;
 
