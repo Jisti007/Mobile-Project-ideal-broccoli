@@ -31,6 +31,7 @@ add_library(
     game/AssetManager.cpp
     game/Building.cpp
     game/BuildingType.cpp
+    game/Camera.cpp
     game/Campaign.cpp
     game/Faction.cpp
     game/FileHelper.cpp

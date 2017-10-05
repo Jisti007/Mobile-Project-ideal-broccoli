@@ -20,6 +20,7 @@ public:
 	void draw();
 
 	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }
+	inline Scene* getScene() { return &scene; }
 
 private:
 	Scene scene;

@@ -23,3 +23,13 @@ void Game::draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	map.draw();
 }
+
+void Game::onTouch(float x, float y) {
+	float dx = x - previousX;
+	float dy = y - previousY;
+
+	map.getScene()->getCamera()->moveBy({dx, dy});
+
+	previousX = x;
+	previousY = y;
+}

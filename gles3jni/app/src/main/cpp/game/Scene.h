@@ -6,6 +6,7 @@
 #include "Sprite.h"
 #include "Actor.h"
 #include "Pipeline.h"
+#include "Camera.h"
 
 class Actor;
 
@@ -20,6 +21,8 @@ public:
 	void removeActor(Actor* actor);
 	void draw();
 
+	inline Camera* getCamera() { return &camera; }
+
 private:
 	std::unordered_map<
 		Texture*, std::unordered_map<
@@ -30,6 +33,7 @@ private:
 	> actors;
 	std::vector<Actor*> removedActors;
 	Pipeline* pipeline;
+	Camera camera;
 
 	void destroyActors();
 };

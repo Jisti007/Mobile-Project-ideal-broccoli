@@ -19,6 +19,7 @@ package xyz.asdasd.gles3jni;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.WindowManager;
 
 import java.io.File;
@@ -30,6 +31,13 @@ import java.io.OutputStream;
 public class GLES3JNIActivity extends Activity {
 	GLES3JNIView mView;
 	private String dataDirectory;
+
+	@Override
+	public boolean onTouchEvent(MotionEvent e) {
+		GLES3JNILib.onTouch(e.getX(), e.getY());
+
+		return true;
+	}
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -84,20 +92,6 @@ public class GLES3JNIActivity extends Activity {
 	}
 
 	private void extractFile(String filename) {
-		/*
-		File outputFile = new File(getCacheDir() + "/" + filename);
-		if (!outputFile.exists()) {
-			try {
-				if (!outputFile.createNewFile()) {
-					Log.e("main", "failed to create file: " + filename);
-					return;
-				}
-			} catch (IOException e) {
-				Log.e("main", e.getMessage());
-				return;
-			}
-		}
-		*/
 		try (
 			InputStream in = getAssets().open(filename);
 			OutputStream out = new FileOutputStream(dataDirectory + filename)
