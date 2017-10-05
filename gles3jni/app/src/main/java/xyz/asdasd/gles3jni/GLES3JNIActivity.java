@@ -31,10 +31,21 @@ import java.io.OutputStream;
 public class GLES3JNIActivity extends Activity {
 	GLES3JNIView mView;
 	private String dataDirectory;
+	private float previousX;
+	private float previousY;
 
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {
-		GLES3JNILib.onTouch(e.getX(), e.getY());
+		switch (e.getAction()) {
+			case MotionEvent.ACTION_MOVE:
+				float dx = e.getX() - previousX;
+				float dy = e.getY() - previousY;
+				GLES3JNILib.onMove(dx, -dy);
+				break;
+		}
+
+		previousX = e.getX();
+		previousY = e.getY();
 
 		return true;
 	}

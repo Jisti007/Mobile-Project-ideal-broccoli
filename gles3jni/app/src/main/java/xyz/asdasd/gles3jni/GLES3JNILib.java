@@ -26,5 +26,5 @@ public class GLES3JNILib {
      public static native void init(Activity activity);
      public static native void resize(int width, int height);
      public static native void step();
-     public static native void onTouch(float x, float y);
+     public static native void onMove(float dx, float dy);
 }

@@ -24,14 +24,8 @@ void Game::draw() {
 	map.draw();
 }
 
-void Game::onTouch(float x, float y) {
-	float dx = x - previousX;
-	float dy = y - previousY;
-
+void Game::onMove(float dx, float dy) {
 	map.getScene()->getCamera()->moveBy({dx, dy});
-
-	previousX = x;
-	previousY = y;
 }
 
 void Game::onResize(int width, int height) {

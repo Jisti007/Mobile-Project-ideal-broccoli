@@ -14,7 +14,7 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj);
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_onTouch(JNIEnv *env, jobject obj, jfloat x, jfloat y);
+Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy);
 };
 
 #if !defined(DYNAMIC_ES3)
@@ -57,6 +57,6 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 }
 
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_onTouch(JNIEnv *env, jobject obj, jfloat x, jfloat y) {
-	game.onTouch(x, y);
+Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy) {
+	game.onMove(dx, dy);
 }

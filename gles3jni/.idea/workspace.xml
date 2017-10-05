@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="excep" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6e2db1b-1c5a-4099-92d6-2496a4d07d56" name="Default" comment="Add basic camera movement">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/modules/default/Hexes.xml" afterPath="$PROJECT_DIR$/app/src/main/assets/modules/default/Hexes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/modules/default/Sprites.xml" afterPath="$PROJECT_DIR$/app/src/main/assets/modules/default/Sprites.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/assets/modules/default/Textures.xml" afterPath="$PROJECT_DIR$/app/src/main/assets/modules/default/Textures.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/AssetManager.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/AssetManager.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/Camera.h" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/Camera.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/Game.h" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/Game.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/GameMap.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/GameMap.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.h" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp" afterPath="$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java" afterPath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java" afterPath="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java" />
     </list>
     <ignored path="gles3jni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,11 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Pipeline.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state relative-caret-position="255">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -64,8 +57,8 @@
       <file leaf-file-name="Game.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="371">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -74,8 +67,8 @@
       <file leaf-file-name="Game.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            <state relative-caret-position="357">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding>
                 <element signature="e#49#69#0" expanded="true" />
               </folding>
@@ -83,71 +76,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameMap.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/GameMap.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapHex.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapHex.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/MapHex.h">
+      <file leaf-file-name="GLES3JNILib.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssetManager.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/AssetManager.cpp">
+      <file leaf-file-name="GLES3JNIActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+            <state relative-caret-position="297">
+              <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Textures.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/assets/modules/default/Textures.xml">
+      <file leaf-file-name="gles3jni.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+            <state relative-caret-position="456">
+              <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scene.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp">
+      <file leaf-file-name="GLES3JNIView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="75" column="101" selection-start-line="75" selection-start-column="101" selection-end-line="75" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Camera.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            <state relative-caret-position="451">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,7 +124,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\K1697\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\K1533\.gradle\wrapper\dists\gradle-3.3-all\55gk2rcmfc6p2dg9u9ohc3hw9\gradle-3.3" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -1530,7 +1493,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="C:\Users\Ville\Source\Repos\Mobile-Project-ideal-broccoli\gles3jni" value="4516911346897" />
-        <entry key="D:\K1533\Android\Mobile-Project-ideal-broccoli\gles3jni" value="4518566165219" />
+        <entry key="D:\K1533\Android\Mobile-Project-ideal-broccoli\gles3jni" value="4521597637110" />
         <entry key="D:\K1697\Mobile-Project-ideal-broccoli\gles3jni" value="4518569886079" />
         <entry key="D:\k1533\Android\Mobile-Project-ideal-broccoli\gles3jni" value="4515836757728" />
       </map>
@@ -1897,7 +1860,6 @@
         <option value="$PROJECT_DIR$/app/src/main/cpp/RendererES2.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/RendererES3.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Texture.cpp" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Texture.h" />
@@ -1916,23 +1878,24 @@
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Actor.h" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Mesh.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.h" />
-        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Scene.h" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Camera.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/GameMap.h" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/GameMap.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/assets/modules/default/Textures.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/cpp/game/Game.h" />
-        <option value="$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Camera.h" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/AssetManager.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.h" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp" />
+        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java" />
         <option value="$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp" />
+        <option value="$PROJECT_DIR$/app/src/main/cpp/game/Game.h" />
+        <option value="$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp" />
+        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java" />
       </list>
     </option>
   </component>
@@ -1967,6 +1930,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2199,17 +2168,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane />
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Android-Media-Recorder" />
-    <property name="device.picker.selection" value="520014914c6b13cb" />
+    <property name="device.picker.selection" value="0c859b11" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g900f-0c859b11" />
@@ -2649,9 +2612,9 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2661,8 +2624,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2734,26 +2697,53 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java</url>
-          <line>36</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java</url>
+          <line>46</line>
           <properties />
-          <option name="timeStamp" value="288" />
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp</url>
+          <line>67</line>
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp</url>
+          <line>85</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp</url>
+          <line>29</line>
+          <option name="timeStamp" value="292" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="290" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="299" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/java/xyz/placeholder/tbs/RendererWrapper.java" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/layout/activity_main.xml" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
-    <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
     <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
     <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
     <entry file="file://$PROJECT_DIR$/../TBS/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" />
@@ -2790,52 +2780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#1754#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#1445#1446#0" expanded="false" />
-            <element signature="e#1478#1479#0" expanded="false" />
-            <element signature="e#1516#1517#0" expanded="false" />
-            <element signature="e#1543#1544#0" expanded="false" />
-            <element signature="e#1712#1713#0" expanded="false" />
-            <element signature="e#1747#1748#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/HexType.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2865,24 +2813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="e#49#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/assets/modules/default/Textures.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -2899,25 +2829,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="75" column="101" selection-start-line="75" selection-start-column="101" selection-end-line="75" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/GameMap.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="510">
           <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding />
         </state>
@@ -2925,24 +2839,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/MapHex.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="255">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -2951,6 +2849,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="95" column="47" selection-start-line="95" selection-start-column="47" selection-end-line="95" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Scene.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="75" column="101" selection-start-line="75" selection-start-column="101" selection-end-line="75" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/MapHex.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Pipeline.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/gl3stub.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4641">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/opengl/GLSurfaceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="1912" column="0" selection-start-line="1912" selection-start-column="0" selection-end-line="1912" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="5544" column="0" selection-start-line="5544" selection-start-column="0" selection-end-line="5544" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1351">
+          <caret line="160" column="34" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="2523" column="0" selection-start-line="2523" selection-start-column="0" selection-end-line="2523" selection-end-column="0" />
+          <folding>
+            <element signature="e#109120#109121#0" expanded="true" />
+            <element signature="e#109174#109175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/astudio-sdk/sources/android-25/android/app/Instrumentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="1103" column="0" selection-start-line="1103" selection-start-column="0" selection-end-line="1103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding>
+            <element signature="e#49#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/game/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/cpp/gles3jni.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNILib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/xyz/asdasd/gles3jni/GLES3JNIActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="42" column="44" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding />
         </state>
       </provider>
