@@ -6,6 +6,6 @@
 	/>
 	<Texture
 	    id="hex_default"
-	    path="textures/hex_default.png"
+	    path="textures/hex_default_1px.png"
     />
 </Assets>

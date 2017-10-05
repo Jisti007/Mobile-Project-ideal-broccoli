@@ -11,7 +11,7 @@ Game::~Game() {
 void Game::initialize() {
 	pipeline.initialize();
 	assetManager.loadModule("modules/default");
-	map.initialize(8, 8, assetManager, &pipeline);
+	map.initialize(16, 16, assetManager, &pipeline);
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 

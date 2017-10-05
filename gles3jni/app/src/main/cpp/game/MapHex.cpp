@@ -1,3 +1,4 @@
+#include <cmath>
 #include "MapHex.h"
 //#include "HexType.h"
 //#include "math.h"
@@ -24,9 +25,22 @@ void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType *type, Scene& sc
 
 glm::vec2 MapHex::gridToScreen() {
 	glm::vec2 position = {gridX, gridY};
+
+	const float gridSize = 128;
+
+	float xOffset = 0.75;
+	float yOffset = 0.50;
+
 	if (gridX % 2) {
-		position = {gridX, gridY+0.5f};
+		position = {xOffset*gridX, gridY - yOffset};
 	}
+	else {
+		position = {xOffset*gridX, gridY};
+	}
+
+	position.x *= gridSize;
+	position.y *= gridSize;
+
 	return position;
 }
 
