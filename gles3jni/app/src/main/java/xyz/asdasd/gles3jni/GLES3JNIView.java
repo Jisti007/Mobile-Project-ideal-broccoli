@@ -19,7 +19,6 @@ package xyz.asdasd.gles3jni;
 import android.app.Activity;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
-import android.view.MotionEvent;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -27,8 +26,6 @@ import javax.microedition.khronos.opengles.GL10;
 class GLES3JNIView extends GLSurfaceView {
 	private static final String TAG = "GLES3JNI";
 	private static final boolean DEBUG = true;
-	private float previousX;
-	private float previousY;
 
 	public GLES3JNIView(Context context, Activity activity) {
 		super(context);
@@ -39,26 +36,10 @@ class GLES3JNIView extends GLSurfaceView {
 		setRenderer(new Renderer(activity));
 	}
 
-	@Override
-	public boolean onTouchEvent(MotionEvent e) {
-		switch (e.getAction()) {
-			case MotionEvent.ACTION_MOVE:
-				float dx = e.getX() - previousX;
-				float dy = e.getY() - previousY;
-				GLES3JNILib.onMove(dx, -dy);
-				break;
-		}
-
-		previousX = e.getX();
-		previousY = e.getY();
-
-		return true;
-	}
-
 	private static class Renderer implements GLSurfaceView.Renderer {
 		private Activity activity;
 
-		Renderer(Activity activity) {
+		public Renderer(Activity activity) {
 			this.activity = activity;
 		}
 
