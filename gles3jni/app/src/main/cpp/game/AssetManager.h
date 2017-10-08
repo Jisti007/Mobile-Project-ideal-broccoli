@@ -22,6 +22,7 @@ public:
 	inline Mesh* getMesh(const char* assetId) { return meshes[assetId].get(); }
 	inline Sprite* getSprite(const char* assetId) { return sprites[assetId].get(); }
 	inline HexType* getHexType(const char* assetId) { return hexTypes[assetId].get(); }
+	inline size_t getHexTypeCount() { return hexTypes.size(); }
 	inline UnitType* getUnitType(const char* assetId) { return unitTypes[assetId].get(); }
 	inline BuildingType* getBuildingType(const char* assetId) { return buildingTypes[assetId].get(); }
 	inline Resource* getResource(const char* assetId) { return resources[assetId].get(); }

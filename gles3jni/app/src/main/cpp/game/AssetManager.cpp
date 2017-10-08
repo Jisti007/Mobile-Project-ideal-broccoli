@@ -89,19 +89,19 @@ void AssetManager::loadTexture(Node *node) {
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
-
+	/*
 	auto width = atof(node->getW());
 	auto height = atof(node->getH());
-	auto left = atof(node->getX())- width / 2;
-	auto top = atof(node->getY()) - height / 2;
+	auto left = atof(node->getX()) - width / 2;
+	auto top = atof(node->getY()) + height / 2;
 	auto right = left + width;
-	auto bottom = top + height;
+	auto bottom = top - height;
 
 	std::vector<Vertex> vertices(4);
-	vertices[0] = {{left, top}, {0.0f, 0.0f}};
-	vertices[1] = {{right, top}, {1.0f, 0.0f}};
-	vertices[2] = {{left, bottom}, {0.0f, 1.0f}};
-	vertices[3] = {{right, bottom}, {1.0f, 1.0f}};
+	vertices[0] = {{left, top}, {0.0f, 0.0f}, 1.0f};
+	vertices[1] = {{right, top}, {1.0f, 0.0f}, 1.0f};
+	vertices[2] = {{left, bottom}, {0.0f, 1.0f}, 1.0f};
+	vertices[3] = {{right, bottom}, {1.0f, 1.0f}, 1.0f};
 
 	std::vector<uint16_t> indices(6);
 	indices[0] = 0;
@@ -110,11 +110,17 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 	indices[3] = 1;
 	indices[4] = 2;
 	indices[5] = 3;
-
-	unique_ptr<Mesh> mesh(new Mesh(vertices, indices));
-	unique_ptr<Sprite> sprite(new Sprite(texture, mesh.get()));
-	meshes[node->getID()] = move(mesh);
-	sprites[node->getID()] = move(sprite);
+	*/
+	//unique_ptr<Mesh> mesh(new Mesh(vertices, indices));
+	//unique_ptr<Sprite> sprite(new Sprite(texture, mesh.get()));
+	//meshes[node->getID()] = move(mesh);
+	sprites[node->getID()] = unique_ptr<Sprite>(new Sprite(
+		texture,
+		atoi(node->getX()),
+		atoi(node->getY()),
+		atoi(node->getW()),
+		atoi(node->getH())
+	));
 }
 
 void AssetManager::loadHexType(Node *node) {

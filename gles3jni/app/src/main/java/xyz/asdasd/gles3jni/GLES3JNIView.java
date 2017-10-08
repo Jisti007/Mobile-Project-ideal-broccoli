@@ -43,16 +43,16 @@ class GLES3JNIView extends GLSurfaceView {
 			this.activity = activity;
 		}
 
-		public void onDrawFrame(GL10 gl) {
-			GLES3JNILib.step();
+		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+			GLES3JNILib.initialize(activity);
 		}
 
 		public void onSurfaceChanged(GL10 gl, int width, int height) {
 			GLES3JNILib.resize(width, height);
 		}
 
-		public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-			GLES3JNILib.init(activity);
+		public void onDrawFrame(GL10 gl) {
+			GLES3JNILib.step();
 		}
 	}
 }

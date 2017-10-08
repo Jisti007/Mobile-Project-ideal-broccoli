@@ -60,7 +60,6 @@ public class GLES3JNIActivity extends Activity {
 		dataDirectory = getCacheDir() + "/";
 		extractFileOrDir("modules");
 
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		view = new GLES3JNIView(getApplication(), this);
 		setContentView(view);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -75,7 +74,6 @@ public class GLES3JNIActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		view.onResume();
 	}
 

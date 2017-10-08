@@ -53,6 +53,8 @@ Pipeline::~Pipeline() {
 }
 
 void Pipeline::initialize() {
+	destroy();
+
 	int success;
 	char log[512];
 	glEnable(GL_BLEND);
@@ -71,12 +73,15 @@ void Pipeline::initialize() {
 void Pipeline::destroy() {
 	if (program) {
 		glDeleteProgram(program);
+		program = NULL;
 	}
 	if (vertexShader) {
 		glDeleteShader(vertexShader);
+		vertexShader = NULL;
 	}
 	if (fragmentShader) {
 		glDeleteShader(fragmentShader);
+		fragmentShader = NULL;
 	}
 }
 

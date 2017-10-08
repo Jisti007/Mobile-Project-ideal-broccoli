@@ -23,7 +23,7 @@ public class GLES3JNILib {
 		System.loadLibrary("gles3jni");
 	}
 
-	public static native void init(Activity activity);
+	public static native void initialize(Activity activity);
 	public static native void resize(int width, int height);
 	public static native void step();
 	public static native void onMove(float dx, float dy);

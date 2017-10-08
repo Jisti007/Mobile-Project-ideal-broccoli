@@ -10,6 +10,7 @@ struct Vertex {
 public:
 	glm::vec2 position;
 	glm::vec2 texture;
+	float alpha;
 
 	Vertex();
 	Vertex(glm::vec2 position, glm::vec2 texture);

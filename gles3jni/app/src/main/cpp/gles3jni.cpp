@@ -8,7 +8,7 @@ Game game;
 
 extern "C" {
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_init(JNIEnv *env, jobject obj, jobject activity);
+Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(JNIEnv *env, jobject obj, jobject activity);
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height);
 JNIEXPORT void JNICALL
@@ -24,7 +24,7 @@ static GLboolean gl3stubInit() {
 #endif
 
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_init(
+Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(
 	JNIEnv *env, jobject obj, jobject activity
 ) {
 	JavaVM *vm;

@@ -1,10 +1,4 @@
 #include "GameMap.h"
-//#include "../../../../../../../../astudio-sdk/ndk-bundle/platforms/android-18/arch-arm/usr/include/GLES3/gl3.h"
-//#include <jni.h>
-//#include <stdlib.h>
-//#include <time.h>
-//#include <GLES3/gl3.h>
-//#include "MapHex.h"
 
 GameMap::GameMap() {
 
@@ -18,86 +12,65 @@ GameMap::~GameMap() {
 
 }
 
-void
-GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, Pipeline* pipeline) {
+void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, Pipeline* pipeline) {
 	this->width = width;
 	this->height = height;
-	scene.initialize(pipeline);
+	this->pipeline = pipeline;
 	hexes.resize(width * height);
 
 	HexType* testHexType = assets.getHexType("default");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			getHex(x, y)->initialize(x, y, testHexType, scene);
+			getHex(x, y)->initialize(x, y, testHexType);
 		}
 	}
 }
 
 void GameMap::draw() {
-	scene.draw();
+	glUseProgram(pipeline->getProgram());
+	Vertex::enableAttributes();
+	auto instancePositionLocation = glGetUniformLocation(pipeline->getProgram(), "instancePosition");
+	auto cameraPositionLocation = glGetUniformLocation(pipeline->getProgram(), "cameraPosition");
+	auto cameraSizeLocation = glGetUniformLocation(pipeline->getProgram(), "cameraSize");
+	glUniform2f(cameraPositionLocation, camera.getX(), camera.getY());
+	glUniform2f(cameraSizeLocation, camera.getSize().x, camera.getSize().y);
+
+	for (auto& hex : hexes) {
+		auto position = getScreenPosition(hex.getGridX(), hex.getGridY());
+		if (
+			position.x + camera.getX() < -camera.getSize().x
+			|| position.x + camera.getX() > camera.getSize().x
+			|| position.y + camera.getY() < -camera.getSize().y
+			|| position.y + camera.getY() > camera.getSize().y
+			) {
+			continue;
+		}
+
+		auto sprite = hex.getType()->getSprite();
+		glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
+		auto mesh = sprite->getMesh();
+		glBindVertexArray(mesh->getVertexArray());
+		glUniform2f(instancePositionLocation, position.x, position.y);
+		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+	}
 }
 
-/*
-const char *vertexSource = R"glsl(
-    #version 150 core
+glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
+	glm::vec2 position = {x, y};
 
-    in vec2 position;
+	const float gridSize = 128;
 
-    void main(){
-        gl_Position = vec4(position, 0.0, 1.0)
-    }
-)glsl";
+	float xOffset = 0.75;
+	float yOffset = 0.50;
 
-const char *fragmentSource = R"glsl(
-    #version 150 core
+	if (x % 2) {
+		position = {xOffset * x, y - yOffset};
+	} else {
+		position = {xOffset * x, y};
+	}
 
-    in vec2 position;
+	position.x *= gridSize;
+	position.y *= gridSize;
 
-    void main(){
-        gl_Position = vec4(position, 0.0, 1.0)
-    }
-)glsl";
-
-void GameMap::createMap() {
-
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
-
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
-
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Hex), Hex, GL_STATIC_DRAW);
-
-    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexSource, NULL);
-    glCompileShader(vertexShader);
-
-    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
-    glCompileShader(fragmentShader);
-
-    //  test if shader works
-    GLint status;
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &status);
-    char buffer[512];
-    glGetShaderInfoLog(vertexShader, 512, NULL, buffer);
-
-    GLuint shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-
-    glLinkProgram(shaderProgram);
-    glUseProgram(shaderProgram);
-
-    GLint posAttrib = glGetAttribLocation(shaderProgram, "position");
-    glVertexAttribPointer(posAttrib, 2, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(posAttrib);
-
-    glBindVertexArray(vao);
-
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+	return position;
 }
-*/
-
-//int argc, char *argv[]

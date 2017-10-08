@@ -10,8 +10,9 @@ Game::~Game() {
 
 void Game::initialize() {
 	pipeline.initialize();
+	assetManager.unloadAll();
 	assetManager.loadModule("modules/default");
-	map.initialize(16, 16, assetManager, &pipeline);
+	map.initialize(160, 160, assetManager, &pipeline);
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 }
 
@@ -25,9 +26,9 @@ void Game::draw() {
 }
 
 void Game::onMove(float dx, float dy) {
-	map.getScene()->getCamera()->moveBy({dx, dy});
+	map.getCamera()->moveBy({dx, dy});
 }
 
 void Game::onResize(int width, int height) {
-	map.getScene()->getCamera()->setSize({width, height});
+	map.getCamera()->setSize({width, height});
 }
