@@ -49,41 +49,47 @@ Pipeline::Pipeline() {
 }
 
 Pipeline::~Pipeline() {
-    destroy();
+	destroy();
 }
 
 void Pipeline::initialize() {
-    int success;
-    char log[512];
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    program = glCreateProgram();
-    vertexShader = createShader(vertexSource, GL_VERTEX_SHADER);
-    fragmentShader = createShader(fragmentSource, GL_FRAGMENT_SHADER);
-    glLinkProgram(program);
-    glValidateProgram(program);
-    glGetProgramiv(program, GL_VALIDATE_STATUS, &success);
-    if (!success) {
-        glGetProgramInfoLog(program, 512, NULL, log);
-    }
+	int success;
+	char log[512];
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	program = glCreateProgram();
+	vertexShader = createShader(vertexSource, GL_VERTEX_SHADER);
+	fragmentShader = createShader(fragmentSource, GL_FRAGMENT_SHADER);
+	glLinkProgram(program);
+	glValidateProgram(program);
+	glGetProgramiv(program, GL_VALIDATE_STATUS, &success);
+	if (!success) {
+		glGetProgramInfoLog(program, 512, NULL, log);
+	}
 }
 
 void Pipeline::destroy() {
-	glDeleteProgram(program);
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
+	if (program) {
+		glDeleteProgram(program);
+	}
+	if (vertexShader) {
+		glDeleteShader(vertexShader);
+	}
+	if (fragmentShader) {
+		glDeleteShader(fragmentShader);
+	}
 }
 
-GLuint Pipeline::createShader(const char *source, GLenum type) {
-    int success;
-    char log[512];
-    GLuint shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, NULL);
-    glCompileShader(shader);
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(shader, 512, NULL, log);
-    }
-    glAttachShader(program, shader);
-    return shader;
+GLuint Pipeline::createShader(const char* source, GLenum type) {
+	int success;
+	char log[512];
+	GLuint shader = glCreateShader(type);
+	glShaderSource(shader, 1, &source, NULL);
+	glCompileShader(shader);
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	if (!success) {
+		glGetShaderInfoLog(shader, 512, NULL, log);
+	}
+	glAttachShader(program, shader);
+	return shader;
 }

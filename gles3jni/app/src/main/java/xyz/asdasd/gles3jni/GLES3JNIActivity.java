@@ -17,6 +17,7 @@
 package xyz.asdasd.gles3jni;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -29,7 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class GLES3JNIActivity extends Activity {
-	GLES3JNIView mView;
+	GLES3JNIView view;
 	private String dataDirectory;
 	private float previousX;
 	private float previousY;
@@ -59,21 +60,23 @@ public class GLES3JNIActivity extends Activity {
 		dataDirectory = getCacheDir() + "/";
 		extractFileOrDir("modules");
 
-		mView = new GLES3JNIView(getApplication(), this);
-		setContentView(mView);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		view = new GLES3JNIView(getApplication(), this);
+		setContentView(view);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		mView.onPause();
+		view.onPause();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		mView.onResume();
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		view.onResume();
 	}
 
 	private void extractFileOrDir(String path) {

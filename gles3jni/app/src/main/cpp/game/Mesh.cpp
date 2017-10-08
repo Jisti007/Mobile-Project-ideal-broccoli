@@ -31,7 +31,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(uint16_t), indices.data(), GL_STATIC_DRAW);
 
-	//Vertex::enableAttributes();
+	Vertex::enableAttributes();
 
 	glBindVertexArray(0);
 }
