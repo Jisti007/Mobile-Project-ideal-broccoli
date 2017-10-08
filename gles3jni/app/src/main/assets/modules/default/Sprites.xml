@@ -16,5 +16,28 @@
         w="128"
         h="128"
     />
-
+	<Sprite
+		id="grass"
+	    texture="terrain"
+	    x="192"
+	    y="0"
+	    w="192"
+	    h="192"
+    />
+	<Sprite
+		id="water"
+		texture="terrain"
+		x="0"
+		y="192"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="sand"
+		texture="terrain"
+		x="192"
+		y="192"
+		w="192"
+		h="192"
+	/>
 </Assets>

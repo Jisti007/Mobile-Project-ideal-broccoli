@@ -8,4 +8,8 @@
 	    id="hex_default"
 	    path="textures/hex_default_1px.png"
     />
+	<Texture
+		id="terrain"
+	    path="textures/Terrain.png"
+    />
 </Assets>

@@ -14,8 +14,10 @@ public:
 	//inline int getChannels() const { return channels; }
 
 private:
-	GLuint handle;
+	GLuint handle = NULL;
 	int width, height, channels;
+
+	void destroy();
 };
 
 #endif //GLES3JNI_TEXTURE_H

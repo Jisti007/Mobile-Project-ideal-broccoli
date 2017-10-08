@@ -8,4 +8,16 @@
         id="default"
         sprite="hex_default"
     />
+	<Hex
+		id="grass"
+	    sprite="grass"
+    />
+	<Hex
+		id="water"
+		sprite="water"
+	/>
+	<Hex
+		id="sand"
+		sprite="sand"
+	/>
 </Assets>
