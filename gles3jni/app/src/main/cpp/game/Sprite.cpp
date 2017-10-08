@@ -12,11 +12,12 @@ Sprite::Sprite(Texture* texture, int x, int y, int w, int h) {
 	auto textureRight = textureLeft + (float)w / texture->getWidth();
 	auto textureBottom = textureTop + (float)h / texture->getHeight();
 
-	std::vector<Vertex> vertices(4);
-	vertices[0] = {{left, top}, {textureLeft, textureTop}};
-	vertices[1] = {{right, top}, {textureRight, textureTop}};
-	vertices[2] = {{left, bottom}, {textureLeft, textureBottom}};
-	vertices[3] = {{right, bottom}, {textureRight, textureBottom}};
+	std::vector<Vertex> vertices = {
+		{{left, top}, {textureLeft, textureTop}},
+		{{right, top}, {textureRight, textureTop}},
+		{{left, bottom}, {textureLeft, textureBottom}},
+		{{right, bottom}, {textureRight, textureBottom}}
+	};
 
 	std::vector<uint16_t> indices = {0, 2, 1, 1, 2, 3};
 

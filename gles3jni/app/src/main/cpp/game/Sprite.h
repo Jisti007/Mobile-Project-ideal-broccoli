@@ -7,7 +7,6 @@
 
 class Sprite {
 public:
-	//Sprite(Texture* texture, Mesh* mesh);
 	Sprite(Texture* texture, int x, int y, int w, int h);
 
 	inline Texture* getTexture() const { return texture; }

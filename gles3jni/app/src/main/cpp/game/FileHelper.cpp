@@ -16,7 +16,6 @@ FileHelper::~FileHelper()
 std::vector<char> FileHelper::ReadText(const string & filePath)
 {
 	ifstream file(filePath, ios::ate);
-	//file.unsetf(ios::skipws);
 	return Read(file);
 }
 

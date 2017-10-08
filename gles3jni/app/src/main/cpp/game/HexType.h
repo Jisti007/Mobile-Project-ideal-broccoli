@@ -11,8 +11,6 @@ public:
 	~HexType();
 
 	inline Sprite* getSprite() const { return sprite; }
-	//inline const Texture* getTexture() const { return sprite->getTexture(); }
-	//inline const Mesh* getMesh() const { return sprite->getMesh(); }
 
 private:
 	Sprite* sprite;
