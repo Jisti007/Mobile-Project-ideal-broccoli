@@ -22,14 +22,11 @@ public:
 	void draw();
 
 	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }
-	inline Unit* getUnit(uint16_t x, uint16_t y) { return &units[y * width + x]; }
 	inline Camera* getCamera() { return &camera; }
 
 private:
 	std::vector<MapHex> hexes;
-	std::vector<Unit> units;
-	std::vector<Building> buildings;
-	std::vector<std::unique_ptr<MapObject>> mapobjects;
+	std::vector<std::unique_ptr<MapObject>> mapObjects;
 	uint16_t width;
 	uint16_t height;
 	Pipeline* pipeline;

@@ -1,15 +1,9 @@
 #include "Building.h"
 
-Building::Building() {}
+Building::Building() : MapObject(0,0) {}
 
-Building::Building(uint16_t gridX, uint16_t gridY, BuildingType *type) {
-	initialize(gridX, gridY, type);
+Building::Building(uint16_t gridX, uint16_t gridY, BuildingType *type) : MapObject(gridX, gridY) {
+	this->type = type;
 }
 
 Building::~Building() {}
-
-void Building::initialize(uint16_t gridX, uint16_t gridY, BuildingType *type) {
-	this->gridX = gridX;
-	this->gridY = gridY;
-	this->type = type;
-}

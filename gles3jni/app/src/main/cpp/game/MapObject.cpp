@@ -4,7 +4,10 @@
 
 #include "MapObject.h"
 
-MapObject::MapObject() {
+MapObject::MapObject(uint16_t gridX, uint16_t gridY) {
+	this->gridX = gridX;
+	this->gridY = gridY;
+
 }
 
 MapObject::~MapObject() {

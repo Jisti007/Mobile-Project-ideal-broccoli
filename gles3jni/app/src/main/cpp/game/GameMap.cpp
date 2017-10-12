@@ -38,26 +38,28 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, 
 
     UnitType* test_unit = assets.getUnitType("test");
 
-	units.emplace_back(0, 0, test_unit);
+	//units.emplace_back(0, 0, test_unit);
 	for (uint16_t y = 0; y < width; y++) {
         for (uint16_t x = 0; x < height; x++) {
             auto rn = rand() % 100;
             if (rn > 95) {
-	            units.emplace_back(x, y, test_unit);
-            //    getUnit(x, y)->initialize(x, y, test);
+	            //units.emplace_back(x, y, test_unit);
+                //getUnit(x, y)->initialize(x, y, test);
+	            mapObjects.push_back(std::unique_ptr<Unit>(new Unit(x, y, test_unit)));
             }
         }
     }
 
 	BuildingType* test_building = assets.getBuildingType("test");
 
-	buildings.emplace_back(0, 0, test_building);
+	//buildings.emplace_back(0, 0, test_building);
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
 			if (rn > 95) {
-				buildings.emplace_back(x, y, test_building);
-				//    getUnit(x, y)->initialize(x, y, test);
+				//buildings.emplace_back(x, y, test_building);
+				//getUnit(x, y)->initialize(x, y, test);
+				mapObjects.push_back(std::unique_ptr<Building>(new Building(x, y, test_building)));
 			}
 		}
 	}
@@ -91,28 +93,8 @@ void GameMap::draw() {
 		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 	}
 
-
-	for (auto& building : buildings) {
-		auto position = getScreenPosition(building.getGridX(), building.getGridY());
-		if (
-				position.x + camera.getX() < -camera.getSize().x
-				|| position.x + camera.getX() > camera.getSize().x
-				|| position.y + camera.getY() < -camera.getSize().y
-				|| position.y + camera.getY() > camera.getSize().y
-				) {
-			continue;
-		}
-
-		glUniform2f(instancePositionLocation, position.x, position.y);
-		auto sprite = building.getType()->getSprite();
-		glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
-		auto mesh = sprite->getMesh();
-		glBindVertexArray(mesh->getVertexArray());
-		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
-	}
-
-    for (auto& unit : units) {
-        auto position = getScreenPosition(unit.getGridX(), unit.getGridY());
+    for (auto&& mapObject : mapObjects) {
+        auto position = getScreenPosition(mapObject->getGridX(), mapObject->getGridY());
         if (
                 position.x + camera.getX() < -camera.getSize().x
                 || position.x + camera.getX() > camera.getSize().x
@@ -123,7 +105,7 @@ void GameMap::draw() {
         }
 
         glUniform2f(instancePositionLocation, position.x, position.y);
-        auto sprite = unit.getType()->getSprite();
+        auto sprite = mapObject->getSprite();
         glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
         auto mesh = sprite->getMesh();
         glBindVertexArray(mesh->getVertexArray());
