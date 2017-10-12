@@ -12,9 +12,9 @@ public:
 
 	void initialize(uint16_t gridX, uint16_t gridY, HexType *type);
 
+	inline const HexType* getType() const { return type; }
 	inline const uint16_t getGridX() const { return gridX; }
 	inline const uint16_t getGridY() const { return gridY; }
-	inline const HexType* getType() const { return type; }
 
 private:
 	uint16_t gridX, gridY;

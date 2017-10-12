@@ -93,7 +93,7 @@ void GameMap::draw() {
 
 
 	for (auto& building : buildings) {
-		auto position = getScreenPosition(building.getX(), building.getY());
+		auto position = getScreenPosition(building.getGridX(), building.getGridY());
 		if (
 				position.x + camera.getX() < -camera.getSize().x
 				|| position.x + camera.getX() > camera.getSize().x
@@ -112,7 +112,7 @@ void GameMap::draw() {
 	}
 
     for (auto& unit : units) {
-        auto position = getScreenPosition(unit.getX(), unit.getY());
+        auto position = getScreenPosition(unit.getGridX(), unit.getGridY());
         if (
                 position.x + camera.getX() < -camera.getSize().x
                 || position.x + camera.getX() > camera.getSize().x

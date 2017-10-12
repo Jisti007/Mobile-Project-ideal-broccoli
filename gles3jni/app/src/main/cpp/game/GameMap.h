@@ -10,6 +10,7 @@
 #include "Pipeline.h"
 #include "Camera.h"
 #include "Building.h"
+#include "MapObject.h"
 
 class GameMap {
 public:
@@ -28,6 +29,7 @@ private:
 	std::vector<MapHex> hexes;
 	std::vector<Unit> units;
 	std::vector<Building> buildings;
+	std::vector<std::unique_ptr<MapObject>> mapobjects;
 	uint16_t width;
 	uint16_t height;
 	Pipeline* pipeline;

@@ -6,17 +6,17 @@
 class Unit {
 public:
     Unit();
-    Unit(uint16_t posX, uint16_t posY, UnitType *type);
+    Unit(uint16_t gridX, uint16_t gridY, UnitType *type);
     ~Unit();
 
-    void initialize(uint16_t posX, uint16_t posY, UnitType *type);
+    void initialize(uint16_t gridX, uint16_t gridY, UnitType *type);
 
     inline const UnitType* getType() const { return type; }
-    inline const uint16_t getX() const { return posX; }
-    inline const uint16_t getY() const { return posY; }
+    inline const uint16_t getGridX() const { return gridX; }
+    inline const uint16_t getGridY() const { return gridY; }
 
 private:
-    uint16_t posX, posY;
+    uint16_t gridX, gridY;
     UnitType* type;
 };
 

@@ -6,17 +6,17 @@
 class Building {
 public:
 	Building();
-	Building(uint16_t posX, uint16_t posY, BuildingType *type);
+	Building(uint16_t gridX, uint16_t gridY, BuildingType *type);
 	~Building();
 
-	void initialize(uint16_t posX, uint16_t posY, BuildingType *type);
+	void initialize(uint16_t gridX, uint16_t gridY, BuildingType *type);
 
 	inline const BuildingType* getType() const { return type; }
-	inline const uint16_t getX() const { return posX; }
-	inline const uint16_t getY() const { return posY; }
+	inline const uint16_t getGridX() const { return gridX; }
+	inline const uint16_t getGridY() const { return gridY; }
 
 private:
-	uint16_t posX, posY;
+	uint16_t gridX, gridY;
 	BuildingType* type;
 };
 
