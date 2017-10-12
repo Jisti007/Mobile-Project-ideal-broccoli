@@ -2,6 +2,7 @@
 #define GLES3JNI_MAPHEX_H
 
 #include "HexType.h"
+#include "Unit.h"
 
 class MapHex {
 public:
@@ -18,6 +19,7 @@ public:
 private:
 	uint16_t gridX, gridY;
 	HexType *type;
+	Unit* unit;
 };
 
 #endif //GLES3JNI_MAPHEX_H

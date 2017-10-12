@@ -89,12 +89,23 @@ void AssetManager::loadTexture(Node *node) {
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
+	int xoffset = 0;
+	int yoffset = 0;
+
+	if(node->getData()->first_attribute("xoffset")) {
+		yoffset = atoi(node->getData()->first_attribute("xoffset")->value());
+	}
+	if(node->getData()->first_attribute("yoffset")) {
+		yoffset = atoi(node->getData()->first_attribute("yoffset")->value());
+	}
 	sprites[node->getID()] = unique_ptr<Sprite>(new Sprite(
 		texture,
 		atoi(node->getX()),
 		atoi(node->getY()),
 		atoi(node->getW()),
-		atoi(node->getH())
+		atoi(node->getH()),
+		xoffset,
+	    yoffset
 	));
 }
 
@@ -104,13 +115,13 @@ void AssetManager::loadHexType(Node *node) {
 }
 
 void AssetManager::loadUnitType(Node *node) {
-	auto texture = textures[node->getTexture()].get();
-	unitTypes[node->getID()] = unique_ptr<UnitType>(new UnitType(texture));
+	auto sprite = sprites[node->getSprite()].get();
+	unitTypes[node->getID()] = unique_ptr<UnitType>(new UnitType(sprite));
 }
 
 void AssetManager::loadBuildingType(Node *node) {
-	auto texture = textures[node->getTexture()].get();
-	buildingTypes[node->getID()] = unique_ptr<BuildingType>(new BuildingType(texture));
+	auto sprite = sprites[node->getSprite()].get();
+	buildingTypes[node->getID()] = unique_ptr<BuildingType>(new BuildingType(sprite));
 }
 
 void AssetManager::loadResource(Node *node) {

@@ -1,16 +1,17 @@
 #ifndef GLES3JNI_BUILDINGTYPE_H
 #define GLES3JNI_BUILDINGTYPE_H
 
-#include "Texture.h"
+#include "Sprite.h"
 
 class BuildingType {
 public:
-	BuildingType(Texture* texture);
+	BuildingType(Sprite* sprite);
+	~BuildingType();
 
-	virtual ~BuildingType();
+	inline Sprite* getSprite() const { return sprite; }
 
 private:
-	Texture* texture;
+	Sprite* sprite;
 };
 
 #endif //GLES3JNI_BUILDINGTYPE_H

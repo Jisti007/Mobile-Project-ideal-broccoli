@@ -1,15 +1,17 @@
 #ifndef GLES3JNI_UNITTYPE_H
 #define GLES3JNI_UNITTYPE_H
 
-#include "Texture.h"
+#include "Sprite.h"
 
 class UnitType {
 public:
-	UnitType(Texture* texture);
+	UnitType(Sprite* sprite);
 	~UnitType();
 
+	inline Sprite* getSprite() const { return sprite; }
+
 private:
-	Texture* texture;
+	Sprite* sprite;
 };
 
 #endif //GLES3JNI_UNITTYPE_H

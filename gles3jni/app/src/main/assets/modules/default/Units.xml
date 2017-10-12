@@ -2,7 +2,7 @@
 <Assets>
 	<Unit
 		id="test"
-		texture="test_unit"
+		sprite="test_unit"
 		hp="10"
 		atk="2"
 		def="2"

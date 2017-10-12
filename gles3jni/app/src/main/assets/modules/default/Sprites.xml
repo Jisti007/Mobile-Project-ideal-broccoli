@@ -8,6 +8,24 @@
 	    w="192"
 	    h="128"
 	/>
+	<Sprite
+		id="test_unit"
+		texture="test_unit"
+		x="0"
+		y="0"
+		yoffset="-16"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="test_building"
+		texture="test_building"
+		x="0"
+		y="0"
+		yoffset="-16"
+		w="192"
+		h="192"
+	/>
     <Sprite
         id="hex_default"
         texture="hex_default"

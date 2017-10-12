@@ -1,7 +1,7 @@
 #include "BuildingType.h"
 
-BuildingType::BuildingType(Texture* texture) {
-	this->texture = texture;
+BuildingType::BuildingType(Sprite* sprite) {
+	this->sprite = sprite;
 }
 
 BuildingType::~BuildingType() {

@@ -2,6 +2,6 @@
 <Assets>
 	<Building
 		id="test"
-		texture="test"
+		sprite="test_building"
 	/>
 </Assets>

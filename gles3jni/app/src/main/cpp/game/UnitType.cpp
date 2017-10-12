@@ -1,7 +1,7 @@
 #include "UnitType.h"
 
-UnitType::UnitType(Texture *texture) {
-	this->texture = texture;
+UnitType::UnitType(Sprite *sprite) {
+	this->sprite = sprite;
 }
 
 UnitType::~UnitType() {

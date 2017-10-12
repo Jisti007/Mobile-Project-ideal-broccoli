@@ -9,6 +9,7 @@
 #include "Mesh.h"
 #include "Pipeline.h"
 #include "Camera.h"
+#include "Building.h"
 
 class GameMap {
 public:
@@ -20,10 +21,13 @@ public:
 	void draw();
 
 	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }
+	inline Unit* getUnit(uint16_t x, uint16_t y) { return &units[y * width + x]; }
 	inline Camera* getCamera() { return &camera; }
 
 private:
 	std::vector<MapHex> hexes;
+	std::vector<Unit> units;
+	std::vector<Building> buildings;
 	uint16_t width;
 	uint16_t height;
 	Pipeline* pipeline;

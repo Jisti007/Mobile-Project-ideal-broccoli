@@ -5,6 +5,14 @@
 		path="textures/Hex.png"
 	/>
 	<Texture
+		id="test_unit"
+		path="textures/Units.png"
+	/>
+	<Texture
+		id="test_building"
+		path="textures/Buildings.png"
+	/>
+	<Texture
 	    id="hex_default"
 	    path="textures/hex_default_1px.png"
     />
