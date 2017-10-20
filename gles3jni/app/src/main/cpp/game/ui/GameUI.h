@@ -15,7 +15,7 @@ class GameUI {
 public:
 	void Add(std::shared_ptr<UIObject> object);
 	void draw(Pipeline *pipeline);
-
+	void press(glm::vec2 position);
 private:
 	std::vector<std::shared_ptr<UIObject>> uiObjects;
 };

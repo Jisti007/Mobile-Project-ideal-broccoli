@@ -41,6 +41,7 @@ add_library(
     game/MapObject.cpp
     game/Mesh.cpp
     game/Pipeline.cpp
+    game/Rectangle.cpp
     game/Resource.cpp
     game/Scenario.cpp
     game/Sprite.cpp

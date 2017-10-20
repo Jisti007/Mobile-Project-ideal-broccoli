@@ -43,6 +43,11 @@ public class GLES3JNIActivity extends Activity {
 				float dy = e.getY() - previousY;
 				GLES3JNILib.onMove(dx, -dy);
 				break;
+			case MotionEvent.ACTION_DOWN:
+				float x = e.getX();
+				float y = e.getY();
+				GLES3JNILib.onPress(x, y);
+				break;
 		}
 
 		previousX = e.getX();

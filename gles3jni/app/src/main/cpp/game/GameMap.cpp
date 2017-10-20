@@ -4,7 +4,7 @@ GameMap::GameMap() {
 
 }
 
-GameMap::GameMap(uint16_t width, uint16_t height, AssetManager& assets) {
+GameMap::GameMap(uint16_t width, uint16_t height, AssetManager* assets) {
 	initialize(width, height, assets, nullptr);
 }
 
@@ -12,15 +12,21 @@ GameMap::~GameMap() {
 
 }
 
-void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, Pipeline* pipeline) {
+void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline) {
 	this->width = width;
 	this->height = height;
 	this->pipeline = pipeline;
+	this->assets = assets;
 	hexes.resize(width * height);
 
-	HexType* grass = assets.getHexType("grass");
-	HexType* sand = assets.getHexType("sand");
-	HexType* water = assets.getHexType("water");
+	generate();
+}
+
+void GameMap::generate() {
+	mapObjects.clear();
+	HexType* grass = assets->getHexType("grass");
+	HexType* sand = assets->getHexType("sand");
+	HexType* water = assets->getHexType("water");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
@@ -36,29 +42,23 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, 
 		}
 	}
 
-    UnitType* test_unit = assets.getUnitType("test");
+	UnitType* test_unit = assets->getUnitType("test");
 
-	//units.emplace_back(0, 0, test_unit);
-	for (uint16_t y = 0; y < width; y++) {
-        for (uint16_t x = 0; x < height; x++) {
-            auto rn = rand() % 100;
-            if (rn > 95) {
-	            //units.emplace_back(x, y, test_unit);
-                //getUnit(x, y)->initialize(x, y, test);
-	            mapObjects.push_back(std::unique_ptr<Unit>(new Unit(x, y, test_unit)));
-            }
-        }
-    }
-
-	BuildingType* test_building = assets.getBuildingType("test");
-
-	//buildings.emplace_back(0, 0, test_building);
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
 			if (rn > 95) {
-				//buildings.emplace_back(x, y, test_building);
-				//getUnit(x, y)->initialize(x, y, test);
+				mapObjects.push_back(std::unique_ptr<Unit>(new Unit(x, y, test_unit)));
+			}
+		}
+	}
+
+	BuildingType* test_building = assets->getBuildingType("test");
+
+	for (uint16_t y = 0; y < width; y++) {
+		for (uint16_t x = 0; x < height; x++) {
+			auto rn = rand() % 100;
+			if (rn > 95) {
 				mapObjects.push_back(std::unique_ptr<Building>(new Building(x, y, test_building)));
 			}
 		}
@@ -66,13 +66,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager& assets, 
 }
 
 void GameMap::draw() {
-	glUseProgram(pipeline->getProgram());
-	Vertex::enableAttributes();
-	auto instancePositionLocation = glGetUniformLocation(pipeline->getProgram(), "instancePosition");
-	auto cameraPositionLocation = glGetUniformLocation(pipeline->getProgram(), "cameraPosition");
-	auto cameraSizeLocation = glGetUniformLocation(pipeline->getProgram(), "cameraSize");
-	glUniform2f(cameraPositionLocation, camera.getX(), camera.getY());
-	glUniform2f(cameraSizeLocation, camera.getSize().x, camera.getSize().y);
+	pipeline->beginRender(camera.getPosition(), camera.getSize());
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex.getGridX(), hex.getGridY());
@@ -85,38 +79,24 @@ void GameMap::draw() {
 			continue;
 		}
 
-		glUniform2f(instancePositionLocation, position.x, position.y);
-		auto sprite = hex.getType()->getSprite();
-		glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
-		auto mesh = sprite->getMesh();
-		glBindVertexArray(mesh->getVertexArray());
-		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+		pipeline->render(hex.getSprite(), position);
 	}
 
-    for (auto&& mapObject : mapObjects) {
-        auto position = getScreenPosition(mapObject->getGridX(), mapObject->getGridY());
-        if (
-                position.x + camera.getX() < -camera.getSize().x
-                || position.x + camera.getX() > camera.getSize().x
-                || position.y + camera.getY() < -camera.getSize().y
-                || position.y + camera.getY() > camera.getSize().y
-                ) {
-            continue;
-        }
+	for (auto&& mapObject : mapObjects) {
+		auto position = getScreenPosition(mapObject->getGridX(), mapObject->getGridY());
+		if (
+			position.x + camera.getX() < -camera.getSize().x
+			|| position.x + camera.getX() > camera.getSize().x
+			|| position.y + camera.getY() < -camera.getSize().y
+			|| position.y + camera.getY() > camera.getSize().y
+			) {
+			continue;
+		}
 
-        glUniform2f(instancePositionLocation, position.x, position.y);
-        auto sprite = mapObject->getSprite();
-        glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
-        auto mesh = sprite->getMesh();
-        glBindVertexArray(mesh->getVertexArray());
-        glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
-    }
+		pipeline->render(mapObject->getSprite(), position);
+	}
 
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, NULL);
-	glBindVertexArray(NULL);
-	glUseProgram(NULL);
+	pipeline->endRender();
 }
 
 glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {

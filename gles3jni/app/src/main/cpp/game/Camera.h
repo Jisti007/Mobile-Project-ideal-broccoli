@@ -14,6 +14,7 @@ public:
 	glm::vec2 getSize() {return {zoom * size.x, zoom * size.y};}
 	float getX() {return position.x;}
 	float getY() {return position.y;}
+	glm::vec2 getPosition() { return position; }
 	void setSize(glm::vec2 size) {this->size = size;}
 
 private:

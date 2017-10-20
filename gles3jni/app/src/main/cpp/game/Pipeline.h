@@ -2,22 +2,28 @@
 #define GLES3JNI_PIPELINE_H
 
 #include <GLES3/gl3.h>
+#include "../glm/vec2.hpp"
+#include "Sprite.h"
 
 class Pipeline {
 public:
-    Pipeline();
-    ~Pipeline();
+	Pipeline();
+	~Pipeline();
 
-    void initialize();
-    void destroy();
-    inline GLuint getProgram() { return program; }
+	void initialize();
+	void destroy();
+	inline GLuint getProgram() { return program; }
+	void beginRender(glm::vec2 position, glm::vec2 size);
+	void render(Sprite* sprite, glm::vec2 position);
+	void endRender();
 
 private:
-    GLuint program;
+	GLuint program;
 	GLuint vertexShader;
 	GLuint fragmentShader;
+	GLint instancePositionLocation;
 
-    GLuint createShader(const char* source, GLenum type);
+	GLuint createShader(const char* source, GLenum type);
 };
 
 #endif //GLES3JNI_PIPELINE_H

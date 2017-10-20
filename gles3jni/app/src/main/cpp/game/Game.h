@@ -16,7 +16,7 @@ public:
 	void draw();
 	void onMove(float dx, float dy);
 	void onResize(int width, int height);
-
+	void onPress(float x, float y);
 private:
 	Pipeline pipeline;
 	AssetManager assetManager;

@@ -68,6 +68,8 @@ void Pipeline::initialize() {
 	if (!success) {
 		glGetProgramInfoLog(program, 512, NULL, log);
 	}
+
+	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
 }
 
 void Pipeline::destroy() {
@@ -98,3 +100,28 @@ GLuint Pipeline::createShader(const char* source, GLenum type) {
 	glAttachShader(program, shader);
 	return shader;
 }
+
+void Pipeline::beginRender(glm::vec2 position, glm::vec2 size) {
+	glUseProgram(getProgram());
+	Vertex::enableAttributes();
+	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
+	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
+	glUniform2f(cameraPositionLocation, position.x, position.y);
+	glUniform2f(cameraSizeLocation, size.x, size.y);
+}
+
+void Pipeline::render(Sprite *sprite, glm::vec2 position) {
+	glUniform2f(instancePositionLocation, position.x, position.y);
+	glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
+	auto mesh = sprite->getMesh();
+	glBindVertexArray(mesh->getVertexArray());
+	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+}
+
+void Pipeline::endRender() {
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, NULL);
+	glBindVertexArray(NULL);
+	glUseProgram(NULL);
+}
+

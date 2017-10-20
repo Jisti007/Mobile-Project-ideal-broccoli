@@ -14,11 +14,13 @@ public:
 	Sprite* getSprite() { return sprite;}
 	glm::vec2 getPosition() { return position; }
 	glm::vec2 getSize() { return size; }
+	void setOnPress(std::function<void()> onPress);
+	bool press(glm::vec2 position);
 private:
 	Sprite* sprite;
 	glm::vec2 position;
 	glm::vec2 size;
-
+	std::function<void()> onPress;
 };
 
 

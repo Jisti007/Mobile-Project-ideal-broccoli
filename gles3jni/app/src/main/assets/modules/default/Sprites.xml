@@ -39,8 +39,8 @@
 		texture="test_ui"
 		x="0"
 		y="0"
-		w="180"
-		h="55"
+		w="360"
+		h="110"
 	/>
 	<Sprite
 		id="grass"

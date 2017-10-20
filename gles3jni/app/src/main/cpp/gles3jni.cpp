@@ -5,6 +5,8 @@
 #include "game/Game.h"
 
 Game game;
+int screenWidth;
+int screenHeight;
 
 extern "C" {
 JNIEXPORT void JNICALL
@@ -15,6 +17,8 @@ JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj);
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy);
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_onPress(JNIEnv *env, jobject obj, jfloat x, jfloat y);
 };
 
 #if !defined(DYNAMIC_ES3)
@@ -47,6 +51,8 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
+	screenWidth = width;
+	screenHeight = height;
 	game.onResize(width, height);
 }
 
@@ -59,4 +65,11 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy) {
 	game.onMove(dx, dy);
+}
+
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_onPress(JNIEnv *env, jobject obj, jfloat x, jfloat y) {
+	x -= screenWidth/2;
+	y = screenHeight/2 - y;
+	game.onPress(x, y);
 }
