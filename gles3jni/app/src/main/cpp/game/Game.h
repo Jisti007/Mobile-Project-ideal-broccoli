@@ -4,6 +4,7 @@
 #include "GameMap.h"
 #include "AssetManager.h"
 #include "Pipeline.h"
+#include "ui/GameUI.h"
 
 class Game {
 public:
@@ -20,6 +21,7 @@ private:
 	Pipeline pipeline;
 	AssetManager assetManager;
 	GameMap map;
+	GameUI ui;
 };
 
 #endif //GLES3JNI_GAME_H

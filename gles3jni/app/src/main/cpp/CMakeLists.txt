@@ -47,6 +47,9 @@ add_library(
     game/Texture.cpp
     game/Unit.cpp
     game/UnitType.cpp
+    game/ui/Button.cpp
+    game/ui/GameUI.cpp
+    game/ui/UIObject.cpp
 )
 
 # Include libraries needed for gles3jni lib

@@ -3,10 +3,10 @@
 	<Sprite
 		id="test_hex"
 		texture="test_hex"
-	    x="0"
-	    y="0"
-	    w="192"
-	    h="128"
+		x="0"
+		y="0"
+		w="192"
+		h="128"
 	/>
 	<Sprite
 		id="test_unit"
@@ -26,22 +26,30 @@
 		w="192"
 		h="192"
 	/>
-    <Sprite
-        id="hex_default"
-        texture="hex_default"
-        x="0"
-        y="0"
-        w="128"
-        h="128"
-    />
+	<Sprite
+		id="hex_default"
+		texture="hex_default"
+		x="0"
+		y="0"
+		w="128"
+		h="128"
+	/>
+	<Sprite
+		id="test_button"
+		texture="test_ui"
+		x="0"
+		y="0"
+		w="180"
+		h="55"
+	/>
 	<Sprite
 		id="grass"
-	    texture="terrain"
-	    x="192"
-	    y="0"
-	    w="192"
-	    h="192"
-    />
+		texture="terrain"
+		x="192"
+		y="0"
+		w="192"
+		h="192"
+	/>
 	<Sprite
 		id="water"
 		texture="terrain"

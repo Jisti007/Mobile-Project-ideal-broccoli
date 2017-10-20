@@ -13,11 +13,15 @@
 		path="textures/Buildings.png"
 	/>
 	<Texture
-	    id="hex_default"
-	    path="textures/hex_default_1px.png"
-    />
+		id="test_ui"
+		path="textures/UI.png"
+	/>
+	<Texture
+		id="hex_default"
+		path="textures/hex_default_1px.png"
+	/>
 	<Texture
 		id="terrain"
-	    path="textures/Terrain.png"
-    />
+		path="textures/Terrain.png"
+	/>
 </Assets>
