@@ -171,5 +171,6 @@ MapHex* GameMap::findFreeHex(int maxTries) {
 void GameMap::updateHexTypes() {
 	for (auto& hex : hexes) {
 		hex.updateType();
+		hex.getType().;
 	}
 }

@@ -33,6 +33,8 @@ add_library(
     game/BuildingType.cpp
     game/Camera.cpp
     game/Campaign.cpp
+    game/Decoration.cpp
+    game/DecorationType.cpp
     game/Faction.cpp
     game/FileHelper.cpp
     game/Game.cpp

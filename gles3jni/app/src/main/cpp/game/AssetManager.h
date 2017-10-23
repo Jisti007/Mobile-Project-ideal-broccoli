@@ -29,6 +29,8 @@ public:
 	inline BuildingType* getBuildingType(const char* assetId) { return buildingTypes[assetId].get(); }
 	inline Resource* getResource(const char* assetId) { return resources[assetId].get(); }
 	inline Biome* getRandomBiome() { return weightedBiomes.getRandom(); }
+	inline Decoration* getDecoration(const char* assetId) { return decorations[assetId].get();}
+
 
 private:
 	class Node;
@@ -43,7 +45,9 @@ private:
 	std::unordered_map<std::string, std::unique_ptr<UnitType>> unitTypes;
 	std::unordered_map<std::string, std::unique_ptr<BuildingType>> buildingTypes;
 	std::unordered_map<std::string, std::unique_ptr<Resource>> resources;
+	std::unordered_map<std::string, std::unique_ptr<Decoration>> decorations;
 	WeightedList<Biome*> weightedBiomes;
+	WeightedList<Decoration*> weightedDecorations;
 
 	void
 	loadXml(const char* directory, const char* fileName, std::function<void(Node*)> nodeFunction);
@@ -57,6 +61,7 @@ private:
 	void loadUnitType(Node* node);
 	void loadBuildingType(Node* node);
 	void loadResource(Node* node);
+	void loadDecoration(Node* node);
 
 	class Node {
 	public:

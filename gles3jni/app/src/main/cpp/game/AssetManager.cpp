@@ -18,6 +18,7 @@ AssetManager::AssetManager() {
 	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
 	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
 	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
+	assetFunctions["Decoration"] = bind(&AssetManager::loadDecoration, this, _1);
 }
 
 AssetManager::~AssetManager() {
@@ -107,6 +108,8 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite));
+
+	
 }
 
 void AssetManager::loadBiome(AssetManager::Node* node) {
@@ -124,6 +127,12 @@ void AssetManager::loadBiome(AssetManager::Node* node) {
 	auto biome = new Biome(biomeHexes);
 	biomes[node->getID()] = unique_ptr<Biome>(biome);
 	weightedBiomes.add(biome, atof(node->getWeight()));
+}
+
+void AssetManager::loadDecoration(AssetManager::Node *node) {
+	auto sprite = sprites[node->getSprite()].get();
+	decorations[node->getID()] = unique_ptr<Decoration>(new Decoration(sprite));
+
 }
 
 void AssetManager::loadUnitType(Node *node) {

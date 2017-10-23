@@ -3,21 +3,26 @@
 	<Hex
 		id="test"
 		sprite="test_hex"
+		decoration=""
 	/>
 	<Hex
         id="default"
         sprite="hex_default"
+		decoration=""
     />
 	<Hex
 		id="grass"
 	    sprite="grass"
+		decoration="bush"
     />
 	<Hex
 		id="water"
 		sprite="water"
+		decoration=""
 	/>
 	<Hex
 		id="sand"
 		sprite="sand"
+		decoration=""
 	/>
 </Assets>
