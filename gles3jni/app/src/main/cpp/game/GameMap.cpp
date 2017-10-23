@@ -18,7 +18,6 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, 
 	this->height = height;
 	this->pipeline = pipeline;
 	this->assets = assets;
-	hexes.resize(width * height);
 
 	generate();
 }
@@ -28,26 +27,10 @@ void GameMap::generate() {
 	expanders.clear();
 	mapObjects.clear();
 
-	HexType* grass = assets->getHexType("grass");
-	HexType* sand = assets->getHexType("sand");
-	HexType* water = assets->getHexType("water");
-	for (uint16_t y = 0; y < width; y++) {
-		for (uint16_t x = 0; x < height; x++) {
-			auto rn = rand() % 100;
-			if (rn > 70) {
-				getHex(x, y)->initialize(x, y, grass, this);
-			}
-			else if (rn > 50) {
-				getHex(x, y)->initialize(x, y, sand, this);
-			}
-			else {
-				getHex(x, y)->initialize(x, y, water, this);
-			}
-		}
-	}
-
-	//createRegions(10);
-	//expandRegions(-1, -1);
+	initializeHexes();
+	createRegions(100);
+	expandRegions(-1, -1);
+	updateHexTypes();
 
 	UnitType* testUnit = assets->getUnitType("test");
 	for (uint16_t y = 0; y < width; y++) {
@@ -111,16 +94,33 @@ glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
 	return position;
 }
 
+void GameMap::initializeHexes() {
+	hexes.clear();
+	hexes.resize(width * height);
+
+	HexType* grass = assets->getHexType("grass");
+	for (uint16_t y = 0; y < width; y++) {
+		for (uint16_t x = 0; x < height; x++) {
+			auto hex = getHex(x, y);
+			hex->initialize(x, y, grass);
+			hex->initializeNeighbors(this);
+		}
+	}
+}
+
 void GameMap::createRegions(int count) {
+	regions.resize((size_t)count);
+	expanders.resize((size_t)count);
+
 	for (int i = 0; i < count; i++) {
 		auto regionOrigin = findFreeHex(100);
 		if (!regionOrigin) {
 			continue;
 		}
 
-		regions.push_back(MapRegion(assets->getRandomBiome()));
+		regions[i] = MapRegion(assets->getRandomBiome());
 		auto region = &regions[i];
-		expanders.push_back(region);
+		expanders[i] = region;
 		region->expandTo(regionOrigin);
 		for (int j = 0; j < 10; j++) {
 			if (!region->expandRandom()) {
@@ -166,4 +166,10 @@ MapHex* GameMap::findFreeHex(int maxTries) {
 	}
 
 	return nullptr;
+}
+
+void GameMap::updateHexTypes() {
+	for (auto& hex : hexes) {
+		hex.updateType();
+	}
 }

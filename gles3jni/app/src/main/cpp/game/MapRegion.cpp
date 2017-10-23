@@ -1,5 +1,9 @@
 #include "MapRegion.h"
 
+MapRegion::MapRegion() {
+
+}
+
 MapRegion::MapRegion(Biome* biome) {
 	this->biome = biome;
 }
@@ -13,11 +17,12 @@ void MapRegion::expandTo(MapHex* hex) {
 
 void MapRegion::expand(int borderHexIndex) {
 	auto hex = borderHexes[borderHexIndex];
-	borderHexes.erase(borderHexes.begin() + borderHexIndex);
 
-	for (auto& neighbor : hex->getNeighbors()) {
+	for (auto neighbor : hex->getNeighbors()) {
 		expandTo(neighbor);
 	}
+
+	borderHexes.erase(borderHexes.begin() + borderHexIndex);
 }
 
 bool MapRegion::expandRandom() {

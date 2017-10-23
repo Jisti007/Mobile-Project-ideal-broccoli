@@ -6,11 +6,11 @@
 
 class Unit : public MapObject {
 public:
-    Unit();
-    Unit(uint16_t gridX, uint16_t gridY, UnitType *type);
-    ~Unit();
+	Unit();
+	Unit(uint16_t gridX, uint16_t gridY, UnitType *type);
+	virtual ~Unit();
 
-    inline const UnitType* getType() const { return type; }
+	inline const UnitType* getType() const { return type; }
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
 

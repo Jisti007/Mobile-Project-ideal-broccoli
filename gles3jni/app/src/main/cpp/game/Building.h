@@ -8,7 +8,7 @@ class Building : public MapObject {
 public:
 	Building();
 	Building(uint16_t gridX, uint16_t gridY, BuildingType *type);
-	~Building();
+	virtual ~Building();
 
 	inline const BuildingType* getType() const { return type; }
 	virtual Sprite* getSprite() {return type->getSprite(); }

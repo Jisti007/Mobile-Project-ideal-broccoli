@@ -9,10 +9,13 @@ class MapHex;
 
 class MapRegion {
 public:
+	MapRegion();
 	MapRegion(Biome* biome);
 
 	void expandTo(MapHex* hex);
 	bool expandRandom();
+
+	inline Biome* getBiome() { return biome; }
 
 private:
 	std::vector<MapHex*> borderHexes;

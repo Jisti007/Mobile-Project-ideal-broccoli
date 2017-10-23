@@ -39,8 +39,10 @@ private:
 	Camera camera;
 	AssetManager* assets;
 
+	void initializeHexes();
 	void createRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
+	void updateHexTypes();
 	MapHex* findFreeHex(int maxTries);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);
 	int getDefaultMaxExpansionsPerRegion() {

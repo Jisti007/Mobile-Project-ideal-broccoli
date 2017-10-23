@@ -5,19 +5,26 @@ MapHex::MapHex() : MapObject(0,0) {
 
 }
 
-MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* map)
+MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType* type)
 	: MapObject(gridX, gridY) {
 	this->type = type;
+	this->region = nullptr;
 }
 
 MapHex::~MapHex() {
 
 }
 
-void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* map) {
+void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType* type) {
 	this->type = type;
 	this->gridX = gridX;
 	this->gridY = gridY;
+	this->region = nullptr;
+}
+
+void MapHex::initializeNeighbors(GameMap* map) {
+	neighbors.clear();
+	neighbors.reserve(6);
 
 	addNeighbor(map, gridX, gridY + 1);
 	addNeighbor(map, gridX, gridY - 1);
@@ -35,6 +42,11 @@ void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* 
 
 void MapHex::addNeighbor(GameMap* map, int x, int y) {
 	if (x >= 0 && x < map->getWidth() && y >= 0 && y < map->getHeight()) {
-		neighbors.push_back(map->getHex((uint16_t)x, (uint16_t)y));
+		MapHex* neighbor = map->getHex((uint16_t)x, (uint16_t)y);
+		neighbors.push_back(neighbor);
 	}
+}
+
+void MapHex::updateType() {
+	type = region->getBiome()->getRandomHexType();
 }

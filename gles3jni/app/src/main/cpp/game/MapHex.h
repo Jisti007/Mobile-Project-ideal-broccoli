@@ -12,13 +12,15 @@ class MapRegion;
 class MapHex : public MapObject {
 public:
 	MapHex();
-	MapHex(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* map);
-	~MapHex();
+	MapHex(uint16_t gridX, uint16_t gridY, HexType* type);
+	virtual ~MapHex();
 
-	void initialize(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* map);
+	void initialize(uint16_t gridX, uint16_t gridY, HexType* type);
+	void initializeNeighbors(GameMap* map);
+	void updateType();
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
-	inline const std::vector<MapHex*>& getNeighbors() const { return neighbors; }
+	inline std::vector<MapHex*> getNeighbors() { return neighbors; }
 	inline const MapRegion* getRegion() const { return region; }
 	inline void setRegion(MapRegion* region) { this->region = region; }
 	inline const HexType* getType() const { return type; }
