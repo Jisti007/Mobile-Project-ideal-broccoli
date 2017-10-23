@@ -39,6 +39,7 @@ void Game::onMove(float dx, float dy) {
 
 void Game::onResize(int width, int height) {
 	map.getCamera()->setSize({width, height});
+	glViewport(0, 0, width, height);
 }
 
 void Game::onPress(float x, float y) {

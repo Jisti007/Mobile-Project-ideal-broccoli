@@ -1,10 +1,10 @@
 #include "Sprite.h"
 
-Sprite::Sprite(Texture* texture, int x, int y, int w, int h, int xoffset, int yoffset) {
+Sprite::Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset) {
 	this->texture = texture;
 
-	auto left = w / -2 + xoffset;
-	auto top = h / 2 - yoffset;
+	auto left = w / -2 + xOffset;
+	auto top = h / 2 - yOffset;
 	auto right = left + w;
 	auto bottom = top - h;
 	auto textureLeft = (float)x / texture->getWidth();

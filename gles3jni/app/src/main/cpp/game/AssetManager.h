@@ -10,6 +10,7 @@
 #include "UnitType.h"
 #include "BuildingType.h"
 #include "Resource.h"
+#include "Biome.h"
 
 class AssetManager {
 public:
@@ -18,6 +19,7 @@ public:
 
 	void unloadAll();
 	void loadModule(const char* directory);
+
 	inline Texture* getTexture(const char* assetId) { return textures[assetId].get(); }
 	inline Mesh* getMesh(const char* assetId) { return meshes[assetId].get(); }
 	inline Sprite* getSprite(const char* assetId) { return sprites[assetId].get(); }
@@ -26,6 +28,7 @@ public:
 	inline UnitType* getUnitType(const char* assetId) { return unitTypes[assetId].get(); }
 	inline BuildingType* getBuildingType(const char* assetId) { return buildingTypes[assetId].get(); }
 	inline Resource* getResource(const char* assetId) { return resources[assetId].get(); }
+	inline Biome* getRandomBiome() { return weightedBiomes.getRandom(); }
 
 private:
 	class Node;
@@ -36,21 +39,24 @@ private:
 	std::unordered_map<std::string, std::unique_ptr<Mesh>> meshes;
 	std::unordered_map<std::string, std::unique_ptr<Sprite>> sprites;
 	std::unordered_map<std::string, std::unique_ptr<HexType>> hexTypes;
+	std::unordered_map<std::string, std::unique_ptr<Biome>> biomes;
 	std::unordered_map<std::string, std::unique_ptr<UnitType>> unitTypes;
 	std::unordered_map<std::string, std::unique_ptr<BuildingType>> buildingTypes;
 	std::unordered_map<std::string, std::unique_ptr<Resource>> resources;
+	WeightedList<Biome*> weightedBiomes;
 
-	//void addAssetFunction(const char* key, void (AssetManager::* assetFunction)(Node*));
-	void loadXml(const char *directory, const char* fileName, std::function<void(Node*)> nodeFunction);
-	void handleModuleNode(Node *node);
-	void loadAssets(Node *node);
-	void handleAssetNode(Node *node);
-	void loadTexture(Node *node);
-	void loadSprite(Node *node);
-	void loadHexType(Node *node);
-	void loadUnitType(Node *node);
-	void loadBuildingType(Node *node);
-	void loadResource(Node *node);
+	void
+	loadXml(const char* directory, const char* fileName, std::function<void(Node*)> nodeFunction);
+	void handleModuleNode(Node* node);
+	void loadAssets(Node* node);
+	void handleAssetNode(Node* node);
+	void loadTexture(Node* node);
+	void loadSprite(Node* node);
+	void loadHexType(Node* node);
+	void loadBiome(Node* node);
+	void loadUnitType(Node* node);
+	void loadBuildingType(Node* node);
+	void loadResource(Node* node);
 
 	class Node {
 	public:
@@ -71,6 +77,7 @@ private:
 		const char* getY() { return data->first_attribute("y")->value(); }
 		const char* getW() { return data->first_attribute("w")->value(); }
 		const char* getH() { return data->first_attribute("h")->value(); }
+		const char* getWeight() { return data->first_attribute("weight")->value(); }
 
 	private:
 		const char* directory;

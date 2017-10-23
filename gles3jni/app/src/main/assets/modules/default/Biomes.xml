@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Assets>
+	<Biome
+		id="grassland"
+	    weight="50"
+	>
+		<Hex id="grass" weight="100" />
+		<Hex id="sand" weight="20" />
+		<Hex id="water" weight="20" />
+	</Biome>
+	<Biome
+		id="desert"
+	    weight="20"
+	>
+		<Hex id="grass" weight="20" />
+		<Hex id="sand" weight="100" />
+		<Hex id="water" weight="20" />
+	</Biome>
+	<Biome
+		id="sea"
+	    weight="100"
+	>
+		<Hex id="grass" weight="20" />
+		<Hex id="sand" weight="20" />
+		<Hex id="water" weight="100" />
+	</Biome>
+</Assets>

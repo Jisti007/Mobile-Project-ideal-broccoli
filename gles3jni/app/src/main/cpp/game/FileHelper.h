@@ -1,7 +1,3 @@
-//
-// Created by K1533 on 18.9.2017.
-//
-
 #ifndef GLES3JNI_FILEHELPER_H
 #define GLES3JNI_FILEHELPER_H
 

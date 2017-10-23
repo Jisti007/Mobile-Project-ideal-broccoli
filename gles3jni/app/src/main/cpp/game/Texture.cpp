@@ -28,6 +28,6 @@ Texture::~Texture() {
 void Texture::destroy() {
 	if (handle) {
 		glDeleteTextures(1, &handle);
-		handle = NULL;
+		handle = 0;
 	}
 }

@@ -28,6 +28,7 @@ add_library(
 #    RendererES2.cpp
 #    RendererES3.cpp
     game/AssetManager.cpp
+    game/Biome.cpp
     game/Building.cpp
     game/BuildingType.cpp
     game/Camera.cpp
@@ -39,6 +40,7 @@ add_library(
     game/HexType.cpp
     game/MapHex.cpp
     game/MapObject.cpp
+    game/MapRegion.cpp
     game/Mesh.cpp
     game/Pipeline.cpp
     game/Rectangle.cpp
@@ -48,6 +50,7 @@ add_library(
     game/Texture.cpp
     game/Unit.cpp
     game/UnitType.cpp
+    game/WeightedList.cpp
     game/ui/Button.cpp
     game/ui/GameUI.cpp
     game/ui/UIObject.cpp

@@ -14,11 +14,10 @@ AssetManager::AssetManager() {
 	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
 	assetFunctions["Sprite"] = bind(&AssetManager::loadSprite, this, _1);
 	assetFunctions["Hex"] = bind(&AssetManager::loadHexType, this, _1);
+	assetFunctions["Biome"] = bind(&AssetManager::loadBiome, this, _1);
 	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
 	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
 	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
-
-	//addAssetFunction("LoadAssets", loadAssets);
 }
 
 AssetManager::~AssetManager() {
@@ -36,11 +35,7 @@ void AssetManager::unloadAll() {
 void AssetManager::loadModule(const char *directory) {
 	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
 }
-/*
-void AssetManager::addAssetFunction(const char *key, void (*assetFunction)(Node *)) {
 
-}
-*/
 void AssetManager::loadXml(const char *directory, const char *fileName, function<void(Node*)> nodeFunction) {
 	stringstream filePath;
 	filePath << directory << "/" << fileName;
@@ -89,14 +84,14 @@ void AssetManager::loadTexture(Node *node) {
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
-	int xoffset = 0;
-	int yoffset = 0;
+	int xOffset = 0;
+	int yOffset = 0;
 
-	if(node->getData()->first_attribute("xoffset")) {
-		yoffset = atoi(node->getData()->first_attribute("xoffset")->value());
+	if(node->getData()->first_attribute("xOffset")) {
+		yOffset = atoi(node->getData()->first_attribute("xOffset")->value());
 	}
-	if(node->getData()->first_attribute("yoffset")) {
-		yoffset = atoi(node->getData()->first_attribute("yoffset")->value());
+	if(node->getData()->first_attribute("yOffset")) {
+		yOffset = atoi(node->getData()->first_attribute("yOffset")->value());
 	}
 	sprites[node->getID()] = unique_ptr<Sprite>(new Sprite(
 		texture,
@@ -104,14 +99,31 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 		atoi(node->getY()),
 		atoi(node->getW()),
 		atoi(node->getH()),
-		xoffset,
-	    yoffset
+		xOffset,
+	    yOffset
 	));
 }
 
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite));
+}
+
+void AssetManager::loadBiome(AssetManager::Node* node) {
+	WeightedList<HexType*> biomeHexes;
+	auto hexNode = node->getData()->first_node("Hex");
+	do {
+		auto hexId = hexNode->first_attribute("id")->value();
+		auto hexType = getHexType(hexId);
+		double hexWeight = atof(hexNode->first_attribute("weight")->value());
+		biomeHexes.add(hexType, hexWeight);
+
+		hexNode = hexNode->next_sibling();
+	} while (hexNode);
+
+	auto biome = new Biome(biomeHexes);
+	biomes[node->getID()] = unique_ptr<Biome>(biome);
+	weightedBiomes.add(biome, atof(node->getWeight()));
 }
 
 void AssetManager::loadUnitType(Node *node) {

@@ -21,6 +21,8 @@ private:
 	GLuint program;
 	GLuint vertexShader;
 	GLuint fragmentShader;
+	GLuint lastTexture = 0;
+	GLuint lastVertexArray = 0;
 	GLint instancePositionLocation;
 
 	GLuint createShader(const char* source, GLenum type);

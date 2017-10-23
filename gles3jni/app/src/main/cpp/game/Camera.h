@@ -2,6 +2,7 @@
 #define GLES3JNI_CAMERA_H
 
 #include "../glm/vec2.hpp"
+#include "Rectangle.h"
 
 class Camera {
 public:
@@ -11,11 +12,21 @@ public:
 	void move(glm::vec2 position);
 	void moveBy(glm::vec2 delta);
 
-	glm::vec2 getSize() {return {zoom * size.x, zoom * size.y};}
-	float getX() {return position.x;}
-	float getY() {return position.y;}
-	glm::vec2 getPosition() { return position; }
-	void setSize(glm::vec2 size) {this->size = size;}
+	inline glm::vec2 getPosition() { return position; }
+	inline glm::vec2 getSize() { return {getWidth(), getHeight()}; }
+	inline void setSize(glm::vec2 size) { this->size = size; }
+	inline float getX() { return position.x; }
+	inline float getY() { return position.y; }
+	inline float getWidth() { return zoom * size.x; }
+	inline float getHeight() { return zoom * size.y; }
+	inline Rectangle getBounds() {
+		return Rectangle(
+			getX() - getWidth(),
+			getX() + getWidth(),
+			getY() + getHeight(),
+			getY() - getHeight()
+		);
+	}
 
 private:
 	glm::vec2 position;

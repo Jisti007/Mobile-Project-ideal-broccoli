@@ -1,7 +1,6 @@
 #include "Pipeline.h"
 
 const char* vertexSource = R"glsl(#version 300 es
-
 precision highp float;
 precision highp int;
 precision lowp sampler2D;
@@ -17,7 +16,7 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-    vec2 position = vertexPosition + instancePosition + cameraPosition;
+    vec2 position = vertexPosition + instancePosition - cameraPosition;
     position.x = position.x / cameraSize.x;
     position.y = position.y / cameraSize.y;
 
@@ -27,7 +26,6 @@ void main(){
 )glsl";
 
 const char* fragmentSource = R"glsl(#version 300 es
-
 precision mediump int;
 precision lowp sampler2D;
 precision lowp samplerCube;
@@ -75,15 +73,15 @@ void Pipeline::initialize() {
 void Pipeline::destroy() {
 	if (program) {
 		glDeleteProgram(program);
-		program = NULL;
+		program = 0;
 	}
 	if (vertexShader) {
 		glDeleteShader(vertexShader);
-		vertexShader = NULL;
+		vertexShader = 0;
 	}
 	if (fragmentShader) {
 		glDeleteShader(fragmentShader);
-		fragmentShader = NULL;
+		fragmentShader = 0;
 	}
 }
 
@@ -112,16 +110,26 @@ void Pipeline::beginRender(glm::vec2 position, glm::vec2 size) {
 
 void Pipeline::render(Sprite *sprite, glm::vec2 position) {
 	glUniform2f(instancePositionLocation, position.x, position.y);
-	glBindTexture(GL_TEXTURE_2D, sprite->getTexture()->getHandle());
+	auto texture = sprite->getTexture()->getHandle();
+	if (texture != lastTexture) {
+		glBindTexture(GL_TEXTURE_2D, texture);
+		lastTexture = texture;
+	}
 	auto mesh = sprite->getMesh();
-	glBindVertexArray(mesh->getVertexArray());
+	auto vertexArray = mesh->getVertexArray();
+	if (vertexArray != lastVertexArray) {
+		glBindVertexArray(vertexArray);
+		lastVertexArray = vertexArray;
+	}
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
 void Pipeline::endRender() {
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, NULL);
-	glBindVertexArray(NULL);
-	glUseProgram(NULL);
+	lastTexture = 0;
+	glBindTexture(GL_TEXTURE_2D, lastTexture);
+	lastVertexArray = 0;
+	glBindVertexArray(lastVertexArray);
+	glUseProgram(0);
 }
 

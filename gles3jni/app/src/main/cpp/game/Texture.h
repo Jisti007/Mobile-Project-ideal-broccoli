@@ -14,7 +14,7 @@ public:
 	//inline int getChannels() const { return channels; }
 
 private:
-	GLuint handle = NULL;
+	GLuint handle = 0;
 	int width, height, channels;
 
 	void destroy();

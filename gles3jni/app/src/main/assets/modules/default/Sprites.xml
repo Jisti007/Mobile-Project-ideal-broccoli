@@ -13,7 +13,7 @@
 		texture="test_unit"
 		x="0"
 		y="0"
-		yoffset="-16"
+		yOffset="-16"
 		w="192"
 		h="192"
 	/>
@@ -22,7 +22,7 @@
 		texture="test_building"
 		x="0"
 		y="0"
-		yoffset="-16"
+		yOffset="-16"
 		w="192"
 		h="192"
 	/>

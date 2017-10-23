@@ -16,10 +16,7 @@ void UIObject::setOnPress(std::function<void()> onPress) {
 }
 
 bool UIObject::press(glm::vec2 position) {
-	Rectangle rectangle(
-		glm::vec2(this->position.x - size.x / 2, this->position.y - size.y /2), size
-	);
-	if (rectangle.contains(position)) {
+	if (getRectangle().contains(position)) {
 		onPress();
 		return true;
 	}

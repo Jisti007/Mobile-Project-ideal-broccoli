@@ -4,23 +4,6 @@
 
 #include "Rectangle.h"
 
-bool Rectangle::contains(glm::vec2 position) {
-
-	if(position.x < left) {
-		return false;
-	}
-	if(position.x > right) {
-		return false;
-	}
-	if(position.y < bottom) {
-		return false;
-	}
-	if(position.y > top) {
-		return false;
-	}
-	return true;
-}
-
 Rectangle::Rectangle(glm::vec2 position, glm::vec2 size) {
 	left = position.x;
 	bottom = position.y;
@@ -33,4 +16,12 @@ Rectangle::Rectangle(float left, float right, float top, float bottom) {
 	this->right = right;
 	this->top = top;
 	this->bottom = bottom;
+}
+
+bool Rectangle::contains(glm::vec2 position) {
+	return
+		position.x >= left
+		&& position.x <= right
+		&& position.y >= bottom
+		&& position.y <= top;
 }

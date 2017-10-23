@@ -28,9 +28,7 @@ static GLboolean gl3stubInit() {
 #endif
 
 JNIEXPORT void JNICALL
-Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(
-	JNIEnv *env, jobject obj, jobject activity
-) {
+Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(JNIEnv *env, jobject obj, jobject activity) {
 	JavaVM *vm;
 	env->GetJavaVM(&vm);
 	vm->AttachCurrentThread(&env, NULL);
