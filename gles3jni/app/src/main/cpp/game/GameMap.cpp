@@ -20,6 +20,16 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, 
 	this->pipeline = pipeline;
 	this->assets = assets;
 
+	vector<glm::vec3> testFaction1Colors = {{255, 0, 0}};
+	vector<glm::vec3> testFaction2Colors = {{0, 255, 0}};
+	vector<glm::vec3> testFaction3Colors = {{0, 0, 255}};
+	Faction testFaction1(testFaction1Colors);
+	Faction testFaction2(testFaction2Colors);
+	Faction testFaction3(testFaction3Colors);
+	factions.push_back(testFaction1);
+	factions.push_back(testFaction2);
+	factions.push_back(testFaction3);
+
 	generate();
 }
 
@@ -38,7 +48,9 @@ void GameMap::generate() {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
 			if (rn > 95) {
-				mapObjects.push_back(unique_ptr<Unit>(new Unit(x, y, testUnit)));
+				auto faction = &factions[rand() % factions.size()];
+				units.emplace_back(x, y, testUnit, faction);
+				//mapObjects.push_back(unique_ptr<Unit>(new Unit(x, y, testUnit, faction)));
 			}
 		}
 	}
@@ -68,6 +80,13 @@ void GameMap::draw() {
 		auto position = getScreenPosition(mapObject->getGridX(), mapObject->getGridY());
 		if (camera.getBounds().contains(position)) {
 			pipeline->draw(mapObject->getSprite(), position);
+		}
+	}
+
+	for (auto& unit : units) {
+		auto position = getScreenPosition(unit.getGridX(), unit.getGridY());
+		if (camera.getBounds().contains(position)) {
+			pipeline->draw(unit.getSprite(), position, unit.getFaction()->getColors());
 		}
 	}
 

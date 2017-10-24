@@ -138,10 +138,24 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 		glBindVertexArray(vertexArray);
 		lastVertexArray = vertexArray;
 	}
-	glUniform3f(sourceColorsLocation, 0, 0, 244.0f/255);
-	glUniform3f(destinationColorsLocation, 244.0f/255, 0, 0);
-	glUniform1i(numberOfColorSwapsLocation, 1);
+
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+}
+
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
+	glUniform3fv(
+		sourceColorsLocation,
+		(GLsizei)sprite->getSwappableColors().size(),
+		(GLfloat*)sprite->getSwappableColors().data()
+	);
+	glUniform3fv(
+		destinationColorsLocation,
+		(GLsizei)destinationColors.size(),
+		(GLfloat*)destinationColors.data()
+	);
+	glUniform1i(numberOfColorSwapsLocation, (GLint)sprite->getSwappableColors().size());
+
+	draw(sprite, position);
 }
 
 void Pipeline::endDraw() {

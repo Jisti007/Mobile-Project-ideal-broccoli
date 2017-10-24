@@ -15,6 +15,7 @@ public:
 	inline GLuint getProgram() { return program; }
 	void beginDraw(glm::vec2 position, glm::vec2 size);
 	void draw(Sprite* sprite, glm::vec2 position);
+	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	void endDraw();
 
 private:

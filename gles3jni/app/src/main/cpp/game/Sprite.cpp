@@ -22,4 +22,6 @@ Sprite::Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yO
 	std::vector<uint16_t> indices = {0, 2, 1, 1, 2, 3};
 
 	mesh = std::unique_ptr<Mesh>(new Mesh(vertices, indices));
+
+	swappableColors.emplace_back(0.0f, 0.0f, 244.0f/255);
 }
