@@ -20,9 +20,9 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, 
 	this->pipeline = pipeline;
 	this->assets = assets;
 
-	vector<glm::vec3> testFaction1Colors = {{255, 0, 0}};
-	vector<glm::vec3> testFaction2Colors = {{0, 255, 0}};
-	vector<glm::vec3> testFaction3Colors = {{0, 0, 255}};
+	vector<glm::vec3> testFaction1Colors = {{1, 0, 0}, {0, 1, 1}};
+	vector<glm::vec3> testFaction2Colors = {{0, 1, 0}, {1, 0, 1}};
+	vector<glm::vec3> testFaction3Colors = {{0, 0, 1}, {1, 1, 0}};
 	Faction testFaction1(testFaction1Colors);
 	Faction testFaction2(testFaction2Colors);
 	Faction testFaction3(testFaction3Colors);
@@ -37,20 +37,23 @@ void GameMap::generate() {
 	regions.clear();
 	expanders.clear();
 	mapObjects.clear();
+	units.clear();
 
 	initializeHexes();
 	createRegions(100);
 	expandRegions(-1, -1);
 	updateHexTypes();
 
+	HexType* water = assets->getHexType("water");
 	UnitType* testUnit = assets->getUnitType("test");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto rn = rand() % 100;
-			if (rn > 95) {
-				auto faction = &factions[rand() % factions.size()];
-				units.emplace_back(x, y, testUnit, faction);
-				//mapObjects.push_back(unique_ptr<Unit>(new Unit(x, y, testUnit, faction)));
+			if (getHex(x, y)->getType() != water) {
+				auto rn = rand() % 100;
+				if (rn > 95) {
+					auto faction = &factions[rand() % factions.size()];
+					units.emplace_back(x, y, testUnit, faction);
+				}
 			}
 		}
 	}
@@ -58,9 +61,11 @@ void GameMap::generate() {
 	BuildingType* testBuilding = assets->getBuildingType("test");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto rn = rand() % 100;
-			if (rn > 95) {
-				mapObjects.push_back(unique_ptr<Building>(new Building(x, y, testBuilding)));
+			if (getHex(x, y)->getType() != water) {
+				auto rn = rand() % 100;
+				if (rn > 95) {
+					mapObjects.push_back(unique_ptr<Building>(new Building(x, y, testBuilding)));
+				}
 			}
 		}
 	}
