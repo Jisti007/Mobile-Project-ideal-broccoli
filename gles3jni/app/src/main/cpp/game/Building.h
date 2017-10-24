@@ -10,8 +10,10 @@ public:
 	Building(uint16_t gridX, uint16_t gridY, BuildingType *type);
 	virtual ~Building();
 
-	inline const BuildingType* getType() const { return type; }
 	virtual Sprite* getSprite() {return type->getSprite(); }
+
+	inline const BuildingType* getType() const { return type; }
+
 private:
 	BuildingType* type;
 };

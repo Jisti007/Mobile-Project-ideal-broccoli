@@ -12,7 +12,7 @@ public:
 
 	inline Texture* getTexture() const { return texture; }
 	inline Mesh* getMesh() const { return mesh.get(); }
-	inline std::vector<glm::vec3> getSwappableColors() { return swappableColors; }
+	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }
 
 private:
 	Texture* texture;

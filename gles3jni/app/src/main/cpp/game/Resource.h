@@ -2,14 +2,15 @@
 #define GLES3JNI_RESOURCETYPE_H
 
 #include "Texture.h"
+#include "Sprite.h"
 
 class Resource {
 public:
-	Resource(Texture* texture);
+	Resource(Sprite* sprite);
 	~Resource();
 
 private:
-	Texture* texture;
+	Sprite* sprite;
 };
 
 #endif //GLES3JNI_RESOURCETYPE_H

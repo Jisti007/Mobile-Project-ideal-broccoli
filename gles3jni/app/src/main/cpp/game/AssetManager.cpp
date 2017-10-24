@@ -2,7 +2,6 @@
 #include "FileHelper.h"
 #include <sstream>
 #include <iostream>
-#include "../glm/vec3.hpp"
 
 using namespace std;
 using namespace rapidxml;
@@ -151,6 +150,6 @@ void AssetManager::loadBuildingType(Node *node) {
 }
 
 void AssetManager::loadResource(Node *node) {
-	auto texture = textures[node->getTexture()].get();
-	resources[node->getID()] = unique_ptr<Resource>(new Resource(texture));
+	auto sprite = sprites[node->getSprite()].get();
+	resources[node->getID()] = unique_ptr<Resource>(new Resource(sprite));
 }
