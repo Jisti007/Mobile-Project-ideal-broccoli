@@ -26,12 +26,18 @@ void main(){
 )glsl";
 
 const char* fragmentSource = R"glsl(#version 300 es
+const int MAX_COLOR_SWAPS = 4;
+const float COLOR_SWAP_TOLERANCE = 1.0 / 255.0;
+
 precision mediump int;
 precision lowp sampler2D;
 precision lowp samplerCube;
 precision mediump float;
 
 uniform sampler2D sampler;
+uniform vec3 sourceColors[MAX_COLOR_SWAPS];
+uniform vec3 destinationColors[MAX_COLOR_SWAPS];
+uniform int numberOfColorSwaps;
 
 in vec2 fragmentTexture;
 
@@ -39,6 +45,14 @@ layout(location = 0) out vec4 outColor;
 
 void main(){
 	outColor = texture(sampler, fragmentTexture);
+	for (int i = 0; i < numberOfColorSwaps; i++) {
+		float dr = abs(outColor.r - sourceColors[i].r);
+		float dg = abs(outColor.g - sourceColors[i].g);
+		float db = abs(outColor.b - sourceColors[i].b);
+		if (dr < COLOR_SWAP_TOLERANCE && dg < COLOR_SWAP_TOLERANCE && db < COLOR_SWAP_TOLERANCE) {
+			outColor.rgb = destinationColors[i];
+		}
+	}
 }
 )glsl";
 
@@ -68,6 +82,9 @@ void Pipeline::initialize() {
 	}
 
 	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
+	sourceColorsLocation = glGetUniformLocation(getProgram(), "sourceColors");
+	destinationColorsLocation = glGetUniformLocation(getProgram(), "destinationColors");
+	numberOfColorSwapsLocation = glGetUniformLocation(getProgram(), "numberOfColorSwaps");
 }
 
 void Pipeline::destroy() {
@@ -99,7 +116,7 @@ GLuint Pipeline::createShader(const char* source, GLenum type) {
 	return shader;
 }
 
-void Pipeline::beginRender(glm::vec2 position, glm::vec2 size) {
+void Pipeline::beginDraw(glm::vec2 position, glm::vec2 size) {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
 	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
@@ -108,7 +125,7 @@ void Pipeline::beginRender(glm::vec2 position, glm::vec2 size) {
 	glUniform2f(cameraSizeLocation, size.x, size.y);
 }
 
-void Pipeline::render(Sprite *sprite, glm::vec2 position) {
+void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 	glUniform2f(instancePositionLocation, position.x, position.y);
 	auto texture = sprite->getTexture()->getHandle();
 	if (texture != lastTexture) {
@@ -121,10 +138,13 @@ void Pipeline::render(Sprite *sprite, glm::vec2 position) {
 		glBindVertexArray(vertexArray);
 		lastVertexArray = vertexArray;
 	}
+	glUniform3f(sourceColorsLocation, 0, 0, 244.0f/255);
+	glUniform3f(destinationColorsLocation, 244.0f/255, 0, 0);
+	glUniform1i(numberOfColorSwapsLocation, 1);
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
-void Pipeline::endRender() {
+void Pipeline::endDraw() {
 	glActiveTexture(GL_TEXTURE0);
 	lastTexture = 0;
 	glBindTexture(GL_TEXTURE_2D, lastTexture);

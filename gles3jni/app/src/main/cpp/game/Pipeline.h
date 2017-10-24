@@ -13,9 +13,9 @@ public:
 	void initialize();
 	void destroy();
 	inline GLuint getProgram() { return program; }
-	void beginRender(glm::vec2 position, glm::vec2 size);
-	void render(Sprite* sprite, glm::vec2 position);
-	void endRender();
+	void beginDraw(glm::vec2 position, glm::vec2 size);
+	void draw(Sprite* sprite, glm::vec2 position);
+	void endDraw();
 
 private:
 	GLuint program;
@@ -24,6 +24,9 @@ private:
 	GLuint lastTexture = 0;
 	GLuint lastVertexArray = 0;
 	GLint instancePositionLocation;
+	GLint sourceColorsLocation;
+	GLint destinationColorsLocation;
+	GLint numberOfColorSwapsLocation;
 
 	GLuint createShader(const char* source, GLenum type);
 };

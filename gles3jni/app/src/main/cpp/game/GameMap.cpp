@@ -1,5 +1,6 @@
 #include "GameMap.h"
-#include "Rectangle.h"
+
+using namespace std;
 
 GameMap::GameMap() {
 
@@ -37,7 +38,7 @@ void GameMap::generate() {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
 			if (rn > 95) {
-				mapObjects.push_back(std::unique_ptr<Unit>(new Unit(x, y, testUnit)));
+				mapObjects.push_back(unique_ptr<Unit>(new Unit(x, y, testUnit)));
 			}
 		}
 	}
@@ -47,30 +48,30 @@ void GameMap::generate() {
 		for (uint16_t x = 0; x < height; x++) {
 			auto rn = rand() % 100;
 			if (rn > 95) {
-				mapObjects.push_back(std::unique_ptr<Building>(new Building(x, y, testBuilding)));
+				mapObjects.push_back(unique_ptr<Building>(new Building(x, y, testBuilding)));
 			}
 		}
 	}
 }
 
 void GameMap::draw() {
-	pipeline->beginRender(camera.getPosition(), camera.getSize());
+	pipeline->beginDraw(camera.getPosition(), camera.getSize());
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex.getGridX(), hex.getGridY());
 		if (camera.getBounds().contains(position)) {
-			pipeline->render(hex.getSprite(), position);
+			pipeline->draw(hex.getSprite(), position);
 		}
 	}
 
 	for (auto& mapObject : mapObjects) {
 		auto position = getScreenPosition(mapObject->getGridX(), mapObject->getGridY());
 		if (camera.getBounds().contains(position)) {
-			pipeline->render(mapObject->getSprite(), position);
+			pipeline->draw(mapObject->getSprite(), position);
 		}
 	}
 
-	pipeline->endRender();
+	pipeline->endDraw();
 }
 
 glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {

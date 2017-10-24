@@ -9,13 +9,13 @@ void GameUI::Add(std::shared_ptr<UIObject> object) {
 }
 
 void GameUI::draw(Pipeline *pipeline) {
-	pipeline->beginRender({0,0}, {960,540});
+	pipeline->beginDraw({0, 0}, {960, 540});
 
 	for (auto& uiObject : uiObjects) {
-		pipeline->render(uiObject->getSprite(), uiObject->getPosition());
+		pipeline->draw(uiObject->getSprite(), uiObject->getPosition());
 	}
 
-	pipeline->endRender();
+	pipeline->endDraw();
 }
 
 void GameUI::press(glm::vec2 position) {
