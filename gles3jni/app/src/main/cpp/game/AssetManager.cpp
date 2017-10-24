@@ -2,6 +2,7 @@
 #include "FileHelper.h"
 #include <sstream>
 #include <iostream>
+#include "../glm/vec3.hpp"
 
 using namespace std;
 using namespace rapidxml;
@@ -93,6 +94,18 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 	if(node->getData()->first_attribute("yOffset")) {
 		yOffset = atoi(node->getData()->first_attribute("yOffset")->value());
 	}
+
+	std::vector<glm::vec3> swappableColors;
+	auto swappableColorNode = node->getData()->first_node("SwappableColor");
+	while (swappableColorNode) {
+		auto r = (float)atof(swappableColorNode->first_attribute("r")->value()) / 255.0f;
+		auto g = (float)atof(swappableColorNode->first_attribute("g")->value()) / 255.0f;
+		auto b = (float)atof(swappableColorNode->first_attribute("b")->value()) / 255.0f;
+		swappableColors.emplace_back(r, g, b);
+
+		swappableColorNode = swappableColorNode->next_sibling();
+	}
+
 	sprites[node->getID()] = unique_ptr<Sprite>(new Sprite(
 		texture,
 		atoi(node->getX()),
@@ -100,7 +113,8 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 		atoi(node->getW()),
 		atoi(node->getH()),
 		xOffset,
-	    yOffset
+	    yOffset,
+	    swappableColors
 	));
 }
 
@@ -112,14 +126,14 @@ void AssetManager::loadHexType(Node *node) {
 void AssetManager::loadBiome(AssetManager::Node* node) {
 	WeightedList<HexType*> biomeHexes;
 	auto hexNode = node->getData()->first_node("Hex");
-	do {
+	while (hexNode) {
 		auto hexId = hexNode->first_attribute("id")->value();
 		auto hexType = getHexType(hexId);
 		double hexWeight = atof(hexNode->first_attribute("weight")->value());
 		biomeHexes.add(hexType, hexWeight);
 
 		hexNode = hexNode->next_sibling();
-	} while (hexNode);
+	}
 
 	auto biome = new Biome(biomeHexes);
 	biomes[node->getID()] = unique_ptr<Biome>(biome);
