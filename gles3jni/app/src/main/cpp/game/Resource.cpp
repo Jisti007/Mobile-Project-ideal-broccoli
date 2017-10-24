@@ -1,7 +1,7 @@
 #include "Resource.h"
 
-Resource::Resource(Texture *texture) {
-	this->texture = texture;
+Resource::Resource(Sprite* sprite) {
+	this->sprite = sprite;
 }
 
 Resource::~Resource() {

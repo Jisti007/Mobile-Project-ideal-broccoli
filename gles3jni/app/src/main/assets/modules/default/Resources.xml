@@ -2,6 +2,6 @@
 <Assets>
 	<Resource
 		id="gold"
-		texture="gold"
+		sprite="gold"
 	/>
 </Assets>

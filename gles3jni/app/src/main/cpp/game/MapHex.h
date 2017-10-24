@@ -20,7 +20,7 @@ public:
 	void updateType();
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
-	inline std::vector<MapHex*> getNeighbors() { return neighbors; }
+	inline const std::vector<MapHex*>& getNeighbors() const { return neighbors; }
 	inline const MapRegion* getRegion() const { return region; }
 	inline void setRegion(MapRegion* region) { this->region = region; }
 	inline const HexType* getType() const { return type; }
