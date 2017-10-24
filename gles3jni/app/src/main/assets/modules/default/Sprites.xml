@@ -16,7 +16,10 @@
 		yOffset="-16"
 		w="192"
 		h="192"
-	/>
+	>
+		<SwappableColor r="0" g="0" b="244"/>
+		<SwappableColor r="113" g="62" b="0"/>
+	</Sprite>
 	<Sprite
 		id="test_building"
 		texture="test_building"

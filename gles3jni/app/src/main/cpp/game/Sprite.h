@@ -8,7 +8,7 @@
 
 class Sprite {
 public:
-	Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset);
+	Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors);
 
 	inline Texture* getTexture() const { return texture; }
 	inline Mesh* getMesh() const { return mesh.get(); }
