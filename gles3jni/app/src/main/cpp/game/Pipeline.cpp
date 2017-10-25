@@ -26,13 +26,14 @@ void main(){
 )glsl";
 
 const char* fragmentSource = R"glsl(#version 300 es
-const int MAX_COLOR_SWAPS = 4;
-const float COLOR_SWAP_TOLERANCE = 1.0 / 255.0;
 
 precision mediump int;
 precision lowp sampler2D;
 precision lowp samplerCube;
 precision mediump float;
+
+const int MAX_COLOR_SWAPS = 4;
+const float COLOR_SWAP_TOLERANCE = 1.0 / 255.0;
 
 uniform sampler2D sampler;
 uniform vec3 sourceColors[MAX_COLOR_SWAPS];
