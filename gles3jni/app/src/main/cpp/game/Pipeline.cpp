@@ -89,6 +89,7 @@ void Pipeline::initialize() {
 }
 
 void Pipeline::destroy() {
+	endDraw();
 	if (program) {
 		glDeleteProgram(program);
 		program = 0;

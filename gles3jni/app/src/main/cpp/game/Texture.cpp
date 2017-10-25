@@ -4,9 +4,25 @@
 #include "../stb_image.h"
 
 Texture::Texture(const char* filePath) {
-	destroy();
+	this->filePath = filePath;
 
-	stbi_uc* pixels = stbi_load(filePath, &width, &height, &channels, STBI_rgb_alpha);
+	initialize();
+}
+
+Texture::~Texture() {
+	destroy();
+}
+
+void Texture::destroy() {
+	if (handle) {
+		glDeleteTextures(1, &handle);
+		handle = 0;
+	}
+}
+
+void Texture::initialize() {
+	destroy();
+	stbi_uc* pixels = stbi_load(filePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
 
 	glGenTextures(1, &handle);
 	glActiveTexture(GL_TEXTURE0);
@@ -19,15 +35,4 @@ Texture::Texture(const char* filePath) {
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	stbi_image_free(pixels);
-}
-
-Texture::~Texture() {
-	destroy();
-}
-
-void Texture::destroy() {
-	if (handle) {
-		glDeleteTextures(1, &handle);
-		handle = 0;
-	}
 }

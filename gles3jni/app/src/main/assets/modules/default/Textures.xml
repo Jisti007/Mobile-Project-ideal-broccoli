@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Texture
-		id="test_hex"
-		path="textures/Hex.png"
-	/>
-	<Texture
 		id="test_unit"
 		path="textures/Units.png"
 	/>
@@ -15,10 +11,6 @@
 	<Texture
 		id="test_ui"
 		path="textures/UI.png"
-	/>
-	<Texture
-		id="hex_default"
-		path="textures/hex_default_1px.png"
 	/>
 	<Texture
 		id="terrain"

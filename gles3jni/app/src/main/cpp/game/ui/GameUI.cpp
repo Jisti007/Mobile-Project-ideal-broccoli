@@ -26,5 +26,9 @@ void GameUI::press(glm::vec2 position) {
 	}
 }
 
+void GameUI::clear() {
+	uiObjects.clear();
+}
+
 
 

@@ -12,17 +12,20 @@ Sprite::Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yO
 	auto textureRight = textureLeft + (float)w / texture->getWidth();
 	auto textureBottom = textureTop + (float)h / texture->getHeight();
 
-	std::vector<Vertex> vertices = {
+	vertices = {
 		{{left, top}, {textureLeft, textureTop}},
 		{{right, top}, {textureRight, textureTop}},
 		{{left, bottom}, {textureLeft, textureBottom}},
 		{{right, bottom}, {textureRight, textureBottom}}
 	};
 
-	std::vector<uint16_t> indices = {0, 2, 1, 1, 2, 3};
+	indices = {0, 2, 1, 1, 2, 3};
 
-	mesh = std::unique_ptr<Mesh>(new Mesh(vertices, indices));
+	createMesh();
 
 	this->swappableColors = swappableColors;
-	//swappableColors.emplace_back(0.0f, 0.0f, 244.0f/255);
+}
+
+void Sprite::createMesh() {
+	mesh = std::unique_ptr<Mesh>(new Mesh(vertices, indices));
 }

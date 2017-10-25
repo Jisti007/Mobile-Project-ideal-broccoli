@@ -33,10 +33,12 @@ void AssetManager::unloadAll() {
 	unitTypes.clear();
 	buildingTypes.clear();
 	resources.clear();
+	loadedModules.clear();
 }
 
 void AssetManager::loadModule(const char *directory) {
 	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
+	loadedModules.insert(directory);
 }
 
 void AssetManager::loadXml(const char *directory, const char *fileName, function<void(Node*)> nodeFunction) {
@@ -155,4 +157,21 @@ void AssetManager::loadBuildingType(Node *node) {
 void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	resources[node->getID()] = unique_ptr<Resource>(new Resource(sprite));
+}
+
+void AssetManager::reloadAll() {
+	for (auto& texture : textures) {
+		if (texture.second != nullptr) {
+			texture.second->initialize();
+		}
+	}
+	for (auto& sprite : sprites) {
+		if (sprite.second != nullptr) {
+			sprite.second->createMesh();
+		}
+	}
+}
+
+bool AssetManager::isModuleLoaded(const char * module) {
+	return loadedModules.find(module) != loadedModules.end();
 }

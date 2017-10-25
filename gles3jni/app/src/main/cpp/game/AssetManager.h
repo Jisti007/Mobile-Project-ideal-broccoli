@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <unordered_set>
 #include "../rapidxml.hpp"
 #include "Texture.h"
 #include "HexType.h"
@@ -18,7 +19,10 @@ public:
 	virtual ~AssetManager();
 
 	void unloadAll();
+	void reloadAll();
 	void loadModule(const char* directory);
+
+	bool isModuleLoaded(const char* module);
 
 	inline Texture* getTexture(const char* assetId) { return textures[assetId].get(); }
 	inline Mesh* getMesh(const char* assetId) { return meshes[assetId].get(); }
@@ -32,6 +36,8 @@ public:
 
 private:
 	class Node;
+
+	std::unordered_set<std::string> loadedModules;
 
 	std::unordered_map<std::string, std::function<void(Node*)>> moduleFunctions;
 	std::unordered_map<std::string, std::function<void(Node*)>> assetFunctions;
@@ -57,6 +63,7 @@ private:
 	void loadUnitType(Node* node);
 	void loadBuildingType(Node* node);
 	void loadResource(Node* node);
+
 
 	class Node {
 	public:

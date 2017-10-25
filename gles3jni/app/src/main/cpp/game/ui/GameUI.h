@@ -16,6 +16,7 @@ public:
 	void Add(std::shared_ptr<UIObject> object);
 	void draw(Pipeline *pipeline);
 	void press(glm::vec2 position);
+	void clear();
 private:
 	std::vector<std::shared_ptr<UIObject>> uiObjects;
 };

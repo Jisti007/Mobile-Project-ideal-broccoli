@@ -12,7 +12,9 @@ Game::~Game() {
 }
 
 void Game::initialize() {
+	ui.clear();
 	pipeline.initialize();
+		//assetManager.reloadAll();
 	assetManager.unloadAll();
 	assetManager.loadModule("modules/default");
 	map.initialize(160, 160, &assetManager, &pipeline);

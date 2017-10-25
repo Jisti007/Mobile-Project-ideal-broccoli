@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Assets>
 	<Sprite
-		id="test_hex"
-		texture="test_hex"
-		x="0"
-		y="0"
-		w="192"
-		h="128"
-	/>
-	<Sprite
 		id="test_unit"
 		texture="test_unit"
 		x="0"
@@ -28,14 +20,6 @@
 		yOffset="-16"
 		w="192"
 		h="192"
-	/>
-	<Sprite
-		id="hex_default"
-		texture="hex_default"
-		x="0"
-		y="0"
-		w="128"
-		h="128"
 	/>
 	<Sprite
 		id="test_button"
