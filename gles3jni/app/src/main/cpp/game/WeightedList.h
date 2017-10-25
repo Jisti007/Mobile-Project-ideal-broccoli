@@ -58,6 +58,7 @@ void WeightedList<T>::remove(T item) {
 template <typename T>
 void WeightedList<T>::clear() {
 	items.clear();
+	totalWeight = 0;
 }
 
 template <typename T>

@@ -24,7 +24,7 @@
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/gles3jni_activity">
 		<activity
-			android:screenOrientation="sensorLandscape"
+			android:screenOrientation="sensor"
 			android:name="xyz.asdasd.gles3jni.GLES3JNIActivity"
 			android:configChanges="orientation|keyboardHidden"
 			android:launchMode="singleTask"

@@ -26,7 +26,10 @@ AssetManager::~AssetManager() {
 
 void AssetManager::unloadAll() {
 	textures.clear();
+	sprites.clear();
 	hexTypes.clear();
+	biomes.clear();
+	weightedBiomes.clear();
 	unitTypes.clear();
 	buildingTypes.clear();
 	resources.clear();
