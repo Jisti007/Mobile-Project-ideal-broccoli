@@ -17,8 +17,6 @@ void Vertex::enableAttributes() {
 }
 
 Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
-	//this->vertices = vertices; //std::move(vertices);
-	//this->indices = indices; //std::move(indices);
 	indexCount = indices.size();
 
 	glGenVertexArrays(1, &vertexArray);
@@ -34,10 +32,12 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
 	Vertex::enableAttributes();
 
 	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
 Mesh::~Mesh() {
-	glDeleteVertexArrays(1, &vertexArray);
 	glDeleteBuffers(1, &vertexBuffer);
 	glDeleteBuffers(1, &indexBuffer);
+	glDeleteVertexArrays(1, &vertexArray);
 }

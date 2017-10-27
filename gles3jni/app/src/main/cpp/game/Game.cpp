@@ -14,12 +14,21 @@ Game::~Game() {
 void Game::initialize() {
 	ui.clear();
 	pipeline.initialize();
-		//assetManager.reloadAll();
+	/*
+	if (assetManager.isModuleLoaded("modules/default")) {
+		assetManager.reloadAll();
+	} else {
+		assetManager.unloadAll();
+		assetManager.loadModule("modules/default");
+		map.initialize(160, 160, &assetManager, &pipeline);
+	}
+	*/
 	assetManager.unloadAll();
 	assetManager.loadModule("modules/default");
 	map.initialize(160, 160, &assetManager, &pipeline);
-	std::shared_ptr<Button> button =
-		std::make_shared<Button>(assetManager.getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200});
+	std::shared_ptr<Button> button = std::make_shared<Button>(
+		assetManager.getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200}
+	);
 	button->setOnPress(bind(&GameMap::generate, &map));
 	ui.Add(button);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

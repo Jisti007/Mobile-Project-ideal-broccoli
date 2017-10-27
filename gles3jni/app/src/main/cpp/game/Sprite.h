@@ -8,7 +8,7 @@
 
 class Sprite {
 public:
-	Sprite(Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors);
+	Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors);
 
 	void createMesh();
 
@@ -17,6 +17,7 @@ public:
 	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }
 
 private:
+	std::string id;
 	Texture* texture;
 	std::unique_ptr<Mesh> mesh;
 	std::vector<glm::vec3> swappableColors;

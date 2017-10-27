@@ -33,7 +33,7 @@ precision lowp samplerCube;
 precision mediump float;
 
 const int MAX_COLOR_SWAPS = 4;
-const float COLOR_SWAP_TOLERANCE = 1.0 / 255.0;
+const float COLOR_SWAP_TOLERANCE = 0.25 / 255.0;
 
 uniform sampler2D sampler;
 uniform vec3 sourceColors[MAX_COLOR_SWAPS];
@@ -90,17 +90,17 @@ void Pipeline::initialize() {
 
 void Pipeline::destroy() {
 	endDraw();
-	if (program) {
-		glDeleteProgram(program);
-		program = 0;
+	if (fragmentShader && glIsShader(fragmentShader)) {
+		glDeleteShader(fragmentShader);
+		fragmentShader = 0;
 	}
-	if (vertexShader) {
+	if (vertexShader && glIsShader(vertexShader)) {
 		glDeleteShader(vertexShader);
 		vertexShader = 0;
 	}
-	if (fragmentShader) {
-		glDeleteShader(fragmentShader);
-		fragmentShader = 0;
+	if (program && glIsProgram(program)) {
+		glDeleteProgram(program);
+		program = 0;
 	}
 }
 
@@ -141,6 +141,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 		lastVertexArray = vertexArray;
 	}
 
+	//glDrawArrays(GL_TRIANGLES, 0, (GLsizei) mesh->getIndexCount());
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
@@ -163,6 +164,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> d
 }
 
 void Pipeline::endDraw() {
+	glUniform1i(numberOfColorSwapsLocation, 0);
 	glActiveTexture(GL_TEXTURE0);
 	lastTexture = 0;
 	glBindTexture(GL_TEXTURE_2D, lastTexture);

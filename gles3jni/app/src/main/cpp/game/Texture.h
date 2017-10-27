@@ -6,7 +6,7 @@
 
 class Texture {
 public:
-	Texture(const char *filePath);
+	Texture(const char* id, const char *filePath);
 	virtual ~Texture();
 
 	void initialize();
@@ -17,6 +17,7 @@ public:
 	//inline int getChannels() const { return channels; }
 
 private:
+	std::string id;
 	GLuint handle = 0;
 	int width, height, channels;
 	std::string filePath;

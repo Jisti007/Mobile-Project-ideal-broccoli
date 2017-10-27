@@ -26,8 +26,6 @@ public:
 	inline const size_t getIndexCount() const { return indexCount; }
 
 private:
-	//std::vector<Vertex> vertices;
-	//std::vector<uint16_t> indices;
 	GLuint vertexArray;
 	GLuint vertexBuffer;
 	GLuint indexBuffer;

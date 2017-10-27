@@ -84,7 +84,8 @@ void AssetManager::handleAssetNode(Node *node) {
 void AssetManager::loadTexture(Node *node) {
 	stringstream path;
 	path << node->getDirectory() << "/" << node->getPath();
-	textures[node->getID()] = unique_ptr<Texture>(new Texture(path.str().c_str()));
+	auto id = node->getID();
+	textures[id] = unique_ptr<Texture>(new Texture(id, path.str().c_str()));
 }
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
@@ -110,7 +111,9 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 		swappableColorNode = swappableColorNode->next_sibling();
 	}
 
-	sprites[node->getID()] = unique_ptr<Sprite>(new Sprite(
+	auto id = node->getID();
+	sprites[id] = unique_ptr<Sprite>(new Sprite(
+		id,
 		texture,
 		atoi(node->getX()),
 		atoi(node->getY()),

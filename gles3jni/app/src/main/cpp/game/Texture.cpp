@@ -3,7 +3,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb_image.h"
 
-Texture::Texture(const char* filePath) {
+Texture::Texture(const char* id, const char* filePath) {
+	this->id = id;
 	this->filePath = filePath;
 
 	initialize();
