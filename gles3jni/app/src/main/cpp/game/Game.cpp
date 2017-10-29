@@ -14,7 +14,7 @@ Game::~Game() {
 void Game::initialize() {
 	ui.clear();
 	pipeline.initialize();
-	/*
+
 	if (assetManager.isModuleLoaded("modules/default")) {
 		assetManager.reloadAll();
 	} else {
@@ -22,10 +22,13 @@ void Game::initialize() {
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
 	}
-	*/
+
+	/*
 	assetManager.unloadAll();
 	assetManager.loadModule("modules/default");
 	map.initialize(160, 160, &assetManager, &pipeline);
+	*/
+
 	std::shared_ptr<Button> button = std::make_shared<Button>(
 		assetManager.getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200}
 	);

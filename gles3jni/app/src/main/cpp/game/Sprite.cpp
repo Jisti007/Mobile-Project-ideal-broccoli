@@ -28,6 +28,5 @@ Sprite::Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int
 }
 
 void Sprite::createMesh() {
-	mesh = nullptr;
 	mesh = std::unique_ptr<Mesh>(new Mesh(vertices, indices));
 }

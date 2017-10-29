@@ -39,16 +39,20 @@ private:
 
 	std::unordered_set<std::string> loadedModules;
 
-	std::unordered_map<std::string, std::function<void(Node*)>> moduleFunctions;
-	std::unordered_map<std::string, std::function<void(Node*)>> assetFunctions;
-	std::unordered_map<std::string, std::unique_ptr<Texture>> textures;
-	std::unordered_map<std::string, std::unique_ptr<Mesh>> meshes;
-	std::unordered_map<std::string, std::unique_ptr<Sprite>> sprites;
-	std::unordered_map<std::string, std::unique_ptr<HexType>> hexTypes;
-	std::unordered_map<std::string, std::unique_ptr<Biome>> biomes;
-	std::unordered_map<std::string, std::unique_ptr<UnitType>> unitTypes;
-	std::unordered_map<std::string, std::unique_ptr<BuildingType>> buildingTypes;
-	std::unordered_map<std::string, std::unique_ptr<Resource>> resources;
+	typedef std::unordered_map<std::string, std::function<void(Node*)>> NodeFunction;
+	NodeFunction moduleFunctions;
+	NodeFunction assetFunctions;
+
+	template<typename T>
+	using AssetMap = std::unordered_map<std::string, std::unique_ptr<T>>;
+	AssetMap<Texture> textures;
+	AssetMap<Mesh> meshes;
+	AssetMap<Sprite> sprites;
+	AssetMap<HexType> hexTypes;
+	AssetMap<Biome> biomes;
+	AssetMap<UnitType> unitTypes;
+	AssetMap<BuildingType> buildingTypes;
+	AssetMap<Resource> resources;
 	WeightedList<Biome*> weightedBiomes;
 
 	void

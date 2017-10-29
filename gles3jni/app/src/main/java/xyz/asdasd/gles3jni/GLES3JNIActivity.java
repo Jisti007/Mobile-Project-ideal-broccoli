@@ -62,7 +62,7 @@ public class GLES3JNIActivity extends Activity {
 
 		// Extract files from the .apk into the cache
 		// so we can access them in C++ in a cross-platform way.
-		dataDirectory = getCacheDir() + "/";
+		dataDirectory = getFilesDir() + "/";
 		extractFileOrDir("modules");
 
 		view = new GLES3JNIView(getApplication(), this);

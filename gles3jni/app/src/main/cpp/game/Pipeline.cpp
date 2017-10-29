@@ -89,7 +89,6 @@ void Pipeline::initialize() {
 }
 
 void Pipeline::destroy() {
-	endDraw();
 	if (fragmentShader && glIsShader(fragmentShader)) {
 		glDeleteShader(fragmentShader);
 		fragmentShader = 0;
@@ -141,7 +140,6 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 		lastVertexArray = vertexArray;
 	}
 
-	//glDrawArrays(GL_TRIANGLES, 0, (GLsizei) mesh->getIndexCount());
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
@@ -164,7 +162,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> d
 }
 
 void Pipeline::endDraw() {
-	glUniform1i(numberOfColorSwapsLocation, 0);
+	glUniform1i(numberOfColorSwapsLocation, (GLint)0);
 	glActiveTexture(GL_TEXTURE0);
 	lastTexture = 0;
 	glBindTexture(GL_TEXTURE_2D, lastTexture);

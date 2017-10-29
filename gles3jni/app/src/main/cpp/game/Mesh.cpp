@@ -10,10 +10,14 @@ Vertex::Vertex(glm::vec2 position, glm::vec2 texture) {
 }
 
 void Vertex::enableAttributes() {
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
+	GLuint i = 0;
+
+	glEnableVertexAttribArray(i);
+	glVertexAttribPointer(i, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
+	i++;
+
+	glEnableVertexAttribArray(i);
+	glVertexAttribPointer(i, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texture));
 }
 
 Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
@@ -37,7 +41,7 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices) {
 }
 
 Mesh::~Mesh() {
-	glDeleteBuffers(1, &vertexBuffer);
-	glDeleteBuffers(1, &indexBuffer);
-	glDeleteVertexArrays(1, &vertexArray);
+	//glDeleteBuffers(1, &vertexBuffer);
+	//glDeleteBuffers(1, &indexBuffer);
+	//glDeleteVertexArrays(1, &vertexArray);
 }

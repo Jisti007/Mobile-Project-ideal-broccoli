@@ -34,7 +34,7 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(JNIEnv *env, jobject obj, jobjec
 	vm->AttachCurrentThread(&env, NULL);
 
 	jclass activityClass = env->GetObjectClass(activity);
-	jmethodID getCacheDir = env->GetMethodID(activityClass, "getCacheDir", "()Ljava/io/File;");
+	jmethodID getCacheDir = env->GetMethodID(activityClass, "getFilesDir", "()Ljava/io/File;");
 	jobject file = env->CallObjectMethod(activity, getCacheDir);
 	jclass fileClass = env->FindClass("java/io/File");
 	jmethodID getAbsolutePath = env->GetMethodID(fileClass, "getAbsolutePath", "()Ljava/lang/String;");
