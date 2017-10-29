@@ -22,11 +22,11 @@ Sprite::Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int
 
 	indices = {0, 2, 1, 1, 2, 3};
 
-	createMesh();
+	mesh.initialize(vertices, indices);
 
 	this->swappableColors = swappableColors;
 }
 
-void Sprite::createMesh() {
-	mesh = std::unique_ptr<Mesh>(new Mesh(vertices, indices));
+void Sprite::reload() {
+	mesh.reload();
 }

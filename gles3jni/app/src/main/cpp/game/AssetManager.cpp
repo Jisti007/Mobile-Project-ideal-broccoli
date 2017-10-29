@@ -44,7 +44,7 @@ void AssetManager::reloadAll() {
 	}
 	for (auto& sprite : sprites) {
 		if (sprite.second != nullptr) {
-			sprite.second->createMesh();
+			sprite.second->reload();
 		}
 	}
 }

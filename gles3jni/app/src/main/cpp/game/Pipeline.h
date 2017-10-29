@@ -30,6 +30,7 @@ private:
 	GLint numberOfColorSwapsLocation;
 
 	GLuint createShader(const char* source, GLenum type);
+	void deleteShader(GLuint* shader);
 };
 
 #endif //GLES3JNI_PIPELINE_H

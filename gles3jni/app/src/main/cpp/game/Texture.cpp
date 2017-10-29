@@ -11,18 +11,16 @@ Texture::Texture(const char* id, const char* filePath) {
 }
 
 Texture::~Texture() {
-	//destroy();
 }
 
 void Texture::destroy() {
-	//if (handle) {
-	//	glDeleteTextures(1, &handle);
-	//	handle = 0;
-	//}
+	if (handle && glIsTexture(handle)) {
+		glDeleteTextures(1, &handle);
+		handle = 0;
+	}
 }
 
 void Texture::initialize() {
-	//destroy();
 	stbi_uc* pixels = stbi_load(filePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
 
 	glGenTextures(1, &handle);

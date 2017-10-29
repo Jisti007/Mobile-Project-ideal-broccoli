@@ -10,16 +10,16 @@ class Sprite {
 public:
 	Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors);
 
-	void createMesh();
+	void reload();
 
 	inline Texture* getTexture() const { return texture; }
-	inline Mesh* getMesh() const { return mesh.get(); }
+	inline Mesh* getMesh() { return &mesh; }
 	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }
 
 private:
 	std::string id;
 	Texture* texture;
-	std::unique_ptr<Mesh> mesh;
+	Mesh mesh;
 	std::vector<glm::vec3> swappableColors;
 	std::vector<Vertex> vertices;
 	std::vector<uint16_t> indices;

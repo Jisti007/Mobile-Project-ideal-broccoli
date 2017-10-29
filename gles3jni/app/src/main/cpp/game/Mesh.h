@@ -19,17 +19,24 @@ public:
 
 class Mesh {
 public:
+	Mesh();
 	Mesh(std::vector<Vertex> vertices, std::vector<uint16_t> indices);
 	~Mesh();
 
+	void initialize(std::vector<Vertex> vertices, std::vector<uint16_t> indices);
+	void reload();
+	void destroy();
+	void deleteBuffer(GLuint* buffer);
+
 	inline const GLuint getVertexArray() const { return vertexArray; }
-	inline const size_t getIndexCount() const { return indexCount; }
+	inline const size_t getIndexCount() const { return indices.size(); }
 
 private:
+	std::vector<Vertex> vertices;
+	std::vector<uint16_t> indices;
 	GLuint vertexArray;
 	GLuint vertexBuffer;
 	GLuint indexBuffer;
-	size_t indexCount;
 };
 
 #endif //GLES3JNI_MESH_H

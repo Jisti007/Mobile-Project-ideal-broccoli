@@ -89,32 +89,12 @@ void Pipeline::initialize() {
 }
 
 void Pipeline::destroy() {
-	if (fragmentShader && glIsShader(fragmentShader)) {
-		glDeleteShader(fragmentShader);
-		fragmentShader = 0;
-	}
-	if (vertexShader && glIsShader(vertexShader)) {
-		glDeleteShader(vertexShader);
-		vertexShader = 0;
-	}
+	deleteShader(&fragmentShader);
+	deleteShader(&vertexShader);
 	if (program && glIsProgram(program)) {
 		glDeleteProgram(program);
 		program = 0;
 	}
-}
-
-GLuint Pipeline::createShader(const char* source, GLenum type) {
-	int success;
-	char log[512];
-	GLuint shader = glCreateShader(type);
-	glShaderSource(shader, 1, &source, NULL);
-	glCompileShader(shader);
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-	if (!success) {
-		glGetShaderInfoLog(shader, 512, NULL, log);
-	}
-	glAttachShader(program, shader);
-	return shader;
 }
 
 void Pipeline::beginDraw(glm::vec2 position, glm::vec2 size) {
@@ -169,5 +149,27 @@ void Pipeline::endDraw() {
 	lastVertexArray = 0;
 	glBindVertexArray(lastVertexArray);
 	glUseProgram(0);
+}
+
+
+GLuint Pipeline::createShader(const char* source, GLenum type) {
+	int success;
+	char log[512];
+	GLuint shader = glCreateShader(type);
+	glShaderSource(shader, 1, &source, NULL);
+	glCompileShader(shader);
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+	if (!success) {
+		glGetShaderInfoLog(shader, 512, NULL, log);
+	}
+	glAttachShader(program, shader);
+	return shader;
+}
+
+void Pipeline::deleteShader(GLuint* shader) {
+	if (*shader && glIsShader(*shader)) {
+		glDeleteShader(*shader);
+		*shader = 0;
+	}
 }
 
