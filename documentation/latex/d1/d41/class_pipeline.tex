@@ -1,0 +1,190 @@
+\hypertarget{class_pipeline}{}\section{Pipeline Class Reference}
+\label{class_pipeline}\index{Pipeline@{Pipeline}}
+
+
+{\ttfamily \#include $<$Pipeline.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pipeline_a79e49366358f823b8812658f8bf3a9e8}{Pipeline} ()
+\item 
+\hyperlink{class_pipeline_a527044d53a20f851d0579fbf313a2dec}{$\sim$\+Pipeline} ()
+\item 
+void \hyperlink{class_pipeline_a95d7452e4c7235d08344f1d8a8902b53}{initialize} ()
+\item 
+void \hyperlink{class_pipeline_a3059fbbdb1821ccd7deee8bf0d49ba77}{destroy} ()
+\item 
+G\+Luint \hyperlink{class_pipeline_a882e5827af527efb4306f12039464fb5}{get\+Program} ()
+\item 
+void \hyperlink{class_pipeline_a5fb0c15f2cb7af2c7f4a7a365a6115d1}{begin\+Draw} (glm\+::vec2 position, glm\+::vec2 size)
+\item 
+void \hyperlink{class_pipeline_ab5881644be6d1061be1cbc90a6724681}{draw} (\hyperlink{class_sprite}{Sprite} $\ast$sprite, glm\+::vec2 position)
+\item 
+void \hyperlink{class_pipeline_a69e2a417b8d5777c11d5bf36d0048dad}{draw} (\hyperlink{class_sprite}{Sprite} $\ast$sprite, glm\+::vec2 position, std\+::vector$<$ glm\+::vec3 $>$ destination\+Colors)
+\item 
+void \hyperlink{class_pipeline_a7a20d0da3c07f08276058e72d4012ff8}{end\+Draw} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_pipeline_a6b08f1cee6613c60bca5bde2579bbda2}{create\+Shader} (const char $\ast$source, G\+Lenum type)
+\item 
+void \hyperlink{class_pipeline_a171de6cafdea4a00d1a23bedc1fa63b5}{delete\+Shader} (G\+Luint $\ast$shader)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{class_pipeline_a7f3b684d19d114d2a7cb54dc0e89c5f2}{program}
+\item 
+G\+Luint \hyperlink{class_pipeline_a7355b9ab47063a1cb683344113e964e3}{vertex\+Shader}
+\item 
+G\+Luint \hyperlink{class_pipeline_a91a4e7bf32b46b337e39b0436fa83faa}{fragment\+Shader}
+\item 
+G\+Luint \hyperlink{class_pipeline_acdf6fe161adcf4e4d39e66cba8873d01}{last\+Texture} = 0
+\item 
+G\+Luint \hyperlink{class_pipeline_ac16f368b971d6ed8c92dbb9824ee0cae}{last\+Vertex\+Array} = 0
+\item 
+G\+Lint \hyperlink{class_pipeline_a7aee16a3e8cb60299c175417c8dca531}{instance\+Position\+Location}
+\item 
+G\+Lint \hyperlink{class_pipeline_a8a126a8b85d4bbd1d1894ee2691478e5}{source\+Colors\+Location}
+\item 
+G\+Lint \hyperlink{class_pipeline_a0d3b7cf20e189c0489bf37f54dee7a37}{destination\+Colors\+Location}
+\item 
+G\+Lint \hyperlink{class_pipeline_a47013549f42fee9d082c3ec05f5288ed}{number\+Of\+Color\+Swaps\+Location}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pipeline_a79e49366358f823b8812658f8bf3a9e8}\label{class_pipeline_a79e49366358f823b8812658f8bf3a9e8}} 
+\index{Pipeline@{Pipeline}!Pipeline@{Pipeline}}
+\index{Pipeline@{Pipeline}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{Pipeline()}{Pipeline()}}
+{\footnotesize\ttfamily Pipeline\+::\+Pipeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_a527044d53a20f851d0579fbf313a2dec}\label{class_pipeline_a527044d53a20f851d0579fbf313a2dec}} 
+\index{Pipeline@{Pipeline}!````~Pipeline@{$\sim$\+Pipeline}}
+\index{````~Pipeline@{$\sim$\+Pipeline}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{$\sim$\+Pipeline()}{~Pipeline()}}
+{\footnotesize\ttfamily Pipeline\+::$\sim$\+Pipeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pipeline_a5fb0c15f2cb7af2c7f4a7a365a6115d1}\label{class_pipeline_a5fb0c15f2cb7af2c7f4a7a365a6115d1}} 
+\index{Pipeline@{Pipeline}!begin\+Draw@{begin\+Draw}}
+\index{begin\+Draw@{begin\+Draw}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{begin\+Draw()}{beginDraw()}}
+{\footnotesize\ttfamily void Pipeline\+::begin\+Draw (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{position,  }\item[{glm\+::vec2}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_a6b08f1cee6613c60bca5bde2579bbda2}\label{class_pipeline_a6b08f1cee6613c60bca5bde2579bbda2}} 
+\index{Pipeline@{Pipeline}!create\+Shader@{create\+Shader}}
+\index{create\+Shader@{create\+Shader}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{create\+Shader()}{createShader()}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::create\+Shader (\begin{DoxyParamCaption}\item[{const char $\ast$}]{source,  }\item[{G\+Lenum}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a171de6cafdea4a00d1a23bedc1fa63b5}\label{class_pipeline_a171de6cafdea4a00d1a23bedc1fa63b5}} 
+\index{Pipeline@{Pipeline}!delete\+Shader@{delete\+Shader}}
+\index{delete\+Shader@{delete\+Shader}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{delete\+Shader()}{deleteShader()}}
+{\footnotesize\ttfamily void Pipeline\+::delete\+Shader (\begin{DoxyParamCaption}\item[{G\+Luint $\ast$}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a3059fbbdb1821ccd7deee8bf0d49ba77}\label{class_pipeline_a3059fbbdb1821ccd7deee8bf0d49ba77}} 
+\index{Pipeline@{Pipeline}!destroy@{destroy}}
+\index{destroy@{destroy}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void Pipeline\+::destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_ab5881644be6d1061be1cbc90a6724681}\label{class_pipeline_ab5881644be6d1061be1cbc90a6724681}} 
+\index{Pipeline@{Pipeline}!draw@{draw}}
+\index{draw@{draw}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Pipeline\+::draw (\begin{DoxyParamCaption}\item[{\hyperlink{class_sprite}{Sprite} $\ast$}]{sprite,  }\item[{glm\+::vec2}]{position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_a69e2a417b8d5777c11d5bf36d0048dad}\label{class_pipeline_a69e2a417b8d5777c11d5bf36d0048dad}} 
+\index{Pipeline@{Pipeline}!draw@{draw}}
+\index{draw@{draw}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{draw()}{draw()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Pipeline\+::draw (\begin{DoxyParamCaption}\item[{\hyperlink{class_sprite}{Sprite} $\ast$}]{sprite,  }\item[{glm\+::vec2}]{position,  }\item[{std\+::vector$<$ glm\+::vec3 $>$}]{destination\+Colors }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_a7a20d0da3c07f08276058e72d4012ff8}\label{class_pipeline_a7a20d0da3c07f08276058e72d4012ff8}} 
+\index{Pipeline@{Pipeline}!end\+Draw@{end\+Draw}}
+\index{end\+Draw@{end\+Draw}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{end\+Draw()}{endDraw()}}
+{\footnotesize\ttfamily void Pipeline\+::end\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pipeline_a882e5827af527efb4306f12039464fb5}\label{class_pipeline_a882e5827af527efb4306f12039464fb5}} 
+\index{Pipeline@{Pipeline}!get\+Program@{get\+Program}}
+\index{get\+Program@{get\+Program}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{get\+Program()}{getProgram()}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::get\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_pipeline_a95d7452e4c7235d08344f1d8a8902b53}\label{class_pipeline_a95d7452e4c7235d08344f1d8a8902b53}} 
+\index{Pipeline@{Pipeline}!initialize@{initialize}}
+\index{initialize@{initialize}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Pipeline\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pipeline_a0d3b7cf20e189c0489bf37f54dee7a37}\label{class_pipeline_a0d3b7cf20e189c0489bf37f54dee7a37}} 
+\index{Pipeline@{Pipeline}!destination\+Colors\+Location@{destination\+Colors\+Location}}
+\index{destination\+Colors\+Location@{destination\+Colors\+Location}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{destination\+Colors\+Location}{destinationColorsLocation}}
+{\footnotesize\ttfamily G\+Lint Pipeline\+::destination\+Colors\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a91a4e7bf32b46b337e39b0436fa83faa}\label{class_pipeline_a91a4e7bf32b46b337e39b0436fa83faa}} 
+\index{Pipeline@{Pipeline}!fragment\+Shader@{fragment\+Shader}}
+\index{fragment\+Shader@{fragment\+Shader}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{fragment\+Shader}{fragmentShader}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::fragment\+Shader\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a7aee16a3e8cb60299c175417c8dca531}\label{class_pipeline_a7aee16a3e8cb60299c175417c8dca531}} 
+\index{Pipeline@{Pipeline}!instance\+Position\+Location@{instance\+Position\+Location}}
+\index{instance\+Position\+Location@{instance\+Position\+Location}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{instance\+Position\+Location}{instancePositionLocation}}
+{\footnotesize\ttfamily G\+Lint Pipeline\+::instance\+Position\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_acdf6fe161adcf4e4d39e66cba8873d01}\label{class_pipeline_acdf6fe161adcf4e4d39e66cba8873d01}} 
+\index{Pipeline@{Pipeline}!last\+Texture@{last\+Texture}}
+\index{last\+Texture@{last\+Texture}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{last\+Texture}{lastTexture}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::last\+Texture = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_ac16f368b971d6ed8c92dbb9824ee0cae}\label{class_pipeline_ac16f368b971d6ed8c92dbb9824ee0cae}} 
+\index{Pipeline@{Pipeline}!last\+Vertex\+Array@{last\+Vertex\+Array}}
+\index{last\+Vertex\+Array@{last\+Vertex\+Array}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{last\+Vertex\+Array}{lastVertexArray}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::last\+Vertex\+Array = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a47013549f42fee9d082c3ec05f5288ed}\label{class_pipeline_a47013549f42fee9d082c3ec05f5288ed}} 
+\index{Pipeline@{Pipeline}!number\+Of\+Color\+Swaps\+Location@{number\+Of\+Color\+Swaps\+Location}}
+\index{number\+Of\+Color\+Swaps\+Location@{number\+Of\+Color\+Swaps\+Location}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{number\+Of\+Color\+Swaps\+Location}{numberOfColorSwapsLocation}}
+{\footnotesize\ttfamily G\+Lint Pipeline\+::number\+Of\+Color\+Swaps\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a7f3b684d19d114d2a7cb54dc0e89c5f2}\label{class_pipeline_a7f3b684d19d114d2a7cb54dc0e89c5f2}} 
+\index{Pipeline@{Pipeline}!program@{program}}
+\index{program@{program}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{program}{program}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::program\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a8a126a8b85d4bbd1d1894ee2691478e5}\label{class_pipeline_a8a126a8b85d4bbd1d1894ee2691478e5}} 
+\index{Pipeline@{Pipeline}!source\+Colors\+Location@{source\+Colors\+Location}}
+\index{source\+Colors\+Location@{source\+Colors\+Location}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{source\+Colors\+Location}{sourceColorsLocation}}
+{\footnotesize\ttfamily G\+Lint Pipeline\+::source\+Colors\+Location\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_pipeline_a7355b9ab47063a1cb683344113e964e3}\label{class_pipeline_a7355b9ab47063a1cb683344113e964e3}} 
+\index{Pipeline@{Pipeline}!vertex\+Shader@{vertex\+Shader}}
+\index{vertex\+Shader@{vertex\+Shader}!Pipeline@{Pipeline}}
+\subsubsection{\texorpdfstring{vertex\+Shader}{vertexShader}}
+{\footnotesize\ttfamily G\+Luint Pipeline\+::vertex\+Shader\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+gles3jni/app/src/main/cpp/game/\hyperlink{_pipeline_8h}{Pipeline.\+h}\item 
+gles3jni/app/src/main/cpp/game/\hyperlink{_pipeline_8cpp}{Pipeline.\+cpp}\end{DoxyCompactItemize}

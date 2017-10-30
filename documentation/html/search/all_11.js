@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['scenario',['Scenario',['../d3/d8b/class_scenario.html',1,'']]],
+  ['scenario_2ecpp',['Scenario.cpp',['../de/de6/_scenario_8cpp.html',1,'']]],
+  ['scenario_2eh',['Scenario.h',['../d8/d44/_scenario_8h.html',1,'']]],
+  ['screenheight',['screenHeight',['../d5/d8f/gles3jni_8cpp.html#a9ebc1dbd77788c4bfa27758a6725413f',1,'gles3jni.cpp']]],
+  ['screenwidth',['screenWidth',['../d5/d8f/gles3jni_8cpp.html#ae50cb92a78d9e0a4f4bd718fc02bd294',1,'gles3jni.cpp']]],
+  ['setonpress',['setOnPress',['../d2/d62/class_u_i_object.html#ac1e5c7ea89b7a37838fc6cdb9fba4bb9',1,'UIObject']]],
+  ['setregion',['setRegion',['../d8/d79/class_map_hex.html#a16e97b71ca65b0f74f7c0c343e2c2e0a',1,'MapHex']]],
+  ['setsize',['setSize',['../da/dbb/class_camera.html#af755aa66130cb97058a7b0a9558ea06a',1,'Camera']]],
+  ['size',['size',['../da/dbb/class_camera.html#a54d49644a8999ae4cb1c9f824091c4d1',1,'Camera::size()'],['../d2/d62/class_u_i_object.html#a8aff4ab7d58367300405639712ade234',1,'UIObject::size()']]],
+  ['sourcecolorslocation',['sourceColorsLocation',['../d1/d41/class_pipeline.html#a8a126a8b85d4bbd1d1894ee2691478e5',1,'Pipeline']]],
+  ['sprite',['Sprite',['../d7/dbf/class_sprite.html',1,'Sprite'],['../dc/d44/class_building_type.html#a478ebad17c32cae3c5def69b87b7d898',1,'BuildingType::sprite()'],['../da/dc7/class_hex_type.html#a7f1c5fa0871568503aba259e76ce8758',1,'HexType::sprite()'],['../df/d00/class_resource.html#a786b65335656d3d4e9bebe44a6eeed5e',1,'Resource::sprite()'],['../d2/d62/class_u_i_object.html#a20929a89f31c811f44de45e2116bfed3',1,'UIObject::sprite()'],['../d8/d00/class_unit_type.html#a6e361b921f79f39f082a761feb271ba1',1,'UnitType::sprite()'],['../d7/dbf/class_sprite.html#ac5f5ecc78c5f7ee7908c5d202d03260e',1,'Sprite::Sprite()']]],
+  ['sprite_2ecpp',['Sprite.cpp',['../da/d21/_sprite_8cpp.html',1,'']]],
+  ['sprite_2eh',['Sprite.h',['../d3/d07/_sprite_8h.html',1,'']]],
+  ['sprites',['sprites',['../db/dcf/class_asset_manager.html#a2b51544270fd1aa09654fe3241241c63',1,'AssetManager']]],
+  ['stb_5fimage_5fimplementation',['STB_IMAGE_IMPLEMENTATION',['../da/d26/_texture_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78',1,'Texture.cpp']]],
+  ['step',['step',['../d3/d71/classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_lib.html#ac8eed64be6c912b3c45b9e54db165cb6',1,'xyz::asdasd::gles3jni::GLES3JNILib']]],
+  ['string',['string',['../da/da3/classxyz_1_1asdasd_1_1gles3jni_1_1_r_1_1string.html',1,'xyz::asdasd::gles3jni::R']]],
+  ['swappablecolors',['swappableColors',['../d7/dbf/class_sprite.html#a0a11b213bedf3a2adc210d660a0b29e8',1,'Sprite']]]
+];

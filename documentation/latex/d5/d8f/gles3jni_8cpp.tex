@@ -1,0 +1,90 @@
+\hypertarget{gles3jni_8cpp}{}\section{gles3jni/app/src/main/cpp/gles3jni.cpp File Reference}
+\label{gles3jni_8cpp}\index{gles3jni/app/src/main/cpp/gles3jni.\+cpp@{gles3jni/app/src/main/cpp/gles3jni.\+cpp}}
+{\ttfamily \#include $<$jni.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}game/\+Game.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL \hyperlink{gles3jni_8cpp_ab975770a720879b3f8ac85d00e281f89}{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize} (J\+N\+I\+Env $\ast$env, jobject obj, jobject activity)
+\item 
+J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL \hyperlink{gles3jni_8cpp_a4413a69e1f1998a0a071ea2fb1d6288f}{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize} (J\+N\+I\+Env $\ast$env, jobject obj, jint width, jint height)
+\item 
+J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL \hyperlink{gles3jni_8cpp_a20fa057c7b8e52b60572fde503f4b8d7}{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step} (J\+N\+I\+Env $\ast$env, jobject obj)
+\item 
+J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL \hyperlink{gles3jni_8cpp_a28dc4231c004721be189e9c367035330}{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move} (J\+N\+I\+Env $\ast$env, jobject obj, jfloat dx, jfloat dy)
+\item 
+J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL \hyperlink{gles3jni_8cpp_a0f092ed2e15fad0ac698d6db41d5b6c1}{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press} (J\+N\+I\+Env $\ast$env, jobject obj, jfloat x, jfloat y)
+\item 
+static G\+Lboolean \hyperlink{gles3jni_8cpp_a36904095881c3c02a527eb6eafef48b8}{gl3stub\+Init} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game}{Game} \hyperlink{gles3jni_8cpp_ac6a5ed6191fcf3a5bf0445921feb4f48}{game}
+\item 
+int \hyperlink{gles3jni_8cpp_ae50cb92a78d9e0a4f4bd718fc02bd294}{screen\+Width}
+\item 
+int \hyperlink{gles3jni_8cpp_a9ebc1dbd77788c4bfa27758a6725413f}{screen\+Height}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gles3jni_8cpp_a36904095881c3c02a527eb6eafef48b8}\label{gles3jni_8cpp_a36904095881c3c02a527eb6eafef48b8}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!gl3stub\+Init@{gl3stub\+Init}}
+\index{gl3stub\+Init@{gl3stub\+Init}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{gl3stub\+Init()}{gl3stubInit()}}
+{\footnotesize\ttfamily static G\+Lboolean gl3stub\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{gles3jni_8cpp_ab975770a720879b3f8ac85d00e281f89}\label{gles3jni_8cpp_ab975770a720879b3f8ac85d00e281f89}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize}}
+\index{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize()}{Java\_xyz\_asdasd\_gles3jni\_GLES3JNILib\_initialize()}}
+{\footnotesize\ttfamily J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+initialize (\begin{DoxyParamCaption}\item[{J\+N\+I\+Env $\ast$}]{env,  }\item[{jobject}]{obj,  }\item[{jobject}]{activity }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gles3jni_8cpp_a28dc4231c004721be189e9c367035330}\label{gles3jni_8cpp_a28dc4231c004721be189e9c367035330}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move}}
+\index{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move()}{Java\_xyz\_asdasd\_gles3jni\_GLES3JNILib\_onMove()}}
+{\footnotesize\ttfamily J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Move (\begin{DoxyParamCaption}\item[{J\+N\+I\+Env $\ast$}]{env,  }\item[{jobject}]{obj,  }\item[{jfloat}]{dx,  }\item[{jfloat}]{dy }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gles3jni_8cpp_a0f092ed2e15fad0ac698d6db41d5b6c1}\label{gles3jni_8cpp_a0f092ed2e15fad0ac698d6db41d5b6c1}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press}}
+\index{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press()}{Java\_xyz\_asdasd\_gles3jni\_GLES3JNILib\_onPress()}}
+{\footnotesize\ttfamily J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+on\+Press (\begin{DoxyParamCaption}\item[{J\+N\+I\+Env $\ast$}]{env,  }\item[{jobject}]{obj,  }\item[{jfloat}]{x,  }\item[{jfloat}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gles3jni_8cpp_a4413a69e1f1998a0a071ea2fb1d6288f}\label{gles3jni_8cpp_a4413a69e1f1998a0a071ea2fb1d6288f}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize}}
+\index{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize()}{Java\_xyz\_asdasd\_gles3jni\_GLES3JNILib\_resize()}}
+{\footnotesize\ttfamily J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+resize (\begin{DoxyParamCaption}\item[{J\+N\+I\+Env $\ast$}]{env,  }\item[{jobject}]{obj,  }\item[{jint}]{width,  }\item[{jint}]{height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gles3jni_8cpp_a20fa057c7b8e52b60572fde503f4b8d7}\label{gles3jni_8cpp_a20fa057c7b8e52b60572fde503f4b8d7}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step}}
+\index{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step@{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step()}{Java\_xyz\_asdasd\_gles3jni\_GLES3JNILib\_step()}}
+{\footnotesize\ttfamily J\+N\+I\+E\+X\+P\+O\+RT void J\+N\+I\+C\+A\+LL Java\+\_\+xyz\+\_\+asdasd\+\_\+gles3jni\+\_\+\+G\+L\+E\+S3\+J\+N\+I\+Lib\+\_\+step (\begin{DoxyParamCaption}\item[{J\+N\+I\+Env $\ast$}]{env,  }\item[{jobject}]{obj }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{gles3jni_8cpp_ac6a5ed6191fcf3a5bf0445921feb4f48}\label{gles3jni_8cpp_ac6a5ed6191fcf3a5bf0445921feb4f48}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!game@{game}}
+\index{game@{game}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \hyperlink{class_game}{Game} game}
+
+\mbox{\Hypertarget{gles3jni_8cpp_a9ebc1dbd77788c4bfa27758a6725413f}\label{gles3jni_8cpp_a9ebc1dbd77788c4bfa27758a6725413f}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!screen\+Height@{screen\+Height}}
+\index{screen\+Height@{screen\+Height}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{screen\+Height}{screenHeight}}
+{\footnotesize\ttfamily int screen\+Height}
+
+\mbox{\Hypertarget{gles3jni_8cpp_ae50cb92a78d9e0a4f4bd718fc02bd294}\label{gles3jni_8cpp_ae50cb92a78d9e0a4f4bd718fc02bd294}} 
+\index{gles3jni.\+cpp@{gles3jni.\+cpp}!screen\+Width@{screen\+Width}}
+\index{screen\+Width@{screen\+Width}!gles3jni.\+cpp@{gles3jni.\+cpp}}
+\subsubsection{\texorpdfstring{screen\+Width}{screenWidth}}
+{\footnotesize\ttfamily int screen\+Width}
+

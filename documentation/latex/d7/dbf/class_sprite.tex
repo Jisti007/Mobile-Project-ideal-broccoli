@@ -1,0 +1,115 @@
+\hypertarget{class_sprite}{}\section{Sprite Class Reference}
+\label{class_sprite}\index{Sprite@{Sprite}}
+
+
+{\ttfamily \#include $<$Sprite.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sprite_ac5f5ecc78c5f7ee7908c5d202d03260e}{Sprite} (const char $\ast$\hyperlink{class_sprite_a83f441d0dc80c048e94d464a74eae396}{id}, \hyperlink{class_texture}{Texture} $\ast$\hyperlink{class_sprite_a3d42412fa0ae1138f7f7bcf4e8d85110}{texture}, int x, int y, int w, int h, int x\+Offset, int y\+Offset, std\+::vector$<$ glm\+::vec3 $>$ \hyperlink{class_sprite_a0a11b213bedf3a2adc210d660a0b29e8}{swappable\+Colors})
+\item 
+void \hyperlink{class_sprite_a679597e8517454a28bcd3db3b281115d}{reload} ()
+\item 
+\hyperlink{class_texture}{Texture} $\ast$ \hyperlink{class_sprite_ad2c9622a0353ce1930e469d5fffce529}{get\+Texture} () const
+\item 
+\hyperlink{class_mesh}{Mesh} $\ast$ \hyperlink{class_sprite_a79dcf0629aa9ed6c93a55b21dd581770}{get\+Mesh} ()
+\item 
+const std\+::vector$<$ glm\+::vec3 $>$ \& \hyperlink{class_sprite_a4d4631f7a5657981ae92c44da94ecc0a}{get\+Swappable\+Colors} () const
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_sprite_a83f441d0dc80c048e94d464a74eae396}{id}
+\item 
+\hyperlink{class_texture}{Texture} $\ast$ \hyperlink{class_sprite_a3d42412fa0ae1138f7f7bcf4e8d85110}{texture}
+\item 
+\hyperlink{class_mesh}{Mesh} \hyperlink{class_sprite_a1dc8b3ea170b512fae98fb572e5e1b24}{mesh}
+\item 
+std\+::vector$<$ glm\+::vec3 $>$ \hyperlink{class_sprite_a0a11b213bedf3a2adc210d660a0b29e8}{swappable\+Colors}
+\item 
+std\+::vector$<$ \hyperlink{struct_vertex}{Vertex} $>$ \hyperlink{class_sprite_af77b5223fb08a56ef686ee5755e3e52a}{vertices}
+\item 
+std\+::vector$<$ uint16\+\_\+t $>$ \hyperlink{class_sprite_a775d53abd90f5ebd94118535159e9849}{indices}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sprite_ac5f5ecc78c5f7ee7908c5d202d03260e}\label{class_sprite_ac5f5ecc78c5f7ee7908c5d202d03260e}} 
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{Sprite()}{Sprite()}}
+{\footnotesize\ttfamily Sprite\+::\+Sprite (\begin{DoxyParamCaption}\item[{const char $\ast$}]{id,  }\item[{\hyperlink{class_texture}{Texture} $\ast$}]{texture,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{x\+Offset,  }\item[{int}]{y\+Offset,  }\item[{std\+::vector$<$ glm\+::vec3 $>$}]{swappable\+Colors }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sprite_a79dcf0629aa9ed6c93a55b21dd581770}\label{class_sprite_a79dcf0629aa9ed6c93a55b21dd581770}} 
+\index{Sprite@{Sprite}!get\+Mesh@{get\+Mesh}}
+\index{get\+Mesh@{get\+Mesh}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{get\+Mesh()}{getMesh()}}
+{\footnotesize\ttfamily \hyperlink{class_mesh}{Mesh}$\ast$ Sprite\+::get\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_sprite_a4d4631f7a5657981ae92c44da94ecc0a}\label{class_sprite_a4d4631f7a5657981ae92c44da94ecc0a}} 
+\index{Sprite@{Sprite}!get\+Swappable\+Colors@{get\+Swappable\+Colors}}
+\index{get\+Swappable\+Colors@{get\+Swappable\+Colors}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{get\+Swappable\+Colors()}{getSwappableColors()}}
+{\footnotesize\ttfamily const std\+::vector$<$glm\+::vec3$>$\& Sprite\+::get\+Swappable\+Colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_sprite_ad2c9622a0353ce1930e469d5fffce529}\label{class_sprite_ad2c9622a0353ce1930e469d5fffce529}} 
+\index{Sprite@{Sprite}!get\+Texture@{get\+Texture}}
+\index{get\+Texture@{get\+Texture}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{get\+Texture()}{getTexture()}}
+{\footnotesize\ttfamily \hyperlink{class_texture}{Texture}$\ast$ Sprite\+::get\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_sprite_a679597e8517454a28bcd3db3b281115d}\label{class_sprite_a679597e8517454a28bcd3db3b281115d}} 
+\index{Sprite@{Sprite}!reload@{reload}}
+\index{reload@{reload}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{reload()}{reload()}}
+{\footnotesize\ttfamily void Sprite\+::reload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sprite_a83f441d0dc80c048e94d464a74eae396}\label{class_sprite_a83f441d0dc80c048e94d464a74eae396}} 
+\index{Sprite@{Sprite}!id@{id}}
+\index{id@{id}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily std\+::string Sprite\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_sprite_a775d53abd90f5ebd94118535159e9849}\label{class_sprite_a775d53abd90f5ebd94118535159e9849}} 
+\index{Sprite@{Sprite}!indices@{indices}}
+\index{indices@{indices}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$uint16\+\_\+t$>$ Sprite\+::indices\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_sprite_a1dc8b3ea170b512fae98fb572e5e1b24}\label{class_sprite_a1dc8b3ea170b512fae98fb572e5e1b24}} 
+\index{Sprite@{Sprite}!mesh@{mesh}}
+\index{mesh@{mesh}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{mesh}{mesh}}
+{\footnotesize\ttfamily \hyperlink{class_mesh}{Mesh} Sprite\+::mesh\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_sprite_a0a11b213bedf3a2adc210d660a0b29e8}\label{class_sprite_a0a11b213bedf3a2adc210d660a0b29e8}} 
+\index{Sprite@{Sprite}!swappable\+Colors@{swappable\+Colors}}
+\index{swappable\+Colors@{swappable\+Colors}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{swappable\+Colors}{swappableColors}}
+{\footnotesize\ttfamily std\+::vector$<$glm\+::vec3$>$ Sprite\+::swappable\+Colors\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_sprite_a3d42412fa0ae1138f7f7bcf4e8d85110}\label{class_sprite_a3d42412fa0ae1138f7f7bcf4e8d85110}} 
+\index{Sprite@{Sprite}!texture@{texture}}
+\index{texture@{texture}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \hyperlink{class_texture}{Texture}$\ast$ Sprite\+::texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_sprite_af77b5223fb08a56ef686ee5755e3e52a}\label{class_sprite_af77b5223fb08a56ef686ee5755e3e52a}} 
+\index{Sprite@{Sprite}!vertices@{vertices}}
+\index{vertices@{vertices}!Sprite@{Sprite}}
+\subsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{struct_vertex}{Vertex}$>$ Sprite\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+gles3jni/app/src/main/cpp/game/\hyperlink{_sprite_8h}{Sprite.\+h}\item 
+gles3jni/app/src/main/cpp/game/\hyperlink{_sprite_8cpp}{Sprite.\+cpp}\end{DoxyCompactItemize}

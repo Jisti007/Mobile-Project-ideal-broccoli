@@ -1,0 +1,52 @@
+\hypertarget{_pipeline_8cpp}{}\section{gles3jni/app/src/main/cpp/game/\+Pipeline.cpp File Reference}
+\label{_pipeline_8cpp}\index{gles3jni/app/src/main/cpp/game/\+Pipeline.\+cpp@{gles3jni/app/src/main/cpp/game/\+Pipeline.\+cpp}}
+{\ttfamily \#include \char`\"{}Pipeline.\+h\char`\"{}}\newline
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{_pipeline_8cpp_ab9074ab0c1c8dc12d38c788ede72bed0}{vertex\+Source}
+\item 
+const char $\ast$ \hyperlink{_pipeline_8cpp_a73e7b5d16123a619fa2f2bdbf641e3f5}{fragment\+Source}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_pipeline_8cpp_a73e7b5d16123a619fa2f2bdbf641e3f5}\label{_pipeline_8cpp_a73e7b5d16123a619fa2f2bdbf641e3f5}} 
+\index{Pipeline.\+cpp@{Pipeline.\+cpp}!fragment\+Source@{fragment\+Source}}
+\index{fragment\+Source@{fragment\+Source}!Pipeline.\+cpp@{Pipeline.\+cpp}}
+\subsubsection{\texorpdfstring{fragment\+Source}{fragmentSource}}
+{\footnotesize\ttfamily const char$\ast$ fragment\+Source}
+
+\mbox{\Hypertarget{_pipeline_8cpp_ab9074ab0c1c8dc12d38c788ede72bed0}\label{_pipeline_8cpp_ab9074ab0c1c8dc12d38c788ede72bed0}} 
+\index{Pipeline.\+cpp@{Pipeline.\+cpp}!vertex\+Source@{vertex\+Source}}
+\index{vertex\+Source@{vertex\+Source}!Pipeline.\+cpp@{Pipeline.\+cpp}}
+\subsubsection{\texorpdfstring{vertex\+Source}{vertexSource}}
+{\footnotesize\ttfamily const char$\ast$ vertex\+Source}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= R\textcolor{stringliteral}{"glsl(#version 300 es}
+\textcolor{stringliteral}{precision highp float;}
+\textcolor{stringliteral}{precision highp int;}
+\textcolor{stringliteral}{precision lowp sampler2D;}
+\textcolor{stringliteral}{precision lowp samplerCube;}
+\textcolor{stringliteral}{}
+\textcolor{stringliteral}{uniform vec2 cameraSize;}
+\textcolor{stringliteral}{uniform vec2 cameraPosition;}
+\textcolor{stringliteral}{uniform vec2 instancePosition;}
+\textcolor{stringliteral}{}
+\textcolor{stringliteral}{layout(location = 0) in vec2 vertexPosition;}
+\textcolor{stringliteral}{layout(location = 1) in vec2 vertexTexture;}
+\textcolor{stringliteral}{}
+\textcolor{stringliteral}{out vec2 fragmentTexture;}
+\textcolor{stringliteral}{}
+\textcolor{stringliteral}{void main()\{}
+\textcolor{stringliteral}{    vec2 position = vertexPosition + instancePosition - cameraPosition;}
+\textcolor{stringliteral}{    position.x = position.x / cameraSize.x;}
+\textcolor{stringliteral}{    position.y = position.y / cameraSize.y;}
+\textcolor{stringliteral}{}
+\textcolor{stringliteral}{    gl\_Position = vec4(position, 0.0, 1.0);}
+\textcolor{stringliteral}{    fragmentTexture = vertexTexture;}
+\textcolor{stringliteral}{\}}
+\textcolor{stringliteral}{)glsl"}
+\end{DoxyCode}
