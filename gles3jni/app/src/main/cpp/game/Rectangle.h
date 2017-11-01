@@ -1,11 +1,7 @@
-//
-// Created by K1697 on 20.10.2017.
-//
-
 #ifndef GLES3JNI_RECTANGLE_H
 #define GLES3JNI_RECTANGLE_H
 
-#include "../glm/vec2.hpp"
+#include "../glm/glm.hpp"
 
 class Rectangle {
 public:

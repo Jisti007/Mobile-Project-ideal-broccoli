@@ -24,6 +24,8 @@ public:
 	inline const MapRegion* getRegion() const { return region; }
 	inline void setRegion(MapRegion* region) { this->region = region; }
 	inline const HexType* getType() const { return type; }
+	inline Unit* getUnit() { return unit; }
+	inline void setUnit(Unit* unit) { this->unit = unit; }
 
 private:
 	std::vector<MapHex*> neighbors;

@@ -2,7 +2,7 @@
 #define GLES3JNI_PIPELINE_H
 
 #include <GLES3/gl3.h>
-#include "../glm/vec2.hpp"
+#include "../glm/glm.hpp"
 #include "Sprite.h"
 
 class Pipeline {

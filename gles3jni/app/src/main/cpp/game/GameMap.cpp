@@ -2,6 +2,10 @@
 
 using namespace std;
 
+const float gridSize = 128;
+const float xOffset = 0.75;
+const float yOffset = 0.50;
+
 GameMap::GameMap() {
 
 }
@@ -30,6 +34,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, 
 	factions.push_back(testFaction2);
 	factions.push_back(testFaction3);
 
+	initializeHexes();
 	generate();
 }
 
@@ -39,8 +44,7 @@ void GameMap::generate() {
 	mapObjects.clear();
 	units.clear();
 
-	initializeHexes();
-	createRegions(100);
+	initializeRegions(100);
 	expandRegions(-1, -1);
 	updateHexTypes();
 
@@ -52,7 +56,7 @@ void GameMap::generate() {
 				auto rn = rand() % 100;
 				if (rn > 95) {
 					auto faction = &factions[rand() % factions.size()];
-					units.emplace_back(x, y, testUnit, faction);
+					createUnit({x, y}, testUnit, faction);
 				}
 			}
 		}
@@ -98,25 +102,49 @@ void GameMap::draw() {
 	pipeline->endDraw();
 }
 
-glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
-	glm::vec2 position = {x, y};
-
-	const float gridSize = 128;
-
-	float xOffset = 0.75;
-	float yOffset = 0.50;
-
-	if (x % 2) {
-		position = {xOffset * x, y - yOffset};
-	}
-	else {
-		position = {xOffset * x, y};
+Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
+	MapHex* hex = getHexSafely(position);
+	if (hex == nullptr || hex->getUnit() != nullptr) {
+		return nullptr;
 	}
 
-	position.x *= gridSize;
-	position.y *= gridSize;
+	units.emplace_back(hex->getGridX(), hex->getGridY(), type, faction);
+	hex->setUnit(&units.back());
+	return &units.back();
+}
 
-	return position;
+MapHex* GameMap::getHexSafely(int x, int y) {
+	if (x < 0 || x >= width || y < 0 || y >= height) {
+		return nullptr;
+	}
+	return getHex(x, y);
+}
+
+Point GameMap::getGridPosition(glm::vec2 screenPosition) {
+	auto position = screenPosition + camera.getPosition();
+	position.x /= gridSize * xOffset;
+	position.y /= gridSize;
+
+	int minX = (int)position.x;
+	int minY = (int)position.y;
+	int maxX = minX + 1;
+	int maxY = minY + 1;
+
+	Point nearest{0, 0};
+	float nearestDistanceSquared = numeric_limits<float>::max();
+	for (int x = minX; x <= maxX; x++) {
+		for (int y = minY; y <= maxY; y++) {
+			auto hexPosition = getHexPosition(x, y);
+			auto delta = hexPosition - position;
+			auto distanceSquared = glm::dot(delta, delta);
+			if (distanceSquared < nearestDistanceSquared) {
+				nearest = Point{x, y};
+				nearestDistanceSquared = distanceSquared;
+			}
+		}
+	}
+
+	return nearest;
 }
 
 void GameMap::initializeHexes() {
@@ -133,9 +161,13 @@ void GameMap::initializeHexes() {
 	}
 }
 
-void GameMap::createRegions(int count) {
+void GameMap::initializeRegions(int count) {
 	regions.resize((size_t)count);
 	expanders.resize((size_t)count);
+
+	for (auto& hex : hexes) {
+		hex.setRegion(nullptr);
+	}
 
 	for (int i = 0; i < count; i++) {
 		auto regionOrigin = findFreeHex(100);
@@ -198,3 +230,24 @@ void GameMap::updateHexTypes() {
 		hex.updateType();
 	}
 }
+
+glm::vec2 GameMap::getHexPosition(int x, int y) {
+	glm::vec2 position = {x, y};
+
+	if (x % 2) {
+		position = {xOffset * x, y - yOffset};
+	}
+	else {
+		position = {xOffset * x, y};
+	}
+
+	return position;
+}
+
+glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
+	glm::vec2 position = getHexPosition(x, y);
+	position.x *= gridSize;
+	position.y *= gridSize;
+	return position;
+}
+

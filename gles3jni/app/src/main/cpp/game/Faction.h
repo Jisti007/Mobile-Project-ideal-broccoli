@@ -2,7 +2,7 @@
 #define GLES3JNI_FACTION_H
 
 #include <vector>
-#include "../glm/vec3.hpp"
+#include "../glm/glm.hpp"
 
 class Faction {
 public:

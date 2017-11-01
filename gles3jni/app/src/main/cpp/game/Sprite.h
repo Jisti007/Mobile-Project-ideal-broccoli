@@ -4,7 +4,7 @@
 #include <memory>
 #include "Texture.h"
 #include "Mesh.h"
-#include "../glm/vec3.hpp"
+#include "../glm/glm.hpp"
 
 class Sprite {
 public:

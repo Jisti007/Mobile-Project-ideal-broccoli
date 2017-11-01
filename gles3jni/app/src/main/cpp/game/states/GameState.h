@@ -9,7 +9,7 @@ public:
 	virtual ~GameState();
 
 	virtual void draw(Pipeline* pipeline);
-	void press(float x, float y) { uiRoot->press({x, y}); }
+	virtual bool press(float x, float y) { return uiRoot->press({x, y}); }
 
 protected:
 	std::unique_ptr<UIObject> uiRoot;

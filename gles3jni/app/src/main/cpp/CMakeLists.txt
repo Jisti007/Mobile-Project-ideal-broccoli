@@ -41,6 +41,7 @@ add_library(
     game/MapRegion.cpp
     game/Mesh.cpp
     game/Pipeline.cpp
+    game/Point.cpp
     game/Rectangle.cpp
     game/Resource.cpp
     game/Scenario.cpp

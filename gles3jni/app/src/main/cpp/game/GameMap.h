@@ -13,6 +13,7 @@ class MapHex;
 #include "Building.h"
 #include "MapObject.h"
 #include "Faction.h"
+#include "Point.h"
 
 class GameMap {
 public:
@@ -23,11 +24,16 @@ public:
 	void initialize(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline);
 	void generate();
 	void draw();
+	Unit* createUnit(Point position, UnitType* type, Faction* faction);
+	MapHex* getHexSafely(int x, int y);
+	MapHex* getHexSafely(Point position) { return getHexSafely(position.x, position.y); }
+	Point getGridPosition(glm::vec2 screenPosition);
 
-	inline MapHex* getHex(uint16_t x, uint16_t y) { return &hexes[y * width + x]; }
+	inline MapHex* getHex(int x, int y) { return &hexes[y * width + x]; }
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
+	inline Faction* getFaction(int index) { return &factions[index]; }
 
 private:
 	std::vector<MapRegion> regions;
@@ -43,10 +49,11 @@ private:
 	AssetManager* assets;
 
 	void initializeHexes();
-	void createRegions(int count);
+	void initializeRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
 	void updateHexTypes();
 	MapHex* findFreeHex(int maxTries);
+	glm::vec2 getHexPosition(int x, int y);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);
 	int getDefaultMaxExpansionsPerRegion() {
 		return (int) (hexes.size() / (1 + regions.capacity()));

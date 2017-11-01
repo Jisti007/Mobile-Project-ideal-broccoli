@@ -1,7 +1,7 @@
 #ifndef GLES3JNI_CAMERA_H
 #define GLES3JNI_CAMERA_H
 
-#include "../glm/vec2.hpp"
+#include "../glm/glm.hpp"
 #include "Rectangle.h"
 
 class Camera {

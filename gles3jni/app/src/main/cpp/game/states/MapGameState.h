@@ -10,8 +10,11 @@ public:
 	MapGameState(AssetManager* assets, GameMap* map);
 	virtual ~MapGameState();
 
-private:
+	virtual bool press(float x, float y);
 
+private:
+	AssetManager* assets;
+	GameMap* map;
 };
 
 #endif //GLES3JNI_MAPGAMESTATE_H

@@ -2,7 +2,7 @@
 #define GLES3JNI_MESH_H
 
 #include <vector>
-#include "../glm/vec2.hpp"
+#include "../glm/glm.hpp"
 #include <GLES3/gl3.h>
 //#include "../gl3stub.h"
 
