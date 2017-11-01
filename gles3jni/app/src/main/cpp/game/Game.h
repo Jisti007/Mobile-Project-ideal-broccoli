@@ -4,12 +4,12 @@
 #include "GameMap.h"
 #include "AssetManager.h"
 #include "Pipeline.h"
-#include "ui/GameUI.h"
+#include "states/GameState.h"
 
 class Game {
 public:
-    Game();
-    ~Game();
+	Game();
+	~Game();
 
 	void initialize();
 	void update();
@@ -22,7 +22,7 @@ private:
 	Pipeline pipeline;
 	AssetManager assetManager;
 	GameMap map;
-	GameUI ui;
+	std::unique_ptr<GameState> state;
 };
 
 #endif //GLES3JNI_GAME_H

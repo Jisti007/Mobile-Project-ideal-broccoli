@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "ui/Button.h"
+#include "states/MapGameState.h"
 
 using namespace std;
 
@@ -12,7 +13,6 @@ Game::~Game() {
 }
 
 void Game::initialize() {
-	ui.clear();
 	pipeline.initialize();
 
 	if (assetManager.isModuleLoaded("modules/default")) {
@@ -23,17 +23,8 @@ void Game::initialize() {
 		map.initialize(160, 160, &assetManager, &pipeline);
 	}
 
-	/*
-	assetManager.unloadAll();
-	assetManager.loadModule("modules/default");
-	map.initialize(160, 160, &assetManager, &pipeline);
-	*/
+	state = std::unique_ptr<GameState>(new MapGameState(&assetManager, &map));
 
-	std::shared_ptr<Button> button = std::make_shared<Button>(
-		assetManager.getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200}
-	);
-	button->setOnPress(bind(&GameMap::generate, &map));
-	ui.Add(button);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
@@ -44,7 +35,7 @@ void Game::update() {
 void Game::draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	map.draw();
-	ui.draw(&pipeline);
+	state->draw(&pipeline);
 }
 
 void Game::onMove(float dx, float dy) {
@@ -57,5 +48,5 @@ void Game::onResize(int width, int height) {
 }
 
 void Game::onPress(float x, float y) {
-	ui.press({x, y});
+	state->press(x, y);
 }

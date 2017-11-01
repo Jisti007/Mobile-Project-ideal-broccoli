@@ -1,22 +1,26 @@
-//
-// Created by K1697 on 20.10.2017.
-//
-
 #ifndef GLES3JNI_UIOBJECT_H
 #define GLES3JNI_UIOBJECT_H
 
 
 #include "../Sprite.h"
 #include "../Rectangle.h"
+#include "../Pipeline.h"
 
 class UIObject {
-public:
-	UIObject(Sprite *sprite, glm::vec2 position = {0,0}, glm::vec2 size = {0,0});
+	//typedef std::unique_ptr<UIObject> ChildPtr;
 
+public:
+	UIObject(glm::vec2 position = {0,0}, glm::vec2 size = {0,0});
+
+	virtual void onDraw(Pipeline* pipeline) {}
+
+	void draw(Pipeline* pipeline);
 	void setOnPress(std::function<void()> onPress);
 	bool press(glm::vec2 position);
+	void addChild(std::unique_ptr<UIObject> newChild);
 
-	inline Sprite* getSprite() { return sprite;}
+	inline void clearChildren() { children.clear(); }
+	inline std::vector<std::unique_ptr<UIObject>>& getChildren() { return children; }
 	inline glm::vec2 getPosition() { return position; }
 	inline glm::vec2 getSize() { return size; }
 	inline Rectangle getRectangle() {
@@ -24,7 +28,7 @@ public:
 	}
 
 private:
-	Sprite* sprite;
+	std::vector<std::unique_ptr<UIObject>> children;
 	glm::vec2 position;
 	glm::vec2 size;
 	std::function<void()> onPress;

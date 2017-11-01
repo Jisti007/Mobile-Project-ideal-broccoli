@@ -49,9 +49,11 @@ add_library(
     game/Unit.cpp
     game/UnitType.cpp
     game/WeightedList.cpp
+    game/states/GameState.cpp
+    game/states/MapGameState.cpp
     game/ui/Button.cpp
-    game/ui/GameUI.cpp
     game/ui/UIObject.cpp
+    game/ui/UISprite.cpp
 )
 
 # Include libraries needed for gles3jni lib

@@ -1,14 +1,16 @@
-//
-// Created by K1697 on 20.10.2017.
-//
-
 #include "UIObject.h"
 #include "../Rectangle.h"
 
-UIObject::UIObject(Sprite *sprite, glm::vec2 position, glm::vec2 size) {
-	this->sprite = sprite;
+UIObject::UIObject(glm::vec2 position, glm::vec2 size) {
 	this->position = position;
 	this->size = size;
+}
+
+void UIObject::draw(Pipeline *pipeline) {
+	onDraw(pipeline);
+	for (auto& child : children) {
+		child->draw(pipeline);
+	}
 }
 
 void UIObject::setOnPress(std::function<void()> onPress) {
@@ -16,9 +18,19 @@ void UIObject::setOnPress(std::function<void()> onPress) {
 }
 
 bool UIObject::press(glm::vec2 position) {
+	for (auto& child : children) {
+		if (child->press(position)) {
+			return true;
+		}
+	}
 	if (getRectangle().contains(position)) {
 		onPress();
 		return true;
 	}
 	return false;
 }
+
+void UIObject::addChild(std::unique_ptr<UIObject> newChild) {
+	children.push_back(std::move(newChild));
+}
+

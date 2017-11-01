@@ -1,14 +1,9 @@
-//
-// Created by K1697 on 20.10.2017.
-//
-
 #ifndef GLES3JNI_BUTTON_H
 #define GLES3JNI_BUTTON_H
 
+#include "UISprite.h"
 
-#include "UIObject.h"
-
-class Button : public UIObject {
+class Button : public UISprite {
 
 public:
 	Button(Sprite *sprite, glm::vec2 position, glm::vec2 size);
