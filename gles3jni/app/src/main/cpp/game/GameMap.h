@@ -41,7 +41,7 @@ private:
 	std::vector<MapHex> hexes;
 	std::vector<Faction> factions;
 	std::vector<std::unique_ptr<MapObject>> mapObjects;
-	std::vector<Unit> units;
+	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;
 	uint16_t height;
 	Pipeline* pipeline;
@@ -56,7 +56,7 @@ private:
 	glm::vec2 getHexPosition(int x, int y);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);
 	int getDefaultMaxExpansionsPerRegion() {
-		return (int) (hexes.size() / (1 + regions.capacity()));
+		return (int) (hexes.size() / (1 + regions.size()));
 	}
 };
 

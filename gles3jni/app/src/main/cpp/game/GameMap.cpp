@@ -93,9 +93,9 @@ void GameMap::draw() {
 	}
 
 	for (auto& unit : units) {
-		auto position = getScreenPosition(unit.getGridX(), unit.getGridY());
+		auto position = getScreenPosition(unit->getGridX(), unit->getGridY());
 		if (camera.getBounds().contains(position)) {
-			pipeline->draw(unit.getSprite(), position, unit.getFaction()->getColors());
+			pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
 		}
 	}
 
@@ -108,9 +108,10 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 		return nullptr;
 	}
 
-	units.emplace_back(hex->getGridX(), hex->getGridY(), type, faction);
-	hex->setUnit(&units.back());
-	return &units.back();
+	auto unit = new Unit(hex->getGridX(), hex->getGridY(), type, faction, this);
+	units.push_back(std::unique_ptr<Unit>(unit));
+	hex->setUnit(unit);
+	return unit;
 }
 
 MapHex* GameMap::getHexSafely(int x, int y) {
@@ -162,8 +163,10 @@ void GameMap::initializeHexes() {
 }
 
 void GameMap::initializeRegions(int count) {
-	regions.resize((size_t)count);
-	expanders.resize((size_t)count);
+	regions.clear();
+	expanders.clear();
+	regions.reserve((size_t)count);
+	expanders.reserve((size_t)count);
 
 	for (auto& hex : hexes) {
 		hex.setRegion(nullptr);
@@ -175,9 +178,9 @@ void GameMap::initializeRegions(int count) {
 			continue;
 		}
 
-		regions[i] = MapRegion(assets->getRandomBiome());
-		auto region = &regions[i];
-		expanders[i] = region;
+		regions.emplace_back(assets->getRandomBiome());
+		auto region = &regions.back();
+		expanders.push_back(region);
 		region->expandTo(regionOrigin);
 		for (int j = 0; j < 10; j++) {
 			if (!region->expandRandom()) {

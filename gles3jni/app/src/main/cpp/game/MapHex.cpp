@@ -1,5 +1,4 @@
 #include "MapHex.h"
-#include "GameMap.h"
 
 MapHex::MapHex() : MapObject(0,0) {
 
@@ -19,6 +18,7 @@ void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType* type) {
 	this->type = type;
 	this->gridX = gridX;
 	this->gridY = gridY;
+	this->unit = nullptr;
 	this->region = nullptr;
 }
 

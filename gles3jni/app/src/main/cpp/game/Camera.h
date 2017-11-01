@@ -17,6 +17,7 @@ public:
 	inline void setSize(glm::vec2 size) { this->size = size; }
 	inline float getX() { return position.x; }
 	inline float getY() { return position.y; }
+	inline float getZoom() { return zoom; }
 	inline float getWidth() { return zoom * size.x; }
 	inline float getHeight() { return zoom * size.y; }
 	inline Rectangle getBounds() {

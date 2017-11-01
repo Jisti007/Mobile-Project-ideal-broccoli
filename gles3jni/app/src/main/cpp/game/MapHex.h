@@ -3,6 +3,7 @@
 
 class GameMap;
 class MapRegion;
+class Unit;
 
 #include "HexType.h"
 #include "Unit.h"

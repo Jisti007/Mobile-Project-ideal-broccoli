@@ -15,6 +15,7 @@ public:
 private:
 	AssetManager* assets;
 	GameMap* map;
+	Unit* selectedUnit = nullptr;
 };
 
 #endif //GLES3JNI_MAPGAMESTATE_H

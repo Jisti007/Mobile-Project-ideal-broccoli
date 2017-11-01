@@ -24,7 +24,15 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	auto gridPosition = map->getGridPosition({x, y});
-	map->createUnit(gridPosition, assets->getUnitType("test"), map->getFaction(0));
+	auto hex = map->getHexSafely(gridPosition);
+	if (hex != nullptr) {
+		auto unit = hex->getUnit();
+		if (unit != nullptr) {
+			selectedUnit = unit;
+		} else if (selectedUnit != nullptr) {
+			selectedUnit->moveTo(hex);
+		}
+	}
 
 	return true;
 }
