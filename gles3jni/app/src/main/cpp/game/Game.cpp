@@ -21,9 +21,8 @@ void Game::initialize() {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
+		state = std::unique_ptr<GameState>(new MapGameState(&assetManager, &map));
 	}
-
-	state = std::unique_ptr<GameState>(new MapGameState(&assetManager, &map));
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
