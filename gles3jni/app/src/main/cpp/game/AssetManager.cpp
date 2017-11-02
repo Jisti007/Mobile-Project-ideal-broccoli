@@ -144,7 +144,8 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite));
+	auto movementCost = (float)atof(node->getMovementCost());
+	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite, movementCost));
 }
 
 void AssetManager::loadBiome(AssetManager::Node* node) {

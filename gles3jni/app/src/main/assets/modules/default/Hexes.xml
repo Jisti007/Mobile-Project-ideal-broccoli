@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Hex
-		id="test"
-		sprite="test_hex"
-	/>
-	<Hex
-        id="default"
-        sprite="hex_default"
-    />
-	<Hex
 		id="grass"
-	    sprite="grass"
-    />
+		sprite="grass"
+		movementCost="1.0"
+	/>
 	<Hex
 		id="water"
 		sprite="water"
+		movementCost="8.0"
 	/>
 	<Hex
 		id="sand"
 		sprite="sand"
+		movementCost="2.0"
 	/>
 </Assets>

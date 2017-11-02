@@ -9,6 +9,7 @@ class Unit;
 #include "Unit.h"
 #include "GameMap.h"
 #include "MapRegion.h"
+#include "pathing/Comparable.h"
 
 class MapHex : public MapObject {
 public:

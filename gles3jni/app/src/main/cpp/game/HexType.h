@@ -7,13 +7,14 @@
 
 class HexType {
 public:
-	HexType(Sprite* sprite);
+	HexType(Sprite* sprite, float movementCost);
 	~HexType();
 
 	inline Sprite* getSprite() const { return sprite; }
 
 private:
 	Sprite* sprite;
+	float movementCost = 1.0f;
 };
 
 #endif //GLES3JNI_HEXTYPE_H

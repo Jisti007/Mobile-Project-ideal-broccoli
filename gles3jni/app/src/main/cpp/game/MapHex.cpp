@@ -50,3 +50,16 @@ void MapHex::addNeighbor(GameMap* map, int x, int y) {
 void MapHex::updateType() {
 	type = region->getBiome()->getRandomHexType();
 }
+/*
+int MapHex::CompareTo(MapHex& other) {
+	float valueSelf = pathCost + heuristic;
+	float valueOther = other.pathCost + other.heuristic;
+	if (valueSelf > valueOther) {
+		return 1;
+	}
+	if (valueSelf < valueOther) {
+		return -1;
+	}
+	return 0;
+}
+*/

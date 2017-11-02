@@ -50,6 +50,11 @@ add_library(
     game/Unit.cpp
     game/UnitType.cpp
     game/WeightedList.cpp
+    game/pathing/Agent.cpp
+    game/pathing/BinaryHeap.cpp
+    game/pathing/Comparable.cpp
+    game/pathing/Link.cpp
+    game/pathing/Node.cpp
     game/states/GameState.cpp
     game/states/MapGameState.cpp
     game/ui/Button.cpp
