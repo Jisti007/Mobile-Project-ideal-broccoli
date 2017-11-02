@@ -10,14 +10,17 @@ class Unit;
 #include "GameMap.h"
 #include "MapRegion.h"
 #include "pathing/Comparable.h"
+#include "pathing/Node.h"
 
-class MapHex : public MapObject {
+class MapHex : public MapObject, public Node {
 public:
 	MapHex();
 	MapHex(uint16_t gridX, uint16_t gridY, HexType* type);
 	virtual ~MapHex();
 
-	void initialize(uint16_t gridX, uint16_t gridY, HexType* type);
+	virtual float getHeuristic(Node* destination);
+
+	//void initialize(uint16_t gridX, uint16_t gridY, HexType* type);
 	void initializeNeighbors(GameMap* map);
 	void updateType();
 

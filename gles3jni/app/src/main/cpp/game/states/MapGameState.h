@@ -16,6 +16,7 @@ private:
 	AssetManager* assets;
 	GameMap* map;
 	Unit* selectedUnit = nullptr;
+	std::list<Node*> path;
 };
 
 #endif //GLES3JNI_MAPGAMESTATE_H

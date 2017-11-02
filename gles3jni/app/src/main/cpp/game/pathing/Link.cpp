@@ -8,3 +8,12 @@ Link::Link(Node* source, Node* destination) {
 Link::~Link() {
 
 }
+
+SimpleLink::SimpleLink(Node* source, Node* destination, float cost)
+	: Link(source, destination) {
+	this->cost = cost;
+}
+
+SimpleLink::~SimpleLink() {
+
+}

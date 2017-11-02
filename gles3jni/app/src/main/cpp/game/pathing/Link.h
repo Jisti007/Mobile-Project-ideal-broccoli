@@ -5,11 +5,13 @@ class Node;
 
 #include "Node.h"
 #include "Agent.h"
+#include <vector>
+#include <memory>
 
 class Link {
 public:
 	Link(Node* source, Node* destination);
-	~Link();
+	virtual ~Link();
 
 	virtual float getCost(Agent* agent) = 0;
 
@@ -19,6 +21,18 @@ public:
 private:
 	Node* source;
 	Node* destination;
+};
+
+// Constant cost for all agents.
+class SimpleLink : public Link {
+public:
+	SimpleLink(Node* source, Node* destination, float cost);
+	virtual ~SimpleLink();
+
+	virtual float getCost(Agent* agent) { return cost; }
+
+private:
+	float cost;
 };
 
 #endif //GLES3JNI_LINK_H

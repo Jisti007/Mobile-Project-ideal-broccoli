@@ -17,6 +17,7 @@ public:
 	//void sort();
 	//bool contains(Comparable* item);
 
+	inline void reserve(size_t size) { items.reserve(size); }
 	inline Comparable* remove() { return removeAt(0); }
 	inline Comparable* peek() { return items[0]; }
 	inline void clear() { items.clear(); }
@@ -24,7 +25,7 @@ public:
 
 private:
 	std::vector<Comparable*> items;
-	bool sorted = false;
+	//bool sorted = false;
 
 	void heapifyUp(int position);
 	void heapifyDown(int position);

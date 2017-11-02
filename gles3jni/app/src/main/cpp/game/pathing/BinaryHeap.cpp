@@ -10,7 +10,7 @@ BinaryHeap::~BinaryHeap() {
 
 void BinaryHeap::add(Comparable* item) {
 	items.push_back(item);
-	heapifyUp((int)items.size());
+	heapifyUp((int)items.size() - 1);
 }
 
 void BinaryHeap::reposition(Comparable* item) {
@@ -40,7 +40,7 @@ Comparable* BinaryHeap::removeAt(int position) {
 
 void BinaryHeap::heapifyUp(int position) {
 	int parent = getParent(position);
-	while (position > 0 && items[position]->compareTo(items[parent]) >= 0) {
+	while (position > 0 && items[position]->compareTo(items[parent]) <= 0) {
 		swap(position, parent);
 		position = parent;
 		parent = getParent(position);

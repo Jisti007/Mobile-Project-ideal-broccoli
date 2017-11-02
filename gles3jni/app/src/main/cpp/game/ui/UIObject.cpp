@@ -24,7 +24,9 @@ bool UIObject::press(glm::vec2 position) {
 		}
 	}
 	if (getRectangle().contains(position)) {
-		onPress();
+		if (onPress) {
+			onPress();
+		}
 		return true;
 	}
 	return false;

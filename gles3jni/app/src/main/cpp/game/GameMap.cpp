@@ -79,9 +79,9 @@ void GameMap::draw() {
 	pipeline->beginDraw(camera.getPosition(), camera.getSize());
 
 	for (auto& hex : hexes) {
-		auto position = getScreenPosition(hex.getGridX(), hex.getGridY());
+		auto position = getScreenPosition(hex->getGridX(), hex->getGridY());
 		if (camera.getBounds().contains(position)) {
-			pipeline->draw(hex.getSprite(), position);
+			pipeline->draw(hex->getSprite(), position);
 		}
 	}
 
@@ -150,15 +150,21 @@ Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 
 void GameMap::initializeHexes() {
 	hexes.clear();
-	hexes.resize(width * height);
+	hexes.reserve(width * height);
 
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto hex = getHex(x, y);
-			hex->initialize(x, y, grass);
-			hex->initializeNeighbors(this);
+			auto hex = unique_ptr<MapHex>(new MapHex(x, y, grass));
+			hexes.push_back(move(hex));
+			//auto hex = getHex(x, y);
+			//hex->initialize(x, y, grass);
+			//hex->initializeNeighbors(this);
 		}
+	}
+
+	for (auto& hex : hexes) {
+		hex->initializeNeighbors(this);
 	}
 }
 
@@ -169,7 +175,7 @@ void GameMap::initializeRegions(int count) {
 	expanders.reserve((size_t)count);
 
 	for (auto& hex : hexes) {
-		hex.setRegion(nullptr);
+		hex->setRegion(nullptr);
 	}
 
 	for (int i = 0; i < count; i++) {
@@ -230,7 +236,7 @@ MapHex* GameMap::findFreeHex(int maxTries) {
 
 void GameMap::updateHexTypes() {
 	for (auto& hex : hexes) {
-		hex.updateType();
+		hex->updateType();
 	}
 }
 

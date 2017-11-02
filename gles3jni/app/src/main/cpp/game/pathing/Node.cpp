@@ -1,17 +1,25 @@
-#include <cstdint>
-#include <vector>
 #include "Node.h"
 #include "BinaryHeap.h"
 
 uint64_t currentPathfinderRun = 0;
 
-std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent) {
+Node::Node() {
+
+}
+
+Node::~Node() {
+
+}
+
+std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
 	currentPathfinderRun++;
 	lastVisit = currentPathfinderRun;
 	previous = nullptr;
 
 	std::vector<Node*> closed;
+	closed.reserve(graphSize);
 	BinaryHeap open;
+	open.reserve(graphSize);
 	open.add(this);
 
 	while (open.count() > 0) {
@@ -22,8 +30,8 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent) {
 			break;
 		}
 
-		for (auto& link : getLinks()) {
-			auto neighbor = link.getDestination();
+		for (auto& link : active->links) {
+			auto neighbor = link->getDestination();
 
 			if (neighbor->lastVisit != currentPathfinderRun) {
 				neighbor->status = NodeStatus::unvisited;
@@ -31,7 +39,7 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent) {
 			}
 
 			if (neighbor->status != NodeStatus::closed) {
-				auto cost = active->pathCost + link.getCost(agent);
+				auto cost = active->pathCost + link->getCost(agent);
 
 				if (neighbor->status == NodeStatus::unvisited) {
 					neighbor->previous = active;
@@ -58,5 +66,14 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent) {
 }
 
 int Node::compareTo(Comparable* other) {
-
+	auto valueSelf = pathCost + heuristic;
+	auto otherNode = (Node*)other;
+	auto valueOther = otherNode->pathCost + otherNode->heuristic;
+	if (valueSelf > valueOther) {
+		return 1;
+	}
+	if (valueSelf < valueOther) {
+		return -1;
+	}
+	return 0;
 }

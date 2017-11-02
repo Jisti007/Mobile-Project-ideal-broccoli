@@ -11,6 +11,7 @@ public:
 	~HexType();
 
 	inline Sprite* getSprite() const { return sprite; }
+	inline float getMovementCost() { return movementCost; }
 
 private:
 	Sprite* sprite;

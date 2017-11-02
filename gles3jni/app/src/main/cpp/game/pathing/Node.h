@@ -9,6 +9,7 @@ class Link;
 #include <list>
 #include <vector>
 #include <cstdio>
+#include <memory>
 
 enum NodeStatus {
 	unvisited,
@@ -18,12 +19,15 @@ enum NodeStatus {
 
 class Node : public Comparable {
 public:
-	virtual std::vector<Link> getLinks() = 0;
+	Node();
+	virtual ~Node();
+
 	virtual float getHeuristic(Node* destination) = 0;
-
-	std::list<Node*> findShortestPath(Node* destination, Agent* agent);
-
 	virtual int compareTo(Comparable* other);
+	std::list<Node*> findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
+
+protected:
+	std::vector<std::unique_ptr<Link>> links;
 
 private:
 	Node* previous = nullptr;

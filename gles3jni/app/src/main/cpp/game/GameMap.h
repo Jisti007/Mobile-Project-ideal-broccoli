@@ -29,7 +29,7 @@ public:
 	MapHex* getHexSafely(Point position) { return getHexSafely(position.x, position.y); }
 	Point getGridPosition(glm::vec2 screenPosition);
 
-	inline MapHex* getHex(int x, int y) { return &hexes[y * width + x]; }
+	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
@@ -38,8 +38,8 @@ public:
 private:
 	std::vector<MapRegion> regions;
 	std::vector<MapRegion*> expanders;
-	std::vector<MapHex> hexes;
 	std::vector<Faction> factions;
+	std::vector<std::unique_ptr<MapHex>> hexes;
 	std::vector<std::unique_ptr<MapObject>> mapObjects;
 	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;

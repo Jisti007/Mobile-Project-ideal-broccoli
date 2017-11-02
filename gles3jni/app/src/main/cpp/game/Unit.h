@@ -7,8 +7,9 @@ class GameMap;
 #include "MapObject.h"
 #include "Faction.h"
 #include "GameMap.h"
+#include "pathing/Agent.h"
 
-class Unit : public MapObject {
+class Unit : public MapObject, public Agent {
 public:
 	Unit();
 	Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map);
