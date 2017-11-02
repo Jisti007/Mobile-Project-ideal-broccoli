@@ -16,25 +16,20 @@ MapHex::~MapHex() {
 }
 
 float MapHex::getHeuristic(Node* destination) {
+	/*
 	auto destinationHex = static_cast<MapHex*>(destination);
 	int dx = destinationHex->getGridX() - getGridX();
 	int dy = destinationHex->getGridY() - getGridY();
 	return abs(dx) + abs(dy);
+	*/
+	return 0;
 }
-/*
-void MapHex::initialize(uint16_t gridX, uint16_t gridY, HexType* type) {
-	this->type = type;
-	this->gridX = gridX;
-	this->gridY = gridY;
-	this->unit = nullptr;
-	this->region = nullptr;
-}
-*/
+
 void MapHex::initializeNeighbors(GameMap* map) {
 	neighbors.clear();
 	neighbors.reserve(6);
-	//links.clear();
-	//links.reserve(6);
+	links.clear();
+	links.reserve(6);
 
 	addNeighbor(map, gridX, gridY + 1);
 	addNeighbor(map, gridX, gridY - 1);

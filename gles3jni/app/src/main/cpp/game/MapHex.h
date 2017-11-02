@@ -20,7 +20,6 @@ public:
 
 	virtual float getHeuristic(Node* destination);
 
-	//void initialize(uint16_t gridX, uint16_t gridY, HexType* type);
 	void initializeNeighbors(GameMap* map);
 	void updateType();
 

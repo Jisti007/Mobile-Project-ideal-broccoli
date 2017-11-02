@@ -35,15 +35,11 @@ bool MapGameState::press(float x, float y) {
 		if (unit != nullptr) {
 			selectedUnit = unit;
 		} else if (selectedUnit != nullptr) {
-			if (path.size() == 0) {
-				auto selectedUnitHex = map->getHexSafely(selectedUnit->getPosition());
-				path = selectedUnitHex->findShortestPath(hex, selectedUnit);
-			} else {
-				auto nextHex = static_cast<MapHex*>(path.front());
-				path.pop_front();
-				selectedUnit->moveTo(nextHex);
-			}
-			//selectedUnit->moveTo(hex);
+			auto selectedUnitHex = map->getHexSafely(selectedUnit->getPosition());
+			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
+			path.pop_front();
+			auto nextHex = static_cast<MapHex*>(path.front());
+			selectedUnit->moveTo(nextHex);
 		}
 	}
 
