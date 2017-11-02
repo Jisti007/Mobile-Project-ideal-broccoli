@@ -13,7 +13,15 @@
 		path="textures/UI.png"
 	/>
 	<Texture
+		id="ui"
+		path="textures/UI.png"
+	/>
+	<Texture
 		id="terrain"
 		path="textures/Terrain.png"
+	/>
+	<Texture
+		id="resource"
+	    path="textures/Resource.png"
 	/>
 </Assets>

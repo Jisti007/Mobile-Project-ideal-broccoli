@@ -30,6 +30,14 @@
 		h="110"
 	/>
 	<Sprite
+		id="ui_resource"
+		texture="ui"
+		x="360"
+		y="0"
+		w="360"
+		h="110"
+	/>
+	<Sprite
 		id="grass"
 		texture="terrain"
 		x="192"
@@ -48,6 +56,38 @@
 	<Sprite
 		id="sand"
 		texture="terrain"
+		x="192"
+		y="192"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="gold"
+		texture="resource"
+		x="0"
+		y="0"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="food"
+		texture="resource"
+		x="192"
+		y="0"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="material"
+		texture="resource"
+		x="0"
+		y="192"
+		w="192"
+		h="192"
+	/>
+	<Sprite
+		id="crystal"
+		texture="resource"
 		x="192"
 		y="192"
 		w="192"

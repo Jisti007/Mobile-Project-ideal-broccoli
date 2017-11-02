@@ -4,4 +4,16 @@
 		id="gold"
 		sprite="gold"
 	/>
+	<Resource
+		id="food"
+		sprite="food"
+	/>
+	<Resource
+		id="material"
+		sprite="material"
+	/>
+	<Resource
+		id="crystal"
+		sprite="crystal"
+	/>
 </Assets>

@@ -12,6 +12,11 @@ MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	));
 	button->setOnPress(bind(&GameMap::generate, map));
 	uiRoot->addChild(std::move(button));
+
+	auto resourceInfo = std::unique_ptr<UIObject>(new UISprite(
+			assets->getSprite("ui_resource"), glm::vec2{0,440}, glm::vec2{400,200}
+	));
+	uiRoot->addChild(std::move(resourceInfo));
 }
 
 MapGameState::~MapGameState() {
