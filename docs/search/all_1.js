@@ -2,7 +2,7 @@ var searchData=
 [
   ['activity',['activity',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html#a8b248082d36e81244b05658495ba1fec',1,'xyz::asdasd::gles3jni::GLES3JNIView::Renderer']]],
   ['add',['add',['../class_binary_heap.html#a49b0c75411d2988e0956b1075ee7b463',1,'BinaryHeap::add()'],['../class_weighted_list.html#aff3ab831b853762dacba419b926b32d7',1,'WeightedList::add()']]],
-  ['addchild',['addChild',['../class_u_i_object.html#af3347fea1f98e24c294af9f56ac5480a',1,'UIObject']]],
+  ['addchild',['addChild',['../class_u_i_object.html#a00870741a12aae2ceb66810f4ec724e3',1,'UIObject']]],
   ['addneighbor',['addNeighbor',['../class_map_hex.html#ab48b0a671613382e07a58917e8634797',1,'MapHex']]],
   ['agent',['Agent',['../class_agent.html',1,'']]],
   ['agent_2ecpp',['Agent.cpp',['../_agent_8cpp.html',1,'']]],

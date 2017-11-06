@@ -5,7 +5,7 @@ var searchData=
   ['mapobject',['MapObject',['../class_map_object.html#ae06479f6095fd54700ca5d60f69de5b6',1,'MapObject']]],
   ['mapregion',['MapRegion',['../class_map_region.html#afa7078c0adce53bf31c78672cb20e19c',1,'MapRegion::MapRegion()'],['../class_map_region.html#a4c83b6de01e0d376629224f121cbb160',1,'MapRegion::MapRegion(Biome *biome)']]],
   ['mesh',['Mesh',['../class_mesh.html#a2af137f1571af89172b9c102302c416b',1,'Mesh::Mesh()'],['../class_mesh.html#a64cf0a605d5513269cf9135cd5dc12d8',1,'Mesh::Mesh(std::vector&lt; Vertex &gt; vertices, std::vector&lt; uint16_t &gt; indices)']]],
-  ['move',['move',['../class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9',1,'Camera']]],
+  ['move',['move',['../class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9',1,'Camera::move()'],['../class_game_state.html#a189d4ec387073e70d332a82421845cb2',1,'GameState::move()'],['../class_map_game_state.html#adc77877f24145ec10d64e1ad68bf341c',1,'MapGameState::move()']]],
   ['moveby',['moveBy',['../class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7',1,'Camera']]],
   ['moveto',['moveTo',['../class_unit.html#a62083a3b102dcb1c592c21b86c5652c4',1,'Unit']]]
 ];

@@ -17,7 +17,7 @@ var searchData=
   ['renderer',['Renderer',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html',1,'xyz.asdasd.gles3jni.GLES3JNIView.Renderer'],['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html#a88700886ccb03b7f945230035da91492',1,'xyz.asdasd.gles3jni.GLES3JNIView.Renderer.Renderer()']]],
   ['reposition',['reposition',['../class_binary_heap.html#a8015d88b9a647cc150c7c29d032f2903',1,'BinaryHeap']]],
   ['reserve',['reserve',['../class_binary_heap.html#aa028643d33a97bb69ba8ec7fd5fbf162',1,'BinaryHeap']]],
-  ['resize',['resize',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_lib.html#aa21f791346b5ffd6c2d6368da0903276',1,'xyz::asdasd::gles3jni::GLES3JNILib']]],
+  ['resize',['resize',['../class_game.html#ae14e1aa932e133b1a317a99e036f129d',1,'Game::resize()'],['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_lib.html#aa21f791346b5ffd6c2d6368da0903276',1,'xyz.asdasd.gles3jni.GLES3JNILib.resize()']]],
   ['resource',['Resource',['../class_resource.html',1,'Resource'],['../class_resource.html#a213d48c11908f21c5c3c43c3682af09f',1,'Resource::Resource()']]],
   ['resource_2ecpp',['Resource.cpp',['../_resource_8cpp.html',1,'']]],
   ['resource_2eh',['Resource.h',['../_resource_8h.html',1,'']]],

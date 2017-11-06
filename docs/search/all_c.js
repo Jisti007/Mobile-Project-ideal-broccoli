@@ -20,7 +20,7 @@ var searchData=
   ['meshes',['meshes',['../class_asset_manager.html#a4bfad66bc0842a2299d376e2f651b31a',1,'AssetManager']]],
   ['mipmap',['mipmap',['../classxyz_1_1asdasd_1_1gles3jni_1_1_r_1_1mipmap.html',1,'xyz::asdasd::gles3jni::R']]],
   ['modulefunctions',['moduleFunctions',['../class_asset_manager.html#ace1c7d5843177a2b49f4fd2afa903309',1,'AssetManager']]],
-  ['move',['move',['../class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9',1,'Camera']]],
+  ['move',['move',['../class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9',1,'Camera::move()'],['../class_game_state.html#a189d4ec387073e70d332a82421845cb2',1,'GameState::move()'],['../class_map_game_state.html#adc77877f24145ec10d64e1ad68bf341c',1,'MapGameState::move()']]],
   ['moveby',['moveBy',['../class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7',1,'Camera']]],
   ['movementcost',['movementCost',['../class_hex_type.html#aecc76edf311ea447520e2e71ab161547',1,'HexType']]],
   ['moveto',['moveTo',['../class_unit.html#a62083a3b102dcb1c592c21b86c5652c4',1,'Unit']]]

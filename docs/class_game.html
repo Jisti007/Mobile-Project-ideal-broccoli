@@ -82,12 +82,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a79df6376b332d63c9eca0dcee30305c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a6d54497ce3a66f6dd45eacfdccc8d0bd">draw</a> ()</td></tr>
 <tr class="separator:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a917775d182dc99ce4594caa198f9b07b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a917775d182dc99ce4594caa198f9b07b">onMove</a> (float dx, float dy)</td></tr>
-<tr class="separator:a917775d182dc99ce4594caa198f9b07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9555483a80e47a4d41b6eeafebeb0882"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a9555483a80e47a4d41b6eeafebeb0882">onResize</a> (int width, int height)</td></tr>
-<tr class="separator:a9555483a80e47a4d41b6eeafebeb0882"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a298fe3c6527c1d0009be16692d28fc8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a298fe3c6527c1d0009be16692d28fc8b">onPress</a> (float x, float y)</td></tr>
-<tr class="separator:a298fe3c6527c1d0009be16692d28fc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14e1aa932e133b1a317a99e036f129d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ae14e1aa932e133b1a317a99e036f129d">resize</a> (int width, int height)</td></tr>
+<tr class="separator:ae14e1aa932e133b1a317a99e036f129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a975ea5e1c629249412a271690d237"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_state.html">GameState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a59a975ea5e1c629249412a271690d237">getState</a> ()</td></tr>
+<tr class="separator:a59a975ea5e1c629249412a271690d237"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -153,6 +151,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a59a975ea5e1c629249412a271690d237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59a975ea5e1c629249412a271690d237">&#9670;&nbsp;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_state.html">GameState</a>* Game::getState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a14073b7ee15e3a60b72112519be85453"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14073b7ee15e3a60b72112519be85453">&#9670;&nbsp;</a></span>initialize()</h2>
 
@@ -170,70 +193,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a917775d182dc99ce4594caa198f9b07b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a917775d182dc99ce4594caa198f9b07b">&#9670;&nbsp;</a></span>onMove()</h2>
+<a id="ae14e1aa932e133b1a317a99e036f129d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14e1aa932e133b1a317a99e036f129d">&#9670;&nbsp;</a></span>resize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Game::onMove </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dy</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a298fe3c6527c1d0009be16692d28fc8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a298fe3c6527c1d0009be16692d28fc8b">&#9670;&nbsp;</a></span>onPress()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Game::onPress </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9555483a80e47a4d41b6eeafebeb0882"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9555483a80e47a4d41b6eeafebeb0882">&#9670;&nbsp;</a></span>onResize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Game::onResize </td>
+          <td class="memname">void Game::resize </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>width</em>, </td>

@@ -17,7 +17,5 @@ var searchData=
   ['unittypes',['unitTypes',['../class_asset_manager.html#ad9a5e153c6a6e8eabae3c5bfcb2357e3',1,'AssetManager']]],
   ['unloadall',['unloadAll',['../class_asset_manager.html#a34c0028e4cfb8e23642f161c1369cd56',1,'AssetManager']]],
   ['unvisited',['unvisited',['../_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdda7fc5c694a226faa9d2e8ce37d31d4c2b',1,'Node.h']]],
-  ['update',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game']]],
-  ['updatehextypes',['updateHexTypes',['../class_game_map.html#a2671aab9bbbdb130b33d8b3aa0bb0d87',1,'GameMap']]],
-  ['updatetype',['updateType',['../class_map_hex.html#a61e3572ebecb6f3c2c13c127142fd607',1,'MapHex']]]
+  ['update',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../class_game_state.html#ab2864bfa04f92f6966861a1f2883bda0',1,'GameState::update()'],['../class_map_game_state.html#a0fdc318bd15093d66a9fc507d4f662fb',1,'MapGameState::update()']]]
 ];

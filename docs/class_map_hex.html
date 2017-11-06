@@ -94,16 +94,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a11ee24c7dbc725fbd7dab7be64600209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a325a38d569568972bf2503056609f283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a325a38d569568972bf2503056609f283">initializeNeighbors</a> (<a class="el" href="class_game_map.html">GameMap</a> *map)</td></tr>
 <tr class="separator:a325a38d569568972bf2503056609f283"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e3572ebecb6f3c2c13c127142fd607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a61e3572ebecb6f3c2c13c127142fd607">updateType</a> ()</td></tr>
-<tr class="separator:a61e3572ebecb6f3c2c13c127142fd607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16e97b71ca65b0f74f7c0c343e2c2e0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a16e97b71ca65b0f74f7c0c343e2c2e0a">setRegion</a> (<a class="el" href="class_map_region.html">MapRegion</a> *<a class="el" href="class_map_hex.html#a717a676e9a80b8e476dc4b75c45c7645">region</a>)</td></tr>
+<tr class="separator:a16e97b71ca65b0f74f7c0c343e2c2e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ff66c1341e7b572fd90e8f0117ec68"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#ac4ff66c1341e7b572fd90e8f0117ec68">getSprite</a> ()</td></tr>
 <tr class="separator:ac4ff66c1341e7b572fd90e8f0117ec68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59e8590a536b9e25c22ca6159e6e5243"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_map_hex.html">MapHex</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a59e8590a536b9e25c22ca6159e6e5243">getNeighbors</a> () const</td></tr>
 <tr class="separator:a59e8590a536b9e25c22ca6159e6e5243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0132642caf49e702635e990b1dc88bbf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_map_region.html">MapRegion</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a0132642caf49e702635e990b1dc88bbf">getRegion</a> () const</td></tr>
 <tr class="separator:a0132642caf49e702635e990b1dc88bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16e97b71ca65b0f74f7c0c343e2c2e0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a16e97b71ca65b0f74f7c0c343e2c2e0a">setRegion</a> (<a class="el" href="class_map_region.html">MapRegion</a> *<a class="el" href="class_map_hex.html#a717a676e9a80b8e476dc4b75c45c7645">region</a>)</td></tr>
-<tr class="separator:a16e97b71ca65b0f74f7c0c343e2c2e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af29bc51cd2e5bfeebd655167a2309f0d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_hex_type.html">HexType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#af29bc51cd2e5bfeebd655167a2309f0d">getType</a> () const</td></tr>
 <tr class="separator:af29bc51cd2e5bfeebd655167a2309f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4adc290cbaabb488fdb5847cd320c9ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a4adc290cbaabb488fdb5847cd320c9ea">getUnit</a> ()</td></tr>
@@ -459,9 +457,6 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void MapHex::setRegion </td>
@@ -471,11 +466,6 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -502,23 +492,6 @@ Additional Inherited Members</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a61e3572ebecb6f3c2c13c127142fd607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61e3572ebecb6f3c2c13c127142fd607">&#9670;&nbsp;</a></span>updateType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MapHex::updateType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>

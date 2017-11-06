@@ -92,10 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1e5c7ea89b7a37838fc6cdb9fba4bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a381ecb40cae1f86fbe5db3c4f1f99d1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#a381ecb40cae1f86fbe5db3c4f1f99d1f">press</a> (glm::vec2 <a class="el" href="class_u_i_object.html#a6a16576616e633af2f212624ecc6cb45">position</a>)</td></tr>
 <tr class="separator:a381ecb40cae1f86fbe5db3c4f1f99d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3347fea1f98e24c294af9f56ac5480a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#af3347fea1f98e24c294af9f56ac5480a">addChild</a> (std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt; newChild)</td></tr>
-<tr class="separator:af3347fea1f98e24c294af9f56ac5480a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa530a5facf1fcdbfc830b162a419801f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#aa530a5facf1fcdbfc830b162a419801f">clearChildren</a> ()</td></tr>
-<tr class="separator:aa530a5facf1fcdbfc830b162a419801f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00870741a12aae2ceb66810f4ec724e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#a00870741a12aae2ceb66810f4ec724e3">addChild</a> (std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt; &amp;newChild)</td></tr>
+<tr class="memdesc:a00870741a12aae2ceb66810f4ec724e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience method for moving unique pointer to the ui object's children.  <a href="#a00870741a12aae2ceb66810f4ec724e3">More...</a><br /></td></tr>
+<tr class="separator:a00870741a12aae2ceb66810f4ec724e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee3f035ccc7b5a9d96319d89430e7c8c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#aee3f035ccc7b5a9d96319d89430e7c8c">getChildren</a> ()</td></tr>
 <tr class="separator:aee3f035ccc7b5a9d96319d89430e7c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45fc2fda01918da9ffb3c3c26d955e5a"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_object.html#a45fc2fda01918da9ffb3c3c26d955e5a">getPosition</a> ()</td></tr>
@@ -146,8 +145,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af3347fea1f98e24c294af9f56ac5480a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3347fea1f98e24c294af9f56ac5480a">&#9670;&nbsp;</a></span>addChild()</h2>
+<a id="a00870741a12aae2ceb66810f4ec724e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00870741a12aae2ceb66810f4ec724e3">&#9670;&nbsp;</a></span>addChild()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,37 +154,14 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">void UIObject::addChild </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>newChild</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aa530a5facf1fcdbfc830b162a419801f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa530a5facf1fcdbfc830b162a419801f">&#9670;&nbsp;</a></span>clearChildren()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void UIObject::clearChildren </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Convenience method for moving unique pointer to the ui object's children. </p>
 
 </div>
 </div>

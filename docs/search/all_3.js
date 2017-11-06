@@ -9,7 +9,6 @@ var searchData=
   ['channels',['channels',['../class_texture.html#a69c58068e4b82a86d24e8c797705d515',1,'Texture']]],
   ['children',['children',['../class_u_i_object.html#af0df8b75f71404e4ed4682fe48b214ff',1,'UIObject']]],
   ['clear',['clear',['../class_binary_heap.html#ac252a8fe290f08089774a346b9bfdf4d',1,'BinaryHeap::clear()'],['../class_weighted_list.html#aa4052758bfe1d56cd2362b5eade8accb',1,'WeightedList::clear()']]],
-  ['clearchildren',['clearChildren',['../class_u_i_object.html#aa530a5facf1fcdbfc830b162a419801f',1,'UIObject']]],
   ['closed',['closed',['../_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdda45ed087f4658fecf38ff1f88bbbdfc51',1,'Node.h']]],
   ['colors',['colors',['../class_faction.html#a8f17ebea80da83ae86c9a1a518462ea5',1,'Faction']]],
   ['comparable',['Comparable',['../class_comparable.html',1,'']]],
