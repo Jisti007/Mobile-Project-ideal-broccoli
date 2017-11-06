@@ -16,6 +16,10 @@ Unit::~Unit() {
 }
 
 void Unit::moveTo(MapHex* destination) {
+	if (destination->getUnit() != nullptr) {
+		return;
+	}
+
 	MapHex* origin = map->tryGetHex(getGridX(), getGridY());
 	if (origin == nullptr) {
 		return;

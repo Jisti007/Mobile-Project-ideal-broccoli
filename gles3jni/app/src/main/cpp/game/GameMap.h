@@ -52,7 +52,6 @@ private:
 	void initializeHexes();
 	void initializeRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
-	//void updateHexTypes();
 	MapHex* findFreeHex(int maxTries);
 	glm::vec2 getHexPosition(int x, int y);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);

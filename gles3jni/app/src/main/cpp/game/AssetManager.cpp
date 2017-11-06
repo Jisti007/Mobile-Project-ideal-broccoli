@@ -102,7 +102,7 @@ void AssetManager::loadTexture(Node *node) {
 	stringstream path;
 	path << node->getDirectory() << "/" << node->getPath();
 	auto id = node->getID();
-	textures[id] = unique_ptr<Texture>(new Texture(id, path.str().c_str()));
+	textures[id] = make_unique<Texture>(id, path.str().c_str());
 }
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
@@ -129,7 +129,7 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 	}
 
 	auto id = node->getID();
-	sprites[id] = unique_ptr<Sprite>(new Sprite(
+	sprites[id] = make_unique<Sprite>(
 		id,
 		texture,
 		atoi(node->getX()),
@@ -139,13 +139,13 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 		xOffset,
 	    yOffset,
 	    swappableColors
-	));
+	);
 }
 
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	auto movementCost = (float)atof(node->getMovementCost());
-	hexTypes[node->getID()] = unique_ptr<HexType>(new HexType(sprite, movementCost));
+	hexTypes[node->getID()] = make_unique<HexType>(sprite, movementCost);
 }
 
 void AssetManager::loadBiome(AssetManager::Node* node) {
@@ -167,15 +167,15 @@ void AssetManager::loadBiome(AssetManager::Node* node) {
 
 void AssetManager::loadUnitType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	unitTypes[node->getID()] = unique_ptr<UnitType>(new UnitType(sprite));
+	unitTypes[node->getID()] = make_unique<UnitType>(sprite);
 }
 
 void AssetManager::loadBuildingType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	buildingTypes[node->getID()] = unique_ptr<BuildingType>(new BuildingType(sprite));
+	buildingTypes[node->getID()] = make_unique<BuildingType>(sprite);
 }
 
 void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	resources[node->getID()] = unique_ptr<Resource>(new Resource(sprite));
+	resources[node->getID()] = make_unique<Resource>(sprite);
 }

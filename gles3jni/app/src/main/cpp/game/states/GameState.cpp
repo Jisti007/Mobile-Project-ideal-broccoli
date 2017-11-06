@@ -1,7 +1,7 @@
 #include "GameState.h"
 
 GameState::GameState() {
-	uiRoot = std::unique_ptr<UIObject>(new UIObject());
+	uiRoot = std::make_unique<UIObject>();
 }
 
 GameState::~GameState() {

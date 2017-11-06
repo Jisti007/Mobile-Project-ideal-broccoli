@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "ui/Button.h"
 #include "states/MapGameState.h"
 
 using namespace std;
@@ -21,31 +20,21 @@ void Game::initialize() {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
-		state = std::unique_ptr<GameState>(new MapGameState(&assetManager, &map));
+		state = std::make_unique<MapGameState>(&assetManager, &map);
 	}
-
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Game::update() {
-
+	state->update();
 }
 
 void Game::draw() {
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	map.draw();
 	state->draw(&pipeline);
 }
 
-void Game::onMove(float dx, float dy) {
-	map.getCamera()->moveBy({dx, dy});
-}
-
-void Game::onResize(int width, int height) {
+void Game::resize(int width, int height) {
 	map.getCamera()->setSize({width, height});
 	glViewport(0, 0, width, height);
-}
-
-void Game::onPress(float x, float y) {
-	state->press(x, y);
 }

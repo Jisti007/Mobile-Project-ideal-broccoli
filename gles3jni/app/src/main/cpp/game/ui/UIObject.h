@@ -1,7 +1,6 @@
 #ifndef GLES3JNI_UIOBJECT_H
 #define GLES3JNI_UIOBJECT_H
 
-
 #include "../Sprite.h"
 #include "../Rectangle.h"
 #include "../Pipeline.h"
@@ -17,9 +16,9 @@ public:
 	void draw(Pipeline* pipeline);
 	void setOnPress(std::function<void()> onPress);
 	bool press(glm::vec2 position);
-	void addChild(std::unique_ptr<UIObject> newChild);
+	/// Convenience method for moving unique pointer to the ui object's children.
+	void addChild(std::unique_ptr<UIObject>& newChild);
 
-	inline void clearChildren() { children.clear(); }
 	inline std::vector<std::unique_ptr<UIObject>>& getChildren() { return children; }
 	inline glm::vec2 getPosition() { return position; }
 	inline glm::vec2 getSize() { return size; }

@@ -1,5 +1,4 @@
 #include "UIObject.h"
-#include "../Rectangle.h"
 
 UIObject::UIObject(glm::vec2 position, glm::vec2 size) {
 	this->position = position;
@@ -32,7 +31,6 @@ bool UIObject::press(glm::vec2 position) {
 	return false;
 }
 
-void UIObject::addChild(std::unique_ptr<UIObject> newChild) {
+void UIObject::addChild(std::unique_ptr<UIObject>& newChild) {
 	children.push_back(std::move(newChild));
 }
-

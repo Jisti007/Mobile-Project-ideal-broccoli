@@ -14,9 +14,9 @@ public:
 	void initialize();
 	void update();
 	void draw();
-	void onMove(float dx, float dy);
-	void onResize(int width, int height);
-	void onPress(float x, float y);
+	void resize(int width, int height);
+
+	inline GameState* getState() { return state.get(); }
 
 private:
 	Pipeline pipeline;

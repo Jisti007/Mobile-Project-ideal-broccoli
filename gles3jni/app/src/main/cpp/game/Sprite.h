@@ -10,8 +10,7 @@ class Sprite {
 public:
 	Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors);
 
-	void reload();
-
+	inline void reload() { mesh.reload(); }
 	inline Texture* getTexture() const { return texture; }
 	inline Mesh* getMesh() { return &mesh; }
 	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }

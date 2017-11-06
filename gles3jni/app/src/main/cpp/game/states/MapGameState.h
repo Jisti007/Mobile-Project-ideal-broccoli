@@ -10,6 +10,9 @@ public:
 	MapGameState(AssetManager* assets, GameMap* map);
 	virtual ~MapGameState();
 
+	virtual void update();
+	virtual void draw(Pipeline* pipeline);
+	virtual void move(float dx, float dy);
 	virtual bool press(float x, float y);
 
 private:

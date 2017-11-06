@@ -61,7 +61,7 @@ void GameMap::generate() {
 
 				rn = rand() % 100;
 				if (rn > 95) {
-					mapObjects.push_back(unique_ptr<Building>(new Building(x, y, testBuilding)));
+					mapObjects.push_back(make_unique<Building>(x, y, testBuilding));
 				}
 			}
 		}
@@ -115,7 +115,7 @@ MapHex* GameMap::tryGetHex(int x, int y) {
 }
 
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
-	// Android studio complains about this, but it builds fine.
+	//TODO: Android Studio complains about this, but it builds fine. Find a way to silence it?
 	auto position = screenPosition + camera.getPosition();
 	position.x /= gridSize * xOffset;
 	position.y /= gridSize;
@@ -149,11 +149,8 @@ void GameMap::initializeHexes() {
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto hex = unique_ptr<MapHex>(new MapHex(x, y, grass));
+			auto hex = make_unique<MapHex>(x, y, grass);
 			hexes.push_back(move(hex));
-			//auto hex = getHex(x, y);
-			//hex->initialize(x, y, grass);
-			//hex->initializeNeighbors(this);
 		}
 	}
 

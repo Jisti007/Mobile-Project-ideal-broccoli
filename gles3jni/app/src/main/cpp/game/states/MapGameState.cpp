@@ -1,8 +1,6 @@
 #include "MapGameState.h"
 #include "../ui/Button.h"
 
-using namespace std;
-
 MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	this->map = map;
 	this->assets = assets;
@@ -10,17 +8,30 @@ MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	auto button = std::unique_ptr<UIObject>(new Button(
 		assets->getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200}
 	));
-	button->setOnPress(bind(&GameMap::generate, map));
-	uiRoot->addChild(std::move(button));
+	button->setOnPress(std::bind(&GameMap::generate, map));
+	uiRoot->addChild(button);
 
 	auto resourceInfo = std::unique_ptr<UIObject>(new UISprite(
-			assets->getSprite("ui_resource"), glm::vec2{0,440}, glm::vec2{400,200}
+		assets->getSprite("ui_resource"), glm::vec2{0,440}, glm::vec2{400,200}
 	));
-	uiRoot->addChild(std::move(resourceInfo));
+	uiRoot->addChild(resourceInfo);
 }
 
 MapGameState::~MapGameState() {
 
+}
+
+void MapGameState::update() {
+
+}
+
+void MapGameState::draw(Pipeline* pipeline) {
+	map->draw();
+	GameState::draw(pipeline);
+}
+
+void MapGameState::move(float dx, float dy) {
+	map->getCamera()->moveBy({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {

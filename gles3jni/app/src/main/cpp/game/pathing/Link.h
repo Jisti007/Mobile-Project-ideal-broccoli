@@ -8,6 +8,7 @@ class Node;
 #include <vector>
 #include <memory>
 
+/// An abstract way to get from the source to the destination Node.
 class Link {
 public:
 	Link(Node* source, Node* destination);
@@ -23,7 +24,7 @@ private:
 	Node* destination;
 };
 
-// Constant cost for all agents.
+/// Constant cost for all agents.
 class SimpleLink : public Link {
 public:
 	SimpleLink(Node* source, Node* destination, float cost);

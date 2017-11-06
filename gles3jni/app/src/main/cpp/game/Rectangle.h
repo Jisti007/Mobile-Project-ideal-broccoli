@@ -11,5 +11,4 @@ public:
 	bool contains(glm::vec2 position);
 };
 
-
 #endif //GLES3JNI_RECTANGLE_H

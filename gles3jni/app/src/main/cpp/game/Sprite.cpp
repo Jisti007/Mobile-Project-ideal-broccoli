@@ -26,7 +26,3 @@ Sprite::Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int
 
 	this->swappableColors = swappableColors;
 }
-
-void Sprite::reload() {
-	mesh.reload();
-}
