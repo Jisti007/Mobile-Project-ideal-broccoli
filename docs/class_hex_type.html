@@ -72,21 +72,25 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f84936badf5e987570417f500f3d388"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#a6f84936badf5e987570417f500f3d388">HexType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_hex_type.html#a7f1c5fa0871568503aba259e76ce8758">sprite</a>)</td></tr>
-<tr class="separator:a6f84936badf5e987570417f500f3d388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944f63a23677c9cad226ac56c40765f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#a944f63a23677c9cad226ac56c40765f9">HexType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_hex_type.html#a7f1c5fa0871568503aba259e76ce8758">sprite</a>, float <a class="el" href="class_hex_type.html#aecc76edf311ea447520e2e71ab161547">movementCost</a>)</td></tr>
+<tr class="separator:a944f63a23677c9cad226ac56c40765f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0b7d6bad02fd7bf5bcf355e2f3b5cd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#ac0b7d6bad02fd7bf5bcf355e2f3b5cd1">~HexType</a> ()</td></tr>
 <tr class="separator:ac0b7d6bad02fd7bf5bcf355e2f3b5cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3d3b65517191fda8edcab4c2477f5eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#af3d3b65517191fda8edcab4c2477f5eb">getSprite</a> () const</td></tr>
 <tr class="separator:af3d3b65517191fda8edcab4c2477f5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795001065d6bec46592705c9843de7f0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#a795001065d6bec46592705c9843de7f0">getMovementCost</a> ()</td></tr>
+<tr class="separator:a795001065d6bec46592705c9843de7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7f1c5fa0871568503aba259e76ce8758"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#a7f1c5fa0871568503aba259e76ce8758">sprite</a></td></tr>
 <tr class="separator:a7f1c5fa0871568503aba259e76ce8758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc76edf311ea447520e2e71ab161547"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hex_type.html#aecc76edf311ea447520e2e71ab161547">movementCost</a> = 1.0f</td></tr>
+<tr class="separator:aecc76edf311ea447520e2e71ab161547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6f84936badf5e987570417f500f3d388"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f84936badf5e987570417f500f3d388">&#9670;&nbsp;</a></span>HexType()</h2>
+<a id="a944f63a23677c9cad226ac56c40765f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944f63a23677c9cad226ac56c40765f9">&#9670;&nbsp;</a></span>HexType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,8 +99,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">HexType::HexType </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em></td><td>)</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>movementCost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -121,6 +135,31 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a795001065d6bec46592705c9843de7f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795001065d6bec46592705c9843de7f0">&#9670;&nbsp;</a></span>getMovementCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float HexType::getMovementCost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af3d3b65517191fda8edcab4c2477f5eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3d3b65517191fda8edcab4c2477f5eb">&#9670;&nbsp;</a></span>getSprite()</h2>
 
@@ -147,6 +186,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aecc76edf311ea447520e2e71ab161547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc76edf311ea447520e2e71ab161547">&#9670;&nbsp;</a></span>movementCost</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float HexType::movementCost = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7f1c5fa0871568503aba259e76ce8758"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f1c5fa0871568503aba259e76ce8758">&#9670;&nbsp;</a></span>sprite</h2>
 

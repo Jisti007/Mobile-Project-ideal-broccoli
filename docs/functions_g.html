@@ -68,6 +68,9 @@ $(function() {
 <li>GameMap()
 : <a class="el" href="class_game_map.html#aae71e5694cf19612fcaa4c1e21b03b71">GameMap</a>
 </li>
+<li>GameState()
+: <a class="el" href="class_game_state.html#a4fa0a2bf50315c4a35a3890a0adcee5c">GameState</a>
+</li>
 <li>generate()
 : <a class="el" href="class_game_map.html#a103d98c8ebfe9faee715dc5694523a20">GameMap</a>
 </li>
@@ -83,8 +86,15 @@ $(function() {
 <li>getCamera()
 : <a class="el" href="class_game_map.html#a99ea6c65c8da270ae6894cab6741a64e">GameMap</a>
 </li>
+<li>getChildren()
+: <a class="el" href="class_u_i_object.html#aee3f035ccc7b5a9d96319d89430e7c8c">UIObject</a>
+</li>
 <li>getColors()
 : <a class="el" href="class_faction.html#a302367858679b7700c27bcdd2582e91b">Faction</a>
+</li>
+<li>getCost()
+: <a class="el" href="class_link.html#a4e8a85eba6e6b24751ba9b5b92e06dae">Link</a>
+, <a class="el" href="class_simple_link.html#a3947c8f4f70dfa81193ae5d9d1244ad4">SimpleLink</a>
 </li>
 <li>getData()
 : <a class="el" href="class_asset_manager_1_1_node.html#a908a7d3bbf9b654ab9dc1a7c5cd1e686">AssetManager::Node</a>
@@ -92,11 +102,18 @@ $(function() {
 <li>getDefaultMaxExpansionsPerRegion()
 : <a class="el" href="class_game_map.html#ac1839b6598d61f7349dcb26f25044a95">GameMap</a>
 </li>
+<li>getDestination()
+: <a class="el" href="class_link.html#a633f15916e8f21f1651d272e1ef957d7">Link</a>
+</li>
 <li>getDirectory()
 : <a class="el" href="class_asset_manager_1_1_node.html#ab9d425749d35be36f71d90b9c0129b6b">AssetManager::Node</a>
 </li>
 <li>getFaction()
-: <a class="el" href="class_unit.html#a4e5ae48d922e36ec64e3a9b5424edc6d">Unit</a>
+: <a class="el" href="class_game_map.html#a95cb1ce36d4e55c5467f1f85bcb81381">GameMap</a>
+, <a class="el" href="class_unit.html#a4e5ae48d922e36ec64e3a9b5424edc6d">Unit</a>
+</li>
+<li>getGridPosition()
+: <a class="el" href="class_game_map.html#abbded38fc27bb6895d7b4d178b59a2eb">GameMap</a>
 </li>
 <li>getGridX()
 : <a class="el" href="class_map_object.html#af738e8dcd18425f599c94c9951ed94bb">MapObject</a>
@@ -115,8 +132,15 @@ $(function() {
 , <a class="el" href="class_game_map.html#ad7d63a46103943b6dcb3772d22bf66e4">GameMap</a>
 , <a class="el" href="class_texture.html#a5353c4a272879e82413fc386076350cc">Texture</a>
 </li>
+<li>getHeuristic()
+: <a class="el" href="class_map_hex.html#a11ee24c7dbc725fbd7dab7be64600209">MapHex</a>
+, <a class="el" href="class_node.html#af76889d57cc721f3de9820a0a2ea4990">Node</a>
+</li>
 <li>getHex()
-: <a class="el" href="class_game_map.html#a984e563131ecca57fefae279be891952">GameMap</a>
+: <a class="el" href="class_game_map.html#a26d37d0192d7ab26f10785cc081019f3">GameMap</a>
+</li>
+<li>getHexPosition()
+: <a class="el" href="class_game_map.html#a2222e9c7b4f2b36c99389c299cee6d34">GameMap</a>
 </li>
 <li>getHexType()
 : <a class="el" href="class_asset_manager.html#a187aaa04aaf845d21fff965a39096c89">AssetManager</a>
@@ -130,9 +154,16 @@ $(function() {
 <li>getIndexCount()
 : <a class="el" href="class_mesh.html#ae299279000ab9c85a2e62a749f660edb">Mesh</a>
 </li>
+<li>getLeftChild()
+: <a class="el" href="class_binary_heap.html#ab4ab07fa6fbe8b43422374a3e034ce5f">BinaryHeap</a>
+</li>
 <li>getMesh()
 : <a class="el" href="class_asset_manager.html#a3ef4d3c019dbccacbb234c335e84d4e9">AssetManager</a>
 , <a class="el" href="class_sprite.html#a79dcf0629aa9ed6c93a55b21dd581770">Sprite</a>
+</li>
+<li>getMovementCost()
+: <a class="el" href="class_asset_manager_1_1_node.html#a995ad6b35cbc57cd5a4d6a41c61ffeeb">AssetManager::Node</a>
+, <a class="el" href="class_hex_type.html#a795001065d6bec46592705c9843de7f0">HexType</a>
 </li>
 <li>getName()
 : <a class="el" href="class_asset_manager_1_1_node.html#aa802aef36336348161712a68655fc3c5">AssetManager::Node</a>
@@ -140,11 +171,15 @@ $(function() {
 <li>getNeighbors()
 : <a class="el" href="class_map_hex.html#a59e8590a536b9e25c22ca6159e6e5243">MapHex</a>
 </li>
+<li>getParent()
+: <a class="el" href="class_binary_heap.html#a997117c76e1b046315c5f89bfe2ba09a">BinaryHeap</a>
+</li>
 <li>getPath()
 : <a class="el" href="class_asset_manager_1_1_node.html#a47007b45af808b0aa80ec6edd2cd13ac">AssetManager::Node</a>
 </li>
 <li>getPosition()
 : <a class="el" href="class_camera.html#a6628404766f5ca99066d58e119720c6c">Camera</a>
+, <a class="el" href="class_map_object.html#a6e39a915b60f12a515ada944af9597b4">MapObject</a>
 , <a class="el" href="class_u_i_object.html#a45fc2fda01918da9ffb3c3c26d955e5a">UIObject</a>
 </li>
 <li>getProgram()
@@ -168,12 +203,21 @@ $(function() {
 <li>getResource()
 : <a class="el" href="class_asset_manager.html#a96faef50e65cf928e3eecc3ee7af287c">AssetManager</a>
 </li>
+<li>getRightChild()
+: <a class="el" href="class_binary_heap.html#a0092c7be8dc72ea41345ad3f824ad578">BinaryHeap</a>
+</li>
 <li>getScreenPosition()
 : <a class="el" href="class_game_map.html#a0b997749d8585a6b4173a1d3f174949c">GameMap</a>
 </li>
 <li>getSize()
 : <a class="el" href="class_camera.html#ac495b981e1eea213d429e49bb59a5f6b">Camera</a>
 , <a class="el" href="class_u_i_object.html#a18ca5451ce1d3b6a17ec334660098cca">UIObject</a>
+</li>
+<li>getSmallerChild()
+: <a class="el" href="class_binary_heap.html#a49393b326438e3e925072e30554f4c8d">BinaryHeap</a>
+</li>
+<li>getSource()
+: <a class="el" href="class_link.html#aa9878daef7fd8039c29ed95e12f7f406">Link</a>
 </li>
 <li>getSprite()
 : <a class="el" href="class_asset_manager.html#a3b3c93317e49e9bd0a9f13e25b3704b7">AssetManager</a>
@@ -183,7 +227,7 @@ $(function() {
 , <a class="el" href="class_hex_type.html#af3d3b65517191fda8edcab4c2477f5eb">HexType</a>
 , <a class="el" href="class_map_hex.html#ac4ff66c1341e7b572fd90e8f0117ec68">MapHex</a>
 , <a class="el" href="class_map_object.html#a3881fea264291ba07e0172d1cd3246cc">MapObject</a>
-, <a class="el" href="class_u_i_object.html#a416b659a6965e66da7d29ad995a265e9">UIObject</a>
+, <a class="el" href="class_u_i_sprite.html#a1d0df06e9001fedfde18a1308186894d">UISprite</a>
 , <a class="el" href="class_unit.html#ad45ef5ba23edfa7a1f598a65629eb3e8">Unit</a>
 , <a class="el" href="class_unit_type.html#aa4fb91abbe5f1982764c447251e31cf8">UnitType</a>
 </li>
@@ -199,6 +243,9 @@ $(function() {
 : <a class="el" href="class_building.html#a7e9f74497ce2598a9f2075284a723c9a">Building</a>
 , <a class="el" href="class_map_hex.html#af29bc51cd2e5bfeebd655167a2309f0d">MapHex</a>
 , <a class="el" href="class_unit.html#a6682f776bb4ad9aae1f32e849eed4137">Unit</a>
+</li>
+<li>getUnit()
+: <a class="el" href="class_map_hex.html#a4adc290cbaabb488fdb5847cd320c9ea">MapHex</a>
 </li>
 <li>getUnitType()
 : <a class="el" href="class_asset_manager.html#a76b1d01c623bbc16f46fd7b51863422a">AssetManager</a>
@@ -224,6 +271,9 @@ $(function() {
 <li>getY()
 : <a class="el" href="class_asset_manager_1_1_node.html#a4661b08edcf7addf271c9339a3631a96">AssetManager::Node</a>
 , <a class="el" href="class_camera.html#ad71d83315248602503546eba37697390">Camera</a>
+</li>
+<li>getZoom()
+: <a class="el" href="class_camera.html#a741c9612b91ac1998c72c702752fbef4">Camera</a>
 </li>
 <li>gles3jni_activity
 : <a class="el" href="classxyz_1_1asdasd_1_1gles3jni_1_1_r_1_1string.html#a2fa1463a195868e3d8a4e1e442e9b405">xyz.asdasd.gles3jni.R.string</a>

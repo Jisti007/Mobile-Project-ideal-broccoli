@@ -7,5 +7,6 @@ var searchData=
   ['textures',['textures',['../class_asset_manager.html#ab8a68f50bb34f1daee3ea563c0ba31e7',1,'AssetManager']]],
   ['top',['top',['../class_rectangle.html#a87a5fabfb34ee12b61f58f9fcd8a32d3',1,'Rectangle']]],
   ['totalweight',['totalWeight',['../class_weighted_list.html#ae5d2c187b4fa7250cb5c7db66eecbc64',1,'WeightedList']]],
+  ['trygethex',['tryGetHex',['../class_game_map.html#a2c9f979e21c9211f1ae1618f09256cff',1,'GameMap::tryGetHex(int x, int y)'],['../class_game_map.html#ad02dd520c4f08c76fe3c94a9102cfd3f',1,'GameMap::tryGetHex(Point position)']]],
   ['type',['type',['../class_building.html#a523cec1e5e46e521a0f202ffb20f2b62',1,'Building::type()'],['../class_map_hex.html#acdc5f2afda9662cee5cd861d2ea98111',1,'MapHex::type()'],['../class_unit.html#ab0f889c1dcbe02864fad1fa6af62aa37',1,'Unit::type()']]]
 ];

@@ -29,13 +29,13 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	auto gridPosition = map->getGridPosition({x, y});
-	auto hex = map->getHexSafely(gridPosition);
+	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
 		auto unit = hex->getUnit();
 		if (unit != nullptr) {
 			selectedUnit = unit;
 		} else if (selectedUnit != nullptr) {
-			auto selectedUnitHex = map->getHexSafely(selectedUnit->getPosition());
+			auto selectedUnitHex = map->tryGetHex(selectedUnit->getPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
 			path.pop_front();
 			auto nextHex = static_cast<MapHex*>(path.front());

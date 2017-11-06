@@ -76,7 +76,9 @@ Inheritance diagram for MapHex:</div>
  <div class="center">
   <img src="class_map_hex.png" usemap="#MapHex_map" alt=""/>
   <map id="MapHex_map" name="MapHex_map">
-<area href="class_map_object.html" alt="MapObject" shape="rect" coords="0,0,74,24"/>
+<area href="class_map_object.html" alt="MapObject" shape="rect" coords="0,56,80,80"/>
+<area href="class_node.html" alt="Node" shape="rect" coords="90,56,170,80"/>
+<area href="class_comparable.html" alt="Comparable" shape="rect" coords="90,0,170,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -88,8 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afdb8d14d89ae9bdd45f74b063ec55f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95541178e4dabb2cafe2f2e12579815b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a95541178e4dabb2cafe2f2e12579815b">~MapHex</a> ()</td></tr>
 <tr class="separator:a95541178e4dabb2cafe2f2e12579815b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a325e5009a0b83dfda7cc97fa3b3f9599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a325e5009a0b83dfda7cc97fa3b3f9599">initialize</a> (uint16_t <a class="el" href="class_map_object.html#a48d8e19188fd7ae1b74d2de47d546209">gridX</a>, uint16_t <a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a>, <a class="el" href="class_hex_type.html">HexType</a> *<a class="el" href="class_map_hex.html#acdc5f2afda9662cee5cd861d2ea98111">type</a>)</td></tr>
-<tr class="separator:a325e5009a0b83dfda7cc97fa3b3f9599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ee24c7dbc725fbd7dab7be64600209"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a11ee24c7dbc725fbd7dab7be64600209">getHeuristic</a> (<a class="el" href="class_node.html">Node</a> *destination)</td></tr>
+<tr class="separator:a11ee24c7dbc725fbd7dab7be64600209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a325a38d569568972bf2503056609f283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a325a38d569568972bf2503056609f283">initializeNeighbors</a> (<a class="el" href="class_game_map.html">GameMap</a> *map)</td></tr>
 <tr class="separator:a325a38d569568972bf2503056609f283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61e3572ebecb6f3c2c13c127142fd607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a61e3572ebecb6f3c2c13c127142fd607">updateType</a> ()</td></tr>
@@ -104,6 +106,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a16e97b71ca65b0f74f7c0c343e2c2e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af29bc51cd2e5bfeebd655167a2309f0d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_hex_type.html">HexType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#af29bc51cd2e5bfeebd655167a2309f0d">getType</a> () const</td></tr>
 <tr class="separator:af29bc51cd2e5bfeebd655167a2309f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adc290cbaabb488fdb5847cd320c9ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a4adc290cbaabb488fdb5847cd320c9ea">getUnit</a> ()</td></tr>
+<tr class="separator:a4adc290cbaabb488fdb5847cd320c9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a524dfd7d7fba282a31c11743a26fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_hex.html#a20a524dfd7d7fba282a31c11743a26fa">setUnit</a> (<a class="el" href="class_unit.html">Unit</a> *<a class="el" href="class_map_hex.html#ac828a1134dad20ed68d04924212467ed">unit</a>)</td></tr>
+<tr class="separator:a20a524dfd7d7fba282a31c11743a26fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_map_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_map_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_map_object.html">MapObject</a></td></tr>
 <tr class="memitem:ae06479f6095fd54700ca5d60f69de5b6 inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#ae06479f6095fd54700ca5d60f69de5b6">MapObject</a> (uint16_t <a class="el" href="class_map_object.html#a48d8e19188fd7ae1b74d2de47d546209">gridX</a>, uint16_t <a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a>)</td></tr>
 <tr class="separator:ae06479f6095fd54700ca5d60f69de5b6 inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,6 +119,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af738e8dcd18425f599c94c9951ed94bb inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78d1316495dee5b12daca1fb2cc15f5c inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a78d1316495dee5b12daca1fb2cc15f5c">getGridY</a> () const</td></tr>
 <tr class="separator:a78d1316495dee5b12daca1fb2cc15f5c inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e39a915b60f12a515ada944af9597b4 inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a6e39a915b60f12a515ada944af9597b4">getPosition</a> ()</td></tr>
+<tr class="separator:a6e39a915b60f12a515ada944af9597b4 inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_node.html">Node</a></td></tr>
+<tr class="memitem:ad7a34779cad45d997bfd6d3d8043c75f inherit pub_methods_class_node"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#ad7a34779cad45d997bfd6d3d8043c75f">Node</a> ()</td></tr>
+<tr class="separator:ad7a34779cad45d997bfd6d3d8043c75f inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0840c3cb5c7159be6d992adecd2097c inherit pub_methods_class_node"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#aa0840c3cb5c7159be6d992adecd2097c">~Node</a> ()</td></tr>
+<tr class="separator:aa0840c3cb5c7159be6d992adecd2097c inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869ddcb3bb5c5adcf9cbdde97020597a inherit pub_methods_class_node"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a869ddcb3bb5c5adcf9cbdde97020597a">compareTo</a> (<a class="el" href="class_comparable.html">Comparable</a> *other)</td></tr>
+<tr class="separator:a869ddcb3bb5c5adcf9cbdde97020597a inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322378d326bc4b4024b6748accab1874 inherit pub_methods_class_node"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_node.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a322378d326bc4b4024b6748accab1874">findShortestPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent, size_t graphSize=128)</td></tr>
+<tr class="separator:a322378d326bc4b4024b6748accab1874 inherit pub_methods_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable</a></td></tr>
+<tr class="memitem:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#a5bfe7437bd0027fd02ce22f608fce92a">~Comparable</a> ()</td></tr>
+<tr class="separator:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -137,6 +157,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a48d8e19188fd7ae1b74d2de47d546209 inherit pro_attribs_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d3a76d4816097941bbfb5208b81cab6 inherit pro_attribs_class_map_object"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a></td></tr>
 <tr class="separator:a0d3a76d4816097941bbfb5208b81cab6 inherit pro_attribs_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_node"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_node')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_node.html">Node</a></td></tr>
+<tr class="memitem:a7ee37be2fa495cd14fafab523f1d54e2 inherit pro_attribs_class_node"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_link.html">Link</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a7ee37be2fa495cd14fafab523f1d54e2">links</a></td></tr>
+<tr class="separator:a7ee37be2fa495cd14fafab523f1d54e2 inherit pro_attribs_class_node"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9fc6f3220be1d449d10011eb1092043b"></a>
@@ -258,6 +281,34 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a11ee24c7dbc725fbd7dab7be64600209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ee24c7dbc725fbd7dab7be64600209">&#9670;&nbsp;</a></span>getHeuristic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MapHex::getHeuristic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>destination</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_node.html#af76889d57cc721f3de9820a0a2ea4990">Node</a>.</p>
+
+</div>
+</div>
 <a id="a59e8590a536b9e25c22ca6159e6e5243"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59e8590a536b9e25c22ca6159e6e5243">&#9670;&nbsp;</a></span>getNeighbors()</h2>
 
@@ -360,36 +411,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a325e5009a0b83dfda7cc97fa3b3f9599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a325e5009a0b83dfda7cc97fa3b3f9599">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="a4adc290cbaabb488fdb5847cd320c9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4adc290cbaabb488fdb5847cd320c9ea">&#9670;&nbsp;</a></span>getUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void MapHex::initialize </td>
+          <td class="memname"><a class="el" href="class_unit.html">Unit</a>* MapHex::getUnit </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>gridX</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>gridY</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_hex_type.html">HexType</a> *&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -426,6 +468,32 @@ Additional Inherited Members</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_map_region.html">MapRegion</a> *&#160;</td>
           <td class="paramname"><em>region</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a20a524dfd7d7fba282a31c11743a26fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a524dfd7d7fba282a31c11743a26fa">&#9670;&nbsp;</a></span>setUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapHex::setUnit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_unit.html">Unit</a> *&#160;</td>
+          <td class="paramname"><em>unit</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -21,12 +21,11 @@ public:
 	virtual float getHeuristic(Node* destination);
 
 	void initializeNeighbors(GameMap* map);
-	void updateType();
+	void setRegion(MapRegion* region);
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
 	inline const std::vector<MapHex*>& getNeighbors() const { return neighbors; }
 	inline const MapRegion* getRegion() const { return region; }
-	inline void setRegion(MapRegion* region) { this->region = region; }
 	inline const HexType* getType() const { return type; }
 	inline Unit* getUnit() { return unit; }
 	inline void setUnit(Unit* unit) { this->unit = unit; }

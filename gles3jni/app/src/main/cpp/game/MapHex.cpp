@@ -58,6 +58,9 @@ void MapHex::addNeighbor(GameMap* map, int x, int y) {
 	}
 }
 
-void MapHex::updateType() {
-	type = region->getBiome()->getRandomHexType();
+void MapHex::setRegion(MapRegion* region) {
+	this->region = region;
+	if (region != nullptr) {
+		type = region->getBiome()->getRandomHexType();
+	}
 }

@@ -25,11 +25,12 @@ public:
 	void generate();
 	void draw();
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
-	MapHex* getHexSafely(int x, int y);
-	MapHex* getHexSafely(Point position) { return getHexSafely(position.x, position.y); }
+	/// Returns nullptr if out of bounds.
+	MapHex* tryGetHex(int x, int y);
 	Point getGridPosition(glm::vec2 screenPosition);
 
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
+	inline MapHex* tryGetHex(Point position) { return tryGetHex(position.x, position.y); }
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
@@ -51,7 +52,7 @@ private:
 	void initializeHexes();
 	void initializeRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
-	void updateHexTypes();
+	//void updateHexTypes();
 	MapHex* findFreeHex(int maxTries);
 	glm::vec2 getHexPosition(int x, int y);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);

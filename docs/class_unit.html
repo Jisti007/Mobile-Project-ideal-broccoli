@@ -76,6 +76,7 @@ Inheritance diagram for Unit:</div>
   <img src="class_unit.png" usemap="#Unit_map" alt=""/>
   <map id="Unit_map" name="Unit_map">
 <area href="class_map_object.html" alt="MapObject" shape="rect" coords="0,0,74,24"/>
+<area href="class_agent.html" alt="Agent" shape="rect" coords="84,0,158,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -83,12 +84,14 @@ Inheritance diagram for Unit:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8e46f663a95736c8002d85ab271a7581"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a8e46f663a95736c8002d85ab271a7581">Unit</a> ()</td></tr>
 <tr class="separator:a8e46f663a95736c8002d85ab271a7581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a3ea366d4ed09f0ea30551f5613bb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ad2a3ea366d4ed09f0ea30551f5613bb9">Unit</a> (uint16_t <a class="el" href="class_map_object.html#a48d8e19188fd7ae1b74d2de47d546209">gridX</a>, uint16_t <a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a>, <a class="el" href="class_unit_type.html">UnitType</a> *<a class="el" href="class_unit.html#ab0f889c1dcbe02864fad1fa6af62aa37">type</a>, <a class="el" href="class_faction.html">Faction</a> *<a class="el" href="class_unit.html#a4575f419a61dcd2c4d44754fe99ff3a4">faction</a>)</td></tr>
-<tr class="separator:ad2a3ea366d4ed09f0ea30551f5613bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88102c849f79baf4179cf4bc3fbedee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ab88102c849f79baf4179cf4bc3fbedee">Unit</a> (uint16_t <a class="el" href="class_map_object.html#a48d8e19188fd7ae1b74d2de47d546209">gridX</a>, uint16_t <a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a>, <a class="el" href="class_unit_type.html">UnitType</a> *<a class="el" href="class_unit.html#ab0f889c1dcbe02864fad1fa6af62aa37">type</a>, <a class="el" href="class_faction.html">Faction</a> *<a class="el" href="class_unit.html#a4575f419a61dcd2c4d44754fe99ff3a4">faction</a>, <a class="el" href="class_game_map.html">GameMap</a> *<a class="el" href="class_unit.html#ab1a4cd0bb54aa1b0638eb6af3f0b0ae7">map</a>)</td></tr>
+<tr class="separator:ab88102c849f79baf4179cf4bc3fbedee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6353fc4c0a329997ad4abcf0dcb4eb27"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a6353fc4c0a329997ad4abcf0dcb4eb27">~Unit</a> ()</td></tr>
 <tr class="separator:a6353fc4c0a329997ad4abcf0dcb4eb27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45ef5ba23edfa7a1f598a65629eb3e8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ad45ef5ba23edfa7a1f598a65629eb3e8">getSprite</a> ()</td></tr>
 <tr class="separator:ad45ef5ba23edfa7a1f598a65629eb3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62083a3b102dcb1c592c21b86c5652c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a62083a3b102dcb1c592c21b86c5652c4">moveTo</a> (<a class="el" href="class_map_hex.html">MapHex</a> *destination)</td></tr>
+<tr class="separator:a62083a3b102dcb1c592c21b86c5652c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6682f776bb4ad9aae1f32e849eed4137"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_unit_type.html">UnitType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a6682f776bb4ad9aae1f32e849eed4137">getType</a> () const</td></tr>
 <tr class="separator:a6682f776bb4ad9aae1f32e849eed4137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e5ae48d922e36ec64e3a9b5424edc6d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a4e5ae48d922e36ec64e3a9b5424edc6d">getFaction</a> () const</td></tr>
@@ -102,6 +105,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af738e8dcd18425f599c94c9951ed94bb inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78d1316495dee5b12daca1fb2cc15f5c inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a78d1316495dee5b12daca1fb2cc15f5c">getGridY</a> () const</td></tr>
 <tr class="separator:a78d1316495dee5b12daca1fb2cc15f5c inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e39a915b60f12a515ada944af9597b4 inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a6e39a915b60f12a515ada944af9597b4">getPosition</a> ()</td></tr>
+<tr class="separator:a6e39a915b60f12a515ada944af9597b4 inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -109,6 +114,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab0f889c1dcbe02864fad1fa6af62aa37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4575f419a61dcd2c4d44754fe99ff3a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#a4575f419a61dcd2c4d44754fe99ff3a4">faction</a></td></tr>
 <tr class="separator:a4575f419a61dcd2c4d44754fe99ff3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1a4cd0bb54aa1b0638eb6af3f0b0ae7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit.html#ab1a4cd0bb54aa1b0638eb6af3f0b0ae7">map</a></td></tr>
+<tr class="separator:ab1a4cd0bb54aa1b0638eb6af3f0b0ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -136,8 +143,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ad2a3ea366d4ed09f0ea30551f5613bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2a3ea366d4ed09f0ea30551f5613bb9">&#9670;&nbsp;</a></span>Unit() <span class="overload">[2/2]</span></h2>
+<a id="ab88102c849f79baf4179cf4bc3fbedee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88102c849f79baf4179cf4bc3fbedee">&#9670;&nbsp;</a></span>Unit() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +171,13 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="class_faction.html">Faction</a> *&#160;</td>
-          <td class="paramname"><em>faction</em>&#160;</td>
+          <td class="paramname"><em>faction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -279,6 +292,24 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a62083a3b102dcb1c592c21b86c5652c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62083a3b102dcb1c592c21b86c5652c4">&#9670;&nbsp;</a></span>moveTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Unit::moveTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td>
+          <td class="paramname"><em>destination</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a4575f419a61dcd2c4d44754fe99ff3a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4575f419a61dcd2c4d44754fe99ff3a4">&#9670;&nbsp;</a></span>faction</h2>
@@ -291,6 +322,28 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_faction.html">Faction</a>* Unit::faction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1a4cd0bb54aa1b0638eb6af3f0b0ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a4cd0bb54aa1b0638eb6af3f0b0ae7">&#9670;&nbsp;</a></span>map</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_map.html">GameMap</a>* Unit::map</td>
         </tr>
       </table>
   </td>

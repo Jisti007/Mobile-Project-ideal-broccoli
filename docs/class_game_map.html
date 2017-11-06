@@ -85,27 +85,40 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a103d98c8ebfe9faee715dc5694523a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae560711cdd8957dfe1d015cbd082b5d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ae560711cdd8957dfe1d015cbd082b5d9">draw</a> ()</td></tr>
 <tr class="separator:ae560711cdd8957dfe1d015cbd082b5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a984e563131ecca57fefae279be891952"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a984e563131ecca57fefae279be891952">getHex</a> (uint16_t x, uint16_t y)</td></tr>
-<tr class="separator:a984e563131ecca57fefae279be891952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaadecff417c99a48a1cd2e66fd88cb3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#aaadecff417c99a48a1cd2e66fd88cb3f">createUnit</a> (<a class="el" href="struct_point.html">Point</a> position, <a class="el" href="class_unit_type.html">UnitType</a> *type, <a class="el" href="class_faction.html">Faction</a> *faction)</td></tr>
+<tr class="separator:aaadecff417c99a48a1cd2e66fd88cb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c9f979e21c9211f1ae1618f09256cff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2c9f979e21c9211f1ae1618f09256cff">tryGetHex</a> (int x, int y)</td></tr>
+<tr class="memdesc:a2c9f979e21c9211f1ae1618f09256cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns nullptr if out of bounds.  <a href="#a2c9f979e21c9211f1ae1618f09256cff">More...</a><br /></td></tr>
+<tr class="separator:a2c9f979e21c9211f1ae1618f09256cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbded38fc27bb6895d7b4d178b59a2eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#abbded38fc27bb6895d7b4d178b59a2eb">getGridPosition</a> (glm::vec2 screenPosition)</td></tr>
+<tr class="separator:abbded38fc27bb6895d7b4d178b59a2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d37d0192d7ab26f10785cc081019f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a26d37d0192d7ab26f10785cc081019f3">getHex</a> (int x, int y)</td></tr>
+<tr class="separator:a26d37d0192d7ab26f10785cc081019f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad02dd520c4f08c76fe3c94a9102cfd3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad02dd520c4f08c76fe3c94a9102cfd3f">tryGetHex</a> (<a class="el" href="struct_point.html">Point</a> position)</td></tr>
+<tr class="separator:ad02dd520c4f08c76fe3c94a9102cfd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ea6c65c8da270ae6894cab6741a64e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a99ea6c65c8da270ae6894cab6741a64e">getCamera</a> ()</td></tr>
 <tr class="separator:a99ea6c65c8da270ae6894cab6741a64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d2b30e705de99d03e5b479ca38b6d91"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2d2b30e705de99d03e5b479ca38b6d91">getWidth</a> ()</td></tr>
 <tr class="separator:a2d2b30e705de99d03e5b479ca38b6d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7d63a46103943b6dcb3772d22bf66e4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad7d63a46103943b6dcb3772d22bf66e4">getHeight</a> ()</td></tr>
 <tr class="separator:ad7d63a46103943b6dcb3772d22bf66e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95cb1ce36d4e55c5467f1f85bcb81381"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a95cb1ce36d4e55c5467f1f85bcb81381">getFaction</a> (int index)</td></tr>
+<tr class="separator:a95cb1ce36d4e55c5467f1f85bcb81381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ad0de88300a253f8a9ec7dc784b2bf950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad0de88300a253f8a9ec7dc784b2bf950">initializeHexes</a> ()</td></tr>
 <tr class="separator:ad0de88300a253f8a9ec7dc784b2bf950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9247f8700b645bc62c574811cce82bf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a9247f8700b645bc62c574811cce82bf7">createRegions</a> (int count)</td></tr>
-<tr class="separator:a9247f8700b645bc62c574811cce82bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b59219f8cc93091307fcac351b5e63c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a5b59219f8cc93091307fcac351b5e63c">initializeRegions</a> (int count)</td></tr>
+<tr class="separator:a5b59219f8cc93091307fcac351b5e63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dd3adda9c0f19a20dc6df3786746868"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a1dd3adda9c0f19a20dc6df3786746868">expandRegions</a> (int iterations, int maxPerRegion)</td></tr>
 <tr class="separator:a1dd3adda9c0f19a20dc6df3786746868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2671aab9bbbdb130b33d8b3aa0bb0d87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2671aab9bbbdb130b33d8b3aa0bb0d87">updateHexTypes</a> ()</td></tr>
 <tr class="separator:a2671aab9bbbdb130b33d8b3aa0bb0d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a701f80838169a259bdbb9a157a1bb85d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a701f80838169a259bdbb9a157a1bb85d">findFreeHex</a> (int maxTries)</td></tr>
 <tr class="separator:a701f80838169a259bdbb9a157a1bb85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2222e9c7b4f2b36c99389c299cee6d34"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2222e9c7b4f2b36c99389c299cee6d34">getHexPosition</a> (int x, int y)</td></tr>
+<tr class="separator:a2222e9c7b4f2b36c99389c299cee6d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b997749d8585a6b4173a1d3f174949c"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a0b997749d8585a6b4173a1d3f174949c">getScreenPosition</a> (int32_t x, int32_t y)</td></tr>
 <tr class="separator:a0b997749d8585a6b4173a1d3f174949c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1839b6598d61f7349dcb26f25044a95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ac1839b6598d61f7349dcb26f25044a95">getDefaultMaxExpansionsPerRegion</a> ()</td></tr>
@@ -117,14 +130,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8210c97d906cc6ab2d9f98915504ea6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23fc8cbef7e92535488681204927b5a1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_map_region.html">MapRegion</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a23fc8cbef7e92535488681204927b5a1">expanders</a></td></tr>
 <tr class="separator:a23fc8cbef7e92535488681204927b5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d7742388e866521392b4c6747303c8b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_map_hex.html">MapHex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a1d7742388e866521392b4c6747303c8b">hexes</a></td></tr>
-<tr class="separator:a1d7742388e866521392b4c6747303c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f956a9bdb41dcb655696af973f30a89"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_faction.html">Faction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a1f956a9bdb41dcb655696af973f30a89">factions</a></td></tr>
 <tr class="separator:a1f956a9bdb41dcb655696af973f30a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe59a5a265402076408cfab12e9ecdf2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_map_hex.html">MapHex</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#abe59a5a265402076408cfab12e9ecdf2">hexes</a></td></tr>
+<tr class="separator:abe59a5a265402076408cfab12e9ecdf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6eead6daa7b8442ac5129750f1eecd1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_map_object.html">MapObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad6eead6daa7b8442ac5129750f1eecd1">mapObjects</a></td></tr>
 <tr class="separator:ad6eead6daa7b8442ac5129750f1eecd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3620b68d7f24cfb57e3083acdf534ff6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_unit.html">Unit</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a3620b68d7f24cfb57e3083acdf534ff6">units</a></td></tr>
-<tr class="separator:a3620b68d7f24cfb57e3083acdf534ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a5fbe47341112f2b515e539c66d469"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_unit.html">Unit</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a20a5fbe47341112f2b515e539c66d469">units</a></td></tr>
+<tr class="separator:a20a5fbe47341112f2b515e539c66d469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a827aedef06be5c3115eeea3ac8e68b72"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a827aedef06be5c3115eeea3ac8e68b72">width</a></td></tr>
 <tr class="separator:a827aedef06be5c3115eeea3ac8e68b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37c9c83ab73f37508753f45cbc9594d5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a37c9c83ab73f37508753f45cbc9594d5">height</a></td></tr>
@@ -212,28 +225,36 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9247f8700b645bc62c574811cce82bf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9247f8700b645bc62c574811cce82bf7">&#9670;&nbsp;</a></span>createRegions()</h2>
+<a id="aaadecff417c99a48a1cd2e66fd88cb3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaadecff417c99a48a1cd2e66fd88cb3f">&#9670;&nbsp;</a></span>createUnit()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GameMap::createRegions </td>
+          <td class="memname"><a class="el" href="class_unit.html">Unit</a> * GameMap::createUnit </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_unit_type.html">UnitType</a> *&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_faction.html">Faction</a> *&#160;</td>
+          <td class="paramname"><em>faction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -384,6 +405,50 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a95cb1ce36d4e55c5467f1f85bcb81381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95cb1ce36d4e55c5467f1f85bcb81381">&#9670;&nbsp;</a></span>getFaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_faction.html">Faction</a>* GameMap::getFaction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbded38fc27bb6895d7b4d178b59a2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbded38fc27bb6895d7b4d178b59a2eb">&#9670;&nbsp;</a></span>getGridPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_point.html">Point</a> GameMap::getGridPosition </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>screenPosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad7d63a46103943b6dcb3772d22bf66e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad7d63a46103943b6dcb3772d22bf66e4">&#9670;&nbsp;</a></span>getHeight()</h2>
 
@@ -409,8 +474,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a984e563131ecca57fefae279be891952"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984e563131ecca57fefae279be891952">&#9670;&nbsp;</a></span>getHex()</h2>
+<a id="a26d37d0192d7ab26f10785cc081019f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26d37d0192d7ab26f10785cc081019f3">&#9670;&nbsp;</a></span>getHex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,13 +486,13 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="class_map_hex.html">MapHex</a>* GameMap::getHex </td>
           <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -439,6 +504,42 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2222e9c7b4f2b36c99389c299cee6d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2222e9c7b4f2b36c99389c299cee6d34">&#9670;&nbsp;</a></span>getHexPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 GameMap::getHexPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -565,6 +666,88 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b59219f8cc93091307fcac351b5e63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b59219f8cc93091307fcac351b5e63c">&#9670;&nbsp;</a></span>initializeRegions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::initializeRegions </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c9f979e21c9211f1ae1618f09256cff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9f979e21c9211f1ae1618f09256cff">&#9670;&nbsp;</a></span>tryGetHex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_hex.html">MapHex</a> * GameMap::tryGetHex </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns nullptr if out of bounds. </p>
+
+</div>
+</div>
+<a id="ad02dd520c4f08c76fe3c94a9102cfd3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad02dd520c4f08c76fe3c94a9102cfd3f">&#9670;&nbsp;</a></span>tryGetHex() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_hex.html">MapHex</a>* GameMap::tryGetHex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -707,8 +890,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1d7742388e866521392b4c6747303c8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d7742388e866521392b4c6747303c8b">&#9670;&nbsp;</a></span>hexes</h2>
+<a id="abe59a5a265402076408cfab12e9ecdf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe59a5a265402076408cfab12e9ecdf2">&#9670;&nbsp;</a></span>hexes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -717,7 +900,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_map_hex.html">MapHex</a>&gt; GameMap::hexes</td>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_map_hex.html">MapHex</a>&gt; &gt; GameMap::hexes</td>
         </tr>
       </table>
   </td>
@@ -795,8 +978,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3620b68d7f24cfb57e3083acdf534ff6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3620b68d7f24cfb57e3083acdf534ff6">&#9670;&nbsp;</a></span>units</h2>
+<a id="a20a5fbe47341112f2b515e539c66d469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a5fbe47341112f2b515e539c66d469">&#9670;&nbsp;</a></span>units</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -805,7 +988,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_unit.html">Unit</a>&gt; GameMap::units</td>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_unit.html">Unit</a>&gt; &gt; GameMap::units</td>
         </tr>
       </table>
   </td>

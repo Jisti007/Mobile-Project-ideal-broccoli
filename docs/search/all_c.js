@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['map',['map',['../class_game.html#a45be81aaf550d2abb9ac4ba9a59d1036',1,'Game']]],
+  ['map',['map',['../class_game.html#a45be81aaf550d2abb9ac4ba9a59d1036',1,'Game::map()'],['../class_map_game_state.html#a1671aa77ceb027a0fe12c73e7c70fd33',1,'MapGameState::map()'],['../class_unit.html#ab1a4cd0bb54aa1b0638eb6af3f0b0ae7',1,'Unit::map()']]],
+  ['mapgamestate',['MapGameState',['../class_map_game_state.html',1,'MapGameState'],['../class_map_game_state.html#a01020e76cc3a5f6f9f8196d1fcdeea5d',1,'MapGameState::MapGameState()']]],
+  ['mapgamestate_2ecpp',['MapGameState.cpp',['../_map_game_state_8cpp.html',1,'']]],
+  ['mapgamestate_2eh',['MapGameState.h',['../_map_game_state_8h.html',1,'']]],
   ['maphex',['MapHex',['../class_map_hex.html',1,'MapHex'],['../class_map_hex.html#a9fc6f3220be1d449d10011eb1092043b',1,'MapHex::MapHex()'],['../class_map_hex.html#afdb8d14d89ae9bdd45f74b063ec55f1f',1,'MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType *type)']]],
   ['maphex_2ecpp',['MapHex.cpp',['../_map_hex_8cpp.html',1,'']]],
   ['maphex_2eh',['MapHex.h',['../_map_hex_8h.html',1,'']]],
@@ -18,5 +21,7 @@ var searchData=
   ['mipmap',['mipmap',['../classxyz_1_1asdasd_1_1gles3jni_1_1_r_1_1mipmap.html',1,'xyz::asdasd::gles3jni::R']]],
   ['modulefunctions',['moduleFunctions',['../class_asset_manager.html#ace1c7d5843177a2b49f4fd2afa903309',1,'AssetManager']]],
   ['move',['move',['../class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9',1,'Camera']]],
-  ['moveby',['moveBy',['../class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7',1,'Camera']]]
+  ['moveby',['moveBy',['../class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7',1,'Camera']]],
+  ['movementcost',['movementCost',['../class_hex_type.html#aecc76edf311ea447520e2e71ab161547',1,'HexType']]],
+  ['moveto',['moveTo',['../class_unit.html#a62083a3b102dcb1c592c21b86c5652c4',1,'Unit']]]
 ];

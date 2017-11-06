@@ -46,10 +46,10 @@ void GameMap::generate() {
 
 	initializeRegions(100);
 	expandRegions(-1, -1);
-	updateHexTypes();
 
 	HexType* water = assets->getHexType("water");
 	UnitType* testUnit = assets->getUnitType("test");
+	BuildingType* testBuilding = assets->getBuildingType("test");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			if (getHex(x, y)->getType() != water) {
@@ -58,15 +58,8 @@ void GameMap::generate() {
 					auto faction = &factions[rand() % factions.size()];
 					createUnit({x, y}, testUnit, faction);
 				}
-			}
-		}
-	}
 
-	BuildingType* testBuilding = assets->getBuildingType("test");
-	for (uint16_t y = 0; y < width; y++) {
-		for (uint16_t x = 0; x < height; x++) {
-			if (getHex(x, y)->getType() != water) {
-				auto rn = rand() % 100;
+				rn = rand() % 100;
 				if (rn > 95) {
 					mapObjects.push_back(unique_ptr<Building>(new Building(x, y, testBuilding)));
 				}
@@ -103,7 +96,7 @@ void GameMap::draw() {
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
-	MapHex* hex = getHexSafely(position);
+	MapHex* hex = tryGetHex(position);
 	if (hex == nullptr || hex->getUnit() != nullptr) {
 		return nullptr;
 	}
@@ -114,7 +107,7 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 	return unit;
 }
 
-MapHex* GameMap::getHexSafely(int x, int y) {
+MapHex* GameMap::tryGetHex(int x, int y) {
 	if (x < 0 || x >= width || y < 0 || y >= height) {
 		return nullptr;
 	}
@@ -122,6 +115,7 @@ MapHex* GameMap::getHexSafely(int x, int y) {
 }
 
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
+	// Android studio complains about this, but it builds fine.
 	auto position = screenPosition + camera.getPosition();
 	position.x /= gridSize * xOffset;
 	position.y /= gridSize;
@@ -232,12 +226,6 @@ MapHex* GameMap::findFreeHex(int maxTries) {
 	}
 
 	return nullptr;
-}
-
-void GameMap::updateHexTypes() {
-	for (auto& hex : hexes) {
-		hex->updateType();
-	}
 }
 
 glm::vec2 GameMap::getHexPosition(int x, int y) {

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['uiobject_2ecpp',['UIObject.cpp',['../_u_i_object_8cpp.html',1,'']]],
-  ['uiobject_2eh',['UIObject.h',['../_u_i_object_8h.html',1,'']]],
-  ['unit_2ecpp',['Unit.cpp',['../_unit_8cpp.html',1,'']]],
-  ['unit_2eh',['Unit.h',['../_unit_8h.html',1,'']]],
-  ['unittype_2ecpp',['UnitType.cpp',['../_unit_type_8cpp.html',1,'']]],
-  ['unittype_2eh',['UnitType.h',['../_unit_type_8h.html',1,'']]]
+  ['scenario_2ecpp',['Scenario.cpp',['../_scenario_8cpp.html',1,'']]],
+  ['scenario_2eh',['Scenario.h',['../_scenario_8h.html',1,'']]],
+  ['sprite_2ecpp',['Sprite.cpp',['../_sprite_8cpp.html',1,'']]],
+  ['sprite_2eh',['Sprite.h',['../_sprite_8h.html',1,'']]]
 ];
