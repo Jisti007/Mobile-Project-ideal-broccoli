@@ -14,12 +14,12 @@ public:
 	Link(Node* source, Node* destination);
 	virtual ~Link();
 
-	virtual float getCost(Agent* agent) = 0;
+	virtual float getCost(Agent* agent, float pathCost) = 0;
 
 	inline Node* getSource() { return source; }
 	inline Node* getDestination() { return destination; }
 
-private:
+protected:
 	Node* source;
 	Node* destination;
 };
@@ -30,7 +30,7 @@ public:
 	SimpleLink(Node* source, Node* destination, float cost);
 	virtual ~SimpleLink();
 
-	virtual float getCost(Agent* agent) { return cost; }
+	virtual float getCost(Agent* agent, float pathCost) { return cost; }
 
 private:
 	float cost;

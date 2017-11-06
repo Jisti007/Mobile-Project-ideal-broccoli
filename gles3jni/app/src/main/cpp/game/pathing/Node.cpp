@@ -16,8 +16,6 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 	lastVisit = currentPathfinderRun;
 	previous = nullptr;
 
-	std::vector<Node*> closed;
-	closed.reserve(graphSize);
 	BinaryHeap open;
 	open.reserve(graphSize);
 	open.add(this);
@@ -25,7 +23,6 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 	while (open.count() > 0) {
 		auto active = static_cast<Node*>(open.remove());
 		active->status = NodeStatus::closed;
-		closed.push_back(active);
 		if (active == destination) {
 			break;
 		}
@@ -39,7 +36,7 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 			}
 
 			if (neighbor->status != NodeStatus::closed) {
-				auto cost = active->pathCost + link->getCost(agent);
+				auto cost = active->pathCost + link->getCost(agent, active->pathCost);
 
 				if (neighbor->status == NodeStatus::unvisited) {
 					neighbor->previous = active;

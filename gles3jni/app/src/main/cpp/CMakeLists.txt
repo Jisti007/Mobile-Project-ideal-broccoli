@@ -54,6 +54,7 @@ add_library(
     game/pathing/BinaryHeap.cpp
     game/pathing/Comparable.cpp
     game/pathing/Link.cpp
+    game/pathing/MovementLink.cpp
     game/pathing/Node.cpp
     game/states/GameState.cpp
     game/states/MapGameState.cpp

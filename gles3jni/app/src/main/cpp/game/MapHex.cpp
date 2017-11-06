@@ -1,4 +1,5 @@
 #include "MapHex.h"
+#include "pathing/MovementLink.h"
 
 MapHex::MapHex() : MapObject(0,0) {
 
@@ -50,10 +51,7 @@ void MapHex::addNeighbor(GameMap* map, int x, int y) {
 		MapHex* neighbor = map->getHex((uint16_t)x, (uint16_t)y);
 		neighbors.push_back(neighbor);
 
-		//TODO: Switch to C++14 and use std::make_unique.
-		auto link = std::unique_ptr<Link>(new SimpleLink(
-			this, neighbor, neighbor->type->getMovementCost()
-		));
+		auto link = std::unique_ptr<Link>(new MovementLink(this, neighbor));
 		links.push_back(std::move(link));
 	}
 }
