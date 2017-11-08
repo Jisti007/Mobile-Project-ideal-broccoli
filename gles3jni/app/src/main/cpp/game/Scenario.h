@@ -9,8 +9,13 @@
 
 class Scenario {
 public:
+	Scenario();
+	~Scenario();
+
 	/// Returns the list of maps belonging to the scenario.
 	inline std::vector<std::unique_ptr<GameMap>>& getMaps() { return maps; }
+	inline std::vector<std::unique_ptr<ScenarioEvent>>& getEventLog() { return eventLog; }
+	inline std::queue<std::unique_ptr<ScenarioEvent>>& getAnimationQueue() { return animationQueue; }
 
 private:
 	/// All the maps that belong to the scenario.

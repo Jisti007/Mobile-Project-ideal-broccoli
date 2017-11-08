@@ -17,6 +17,8 @@ public:
 	void draw();
 	void resize(int width, int height);
 
+	inline Pipeline& getPipeline() { return pipeline; }
+	inline AssetManager& getAssets() { return assetManager; }
 	inline GameState* getState() { return state.get(); }
 
 private:
