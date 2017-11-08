@@ -13,6 +13,8 @@ AssetManager::AssetManager() {
 	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
 	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
 	assetFunctions["Sprite"] = bind(&AssetManager::loadSprite, this, _1);
+	assetFunctions["SpriteSheet"] = bind(&AssetManager::loadSpriteSheet, this, _1);
+	assetFunctions["Font"] = bind(&AssetManager::loadFont, this, _1);
 	assetFunctions["Hex"] = bind(&AssetManager::loadHexType, this, _1);
 	assetFunctions["Biome"] = bind(&AssetManager::loadBiome, this, _1);
 	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
@@ -27,6 +29,7 @@ AssetManager::~AssetManager() {
 void AssetManager::unloadAll() {
 	textures.clear();
 	sprites.clear();
+	fonts.clear();
 	hexTypes.clear();
 	biomes.clear();
 	weightedBiomes.clear();
@@ -107,6 +110,11 @@ void AssetManager::loadTexture(Node *node) {
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
+	loadSprite2(node, texture);
+}
+
+
+void AssetManager::loadSprite2(AssetManager::Node* node, Texture* texture) {
 	int xOffset = 0;
 	int yOffset = 0;
 
@@ -137,10 +145,34 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 		atoi(node->getW()),
 		atoi(node->getH()),
 		xOffset,
-	    yOffset,
-	    swappableColors
+		yOffset,
+		swappableColors
 	);
 }
+
+void AssetManager::loadSpriteSheet(AssetManager::Node* node) {
+	auto texture = textures[node->getTexture()].get();
+	auto spriteNode = node->getData()->first_node("Sprite");
+	while (spriteNode){
+		Node node1(node->getDirectory(), spriteNode);
+		loadSprite2(&node1, texture);
+		spriteNode = spriteNode->next_sibling();
+	}
+}
+
+
+void AssetManager::loadFont(AssetManager::Node* node) {
+	std::unordered_map<char, Sprite*> mapping;
+	auto mappingNode = node->getData()->first_node("SpriteMapping");
+	while(mappingNode){
+		auto mappingChar = mappingNode->first_attribute("char")->value()[0];
+		auto sprite = sprites[mappingNode->first_attribute("sprite")->value()].get();
+
+		mapping[mappingChar] = sprite;
+		mappingNode = mappingNode->next_sibling();
+	}
+}
+
 
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
@@ -179,3 +211,4 @@ void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	resources[node->getID()] = make_unique<Resource>(sprite);
 }
+

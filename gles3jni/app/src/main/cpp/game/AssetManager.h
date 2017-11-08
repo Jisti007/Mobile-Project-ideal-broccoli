@@ -12,6 +12,7 @@
 #include "BuildingType.h"
 #include "Resource.h"
 #include "Biome.h"
+#include "Font.h"
 
 class AssetManager {
 public:
@@ -33,6 +34,7 @@ public:
 	inline BuildingType* getBuildingType(const char* assetId) { return buildingTypes[assetId].get(); }
 	inline Resource* getResource(const char* assetId) { return resources[assetId].get(); }
 	inline Biome* getRandomBiome() { return weightedBiomes.getRandom(); }
+	inline Font* getFont(const char* assetId) { return fonts[assetId].get(); }
 
 private:
 	class Node;
@@ -53,6 +55,7 @@ private:
 	AssetMap<UnitType> unitTypes;
 	AssetMap<BuildingType> buildingTypes;
 	AssetMap<Resource> resources;
+	AssetMap<Font> fonts;
 	WeightedList<Biome*> weightedBiomes;
 
 	void
@@ -62,6 +65,9 @@ private:
 	void handleAssetNode(Node* node);
 	void loadTexture(Node* node);
 	void loadSprite(Node* node);
+	void loadSprite2(Node* node, Texture* texture);
+	void loadSpriteSheet(Node* node);
+	void loadFont(Node* node);
 	void loadHexType(Node* node);
 	void loadBiome(Node* node);
 	void loadUnitType(Node* node);

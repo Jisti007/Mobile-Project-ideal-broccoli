@@ -33,6 +33,7 @@ add_library(
     game/Campaign.cpp
     game/Faction.cpp
     game/FileHelper.cpp
+    game/Font.cpp
     game/Game.cpp
     game/GameMap.cpp
     game/HexType.cpp
