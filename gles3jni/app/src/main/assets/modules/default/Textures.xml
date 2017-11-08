@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Texture
-		id="test_unit"
+		id="units"
 		path="textures/Units.png"
 	/>
 	<Texture
-		id="test_building"
+		id="buildings"
 		path="textures/Buildings.png"
-	/>
-	<Texture
-		id="test_ui"
-		path="textures/UI.png"
 	/>
 	<Texture
 		id="ui"

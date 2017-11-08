@@ -2,7 +2,7 @@
 <Assets>
 	<Sprite
 		id="test_unit"
-		texture="test_unit"
+		texture="units"
 		x="0"
 		y="0"
 		yOffset="-16"
@@ -14,83 +14,80 @@
 	</Sprite>
 	<Sprite
 		id="test_building"
-		texture="test_building"
+		texture="buildings"
 		x="0"
 		y="0"
 		yOffset="-16"
 		w="192"
 		h="192"
 	/>
-	<Sprite
-		id="test_button"
-		texture="test_ui"
-		x="0"
-		y="0"
-		w="360"
-		h="110"
-	/>
-	<Sprite
-		id="ui_resource"
-		texture="ui"
-		x="360"
-		y="0"
-		w="360"
-		h="110"
-	/>
-	<Sprite
-		id="grass"
-		texture="terrain"
-		x="192"
-		y="0"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="water"
-		texture="terrain"
-		x="0"
-		y="192"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="sand"
-		texture="terrain"
-		x="192"
-		y="192"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="gold"
-		texture="resource"
-		x="0"
-		y="0"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="food"
-		texture="resource"
-		x="192"
-		y="0"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="material"
-		texture="resource"
-		x="0"
-		y="192"
-		w="192"
-		h="192"
-	/>
-	<Sprite
-		id="crystal"
-		texture="resource"
-		x="192"
-		y="192"
-		w="192"
-		h="192"
-	/>
+	<SpriteSheet texture="ui">
+		<Sprite
+			id="test_button"
+			x="0"
+			y="0"
+			w="360"
+			h="110"
+		/>
+		<Sprite
+			id="ui_resource"
+			x="360"
+			y="0"
+			w="360"
+			h="110"
+		/>
+	</SpriteSheet>
+	<SpriteSheet texture="terrain">
+		<Sprite
+			id="grass"
+			x="192"
+			y="0"
+			w="192"
+			h="192"
+		/>
+		<Sprite
+			id="water"
+			x="0"
+			y="192"
+			w="192"
+			h="192"
+		/>
+		<Sprite
+			id="sand"
+			x="192"
+			y="192"
+			w="192"
+			h="192"
+		/>
+	</SpriteSheet>
+	<SpriteSheet texture="resource">
+		<Sprite
+			id="gold"
+			x="0"
+			y="0"
+			w="192"
+			h="192"
+		/>
+		<Sprite
+			id="food"
+			x="192"
+			y="0"
+			w="192"
+			h="192"
+		/>
+		<Sprite
+			id="material"
+			x="0"
+			y="192"
+			w="192"
+			h="192"
+		/>
+		<Sprite
+			id="crystal"
+			x="192"
+			y="192"
+			w="192"
+			h="192"
+		/>
+	</SpriteSheet>
 </Assets>
