@@ -1,92 +1,113 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Assets>
-	<SpriteSheet texture="font">
-		<Sprite id="default_font_A" x="0"    y="0"   w="24" h="29"   />
-		<Sprite id="default_font_B" x="24"   y="0"   w="24" h="29"   />
-		<Sprite id="default_font_C" x="44"   y="0"   w="24" h="29"   />
-		<Sprite id="default_font_D" x="68"   y="0"   w="24" h="29"   />
-		<Sprite id="default_font_E" x="94"   y="0"   w="24" h="29"   />
-		<Sprite id="default_font_F" x="116"  y="0"   w="24" h="29"   />
-		<Sprite id="default_font_G" x="140"  y="0"   w="24" h="29"   />
-		<Sprite id="default_font_H" x="162"  y="0"   w="24" h="29"   />
-		<Sprite id="default_font_I" x="186"  y="0"   w="18" h="29"   />
-		<Sprite id="default_font_J" x="196"  y="0"   w="20" h="29"   />
-		<Sprite id="default_font_K" x="216"  y="0"   w="24" h="29"   />
-		<Sprite id="default_font_L" x="0"    y="29"  w="18" h="26"   />
-		<Sprite id="default_font_M" x="18"   y="29"  w="24" h="26"   />
-		<Sprite id="default_font_N" x="45"   y="29"  w="24" h="26"   />
-		<Sprite id="default_font_O" x="70"   y="29"  w="24" h="26"   />
-		<Sprite id="default_font_P" x="94"   y="29"  w="24" h="26"   />
-		<Sprite id="default_font_Q" x="120"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_R" x="144"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_S" x="166"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_T" x="188"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_U" x="210"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_V" x="234"  y="29"  w="24" h="26"   />
-		<Sprite id="default_font_W" x="0"    y="0"   w="28" h="54"   />
-		<Sprite id="default_font_X" x="28"   y="0"   w="24" h="54"   />
-		<Sprite id="default_font_Y" x="51"   y="0"   w="24" h="54"   />
-		<Sprite id="default_font_Z" x="76"   y="0"   w="24" h="54"   />
-	<!--<Sprite id="default_font_Å" x="96"   y="0"   w="24" h="54"   />
-		<Sprite id="default_font_Ä" x="120"  y="0"   w="24" h="54"   />
-		<Sprite id="default_font_Ö" x="144"  y="0"   w="24" h="54"   /> -->
-
-		<Sprite id="default_font_a" x="0"    y="84"   w="20"    h="24" />
-		<Sprite id="default_font_b" x="20"   y="84"   w="20"    h="24" />
-		<Sprite id="default_font_c" x="40"   y="84"   w="22"    h="24" />
-		<Sprite id="default_font_d" x="62"   y="84"   w="22"    h="24" />
-		<Sprite id="default_font_e" x="84"   y="84"   w="20"    h="24" />
-		<Sprite id="default_font_f" x="104"  y="84"   w="16"    h="24" />
-		<Sprite id="default_font_g" x="120"  y="84"   w="22"    h="24" />
-		<Sprite id="default_font_h" x="142"  y="84"   w="22"    h="24" />
-		<Sprite id="default_font_i" x="164"  y="84"   w="12"    h="24" />
-		<Sprite id="default_font_j" x="176"  y="84"   w="14"    h="24" />
-		<Sprite id="default_font_k" x="190"  y="84"   w="20"    h="24" />
-		<Sprite id="default_font_l" x="210"  y="84"   w="14"    h="24" />
-		<Sprite id="default_font_m" x="224"  y="84"   w="20"    h="24" />
-		<Sprite id="default_font_n" x="0"    y="116"  w="18"    h="24" />
-		<Sprite id="default_font_o" x="18"   y="116"  w="22"    h="24" />
-		<Sprite id="default_font_p" x="40"   y="116"  w="22"    h="24" />
-		<Sprite id="default_font_q" x="62"   y="116"  w="22"    h="24" />
-		<Sprite id="default_font_r" x="84"   y="116"  w="18"    h="24" />
-		<Sprite id="default_font_s" x="102"  y="116"  w="20"    h="24" />
-		<Sprite id="default_font_t" x="122"  y="116"  w="22"    h="24" />
-		<Sprite id="default_font_u" x="136"  y="116"  w="22"    h="24" />
-		<Sprite id="default_font_v" x="158"  y="116"  w="22"    h="24" />
-		<Sprite id="default_font_w" x="180"  y="116"  w="28"    h="24" />
-		<Sprite id="default_font_x" x="208"  y="116"  w="18"    h="24" />
-		<Sprite id="default_font_y" x="226"  y="116"  w="24"    h="24" />
-		<Sprite id="default_font_z" x="0"    y="140"  w="20"    h="24" />
-	<!--	<Sprite id="default_font_å" x="16"   y="140"  w="20"    h="24" />
-		<Sprite id="default_font_ä" x="38"   y="140"  w="20"    h="24" />
-		<Sprite id="default_font_ö" x="58"   y="140"  w="20"    h="24" />-->
-
-		<Sprite id="default_font_0" x="0"    y="170"   w="22"  h="14"  />
-		<Sprite id="default_font_1" x="22"   y="170"   w="22"  h="14"  />
-		<Sprite id="default_font_2" x="44"   y="170"   w="22"  h="14"  />
-		<Sprite id="default_font_3" x="66"   y="170"   w="22"  h="14"  />
-		<Sprite id="default_font_4" x="88"   y="170"   w="22"  h="14"  />
-		<Sprite id="default_font_5" x="110"  y="170"   w="20"  h="14"  />
-		<Sprite id="default_font_6" x="130"  y="170"   w="24"  h="14"  />
-		<Sprite id="default_font_7" x="154"  y="170"   w="20"  h="14"  />
-		<Sprite id="default_font_8" x="174"  y="170"   w="24"  h="14"  />
-		<Sprite id="default_font_9" x="198"  y="170"   w="24"  h="14"  />
-
-		<Sprite id="default_font_comma"        x="220"  y="170"   w="14"    h="24" />
-		<Sprite id="default_font_period"       x="234"  y="170"   w="14"    h="24" />
-		<Sprite id="default_font_dash"         x="0"    y="196"   w="12"    h="24" />
-		<Sprite id="default_font_semicolon"    x="12"   y="196"   w="16"    h="24" />
-		<Sprite id="default_font_colon"        x="28"   y="196"   w="14"    h="24" />
-		<Sprite id="default_font_underscore"   x="42"   y="196"   w="18"    h="24" />
-		<Sprite id="default_font_hyphen"       x="60"   y="196"   w="18"    h="24" />
-		<Sprite id="default_font_quote"        x="0"    y="226"   w="16"    h="24" />
-		<Sprite id="default_font_exclamation"  x="16"   y="226"   w="16"    h="24" />
-		<Sprite id="default_font_question"     x="32"   y="226"   w="22"    h="24" />
-		<Sprite id="default_font_plus"         x="54"   y="226"   w="22"    h="24" />
-		<Sprite id="default_font_minus"        x="76"   y="226"   w="16"    h="24" />
-		<Sprite id="default_font_asterisk"     x="92"   y="226"   w="18"    h="24" />
-		<Sprite id="default_font_forwardslash" x="110"  y="226"   w="16"    h="24" />
-		<Sprite id="default_font_equals"       x="126"  y="226"   w="22"    h="24" />
-		<Sprite id="default_font_hashtag"      x="148"  y="226"   w="22"    h="24" />
+	<SpriteSheet texture="font" prefix="default_font_">
+		<Row y="0" h="29">
+			<Sprite id="A" x="0"   w="24" />
+			<Sprite id="B" x="24"  w="24" />
+			<Sprite id="C" x="44"  w="24" />
+			<Sprite id="D" x="68"  w="24" />
+			<Sprite id="E" x="94"  w="24" />
+			<Sprite id="F" x="116" w="24" />
+			<Sprite id="G" x="140" w="24" />
+			<Sprite id="H" x="162" w="24" />
+			<Sprite id="I" x="186" w="18" />
+			<Sprite id="J" x="196" w="20" />
+			<Sprite id="K" x="216" w="24" />
+		</Row>
+		<Row y="29" h="26">
+			<Sprite id="L" x="0"   w="18" />
+			<Sprite id="M" x="18"  w="24" />
+			<Sprite id="N" x="45"  w="24" />
+			<Sprite id="O" x="70"  w="24" />
+			<Sprite id="P" x="94"  w="24" />
+			<Sprite id="Q" x="120" w="24" />
+			<Sprite id="R" x="144" w="24" />
+			<Sprite id="S" x="166" w="24" />
+			<Sprite id="T" x="188" w="24" />
+			<Sprite id="U" x="210" w="24" />
+			<Sprite id="V" x="234" w="24" />
+		</Row>
+		<Row y="54" h="24">
+			<Sprite id="W" x="0"  w="28" />
+			<Sprite id="X" x="28" w="24" />
+			<Sprite id="Y" x="51" w="24" />
+			<Sprite id="Z" x="76" w="24" />
+			<!--
+			<Sprite id="Å" x="96"  w="24" />
+			<Sprite id="Ä" x="120" w="24" />
+			<Sprite id="Ö" x="144" w="24" />
+			 -->
+		</Row>
+		<Row y="84" h="24">
+			<Sprite id="a" x="0"   w="20" />
+			<Sprite id="b" x="20"  w="20" />
+			<Sprite id="c" x="40"  w="22" />
+			<Sprite id="d" x="62"  w="22" />
+			<Sprite id="e" x="84"  w="20" />
+			<Sprite id="f" x="104" w="16" />
+			<Sprite id="g" x="120" w="22" />
+			<Sprite id="h" x="142" w="22" />
+			<Sprite id="i" x="164" w="12" />
+			<Sprite id="j" x="176" w="14" />
+			<Sprite id="k" x="190" w="20" />
+			<Sprite id="l" x="210" w="14" />
+			<Sprite id="m" x="224" w="20" />
+		</Row>
+		<Row y="116" h="24">
+			<Sprite id="n" x="0"   w="18" />
+			<Sprite id="o" x="18"  w="22" />
+			<Sprite id="p" x="40"  w="22" />
+			<Sprite id="q" x="62"  w="22" />
+			<Sprite id="r" x="84"  w="18" />
+			<Sprite id="s" x="102" w="20" />
+			<Sprite id="t" x="122" w="22" />
+			<Sprite id="u" x="136" w="22" />
+			<Sprite id="v" x="158" w="22" />
+			<Sprite id="w" x="180" w="28" />
+			<Sprite id="x" x="208" w="18" />
+			<Sprite id="y" x="226" w="24" />
+		</Row>
+		<Row y="140" h="24">
+			<Sprite id="z" x="0"  w="20" />
+			<!--
+			<Sprite id="å" x="16" w="20" />
+			<Sprite id="ä" x="38" w="20" />
+			<Sprite id="ö" x="58" w="20" />
+			-->
+		</Row>
+		<Row y="170" h="14">
+			<Sprite id="0" x="0"   w="22" />
+			<Sprite id="1" x="22"  w="22" />
+			<Sprite id="2" x="44"  w="22" />
+			<Sprite id="3" x="66"  w="22" />
+			<Sprite id="4" x="88"  w="22" />
+			<Sprite id="5" x="110" w="20" />
+			<Sprite id="6" x="130" w="24" />
+			<Sprite id="7" x="154" w="20" />
+			<Sprite id="8" x="174" w="24" />
+			<Sprite id="9" x="198" w="24" />
+		</Row>
+		<Row y="170" h="24">
+			<Sprite id="comma"  x="220" w="14" />
+			<Sprite id="period" x="234" w="14" />
+		</Row>
+		<Row y="196" h="24" >
+			<Sprite id="dash"       x="0"  w="12" />
+			<Sprite id="semicolon"  x="12" w="16" />
+			<Sprite id="colon"      x="28" w="14" />
+			<Sprite id="underscore" x="42" w="18" />
+			<Sprite id="hyphen"     x="60" w="18" />
+		</Row>
+		<Row y="226" h="24">
+			<Sprite id="quote"        x="0"   w="16" />
+			<Sprite id="exclamation"  x="16"  w="16" />
+			<Sprite id="question"     x="32"  w="22" />
+			<Sprite id="plus"         x="54"  w="22" />
+			<Sprite id="minus"        x="76"  w="16" />
+			<Sprite id="asterisk"     x="92"  w="18" />
+			<Sprite id="forwardslash" x="110" w="16" />
+			<Sprite id="equals"       x="126" w="22" />
+			<Sprite id="hashtag"      x="148" w="22" />
+		</Row>
 	</SpriteSheet>
 </Assets>

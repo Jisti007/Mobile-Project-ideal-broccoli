@@ -39,13 +39,13 @@ std::list<Link*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 				auto cost = active->pathCost + link->getCost(agent, active->pathCost);
 
 				if (neighbor->status == NodeStatus::unvisited) {
-					neighbor->pathLink = link.get();// active;
+					neighbor->pathLink = link.get();
 					neighbor->pathCost = cost;
 					neighbor->heuristic = neighbor->getHeuristic(destination);
 					neighbor->status = NodeStatus::open;
 					open.add(neighbor);
 				} else if (cost < neighbor->pathCost) {
-					neighbor->pathLink = link.get();//active;
+					neighbor->pathLink = link.get();
 					neighbor->pathCost = cost;
 					open.reposition(neighbor);
 				}

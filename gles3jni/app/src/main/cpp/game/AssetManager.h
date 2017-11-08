@@ -65,7 +65,8 @@ private:
 	void handleAssetNode(Node* node);
 	void loadTexture(Node* node);
 	void loadSprite(Node* node);
-	void loadSprite2(Node* node, Texture* texture);
+	void loadSpriteUsing(Node* node, Texture* texture, const char* prefix);
+	void loadSpriteUsing(Node* node, Texture* texture, const char* prefix, int y, int h);
 	void loadSpriteSheet(Node* node);
 	void loadFont(Node* node);
 	void loadHexType(Node* node);

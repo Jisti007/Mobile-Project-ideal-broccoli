@@ -52,12 +52,12 @@ void AssetManager::reloadAll() {
 	}
 }
 
-void AssetManager::loadModule(const char *directory) {
+void AssetManager::loadModule(const char* directory) {
 	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
 	loadedModules.insert(directory);
 }
 
-bool AssetManager::isModuleLoaded(const char * module) {
+bool AssetManager::isModuleLoaded(const char* module) {
 	return loadedModules.find(module) != loadedModules.end();
 }
 
@@ -110,11 +110,17 @@ void AssetManager::loadTexture(Node *node) {
 
 void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
-	loadSprite2(node, texture);
+	loadSpriteUsing(node, texture, "");
 }
 
 
-void AssetManager::loadSprite2(AssetManager::Node* node, Texture* texture) {
+void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, const char* prefix) {
+	int y = atoi(node->getY());
+	int h = atoi(node->getH());
+	loadSpriteUsing(node, texture, prefix, y, h);
+}
+
+void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, const char* prefix, int y, int h) {
 	int xOffset = 0;
 	int yOffset = 0;
 
@@ -136,14 +142,16 @@ void AssetManager::loadSprite2(AssetManager::Node* node, Texture* texture) {
 		swappableColorNode = swappableColorNode->next_sibling();
 	}
 
-	auto id = node->getID();
+	std::string id = prefix;
+	id += node->getID();
+	//auto id = node->getID();
 	sprites[id] = make_unique<Sprite>(
-		id,
+		id.c_str(),
 		texture,
 		atoi(node->getX()),
-		atoi(node->getY()),
+		y,
 		atoi(node->getW()),
-		atoi(node->getH()),
+		h,
 		xOffset,
 		yOffset,
 		swappableColors
@@ -152,28 +160,44 @@ void AssetManager::loadSprite2(AssetManager::Node* node, Texture* texture) {
 
 void AssetManager::loadSpriteSheet(AssetManager::Node* node) {
 	auto texture = textures[node->getTexture()].get();
+	std::string prefix = "";
+	if (node->getData()->first_attribute("prefix")) {
+		prefix = node->getData()->first_attribute("prefix")->value();
+	}
+
+	auto rowNode = node->getData()->first_node("Row");
+	while (rowNode) {
+		int y = atoi(rowNode->first_attribute("y")->value());
+		int h = atoi(rowNode->first_attribute("h")->value());
+		auto rowSpriteNode = rowNode->first_node("Sprite");
+		while (rowSpriteNode) {
+			Node node1(node->getDirectory(), rowSpriteNode);
+			loadSpriteUsing(&node1, texture, prefix.c_str(), y, h);
+			rowSpriteNode = rowSpriteNode->next_sibling();
+		}
+		rowNode = rowNode->next_sibling("Row");
+	}
+
 	auto spriteNode = node->getData()->first_node("Sprite");
-	while (spriteNode){
+	while (spriteNode) {
 		Node node1(node->getDirectory(), spriteNode);
-		loadSprite2(&node1, texture);
-		spriteNode = spriteNode->next_sibling();
+		loadSpriteUsing(&node1, texture, prefix.c_str());
+		spriteNode = spriteNode->next_sibling("Sprite");
 	}
 }
 
-
 void AssetManager::loadFont(AssetManager::Node* node) {
-	std::unordered_map<char, Sprite*> mapping;
+	std::unordered_map<char, Sprite*> mappings;
 	auto mappingNode = node->getData()->first_node("SpriteMapping");
 	while(mappingNode){
 		auto mappingChar = mappingNode->first_attribute("char")->value()[0];
 		auto sprite = sprites[mappingNode->first_attribute("sprite")->value()].get();
 
-		mapping[mappingChar] = sprite;
+		mappings[mappingChar] = sprite;
 		mappingNode = mappingNode->next_sibling();
 	}
-	fonts[node->getID()] = make_unique<Font>(mapping);
+	fonts[node->getID()] = make_unique<Font>(mappings);
 }
-
 
 void AssetManager::loadHexType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
