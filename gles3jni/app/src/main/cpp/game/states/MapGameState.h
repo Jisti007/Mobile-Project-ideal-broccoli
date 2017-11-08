@@ -21,6 +21,7 @@ private:
 	GameMap* map;
 	Unit* selectedUnit = nullptr;
 	std::unique_ptr<Movement> movement;
+	bool fastAnimation = false;
 };
 
 #endif //GLES3JNI_MAPGAMESTATE_H

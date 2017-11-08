@@ -24,6 +24,9 @@ MapGameState::~MapGameState() {
 
 void MapGameState::update(float deltaTime) {
 	if (movement) {
+		if (fastAnimation) {
+			deltaTime *= 16;
+		}
 		if (movement->animate(deltaTime)) {
 			movement = nullptr;
 		}
@@ -44,6 +47,11 @@ bool MapGameState::press(float x, float y) {
 		return true;
 	}
 
+	if (movement != nullptr) {
+		fastAnimation = true;
+		return true;
+	}
+
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
@@ -56,6 +64,7 @@ bool MapGameState::press(float x, float y) {
 			movement = std::make_unique<Movement>(selectedUnit, path);
 			movement->beginAnimation();
 			movement->execute();
+			fastAnimation = false;
 		}
 	}
 

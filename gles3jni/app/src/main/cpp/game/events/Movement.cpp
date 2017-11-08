@@ -10,10 +10,16 @@ Movement::~Movement() {
 }
 
 void Movement::beginAnimation() {
+	auto beginHex = static_cast<MapHex*>(path.front()->getSource());
+	unit->setPosition(beginHex->getPosition());
 	animationPath = path;
 }
 
 bool Movement::animate(float deltaTime) {
+	if (animationPath.size() == 0) {
+		return true;
+	}
+
 	auto nextHex = static_cast<MapHex*>(animationPath.front()->getDestination());
 	auto hexPosition = nextHex->getPosition();
 	auto deltaPosition = hexPosition - unit->getPosition();
@@ -32,7 +38,9 @@ bool Movement::animate(float deltaTime) {
 }
 
 void Movement::endAnimation() {
-
+	auto endHex = static_cast<MapHex*>(path.back()->getDestination());
+	unit->setPosition(endHex->getPosition());
+	animationPath.clear();
 }
 
 bool Movement::execute() {
