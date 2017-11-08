@@ -1,5 +1,6 @@
 #include "MapGameState.h"
 #include "../ui/Button.h"
+#include "../events/Movement.h"
 
 MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	this->map = map;
@@ -21,8 +22,12 @@ MapGameState::~MapGameState() {
 
 }
 
-void MapGameState::update() {
-
+void MapGameState::update(float deltaTime) {
+	if (movement) {
+		if (movement->animate(deltaTime)) {
+			movement = nullptr;
+		}
+	}
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
@@ -48,8 +53,9 @@ bool MapGameState::press(float x, float y) {
 		} else if (selectedUnit != nullptr) {
 			auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
-			auto nextHex = static_cast<MapHex*>(path.front()->getDestination());
-			selectedUnit->moveTo(nextHex);
+			movement = std::make_unique<Movement>(selectedUnit, path);
+			movement->beginAnimation();
+			movement->execute();
 		}
 	}
 

@@ -25,7 +25,10 @@ void Game::initialize() {
 }
 
 void Game::update() {
-	state->update();
+	auto currentTime = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<float> deltaTime = currentTime - previousTime;
+	state->update(deltaTime.count());
+	previousTime = currentTime;
 }
 
 void Game::draw() {

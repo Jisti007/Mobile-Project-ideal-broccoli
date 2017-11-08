@@ -11,13 +11,13 @@ class GameMap;
 
 class Unit : public MapObject, public Agent {
 public:
-	Unit();
-	Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map);
+	//Unit();
+	Unit(uint16_t gridX, uint16_t gridY, glm::vec2 position, UnitType *type, Faction* faction, GameMap* map);
 	virtual ~Unit();
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
 
-	void moveTo(MapHex* destination);
+	bool moveTo(MapHex* destination);
 
 	inline const UnitType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }

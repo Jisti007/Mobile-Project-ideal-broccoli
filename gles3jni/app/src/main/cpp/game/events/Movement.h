@@ -6,17 +6,19 @@
 
 class Movement : public ScenarioEvent {
 public:
-	Movement(Unit* unit, MapHex* destination);
+	Movement(Unit* unit, std::list<Link*> path);
 	virtual ~Movement();
 
+	virtual void beginAnimation();
 	virtual bool animate(float deltaTime);
-	virtual void execute();
-	virtual void cancel();
+	virtual void endAnimation();
+	virtual bool execute();
+	virtual bool cancel();
 
 private:
 	Unit* unit;
-	MapHex* source;
-	MapHex* destination;
+	std::list<Link*> path;
+	std::list<Link*> animationPath;
 };
 
 #endif //GLES3JNI_MOVEMENT_H

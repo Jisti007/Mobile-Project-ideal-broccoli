@@ -29,6 +29,8 @@ public:
 	MapHex* tryGetHex(int x, int y);
 	/// Transforms the given screen coordinates to grid coordinates.
 	Point getGridPosition(glm::vec2 screenPosition);
+	/// Transforms the given grid position to a normalized (pre-screen transform) hex position.
+	glm::vec2 getHexPosition(int x, int y);
 
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
 	inline MapHex* tryGetHex(Point position) { return tryGetHex(position.x, position.y); }
@@ -54,8 +56,8 @@ private:
 	void initializeRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
 	MapHex* findFreeHex(int maxTries);
-	glm::vec2 getHexPosition(int x, int y);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);
+	glm::vec2 getScreenPosition(glm::vec2 hexPosition);
 	int getDefaultMaxExpansionsPerRegion() {
 		return (int) (hexes.size() / (1 + regions.size()));
 	}

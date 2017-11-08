@@ -9,12 +9,16 @@
 
 class Scenario {
 public:
+	/// Returns the list of maps belonging to the scenario.
 	inline std::vector<std::unique_ptr<GameMap>>& getMaps() { return maps; }
 
 private:
+	/// All the maps that belong to the scenario.
 	std::vector<std::unique_ptr<GameMap>> maps;
+	/// List of events that have been executed.
 	std::vector<std::unique_ptr<ScenarioEvent>> eventLog;
-	std::queue<std::unique_ptr<ScenarioEvent>> eventQueue;
+	/// Queue of events not yet animated.
+	std::queue<std::unique_ptr<ScenarioEvent>> animationQueue;
 };
 
 #endif //GLES3JNI_SCENARIO_H

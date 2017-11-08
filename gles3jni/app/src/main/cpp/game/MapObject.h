@@ -7,7 +7,7 @@
 
 class MapObject {
 public:
-	MapObject(uint16_t gridX, uint16_t gridY);
+	MapObject(uint16_t gridX, uint16_t gridY, glm::vec2 position);
 	virtual ~MapObject();
 
 	inline const uint16_t getGridX() const { return gridX; }
@@ -15,6 +15,7 @@ public:
 	inline Point getGridPosition() { return Point{getGridX(), getGridY()}; }
 	inline glm::vec2 getPosition() { return position; }
 	inline void setPosition(glm::vec2 position) { this->position = position; }
+	inline void moveBy(glm::vec2 delta) { this->position += delta; }
 
 	virtual Sprite* getSprite() = 0;
 
