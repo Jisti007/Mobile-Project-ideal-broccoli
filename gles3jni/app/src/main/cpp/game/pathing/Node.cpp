@@ -11,10 +11,10 @@ Node::~Node() {
 
 }
 
-std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
+std::list<Link*> Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
 	currentPathfinderRun++;
-	lastVisit = currentPathfinderRun;
-	previous = nullptr;
+	this->lastVisit = currentPathfinderRun;
+	this->pathLink = nullptr;
 
 	BinaryHeap open;
 	open.reserve(graphSize);
@@ -39,13 +39,13 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 				auto cost = active->pathCost + link->getCost(agent, active->pathCost);
 
 				if (neighbor->status == NodeStatus::unvisited) {
-					neighbor->previous = active;
+					neighbor->pathLink = link.get();// active;
 					neighbor->pathCost = cost;
 					neighbor->heuristic = neighbor->getHeuristic(destination);
 					neighbor->status = NodeStatus::open;
 					open.add(neighbor);
 				} else if (cost < neighbor->pathCost) {
-					neighbor->previous = active;
+					neighbor->pathLink = link.get();//active;
 					neighbor->pathCost = cost;
 					open.reposition(neighbor);
 				}
@@ -53,11 +53,12 @@ std::list<Node*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 		}
 	}
 
-	std::list<Node*> path;
-	Node* active = destination;
-	while (active != nullptr) {
-		path.push_front(active);
-		active = active->previous;
+	// Backtrack from the destination to build the path.
+	std::list<Link*> path;
+	Link* pathLink = destination->pathLink;
+	while (pathLink != nullptr) {
+		path.push_front(pathLink);
+		pathLink = pathLink->getSource()->pathLink;
 	}
 	return path;
 }

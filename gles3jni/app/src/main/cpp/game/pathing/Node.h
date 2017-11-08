@@ -24,13 +24,13 @@ public:
 
 	virtual float getHeuristic(Node* destination) = 0;
 	virtual int compareTo(Comparable* other);
-	std::list<Node*> findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
+	std::list<Link*> findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
 
 protected:
 	std::vector<std::unique_ptr<Link>> links;
 
 private:
-	Node* previous = nullptr;
+	Link* pathLink = nullptr;
 	NodeStatus status = NodeStatus::unvisited;
 	uint64_t lastVisit = 0;
 	float pathCost = 0.0f;

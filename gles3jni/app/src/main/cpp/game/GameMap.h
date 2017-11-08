@@ -25,8 +25,9 @@ public:
 	void generate();
 	void draw();
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
-	/// Returns nullptr if out of bounds.
+	/// Returns nullptr if out of bounds. Otherwise returns the hex at the given grid coordinates.
 	MapHex* tryGetHex(int x, int y);
+	/// Transforms the given screen coordinates to grid coordinates.
 	Point getGridPosition(glm::vec2 screenPosition);
 
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
