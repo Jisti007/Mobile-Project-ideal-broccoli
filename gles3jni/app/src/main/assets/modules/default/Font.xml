@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Assets>
+	<Font id="default">
+		<SpriteMapping char="A" sprite="default_font_A"/>
+		<SpriteMapping char="B" sprite="default_font_B"/>
+		<SpriteMapping char="C" sprite="default_font_C"/>
+		<SpriteMapping char="D" sprite="default_font_D"/>
+		<SpriteMapping char="E" sprite="default_font_E"/>
+		<SpriteMapping char="F" sprite="default_font_F"/>
+		<SpriteMapping char="G" sprite="default_font_G"/>
+		<SpriteMapping char="H" sprite="default_font_H"/>
+		<SpriteMapping char="I" sprite="default_font_I"/>
+		<SpriteMapping char="J" sprite="default_font_J"/>
+		<SpriteMapping char="K" sprite="default_font_K"/>
+		<SpriteMapping char="L" sprite="default_font_L"/>
+		<SpriteMapping char="M" sprite="default_font_M"/>
+		<SpriteMapping char="N" sprite="default_font_N"/>
+		<SpriteMapping char="O" sprite="default_font_O"/>
+		<SpriteMapping char="P" sprite="default_font_P"/>
+		<SpriteMapping char="Q" sprite="default_font_Q"/>
+		<SpriteMapping char="R" sprite="default_font_R"/>
+		<SpriteMapping char="S" sprite="default_font_S"/>
+		<SpriteMapping char="T" sprite="default_font_T"/>
+		<SpriteMapping char="U" sprite="default_font_U"/>
+		<SpriteMapping char="V" sprite="default_font_V"/>
+		<SpriteMapping char="W" sprite="default_font_W"/>
+		<SpriteMapping char="X" sprite="default_font_X"/>
+		<SpriteMapping char="Y" sprite="default_font_Y"/>
+		<SpriteMapping char="Z" sprite="default_font_Z"/>
+<!--   	<SpriteMapping char="Å" sprite="default_font_Å"/>
+		<SpriteMapping char="Ä" sprite="default_font_Ä"/>
+		<SpriteMapping char="Ö" sprite="default_font_Ö"/> -->
+
+		<SpriteMapping char="a" sprite="default_font_a"/>
+		<SpriteMapping char="b" sprite="default_font_b"/>
+		<SpriteMapping char="c" sprite="default_font_c"/>
+		<SpriteMapping char="d" sprite="default_font_d"/>
+		<SpriteMapping char="e" sprite="default_font_e"/>
+		<SpriteMapping char="f" sprite="default_font_f"/>
+		<SpriteMapping char="g" sprite="default_font_g"/>
+		<SpriteMapping char="h" sprite="default_font_h"/>
+		<SpriteMapping char="i" sprite="default_font_i"/>
+		<SpriteMapping char="j" sprite="default_font_j"/>
+		<SpriteMapping char="k" sprite="default_font_k"/>
+		<SpriteMapping char="l" sprite="default_font_l"/>
+		<SpriteMapping char="m" sprite="default_font_m"/>
+		<SpriteMapping char="n" sprite="default_font_n"/>
+		<SpriteMapping char="o" sprite="default_font_o"/>
+		<SpriteMapping char="p" sprite="default_font_p"/>
+		<SpriteMapping char="q" sprite="default_font_q"/>
+		<SpriteMapping char="r" sprite="default_font_r"/>
+		<SpriteMapping char="s" sprite="default_font_s"/>
+		<SpriteMapping char="t" sprite="default_font_t"/>
+		<SpriteMapping char="u" sprite="default_font_u"/>
+		<SpriteMapping char="v" sprite="default_font_v"/>
+		<SpriteMapping char="w" sprite="default_font_w"/>
+		<SpriteMapping char="x" sprite="default_font_x"/>
+		<SpriteMapping char="y" sprite="default_font_y"/>
+		<SpriteMapping char="z" sprite="default_font_z"/>
+<!--	<SpriteMapping char="å" sprite="default_font_å"/>
+		<SpriteMapping char="ä" sprite="default_font_ä"/>
+		<SpriteMapping char="ö" sprite="default_font_ö"/> -->
+
+		<SpriteMapping char="0" sprite="default_font_0"/>
+		<SpriteMapping char="1" sprite="default_font_1"/>
+		<SpriteMapping char="2" sprite="default_font_2"/>
+		<SpriteMapping char="3" sprite="default_font_3"/>
+		<SpriteMapping char="4" sprite="default_font_4"/>
+		<SpriteMapping char="5" sprite="default_font_5"/>
+		<SpriteMapping char="6" sprite="default_font_6"/>
+		<SpriteMapping char="7" sprite="default_font_7"/>
+		<SpriteMapping char="8" sprite="default_font_8"/>
+		<SpriteMapping char="9" sprite="default_font_9"/>
+
+		<SpriteMapping char="," sprite="default_font_comma"/>
+		<SpriteMapping char="." sprite="default_font_period"/>
+		<SpriteMapping char="-" sprite="default_font_dash"/>
+		<SpriteMapping char=";" sprite="default_font_semicolon"/>
+		<SpriteMapping char=":" sprite="default_font_colon"/>
+		<SpriteMapping char="_" sprite="default_font_underscore"/>
+		<SpriteMapping char="'" sprite="default_font_hyphen"/>
+		<SpriteMapping char='"' sprite="default_font_quote"/>
+		<SpriteMapping char="!" sprite="default_font_exclamation"/>
+		<SpriteMapping char="?" sprite="default_font_question"/>
+		<SpriteMapping char="+" sprite="default_font_plus"/>
+		<SpriteMapping char="-" sprite="default_font_minus"/>
+		<SpriteMapping char="*" sprite="default_font_asterisk"/>
+		<SpriteMapping char="/" sprite="default_font_forwardslash"/>
+		<SpriteMapping char="=" sprite="default_font_equals"/>
+		<SpriteMapping char="#" sprite="default_font_hashtag"/>
+	</Font>
+</Assets>
