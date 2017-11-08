@@ -14,6 +14,9 @@ public:
 	inline Texture* getTexture() const { return texture; }
 	inline Mesh* getMesh() { return &mesh; }
 	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }
+	inline int getWidth(){ return width; }
+	inline int getHeight(){ return height; }
+
 
 private:
 	std::string id;
@@ -22,6 +25,8 @@ private:
 	std::vector<glm::vec3> swappableColors;
 	std::vector<Vertex> vertices;
 	std::vector<uint16_t> indices;
+	int width;
+	int height;
 };
 
 #endif //GLES3JNI_SPRITE_H

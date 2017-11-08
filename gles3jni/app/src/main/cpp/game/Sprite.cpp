@@ -3,6 +3,8 @@
 Sprite::Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset, std::vector<glm::vec3> swappableColors) {
 	this->id = id;
 	this->texture = texture;
+	this->width = w;
+	this->height = h;
 
 	auto left = w / -2 + xOffset;
 	auto top = h / 2 - yOffset;

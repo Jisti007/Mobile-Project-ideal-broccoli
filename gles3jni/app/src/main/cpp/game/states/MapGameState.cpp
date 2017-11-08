@@ -1,6 +1,7 @@
 #include "MapGameState.h"
 #include "../ui/Button.h"
 #include "../events/Movement.h"
+#include "../ui/Label.h"
 
 MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	this->map = map;
@@ -16,6 +17,10 @@ MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 		assets->getSprite("ui_resource"), glm::vec2{0,440}, glm::vec2{400,200}
 	));
 	uiRoot->addChild(resourceInfo);
+
+	auto resourceLabel = std::unique_ptr<UIObject>(new Label(u8"asdasd", assets->getFont("default"), glm::vec2{0,0}, glm::vec2{400,200}
+	));
+	uiRoot->addChild(resourceLabel);
 }
 
 MapGameState::~MapGameState() {

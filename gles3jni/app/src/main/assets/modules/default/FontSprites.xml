@@ -57,9 +57,9 @@
 		<Sprite id="default_font_x" x="208"  y="116"  w="18"    h="24" />
 		<Sprite id="default_font_y" x="226"  y="116"  w="24"    h="24" />
 		<Sprite id="default_font_z" x="0"    y="140"  w="20"    h="24" />
-	<!--<Sprite id="default_font_å" x="16"   y="140"  w="20"    h="24" />
+	<!--	<Sprite id="default_font_å" x="16"   y="140"  w="20"    h="24" />
 		<Sprite id="default_font_ä" x="38"   y="140"  w="20"    h="24" />
-		<Sprite id="default_font_ö" x="58"   y="140"  w="20"    h="24" /> -->
+		<Sprite id="default_font_ö" x="58"   y="140"  w="20"    h="24" />-->
 
 		<Sprite id="default_font_0" x="0"    y="170"   w="22"  h="14"  />
 		<Sprite id="default_font_1" x="22"   y="170"   w="22"  h="14"  />

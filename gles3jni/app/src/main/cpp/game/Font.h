@@ -12,7 +12,7 @@
 class Font {
 public:
 	Font(std::unordered_map<char, Sprite*> mapping);
-	inline Sprite* getSprite(char character){ mapping[character]; };
+	inline Sprite* getSprite(char character){ return mapping[character]; }
 
 private:
 	std::unordered_map<char, Sprite*> mapping;

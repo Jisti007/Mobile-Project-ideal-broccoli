@@ -171,6 +171,7 @@ void AssetManager::loadFont(AssetManager::Node* node) {
 		mapping[mappingChar] = sprite;
 		mappingNode = mappingNode->next_sibling();
 	}
+	fonts[node->getID()] = make_unique<Font>(mapping);
 }
 
 

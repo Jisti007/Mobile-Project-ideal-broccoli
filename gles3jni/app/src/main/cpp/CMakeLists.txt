@@ -62,6 +62,7 @@ add_library(
     game/states/GameState.cpp
     game/states/MapGameState.cpp
     game/ui/Button.cpp
+    game/ui/Label.cpp
     game/ui/UIObject.cpp
     game/ui/UISprite.cpp
 )
