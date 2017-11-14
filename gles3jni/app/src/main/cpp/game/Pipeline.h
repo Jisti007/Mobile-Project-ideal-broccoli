@@ -12,11 +12,13 @@ public:
 
 	void initialize();
 	void destroy();
-	inline GLuint getProgram() { return program; }
-	void beginDraw(glm::vec2 position, glm::vec2 size);
+	void beginDraw(glm::vec2 position);
 	void draw(Sprite* sprite, glm::vec2 position);
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	void endDraw();
+	void setViewportSize(int width, int height);
+
+	inline GLuint getProgram() { return program; }
 
 private:
 	GLuint program;
@@ -28,6 +30,8 @@ private:
 	GLint sourceColorsLocation;
 	GLint destinationColorsLocation;
 	GLint numberOfColorSwapsLocation;
+	int viewportWidth;
+	int viewportHeight;
 
 	GLuint createShader(const char* source, GLenum type);
 	void deleteShader(GLuint* shader);

@@ -97,13 +97,13 @@ void Pipeline::destroy() {
 	}
 }
 
-void Pipeline::beginDraw(glm::vec2 position, glm::vec2 size) {
+void Pipeline::beginDraw(glm::vec2 position) {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
 	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
 	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
 	glUniform2f(cameraPositionLocation, position.x, position.y);
-	glUniform2f(cameraSizeLocation, size.x, size.y);
+	glUniform2f(cameraSizeLocation, viewportWidth / 2.0f, viewportHeight / 2.0f);
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
@@ -124,19 +124,19 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
+	auto numberOfColorSwaps =
+		(GLint)std::min(sprite->getSwappableColors().size(), destinationColors.size());
+	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
 	glUniform3fv(
 		sourceColorsLocation,
-		(GLsizei)sprite->getSwappableColors().size(),
+		(GLsizei)numberOfColorSwaps,
 		(GLfloat*)sprite->getSwappableColors().data()
 	);
 	glUniform3fv(
 		destinationColorsLocation,
-		(GLsizei)destinationColors.size(),
+		(GLsizei)numberOfColorSwaps,
 		(GLfloat*)destinationColors.data()
 	);
-	auto numberOfColorSwaps =
-		(GLint)std::min(sprite->getSwappableColors().size(), destinationColors.size());
-	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
 
 	draw(sprite, position);
 }
@@ -173,3 +173,8 @@ void Pipeline::deleteShader(GLuint* shader) {
 	}
 }
 
+void Pipeline::setViewportSize(int width, int height) {
+	viewportWidth = width;
+	viewportHeight = height;
+	glViewport(0, 0, width, height);
+}

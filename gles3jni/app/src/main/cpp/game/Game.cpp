@@ -21,6 +21,7 @@ void Game::initialize() {
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
 		state = std::make_unique<MapGameState>(&assetManager, &map);
+		previousTime =  std::chrono::high_resolution_clock::now();
 	}
 }
 
@@ -39,5 +40,5 @@ void Game::draw() {
 
 void Game::resize(int width, int height) {
 	map.getCamera()->setSize({width, height});
-	glViewport(0, 0, width, height);
+	pipeline.setViewportSize(width, height);
 }

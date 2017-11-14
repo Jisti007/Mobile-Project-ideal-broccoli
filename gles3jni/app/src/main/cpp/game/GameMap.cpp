@@ -71,7 +71,7 @@ void GameMap::generate() {
 }
 
 void GameMap::draw() {
-	pipeline->beginDraw(camera.getPosition(), camera.getSize());
+	pipeline->beginDraw(camera.getPosition());
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex->getPosition());
