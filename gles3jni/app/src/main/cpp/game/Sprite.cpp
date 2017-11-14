@@ -15,14 +15,14 @@ Sprite::Sprite(const char* id, Texture* texture, int x, int y, int w, int h, int
 	auto textureRight = textureLeft + (float)w / texture->getWidth();
 	auto textureBottom = textureTop + (float)h / texture->getHeight();
 
-	vertices = {
+	std::vector<Vertex> vertices = {
 		{{left, top}, {textureLeft, textureTop}},
 		{{right, top}, {textureRight, textureTop}},
 		{{left, bottom}, {textureLeft, textureBottom}},
 		{{right, bottom}, {textureRight, textureBottom}}
 	};
 
-	indices = {0, 2, 1, 1, 2, 3};
+	std::vector<uint16_t> indices = {0, 2, 1, 1, 2, 3};
 
 	mesh.initialize(vertices, indices);
 

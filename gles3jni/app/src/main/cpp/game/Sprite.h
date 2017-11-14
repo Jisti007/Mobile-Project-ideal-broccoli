@@ -23,8 +23,8 @@ private:
 	Texture* texture;
 	Mesh mesh;
 	std::vector<glm::vec3> swappableColors;
-	std::vector<Vertex> vertices;
-	std::vector<uint16_t> indices;
+	//std::vector<Vertex> vertices;
+	//std::vector<uint16_t> indices;
 	int width;
 	int height;
 };
