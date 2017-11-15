@@ -18,7 +18,7 @@ public:
 
 private:
 	Unit* selectedUnit = nullptr;
-	std::unique_ptr<Movement> movement;
+	ScenarioEvent* animatingEvent = nullptr;
 	bool fastAnimation = false;
 };
 

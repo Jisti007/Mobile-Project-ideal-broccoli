@@ -27,17 +27,12 @@ MapGameState::MapGameState(Game* game)
 	std::unique_ptr<UIObject> resourceInfoPointer(resourceInfo);
 	uiRoot->addChild(resourceInfoPointer);
 
-
 	std::unique_ptr<UIObject> resourceLabel(new Label(
 		u8"609", assets->getFont("default"),
 		glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f},
 		glm::vec2{400,200}
 	));
 	resourceInfo->addChild(resourceLabel);
-
-
-
-
 }
 
 MapGameState::~MapGameState() {
@@ -45,13 +40,18 @@ MapGameState::~MapGameState() {
 }
 
 void MapGameState::update(float deltaTime) {
-	if (movement) {
+	auto scenario = game->getCampaign()->getScenario();
+	if (animatingEvent) {
 		if (fastAnimation) {
 			deltaTime *= 16;
 		}
-		if (movement->animate(deltaTime)) {
-			movement = nullptr;
+		if (animatingEvent->animate(deltaTime)) {
+			scenario->popAnimation();
+			animatingEvent = nullptr;
 		}
+	} else if (scenario->getAnimationCount() > 0) {
+		animatingEvent = scenario->peekAnimation();
+		animatingEvent->beginAnimation();
 	}
 }
 
@@ -69,12 +69,13 @@ bool MapGameState::press(float x, float y) {
 		return true;
 	}
 
-	if (movement != nullptr) {
+	if (animatingEvent != nullptr) {
 		fastAnimation = true;
 		return true;
 	}
 
-	auto map = game->getCampaign()->getScenario()->getActiveMap();
+	auto scenario = game->getCampaign()->getScenario();
+	auto map = scenario->getActiveMap();
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
@@ -84,9 +85,10 @@ bool MapGameState::press(float x, float y) {
 		} else if (selectedUnit != nullptr) {
 			auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
-			movement = std::make_unique<Movement>(selectedUnit, path);
-			movement->beginAnimation();
-			movement->execute();
+			std::unique_ptr<ScenarioEvent> movement(new Movement(
+				selectedUnit, path
+			));
+			scenario->executeEvent(movement);
 			fastAnimation = false;
 		}
 	}

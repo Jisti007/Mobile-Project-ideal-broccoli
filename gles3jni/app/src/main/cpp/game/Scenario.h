@@ -25,6 +25,9 @@ public:
 	inline Faction* getPlayerFaction() { return &factions[0]; }
 	inline Faction* getFaction(size_t index) { return &factions[index]; }
 	inline size_t getFactionCount() { return factions.size(); }
+	inline ScenarioEvent* peekAnimation() { return animationQueue.front().get(); }
+	inline void popAnimation() { animationQueue.pop(); }
+	inline size_t getAnimationCount() { return animationQueue.size(); }
 
 private:
 	Campaign* campaign;
