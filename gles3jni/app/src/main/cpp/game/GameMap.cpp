@@ -71,27 +71,22 @@ void GameMap::generate() {
 }
 
 void GameMap::draw() {
-	pipeline->beginDraw(camera.getPosition());
+	pipeline->beginDraw();
+	pipeline->setCameraPosition(camera.getPosition());
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex->getPosition());
-		if (camera.getBounds().contains(position)) {
-			pipeline->draw(hex->getSprite(), position);
-		}
+		pipeline->draw(hex->getSprite(), position);
 	}
 
 	for (auto& mapObject : mapObjects) {
 		auto position = getScreenPosition(mapObject->getPosition());
-		if (camera.getBounds().contains(position)) {
-			pipeline->draw(mapObject->getSprite(), position);
-		}
+		pipeline->draw(mapObject->getSprite(), position);
 	}
 
 	for (auto& unit : units) {
 		auto position = getScreenPosition(unit->getPosition());
-		if (camera.getBounds().contains(position)) {
-			pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
-		}
+		pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
 	}
 
 	pipeline->endDraw();

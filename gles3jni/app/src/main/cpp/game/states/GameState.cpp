@@ -9,7 +9,8 @@ GameState::~GameState() {
 }
 
 void GameState::draw(Pipeline *pipeline) {
-	pipeline->beginDraw({0, 0});
+	pipeline->beginDraw();
+	pipeline->setCameraPosition({0,0});
 	uiRoot->draw(pipeline);
 	pipeline->endDraw();
 }

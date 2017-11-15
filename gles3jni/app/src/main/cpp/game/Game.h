@@ -15,7 +15,6 @@ public:
 	void initialize();
 	void update();
 	void draw();
-	void resize(int width, int height);
 
 	inline Pipeline& getPipeline() { return pipeline; }
 	inline AssetManager& getAssets() { return assetManager; }

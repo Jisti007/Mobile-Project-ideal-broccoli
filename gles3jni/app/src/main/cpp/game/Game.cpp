@@ -37,8 +37,3 @@ void Game::draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	state->draw(&pipeline);
 }
-
-void Game::resize(int width, int height) {
-	map.getCamera()->setSize({width, height});
-	pipeline.setViewportSize(width, height);
-}

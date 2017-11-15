@@ -1,4 +1,5 @@
 #include "Pipeline.h"
+#include "Rectangle.h"
 
 const char* vertexSource = R"glsl(#version 300 es
 precision highp float;
@@ -97,30 +98,31 @@ void Pipeline::destroy() {
 	}
 }
 
-void Pipeline::beginDraw(glm::vec2 position) {
+void Pipeline::beginDraw() {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
-	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
 	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
-	glUniform2f(cameraPositionLocation, position.x, position.y);
-	glUniform2f(cameraSizeLocation, viewportWidth / 2.0f, viewportHeight / 2.0f);
+	glUniform2f(cameraSizeLocation, viewportSize.x / 2.0f, viewportSize.y / 2.0f);
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
-	glUniform2f(instancePositionLocation, position.x, position.y);
-	auto texture = sprite->getTexture()->getHandle();
-	if (texture != lastTexture) {
-		glBindTexture(GL_TEXTURE_2D, texture);
-		lastTexture = texture;
-	}
-	auto mesh = sprite->getMesh();
-	auto vertexArray = mesh->getVertexArray();
-	if (vertexArray != lastVertexArray) {
-		glBindVertexArray(vertexArray);
-		lastVertexArray = vertexArray;
-	}
+	Rectangle viewportBounds(cameraPosition - viewportSize / 2.0f, viewportSize);
+	if (viewportBounds.contains(position)) {
+		glUniform2f(instancePositionLocation, position.x, position.y);
+		auto texture = sprite->getTexture()->getHandle();
+		if (texture != lastTexture) {
+			glBindTexture(GL_TEXTURE_2D, texture);
+			lastTexture = texture;
+		}
+		auto mesh = sprite->getMesh();
+		auto vertexArray = mesh->getVertexArray();
+		if (vertexArray != lastVertexArray) {
+			glBindVertexArray(vertexArray);
+			lastVertexArray = vertexArray;
+		}
 
-	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+	}
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
@@ -151,6 +153,16 @@ void Pipeline::endDraw() {
 	glUseProgram(0);
 }
 
+void Pipeline::setCameraPosition(glm::vec2 position) {
+	cameraPosition = position;
+	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
+	glUniform2f(cameraPositionLocation, position.x, position.y);
+}
+
+void Pipeline::setViewportSize(int width, int height) {
+	viewportSize = { width, height };
+	glViewport(0, 0, width, height);
+}
 
 GLuint Pipeline::createShader(const char* source, GLenum type) {
 	int success;
@@ -171,10 +183,4 @@ void Pipeline::deleteShader(GLuint* shader) {
 		glDeleteShader(*shader);
 		*shader = 0;
 	}
-}
-
-void Pipeline::setViewportSize(int width, int height) {
-	viewportWidth = width;
-	viewportHeight = height;
-	glViewport(0, 0, width, height);
 }
