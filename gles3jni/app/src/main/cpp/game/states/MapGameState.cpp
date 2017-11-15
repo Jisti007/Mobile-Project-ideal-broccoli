@@ -1,3 +1,4 @@
+#include <sstream>
 #include "MapGameState.h"
 #include "../ui/Button.h"
 #include "../events/Movement.h"
@@ -27,12 +28,13 @@ MapGameState::MapGameState(Game* game)
 	std::unique_ptr<UIObject> resourceInfoPointer(resourceInfo);
 	uiRoot->addChild(resourceInfoPointer);
 
-	std::unique_ptr<UIObject> resourceLabel(new Label(
+	resourceLabel = new Label(
 		u8"609", assets->getFont("default"),
 		glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f},
 		glm::vec2{400,200}
-	));
-	resourceInfo->addChild(resourceLabel);
+	);
+	std::unique_ptr<UIObject> resourceLabelPointer(resourceLabel);
+	resourceInfo->addChild(resourceLabelPointer);
 }
 
 MapGameState::~MapGameState() {
@@ -53,6 +55,7 @@ void MapGameState::update(float deltaTime) {
 		animatingEvent = scenario->peekAnimation();
 		animatingEvent->beginAnimation();
 	}
+	updateResourceUI();
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
@@ -94,4 +97,15 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	return true;
+}
+
+void MapGameState::updateResourceUI() {
+
+	auto resources = game->getCampaign()->getScenario()->getPlayerFaction()->getResources();
+	auto gold = game->getAssets()->getResource("gold");
+	int goldAmount = resources[gold];
+	std::stringstream goldString;
+	goldString << "G: " << goldAmount;
+
+	resourceLabel->setText(goldString.str().c_str());
 }

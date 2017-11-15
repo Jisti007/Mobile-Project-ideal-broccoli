@@ -5,6 +5,7 @@
 #include "GameState.h"
 #include "../GameMap.h"
 #include "../events/Movement.h"
+#include "../ui/Label.h"
 
 class MapGameState : public GameState {
 public:
@@ -16,7 +17,10 @@ public:
 	virtual void move(float dx, float dy);
 	virtual bool press(float x, float y);
 
+	void updateResourceUI();
+
 private:
+	Label* resourceLabel;
 	Unit* selectedUnit = nullptr;
 	ScenarioEvent* animatingEvent = nullptr;
 	bool fastAnimation = false;
