@@ -23,8 +23,12 @@ public:
 	inline glm::vec2 getPosition() { return position; }
 	inline glm::vec2 getSize() { return size; }
 	inline Rectangle getRectangle() {
-		return Rectangle(glm::vec2(position.x - size.x / 2, position.y - size.y /2), size);
+		return Rectangle(glm::vec2(getLeft(), getBottom()), size);
 	}
+	inline float getLeft() { return position.x - size.x / 2.0f; }
+	inline float getRight() { return position.x + size.x / 2.0f; }
+	inline float getTop() { return position.y + size.y / 2.0f; }
+	inline float getBottom() { return position.y - size.y / 2.0f; }
 
 private:
 	std::vector<std::unique_ptr<UIObject>> children;
