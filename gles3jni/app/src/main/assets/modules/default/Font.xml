@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
-	<Font id="default" spacewidth="15">
+	<Font id="default" kerning="0">
 		<SpriteMapping char="A" sprite="default_font_A"/>
 		<SpriteMapping char="B" sprite="default_font_B"/>
 		<SpriteMapping char="C" sprite="default_font_C"/>
@@ -88,5 +88,6 @@
 		<SpriteMapping char="/" sprite="default_font_forwardslash"/>
 		<SpriteMapping char="=" sprite="default_font_equals"/>
 		<SpriteMapping char="#" sprite="default_font_hashtag"/>
+		<SpriteMapping char=" " sprite="default_font_space"/>
 	</Font>
 </Assets>

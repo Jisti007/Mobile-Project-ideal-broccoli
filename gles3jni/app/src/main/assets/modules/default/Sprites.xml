@@ -8,7 +8,9 @@
 	<SpriteSheet texture="ui">
 		<Row y="0" h="110">
 			<Sprite id="test_button" x="0"   w="360" />
-			<Sprite id="ui_resource" x="360" w="360" />
+		</Row>
+		<Row y="424" h="115">
+			<Sprite id="ui_resource" x="10" w="720" />
 		</Row>
 	</SpriteSheet>
 	<SpriteSheet texture="terrain">

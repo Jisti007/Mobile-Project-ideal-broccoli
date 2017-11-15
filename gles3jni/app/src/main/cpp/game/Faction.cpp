@@ -7,3 +7,7 @@ Faction::Faction(std::vector<glm::vec3> colors) {
 Faction::~Faction() {
 
 }
+
+void Faction::addResource(const Resource* resource, int amount) {
+	resources[resource] = amount;
+}

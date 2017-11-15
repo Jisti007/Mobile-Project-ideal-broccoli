@@ -20,7 +20,7 @@ void Label::onDraw(Pipeline* pipeline) {
 
 		Sprite* sprite = font->getSprite(c);
 		pipeline->draw(sprite, offset);
-		offset.x += sprite->getWidth();
+		offset.x += sprite->getWidth()+5;
 		i++;
 	}
 

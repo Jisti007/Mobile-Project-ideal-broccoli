@@ -11,20 +11,33 @@ MapGameState::MapGameState(Game* game)
 
 	auto buttonSprite = assets->getSprite("test_button");
 	std::unique_ptr<UIObject> button(new Button(
-		buttonSprite, glm::vec2{viewport.getLeft() + buttonSprite->getWidth() / 2.0f, 440}
+		buttonSprite, glm::vec2{
+			viewport.getLeft() + buttonSprite->getWidth() / 2.0f,
+			viewport.getTop() - buttonSprite->getHeight() / 2.0f
+		}
 	));
 	button->setOnPress(std::bind(&GameMap::generate, map));
 	uiRoot->addChild(button);
 
-	std::unique_ptr<UIObject> resourceInfo(new UISprite(
-		assets->getSprite("ui_resource"), glm::vec2{0,440}
-	));
-	uiRoot->addChild(resourceInfo);
+	auto resourceSprite = assets->getSprite("ui_resource");
+	auto resourceInfo = new UISprite(
+		assets->getSprite("ui_resource"), glm::vec2{
+			0, viewport.getTop() - resourceSprite->getHeight() / 2.0f}
+	);
+	std::unique_ptr<UIObject> resourceInfoPointer(resourceInfo);
+	uiRoot->addChild(resourceInfoPointer);
+
 
 	std::unique_ptr<UIObject> resourceLabel(new Label(
-		u8"asdasd", assets->getFont("default"), glm::vec2{0,0}, glm::vec2{400,200}
+		u8"609", assets->getFont("default"),
+		glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f},
+		glm::vec2{400,200}
 	));
-	uiRoot->addChild(resourceLabel);
+	resourceInfo->addChild(resourceLabel);
+
+
+
+
 }
 
 MapGameState::~MapGameState() {
