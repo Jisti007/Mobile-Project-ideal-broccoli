@@ -8,6 +8,6 @@ Faction::~Faction() {
 
 }
 
-void Faction::addResource(const Resource* resource, int amount) {
-	resources[resource] = amount;
+void Faction::addResource(Resource* resource, int amount) {
+	resources[resource] += amount;
 }
