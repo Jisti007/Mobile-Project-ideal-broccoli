@@ -14,7 +14,6 @@ class Unit;
 
 class MapHex : public MapObject, public Node {
 public:
-	//MapHex();
 	MapHex(uint16_t gridX, uint16_t gridY, glm::vec2 position, HexType* type);
 	virtual ~MapHex();
 

@@ -39,21 +39,17 @@ public:
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
-	//inline Faction* getFaction(int index) { return &factions[index]; }
 
 private:
 	Scenario* scenario;
 	std::vector<MapRegion> regions;
 	std::vector<MapRegion*> expanders;
-	//std::vector<Faction> factions;
 	std::vector<std::unique_ptr<MapHex>> hexes;
 	std::vector<std::unique_ptr<MapObject>> mapObjects;
 	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;
 	uint16_t height;
-	//Pipeline* pipeline;
 	Camera camera;
-	//AssetManager* assets;
 
 	void initializeHexes();
 	void initializeRegions(int count);

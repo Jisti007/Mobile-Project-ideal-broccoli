@@ -1,9 +1,5 @@
 #include "Unit.h"
-/*
-Unit::Unit() : MapObject(0, 0) {
 
-}
-*/
 Unit::Unit(uint16_t gridX, uint16_t gridY, glm::vec2 position, UnitType *type, Faction* faction, GameMap* map)
 	: MapObject(gridX, gridY, position) {
 	this->type = type;

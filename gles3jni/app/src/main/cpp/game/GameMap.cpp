@@ -22,19 +22,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->width = width;
 	this->height = height;
 	this->scenario = scenario;
-	//this->pipeline = pipeline;
-	//this->assets = assets;
-	/*
-	vector<glm::vec3> testFaction1Colors = {{1, 0, 0}, {0, 1, 1}};
-	vector<glm::vec3> testFaction2Colors = {{0, 1, 0}, {1, 0, 1}};
-	vector<glm::vec3> testFaction3Colors = {{0, 0, 1}, {1, 1, 0}};
-	Faction testFaction1(testFaction1Colors);
-	Faction testFaction2(testFaction2Colors);
-	Faction testFaction3(testFaction3Colors);
-	factions.push_back(testFaction1);
-	factions.push_back(testFaction2);
-	factions.push_back(testFaction3);
-	*/
+
 	initializeHexes();
 	generate();
 }
