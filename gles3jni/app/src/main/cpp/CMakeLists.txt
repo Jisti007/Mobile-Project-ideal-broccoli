@@ -50,6 +50,7 @@ add_library(
     game/Unit.cpp
     game/UnitType.cpp
     game/WeightedList.cpp
+    game/events/Attack.cpp
     game/events/ScenarioEvent.cpp
     game/events/Movement.cpp
     game/pathing/Agent.cpp

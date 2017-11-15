@@ -20,11 +20,15 @@ public:
 
 	inline const UnitType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }
+	inline int getHP() { return hp; }
+	inline void setHP(int hp) { this->hp = hp; }
+	inline void modifyHP(int deltaHP) { this->hp += deltaHP; }
 
 private:
     UnitType* type;
 	Faction* faction;
 	GameMap* map;
+	int hp;
 };
 
 #endif //GLES3JNI_UNIT_H
