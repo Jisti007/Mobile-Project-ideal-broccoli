@@ -7,6 +7,8 @@ class UISprite : public UIObject {
 public:
 	UISprite(Sprite* sprite, glm::vec2 position);
 	UISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size);
+	UISprite(Sprite* sprite, glm::vec2 position, float scale);
+	UISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size, float scale);
 	virtual ~UISprite();
 
 	virtual void onDraw(Pipeline* pipeline);
@@ -15,6 +17,7 @@ public:
 
 private:
 	Sprite* sprite;
+	float scale;
 };
 
 #endif //GLES3JNI_UISPRITE_H
