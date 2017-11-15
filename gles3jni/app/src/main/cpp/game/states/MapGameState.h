@@ -8,7 +8,7 @@
 
 class MapGameState : public GameState {
 public:
-	MapGameState(AssetManager* assets, GameMap* map);
+	MapGameState(Game* game);
 	virtual ~MapGameState();
 
 	virtual void update(float deltaTime);
@@ -17,8 +17,6 @@ public:
 	virtual bool press(float x, float y);
 
 private:
-	AssetManager* assets;
-	GameMap* map;
 	Unit* selectedUnit = nullptr;
 	std::unique_ptr<Movement> movement;
 	bool fastAnimation = false;

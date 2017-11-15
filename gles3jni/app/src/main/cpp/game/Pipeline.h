@@ -4,6 +4,7 @@
 #include <GLES3/gl3.h>
 #include "../glm/glm.hpp"
 #include "Sprite.h"
+#include "Rectangle.h"
 
 class Pipeline {
 public:
@@ -20,6 +21,7 @@ public:
 	void setViewportSize(int width, int height);
 
 	inline GLuint getProgram() { return program; }
+	inline Rectangle getViewport() { return Rectangle(viewportSize / -2.0f, viewportSize); }
 
 private:
 	GLuint program;

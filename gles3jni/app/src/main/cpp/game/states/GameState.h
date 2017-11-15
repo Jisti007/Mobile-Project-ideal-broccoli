@@ -1,11 +1,14 @@
 #ifndef GLES3JNI_GAMESTATE_H
 #define GLES3JNI_GAMESTATE_H
 
+class Game;
+
 #include "../ui/UIObject.h"
+#include "../Game.h"
 
 class GameState {
 public:
-	GameState();
+	GameState(Game* game);
 	virtual ~GameState();
 
 	virtual void update(float deltaTime) = 0;
@@ -14,6 +17,7 @@ public:
 	virtual bool press(float x, float y) { return uiRoot->press({x, y}); }
 
 protected:
+	Game* game;
 	std::unique_ptr<UIObject> uiRoot;
 };
 

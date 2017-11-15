@@ -20,7 +20,7 @@ void Game::initialize() {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
-		state = std::make_unique<MapGameState>(&assetManager, &map);
+		//state = std::make_unique<MapGameState>(this);
 		previousTime =  Clock::now();
 	}
 }
@@ -28,12 +28,21 @@ void Game::initialize() {
 void Game::update() {
 	auto currentTime = Clock::now();
 	std::chrono::duration<float> deltaTime = currentTime - previousTime;
-	state->update(deltaTime.count());
+	if (state) {
+		state->update(deltaTime.count());
+	}
 	previousTime = currentTime;
 }
 
 void Game::draw() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	state->draw(&pipeline);
+	if (state) {
+		state->draw(&pipeline);
+	}
+}
+
+void Game::resize(int width, int height) {
+	pipeline.setViewportSize(width, height);
+	state = std::make_unique<MapGameState>(this);
 }

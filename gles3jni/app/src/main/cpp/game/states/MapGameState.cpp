@@ -3,22 +3,25 @@
 #include "../events/Movement.h"
 #include "../ui/Label.h"
 
-MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
-	this->map = map;
-	this->assets = assets;
+MapGameState::MapGameState(Game* game)
+	: GameState(game) {
+	auto assets = game->getAssets();
+	auto map = game->getMap();
+	auto viewport = game->getPipeline().getViewport();
 
-	auto button = std::unique_ptr<UIObject>(new Button(
-		assets->getSprite("test_button"), glm::vec2{-650,440}
+	auto buttonSprite = assets->getSprite("test_button");
+	std::unique_ptr<UIObject> button(new Button(
+		buttonSprite, glm::vec2{viewport.getLeft() + buttonSprite->getWidth() / 2.0f, 440}
 	));
 	button->setOnPress(std::bind(&GameMap::generate, map));
 	uiRoot->addChild(button);
 
-	auto resourceInfo = std::unique_ptr<UIObject>(new UISprite(
+	std::unique_ptr<UIObject> resourceInfo(new UISprite(
 		assets->getSprite("ui_resource"), glm::vec2{0,440}
 	));
 	uiRoot->addChild(resourceInfo);
 
-	auto resourceLabel = std::unique_ptr<UIObject>(new Label(
+	std::unique_ptr<UIObject> resourceLabel(new Label(
 		u8"asdasd", assets->getFont("default"), glm::vec2{0,0}, glm::vec2{400,200}
 	));
 	uiRoot->addChild(resourceLabel);
@@ -40,12 +43,12 @@ void MapGameState::update(float deltaTime) {
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
-	map->draw();
+	game->getMap()->draw();
 	GameState::draw(pipeline);
 }
 
 void MapGameState::move(float dx, float dy) {
-	map->getCamera()->moveBy({dx, dy});
+	game->getMap()->getCamera()->moveBy({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {
@@ -58,6 +61,7 @@ bool MapGameState::press(float x, float y) {
 		return true;
 	}
 
+	auto map = game->getMap();
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {

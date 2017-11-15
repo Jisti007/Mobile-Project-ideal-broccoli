@@ -17,4 +17,3 @@ UISprite::~UISprite() {
 void UISprite::onDraw(Pipeline *pipeline) {
 	pipeline->draw(getSprite(), getPosition());
 }
-
