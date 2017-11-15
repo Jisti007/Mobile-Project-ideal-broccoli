@@ -18,7 +18,7 @@ public:
 	inline float getZoom() { return zoom; }
 
 private:
-	glm::vec2 position;
+	glm::vec2 position = {0, 0};
 	float zoom = 0.5f;
 };
 
