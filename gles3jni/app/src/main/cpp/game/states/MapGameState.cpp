@@ -23,7 +23,8 @@ MapGameState::MapGameState(Game* game)
 	auto resourceSprite = assets->getSprite("ui_resource");
 	auto resourceInfo = new UISprite(
 		resourceSprite, glm::vec2{
-			0, viewport.getTop() - resourceSprite->getHeight() / 2.0f}
+			0, viewport.getTop() - resourceSprite->getHeight() / 2.0f
+		}
 	);
 	std::unique_ptr<UIObject> resourceInfoPointer(resourceInfo);
 	uiRoot->addChild(resourceInfoPointer);
@@ -33,11 +34,10 @@ MapGameState::MapGameState(Game* game)
 		glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f},
 		glm::vec2{400,200}
 	);
-
 	std::unique_ptr<UIObject> resourceLabelPointer(resourceLabel);
 	resourceInfo->addChild(resourceLabelPointer);
 
-	//TODO: make better system
+	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
 	auto goldSprite = assets->getSprite("gold");
 	auto goldIcon = new UISprite(
 		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);

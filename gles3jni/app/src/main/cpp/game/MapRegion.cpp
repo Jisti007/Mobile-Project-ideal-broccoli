@@ -15,6 +15,15 @@ void MapRegion::expandTo(MapHex* hex) {
 	}
 }
 
+bool MapRegion::expandRandom() {
+	if (borderHexes.size() == 0) {
+		return false;
+	}
+
+	expand(rand() % (int)borderHexes.size());
+	return true;
+}
+
 void MapRegion::expand(int borderHexIndex) {
 	auto hex = borderHexes[borderHexIndex];
 
@@ -23,13 +32,4 @@ void MapRegion::expand(int borderHexIndex) {
 	}
 
 	borderHexes.erase(borderHexes.begin() + borderHexIndex);
-}
-
-bool MapRegion::expandRandom() {
-	if (borderHexes.size() == 0) {
-		return false;
-	}
-
-	expand(rand() % (int)borderHexes.size());
-	return true;
 }
