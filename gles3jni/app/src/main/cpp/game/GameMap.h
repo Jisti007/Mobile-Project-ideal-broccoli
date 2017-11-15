@@ -2,6 +2,7 @@
 #define GLES3JNI_GAMEMAP_H
 
 class MapHex;
+class Scenario;
 
 #include <vector>
 #include <string>
@@ -14,14 +15,15 @@ class MapHex;
 #include "MapObject.h"
 #include "Faction.h"
 #include "Point.h"
+#include "Scenario.h"
 
 class GameMap {
 public:
 	GameMap();
-	GameMap(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline);
+	GameMap(uint16_t width, uint16_t height, Scenario* scenario);
 	~GameMap();
 
-	void initialize(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline);
+	void initialize(uint16_t width, uint16_t height, Scenario* scenario);
 	void generate();
 	void draw();
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
@@ -37,20 +39,21 @@ public:
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
-	inline Faction* getFaction(int index) { return &factions[index]; }
+	//inline Faction* getFaction(int index) { return &factions[index]; }
 
 private:
+	Scenario* scenario;
 	std::vector<MapRegion> regions;
 	std::vector<MapRegion*> expanders;
-	std::vector<Faction> factions;
+	//std::vector<Faction> factions;
 	std::vector<std::unique_ptr<MapHex>> hexes;
 	std::vector<std::unique_ptr<MapObject>> mapObjects;
 	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;
 	uint16_t height;
-	Pipeline* pipeline;
+	//Pipeline* pipeline;
 	Camera camera;
-	AssetManager* assets;
+	//AssetManager* assets;
 
 	void initializeHexes();
 	void initializeRegions(int count);

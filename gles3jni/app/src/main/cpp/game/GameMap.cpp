@@ -10,20 +10,21 @@ GameMap::GameMap() {
 
 }
 
-GameMap::GameMap(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline) {
-	initialize(width, height, assets, pipeline);
+GameMap::GameMap(uint16_t width, uint16_t height, Scenario* scenario) {
+	initialize(width, height, scenario);
 }
 
 GameMap::~GameMap() {
 
 }
 
-void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, Pipeline* pipeline) {
+void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->width = width;
 	this->height = height;
-	this->pipeline = pipeline;
-	this->assets = assets;
-
+	this->scenario = scenario;
+	//this->pipeline = pipeline;
+	//this->assets = assets;
+	/*
 	vector<glm::vec3> testFaction1Colors = {{1, 0, 0}, {0, 1, 1}};
 	vector<glm::vec3> testFaction2Colors = {{0, 1, 0}, {1, 0, 1}};
 	vector<glm::vec3> testFaction3Colors = {{0, 0, 1}, {1, 1, 0}};
@@ -33,7 +34,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, AssetManager* assets, 
 	factions.push_back(testFaction1);
 	factions.push_back(testFaction2);
 	factions.push_back(testFaction3);
-
+	*/
 	initializeHexes();
 	generate();
 }
@@ -47,6 +48,7 @@ void GameMap::generate() {
 	initializeRegions(100);
 	expandRegions(-1, -1);
 
+	auto assets = scenario->getCampaign()->getGame()->getAssets();
 	HexType* water = assets->getHexType("water");
 	UnitType* testUnit = assets->getUnitType("test");
 	BuildingType* testBuilding = assets->getBuildingType("test");
@@ -57,7 +59,7 @@ void GameMap::generate() {
 
 				auto rn = rand() % 100;
 				if (rn > 95) {
-					auto faction = &factions[rand() % factions.size()];
+					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
 					createUnit({x, y}, testUnit, faction);
 				}
 
@@ -71,6 +73,7 @@ void GameMap::generate() {
 }
 
 void GameMap::draw() {
+	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
 	pipeline->beginDraw();
 	pipeline->setCameraPosition(camera.getPosition());
 
@@ -156,6 +159,7 @@ void GameMap::initializeHexes() {
 	hexes.clear();
 	hexes.reserve(width * height);
 
+	auto assets = scenario->getCampaign()->getGame()->getAssets();
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
@@ -180,6 +184,7 @@ void GameMap::initializeRegions(int count) {
 		hex->setRegion(nullptr);
 	}
 
+	auto assets = scenario->getCampaign()->getGame()->getAssets();
 	for (int i = 0; i < count; i++) {
 		auto regionOrigin = findFreeHex(100);
 		if (!regionOrigin) {

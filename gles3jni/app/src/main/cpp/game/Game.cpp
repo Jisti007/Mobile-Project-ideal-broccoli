@@ -20,7 +20,6 @@ void Game::initialize() {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
 		campaign = std::make_unique<Campaign>(this);
-		//map.initialize(160, 160, &assetManager, &pipeline);
 		previousTime =  Clock::now();
 	}
 }

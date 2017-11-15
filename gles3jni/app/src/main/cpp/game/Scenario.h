@@ -2,6 +2,7 @@
 #define GLES3JNI_SCENARIO_H
 
 class Campaign;
+class GameMap;
 
 #include <vector>
 #include <queue>
@@ -17,13 +18,19 @@ public:
 
 	void executeEvent(std::unique_ptr<ScenarioEvent>& event);
 
+	inline Campaign* getCampaign() { return campaign; }
 	inline GameMap* getActiveMap() { return maps[0].get(); }
 	inline GameMap* getMap(size_t index) { return maps[index].get(); }
 	inline size_t getMapCount() { return maps.size(); }
+	inline Faction* getPlayerFaction() { return &factions[0]; }
+	inline Faction* getFaction(size_t index) { return &factions[index]; }
+	inline size_t getFactionCount() { return factions.size(); }
 
 private:
 	Campaign* campaign;
 
+	/// List of factions in the scenario. The player faction is 0 by default.
+	std::vector<Faction> factions;
 	/// All the maps that belong to the scenario.
 	std::vector<std::unique_ptr<GameMap>> maps;
 	/// List of events that have been executed.

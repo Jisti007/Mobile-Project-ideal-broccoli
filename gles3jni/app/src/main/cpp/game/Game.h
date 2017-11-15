@@ -28,12 +28,10 @@ public:
 	inline AssetManager* getAssets() { return &assetManager; }
 	inline GameState* getState() { return state.get(); }
 	inline Campaign* getCampaign() { return campaign.get(); }
-	//inline GameMap* getMap() { return &map; }
 
 private:
 	Pipeline pipeline;
 	AssetManager assetManager;
-	//GameMap map;
 	std::unique_ptr<Campaign> campaign;
 	std::unique_ptr<GameState> state;
 	TimePoint previousTime;
