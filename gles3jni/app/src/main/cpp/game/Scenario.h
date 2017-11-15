@@ -25,7 +25,7 @@ public:
 	inline Faction* getPlayerFaction() { return &factions[0]; }
 	inline Faction* getFaction(size_t index) { return &factions[index]; }
 	inline size_t getFactionCount() { return factions.size(); }
-	inline ScenarioEvent* peekAnimation() { return animationQueue.front().get(); }
+	inline ScenarioEvent* peekAnimation() { return animationQueue.front(); }
 	inline void popAnimation() { animationQueue.pop(); }
 	inline size_t getAnimationCount() { return animationQueue.size(); }
 
@@ -39,7 +39,7 @@ private:
 	/// List of events that have been executed.
 	std::vector<std::unique_ptr<ScenarioEvent>> eventLog;
 	/// Queue of events not yet animated.
-	std::queue<std::unique_ptr<ScenarioEvent>> animationQueue;
+	std::queue<ScenarioEvent*> animationQueue;
 };
 
 #endif //GLES3JNI_SCENARIO_H

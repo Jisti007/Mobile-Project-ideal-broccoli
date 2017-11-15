@@ -29,5 +29,6 @@ Scenario::~Scenario() {
 
 void Scenario::executeEvent(std::unique_ptr<ScenarioEvent>& event) {
 	event->execute();
-	animationQueue.push(std::move(event));
+	animationQueue.push(event.get());
+	eventLog.push_back(std::move(event));
 }
