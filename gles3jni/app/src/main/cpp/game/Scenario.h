@@ -17,12 +17,14 @@ public:
 	~Scenario();
 
 	void executeEvent(std::unique_ptr<ScenarioEvent>& event);
+	void endTurn();
 
 	inline Campaign* getCampaign() { return campaign; }
 	inline GameMap* getActiveMap() { return maps[0].get(); }
 	inline GameMap* getMap(size_t index) { return maps[index].get(); }
 	inline size_t getMapCount() { return maps.size(); }
 	inline Faction* getPlayerFaction() { return &factions[0]; }
+	inline Faction* getActiveFaction() { return &factions[activeFactionIndex]; }
 	inline Faction* getFaction(size_t index) { return &factions[index]; }
 	inline size_t getFactionCount() { return factions.size(); }
 	inline ScenarioEvent* peekAnimation() { return animationQueue.front(); }
@@ -31,6 +33,8 @@ public:
 
 private:
 	Campaign* campaign;
+	int turn = 1;
+	size_t activeFactionIndex = 0;
 
 	/// List of factions in the scenario. The player faction is 0 by default.
 	std::vector<Faction> factions;

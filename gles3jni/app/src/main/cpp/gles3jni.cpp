@@ -51,7 +51,6 @@ JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width, jint height) {
 	screenWidth = width;
 	screenHeight = height;
-	//game.getPipeline().setViewportSize(width, height);
 	game.resize(width, height);
 }
 

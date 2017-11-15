@@ -38,3 +38,11 @@ void Scenario::executeEvent(std::unique_ptr<ScenarioEvent>& event) {
 	animationQueue.push(event.get());
 	eventLog.push_back(std::move(event));
 }
+
+void Scenario::endTurn() {
+	activeFactionIndex++;
+	if (activeFactionIndex <= getFactionCount()) {
+		turn++;
+		activeFactionIndex = 0;
+	}
+}
