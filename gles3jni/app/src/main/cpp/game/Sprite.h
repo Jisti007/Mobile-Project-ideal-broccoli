@@ -16,15 +16,13 @@ public:
 	inline const std::vector<glm::vec3>& getSwappableColors() const { return swappableColors; }
 	inline int getWidth(){ return width; }
 	inline int getHeight(){ return height; }
-
+	inline glm::vec2 getSize() { return {width, height}; }
 
 private:
 	std::string id;
 	Texture* texture;
 	Mesh mesh;
 	std::vector<glm::vec3> swappableColors;
-	//std::vector<Vertex> vertices;
-	//std::vector<uint16_t> indices;
 	int width;
 	int height;
 };

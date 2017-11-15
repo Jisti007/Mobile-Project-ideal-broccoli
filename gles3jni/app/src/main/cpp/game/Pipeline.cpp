@@ -107,7 +107,8 @@ void Pipeline::beginDraw() {
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
 	Rectangle viewportBounds(cameraPosition - viewportSize / 2.0f, viewportSize);
-	if (viewportBounds.contains(position)) {
+	Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
+	if (viewportBounds.overlaps(spriteBounds)) {
 		glUniform2f(instancePositionLocation, position.x, position.y);
 		auto texture = sprite->getTexture()->getHandle();
 		if (texture != lastTexture) {

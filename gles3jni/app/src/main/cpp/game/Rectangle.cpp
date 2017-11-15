@@ -15,9 +15,19 @@ Rectangle::Rectangle(float left, float right, float top, float bottom) {
 }
 
 bool Rectangle::contains(glm::vec2 position) {
-	return
+	return (
 		position.x >= left
 		&& position.x <= right
 		&& position.y >= bottom
-		&& position.y <= top;
+		&& position.y <= top
+	);
+}
+
+bool Rectangle::overlaps(Rectangle other) {
+	return (
+		getLeft() < other.getRight()
+		&& getRight() > other.getLeft()
+		&& getTop() > other.getBottom()
+		&& getBottom() < other.getTop()
+	);
 }
