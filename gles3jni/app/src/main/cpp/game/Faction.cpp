@@ -8,6 +8,10 @@ Faction::~Faction() {
 
 }
 
-void Faction::addResource(Resource* resource, int amount) {
+bool Faction::modifyResource(Resource* resource, int amount) {
+	if (resources[resource] + amount < 0) {
+		return false;
+	}
 	resources[resource] += amount;
+	return true;
 }

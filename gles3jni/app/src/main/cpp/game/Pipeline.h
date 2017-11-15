@@ -14,7 +14,7 @@ public:
 	void initialize();
 	void destroy();
 	void beginDraw();
-	void draw(Sprite* sprite, glm::vec2 position);
+	void draw(Sprite* sprite, glm::vec2 position, float scale = 1.0f);
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	void endDraw();
 	void setCameraPosition(glm::vec2 position);
@@ -30,6 +30,7 @@ private:
 	GLuint lastTexture = 0;
 	GLuint lastVertexArray = 0;
 	GLint instancePositionLocation;
+	GLint instanceScaleLocation;
 	GLint sourceColorsLocation;
 	GLint destinationColorsLocation;
 	GLint numberOfColorSwapsLocation;

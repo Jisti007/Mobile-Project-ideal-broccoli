@@ -4,4 +4,20 @@
 		id="test"
 		sprite="test_building"
 	/>
+	<Building
+		id="resource_gold"
+		sprite="gold"
+	/>
+	<Building
+		id="resource_food"
+		sprite="food"
+	/>
+	<Building
+		id="resource_material"
+		sprite="material"
+	/>
+	<Building
+		id="resource_crystal"
+		sprite="crystal"
+	/>
 </Assets>
