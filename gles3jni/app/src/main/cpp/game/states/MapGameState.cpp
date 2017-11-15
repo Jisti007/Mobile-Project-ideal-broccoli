@@ -78,13 +78,20 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	auto scenario = game->getCampaign()->getScenario();
+	auto activeFaction = scenario->getActiveFaction();
+	if (!activeFaction->isPlayer()) {
+		return true;
+	}
+
 	auto map = scenario->getActiveMap();
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
 		auto unit = hex->getUnit();
 		if (unit != nullptr) {
-			selectedUnit = unit;
+			if (unit->getFaction() == activeFaction) {
+				selectedUnit = unit;
+			}
 		} else if (selectedUnit != nullptr) {
 			auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);

@@ -144,7 +144,6 @@ void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, c
 
 	std::string id = prefix;
 	id += node->getID();
-	//auto id = node->getID();
 	sprites[id] = make_unique<Sprite>(
 		id.c_str(),
 		texture,

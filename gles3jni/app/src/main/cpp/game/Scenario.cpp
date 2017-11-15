@@ -16,6 +16,7 @@ Scenario::Scenario(Campaign* campaign) {
 	Faction testFaction1(testFaction1Colors);
 	Faction testFaction2(testFaction2Colors);
 	Faction testFaction3(testFaction3Colors);
+	testFaction1.setPlayer(true);
 	testFaction1.modifyResource(gold, 150);
 	testFaction1.modifyResource(food, 100);
 	testFaction1.modifyResource(material, 25);
