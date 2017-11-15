@@ -74,7 +74,6 @@ void GameMap::generate() {
 
 void GameMap::draw() {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
-	pipeline->beginDraw();
 	pipeline->setCameraPosition(camera.getPosition());
 
 	for (auto& hex : hexes) {
@@ -91,8 +90,6 @@ void GameMap::draw() {
 		auto position = getScreenPosition(unit->getPosition());
 		pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
 	}
-
-	pipeline->endDraw();
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {

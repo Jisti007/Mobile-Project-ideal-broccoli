@@ -39,8 +39,7 @@ MapGameState::MapGameState(Game* game)
 
 	auto goldSprite = assets->getSprite("gold");
 	auto goldIcon = new UISprite(
-		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.5f
-	);
+		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f});
 	std::unique_ptr<UIObject> goldIconPointer(goldIcon);
 	resourceLabel->addChild(goldIconPointer);
 
