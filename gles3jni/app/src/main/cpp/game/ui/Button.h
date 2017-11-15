@@ -6,7 +6,8 @@
 class Button : public UISprite {
 
 public:
-	Button(Sprite *sprite, glm::vec2 position, glm::vec2 size);
+	Button(Sprite* sprite, glm::vec2 position);
+	Button(Sprite* sprite, glm::vec2 position, glm::vec2 size);
 
 private:
 

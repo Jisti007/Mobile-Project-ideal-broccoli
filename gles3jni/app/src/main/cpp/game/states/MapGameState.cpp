@@ -8,17 +8,18 @@ MapGameState::MapGameState(AssetManager* assets, GameMap* map) {
 	this->assets = assets;
 
 	auto button = std::unique_ptr<UIObject>(new Button(
-		assets->getSprite("test_button"), glm::vec2{-650,440}, glm::vec2{200,200}
+		assets->getSprite("test_button"), glm::vec2{-650,440}
 	));
 	button->setOnPress(std::bind(&GameMap::generate, map));
 	uiRoot->addChild(button);
 
 	auto resourceInfo = std::unique_ptr<UIObject>(new UISprite(
-		assets->getSprite("ui_resource"), glm::vec2{0,440}, glm::vec2{400,200}
+		assets->getSprite("ui_resource"), glm::vec2{0,440}
 	));
 	uiRoot->addChild(resourceInfo);
 
-	auto resourceLabel = std::unique_ptr<UIObject>(new Label(u8"asdasd", assets->getFont("default"), glm::vec2{0,0}, glm::vec2{400,200}
+	auto resourceLabel = std::unique_ptr<UIObject>(new Label(
+		u8"asdasd", assets->getFont("default"), glm::vec2{0,0}, glm::vec2{400,200}
 	));
 	uiRoot->addChild(resourceLabel);
 }

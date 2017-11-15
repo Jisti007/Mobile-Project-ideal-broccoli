@@ -8,6 +8,9 @@
 #include <chrono>
 
 class Game {
+	typedef std::chrono::high_resolution_clock Clock;
+	typedef Clock::time_point TimePoint;
+
 public:
 	Game();
 	~Game();
@@ -25,7 +28,7 @@ private:
 	AssetManager assetManager;
 	GameMap map;
 	std::unique_ptr<GameState> state;
-	std::chrono::high_resolution_clock::time_point previousTime;
+	TimePoint previousTime;
 };
 
 #endif //GLES3JNI_GAME_H

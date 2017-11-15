@@ -21,12 +21,12 @@ void Game::initialize() {
 		assetManager.loadModule("modules/default");
 		map.initialize(160, 160, &assetManager, &pipeline);
 		state = std::make_unique<MapGameState>(&assetManager, &map);
-		previousTime =  std::chrono::high_resolution_clock::now();
+		previousTime =  Clock::now();
 	}
 }
 
 void Game::update() {
-	auto currentTime = std::chrono::high_resolution_clock::now();
+	auto currentTime = Clock::now();
 	std::chrono::duration<float> deltaTime = currentTime - previousTime;
 	state->update(deltaTime.count());
 	previousTime = currentTime;

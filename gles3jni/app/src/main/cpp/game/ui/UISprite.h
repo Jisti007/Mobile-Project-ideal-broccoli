@@ -5,7 +5,8 @@
 
 class UISprite : public UIObject {
 public:
-	UISprite(Sprite* sprite, glm::vec2 position = {0,0}, glm::vec2 size = {0,0});
+	UISprite(Sprite* sprite, glm::vec2 position);
+	UISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size);
 	virtual ~UISprite();
 
 	virtual void onDraw(Pipeline* pipeline);
