@@ -2,11 +2,13 @@
 #define GLES3JNI_GAME_H
 
 class GameState;
+class Campaing;
 
 #include "GameMap.h"
 #include "AssetManager.h"
 #include "Pipeline.h"
 #include "states/GameState.h"
+#include "Campaign.h"
 #include <chrono>
 
 class Game {
@@ -22,15 +24,17 @@ public:
 	void draw();
 	void resize(int width, int height);
 
-	inline Pipeline& getPipeline() { return pipeline; }
+	inline Pipeline* getPipeline() { return &pipeline; }
 	inline AssetManager* getAssets() { return &assetManager; }
 	inline GameState* getState() { return state.get(); }
-	inline GameMap* getMap() { return &map; }
+	inline Campaign* getCampaign() { return campaign.get(); }
+	//inline GameMap* getMap() { return &map; }
 
 private:
 	Pipeline pipeline;
 	AssetManager assetManager;
-	GameMap map;
+	//GameMap map;
+	std::unique_ptr<Campaign> campaign;
 	std::unique_ptr<GameState> state;
 	TimePoint previousTime;
 };

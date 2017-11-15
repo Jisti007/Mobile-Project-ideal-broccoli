@@ -19,8 +19,8 @@ void Game::initialize() {
 	} else {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
-		map.initialize(160, 160, &assetManager, &pipeline);
-		//state = std::make_unique<MapGameState>(this);
+		campaign = std::make_unique<Campaign>(this);
+		//map.initialize(160, 160, &assetManager, &pipeline);
 		previousTime =  Clock::now();
 	}
 }

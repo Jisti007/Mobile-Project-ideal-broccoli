@@ -6,8 +6,8 @@
 MapGameState::MapGameState(Game* game)
 	: GameState(game) {
 	auto assets = game->getAssets();
-	auto map = game->getMap();
-	auto viewport = game->getPipeline().getViewport();
+	auto map = game->getCampaign()->getScenario()->getActiveMap();
+	auto viewport = game->getPipeline()->getViewport();
 
 	auto buttonSprite = assets->getSprite("test_button");
 	std::unique_ptr<UIObject> button(new Button(
@@ -43,12 +43,12 @@ void MapGameState::update(float deltaTime) {
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
-	game->getMap()->draw();
+	game->getCampaign()->getScenario()->getActiveMap()->draw();
 	GameState::draw(pipeline);
 }
 
 void MapGameState::move(float dx, float dy) {
-	game->getMap()->getCamera()->moveBy({dx, dy});
+	game->getCampaign()->getScenario()->getActiveMap()->getCamera()->moveBy({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {
@@ -61,7 +61,7 @@ bool MapGameState::press(float x, float y) {
 		return true;
 	}
 
-	auto map = game->getMap();
+	auto map = game->getCampaign()->getScenario()->getActiveMap();
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
