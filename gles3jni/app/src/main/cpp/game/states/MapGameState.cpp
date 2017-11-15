@@ -37,12 +37,30 @@ MapGameState::MapGameState(Game* game)
 	std::unique_ptr<UIObject> resourceLabelPointer(resourceLabel);
 	resourceInfo->addChild(resourceLabelPointer);
 
+	//TODO: make better system
 	auto goldSprite = assets->getSprite("gold");
 	auto goldIcon = new UISprite(
-		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f});
+		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
 	std::unique_ptr<UIObject> goldIconPointer(goldIcon);
 	resourceLabel->addChild(goldIconPointer);
 
+	auto foodSprite = assets->getSprite("food");
+	auto foodIcon = new UISprite(
+		foodSprite, glm::vec2{resourceInfo->getLeft() + 175, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
+	std::unique_ptr<UIObject> foodIconPointer(foodIcon);
+	resourceLabel->addChild(foodIconPointer);
+
+	auto materialSprite = assets->getSprite("material");
+	auto materialIcon = new UISprite(
+		materialSprite, glm::vec2{resourceInfo->getLeft() + 300, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
+	std::unique_ptr<UIObject> materialIconPointer(materialIcon);
+	resourceLabel->addChild(materialIconPointer);
+
+	auto crystalSprite = assets->getSprite("crystal");
+	auto crystalIcon = new UISprite(
+		crystalSprite, glm::vec2{resourceInfo->getLeft() + 400, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
+	std::unique_ptr<UIObject> crystalIconPointer(crystalIcon);
+	resourceLabel->addChild(crystalIconPointer);
 }
 
 MapGameState::~MapGameState() {
