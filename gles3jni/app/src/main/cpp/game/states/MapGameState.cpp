@@ -100,12 +100,19 @@ bool MapGameState::press(float x, float y) {
 }
 
 void MapGameState::updateResourceUI() {
-
 	auto resources = game->getCampaign()->getScenario()->getPlayerFaction()->getResources();
 	auto gold = game->getAssets()->getResource("gold");
-	int goldAmount = resources[gold];
-	std::stringstream goldString;
-	goldString << "G: " << goldAmount;
+	auto food = game->getAssets()->getResource("food");
+	auto material = game->getAssets()->getResource("material");
+	auto crystal = game->getAssets()->getResource("crystal");
 
-	resourceLabel->setText(goldString.str().c_str());
+	int goldAmount = resources[gold];
+	int foodAmount = resources[food];
+	int materialAmount = resources[material];
+	int crystalAmount = resources[crystal];
+
+	std::stringstream resourceString;
+	resourceString << "G: " << goldAmount << " F: " << foodAmount << " M: " << materialAmount << " C: " << crystalAmount;
+
+	resourceLabel->setText(resourceString.str().c_str());
 }

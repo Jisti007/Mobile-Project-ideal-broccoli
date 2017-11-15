@@ -10,6 +10,7 @@ precision lowp samplerCube;
 uniform vec2 cameraSize;
 uniform vec2 cameraPosition;
 uniform vec2 instancePosition;
+uniform float instanceScale;
 
 layout(location = 0) in vec2 vertexPosition;
 layout(location = 1) in vec2 vertexTexture;
@@ -17,7 +18,7 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-    vec2 position = vertexPosition + instancePosition - cameraPosition;
+    vec2 position = vertexPosition*instanceScale + instancePosition - cameraPosition;
     position.x = position.x / cameraSize.x;
     position.y = position.y / cameraSize.y;
 
@@ -84,6 +85,7 @@ void Pipeline::initialize() {
 	}
 
 	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
+	instanceScaleLocation = glGetUniformLocation(getProgram(), "instanceScale");
 	sourceColorsLocation = glGetUniformLocation(getProgram(), "sourceColors");
 	destinationColorsLocation = glGetUniformLocation(getProgram(), "destinationColors");
 	numberOfColorSwapsLocation = glGetUniformLocation(getProgram(), "numberOfColorSwaps");
@@ -105,11 +107,12 @@ void Pipeline::beginDraw() {
 	glUniform2f(cameraSizeLocation, viewportSize.x / 2.0f, viewportSize.y / 2.0f);
 }
 
-void Pipeline::draw(Sprite* sprite, glm::vec2 position) {
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
 	Rectangle viewportBounds(cameraPosition - viewportSize / 2.0f, viewportSize);
 	Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
 	if (viewportBounds.overlaps(spriteBounds)) {
 		glUniform2f(instancePositionLocation, position.x, position.y);
+		glUniform1f(instanceScaleLocation, scale);
 		auto texture = sprite->getTexture()->getHandle();
 		if (texture != lastTexture) {
 			glBindTexture(GL_TEXTURE_2D, texture);

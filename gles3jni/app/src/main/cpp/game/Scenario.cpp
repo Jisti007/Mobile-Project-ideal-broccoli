@@ -16,10 +16,10 @@ Scenario::Scenario(Campaign* campaign) {
 	Faction testFaction1(testFaction1Colors);
 	Faction testFaction2(testFaction2Colors);
 	Faction testFaction3(testFaction3Colors);
-	testFaction1.addResource(gold, 100);
-	testFaction1.addResource(food, 100);
-	testFaction1.addResource(material, 100);
-	testFaction1.addResource(crystal, 100);
+	testFaction1.modifyResource(gold, 150);
+	testFaction1.modifyResource(food, 100);
+	testFaction1.modifyResource(material, 25);
+	testFaction1.modifyResource(crystal, 5);
 	factions.push_back(testFaction1);
 	factions.push_back(testFaction2);
 	factions.push_back(testFaction3);
