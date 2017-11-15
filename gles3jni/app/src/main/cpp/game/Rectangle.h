@@ -17,6 +17,10 @@ public:
 	inline float getRight() { return right; }
 	inline float getTop() { return top; }
 	inline float getBottom() { return bottom; }
+	inline glm::vec2 getTopLeft() { return {left, top}; }
+	inline glm::vec2 getTopRight() { return {right, top}; }
+	inline glm::vec2 getBottomLeft() { return {left, bottom}; }
+	inline glm::vec2 getBottomRight() { return {right, bottom}; }
 };
 
 #endif //GLES3JNI_RECTANGLE_H
