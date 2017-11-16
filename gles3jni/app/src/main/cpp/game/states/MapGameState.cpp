@@ -38,6 +38,7 @@ MapGameState::MapGameState(Game* game)
 	resourceInfo->addChild(resourceLabelPointer);
 
 	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
+
 	auto goldSprite = assets->getSprite("gold");
 	auto goldIcon = new UISprite(
 		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);

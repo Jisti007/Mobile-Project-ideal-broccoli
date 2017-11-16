@@ -5,6 +5,7 @@ Scenario::Scenario(Campaign* campaign) {
 	auto game = campaign->getGame();
 	auto assets = game->getAssets();
 
+	//TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
 	auto gold = assets->getResource("gold");
 	auto food = assets->getResource("food");
 	auto material = assets->getResource("material");

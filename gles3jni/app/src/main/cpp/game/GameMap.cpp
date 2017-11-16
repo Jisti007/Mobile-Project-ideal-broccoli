@@ -39,7 +39,21 @@ void GameMap::generate() {
 	auto assets = scenario->getCampaign()->getGame()->getAssets();
 	HexType* water = assets->getHexType("water");
 	UnitType* testUnit = assets->getUnitType("test");
-	BuildingType* testBuilding = assets->getBuildingType("test");
+
+	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
+	//BuildingType* testBuilding = assets->getBuildingType("test");
+	BuildingType* goldBuilding = assets->getBuildingType("gold");
+	BuildingType* foodBuilding = assets->getBuildingType("food");
+	BuildingType* materialBuilding = assets->getBuildingType("material");
+	BuildingType* crystalBuilding = assets->getBuildingType("crystal");
+
+	WeightedList<BuildingType*> buildingsList;
+	buildingsList.add(goldBuilding, 20);
+	buildingsList.add(foodBuilding, 20);
+	buildingsList.add(materialBuilding, 20);
+	buildingsList.add(crystalBuilding, 20);
+	buildingsList.add(nullptr, 1000);
+
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			if (getHex(x, y)->getType() != water) {
@@ -51,9 +65,10 @@ void GameMap::generate() {
 					createUnit({x, y}, testUnit, faction);
 				}
 
-				rn = rand() % 100;
-				if (rn > 95) {
-					mapObjects.push_back(make_unique<Building>(x, y, hexPosition, testBuilding));
+				auto buildingType = buildingsList.getRandom();
+
+				if (buildingType != nullptr) {
+					mapObjects.push_back(make_unique<Building>(x, y, hexPosition, buildingType));
 				}
 			}
 		}

@@ -5,19 +5,19 @@
 		sprite="test_building"
 	/>
 	<Building
-		id="resource_gold"
-		sprite="gold"
+		id="gold"
+		sprite="gold_building"
 	/>
 	<Building
-		id="resource_food"
-		sprite="food"
+		id="food"
+		sprite="food_building"
 	/>
 	<Building
-		id="resource_material"
-		sprite="material"
+		id="material"
+		sprite="material_building"
 	/>
 	<Building
-		id="resource_crystal"
-		sprite="crystal"
+		id="crystal"
+		sprite="crystal_building"
 	/>
 </Assets>

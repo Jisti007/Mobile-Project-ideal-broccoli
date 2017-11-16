@@ -4,7 +4,6 @@
 		<SwappableColor r="0" g="0" b="244"/>
 		<SwappableColor r="113" g="62" b="0"/>
 	</Sprite>
-	<Sprite id="test_building" texture="buildings" x="0" y="0" yOffset="-16" w="192" h="192" />
 	<SpriteSheet texture="ui">
 		<Row y="0" h="110">
 			<Sprite id="test_button" x="0"   w="360" />
@@ -28,6 +27,16 @@
 		<Row y="192" h="192">
 			<Sprite id="material"   x="0"   w="192" />
 			<Sprite id="crystal"    x="192" w="192" />
+		</Row>
+	</SpriteSheet>
+	<!--<Sprite id="test_building" texture="buildings" x="0" y="0" yOffset="-16" w="192" h="192" />-->
+	<SpriteSheet texture="buildings" yOffset="-16">
+		<Row y="0" h="192">
+			<Sprite id="test_building"     x="0"   w="192"/>
+			<Sprite id="gold_building"     x="192" w="192"/>
+			<Sprite id="food_building"     x="384" w="192"/>
+			<Sprite id="material_building" x="576" w="192"/>
+			<Sprite id="crystal_building"  x="768" w="192"/>
 		</Row>
 	</SpriteSheet>
 </Assets>
