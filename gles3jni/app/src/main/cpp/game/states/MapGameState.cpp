@@ -39,29 +39,20 @@ MapGameState::MapGameState(Game* game)
 
 	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
 
-	auto goldSprite = assets->getSprite("gold");
-	auto goldIcon = new UISprite(
-		goldSprite, glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
-	std::unique_ptr<UIObject> goldIconPointer(goldIcon);
-	resourceLabel->addChild(goldIconPointer);
+	auto playerResources = game->getCampaign()->getScenario()->getPlayerFaction()->getResources();
 
-	auto foodSprite = assets->getSprite("food");
-	auto foodIcon = new UISprite(
-		foodSprite, glm::vec2{resourceInfo->getLeft() + 175, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
-	std::unique_ptr<UIObject> foodIconPointer(foodIcon);
-	resourceLabel->addChild(foodIconPointer);
+	int resourceOffset = 50;
+	for (auto const& playerResource : playerResources)
+	{
+		auto resourceUISprite = playerResource.first->getSprite();
 
-	auto materialSprite = assets->getSprite("material");
-	auto materialIcon = new UISprite(
-		materialSprite, glm::vec2{resourceInfo->getLeft() + 300, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
-	std::unique_ptr<UIObject> materialIconPointer(materialIcon);
-	resourceLabel->addChild(materialIconPointer);
+		auto resourceIcon = new UISprite(
+			resourceUISprite, glm::vec2{resourceInfo->getLeft() + resourceOffset, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
+		std::unique_ptr<UIObject> resourceIconPointer(resourceIcon);
+		resourceLabel->addChild(resourceIconPointer);
+		resourceOffset += 175;
+	}
 
-	auto crystalSprite = assets->getSprite("crystal");
-	auto crystalIcon = new UISprite(
-		crystalSprite, glm::vec2{resourceInfo->getLeft() + 400, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
-	std::unique_ptr<UIObject> crystalIconPointer(crystalIcon);
-	resourceLabel->addChild(crystalIconPointer);
 }
 
 MapGameState::~MapGameState() {
