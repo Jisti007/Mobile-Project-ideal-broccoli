@@ -18,7 +18,7 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-    vec2 position = vertexPosition*instanceScale + instancePosition - cameraPosition;
+    vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
     position.x = position.x / cameraSize.x;
     position.y = position.y / cameraSize.y;
 
@@ -103,12 +103,10 @@ void Pipeline::destroy() {
 void Pipeline::beginDraw() {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
-	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
-	glUniform2f(cameraSizeLocation, viewportSize.x / 2.0f, viewportSize.y / 2.0f);
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
-	Rectangle viewportBounds(cameraPosition - viewportSize / 2.0f, viewportSize);
+	Rectangle viewportBounds(camera->getPosition() - viewportSize / 2.0f, viewportSize);
 	Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
 	if (viewportBounds.overlaps(spriteBounds)) {
 		glUniform2f(instancePositionLocation, position.x, position.y);
@@ -158,10 +156,14 @@ void Pipeline::endDraw() {
 	glUseProgram(0);
 }
 
-void Pipeline::setCameraPosition(glm::vec2 position) {
-	cameraPosition = position;
+void Pipeline::setCamera(Camera* camera) {
+	this->camera = camera;
+	auto position = camera->getPosition();
+	auto zoom = camera->getZoom();
 	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
 	glUniform2f(cameraPositionLocation, position.x, position.y);
+	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
+	glUniform2f(cameraSizeLocation, viewportSize.x / 2.0f / zoom, viewportSize.y / 2.0f / zoom);
 }
 
 void Pipeline::setViewportSize(int width, int height) {

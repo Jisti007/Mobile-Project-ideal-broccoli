@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Assets>
+	<Sprite id="hex_marker" texture="markers" x="0" y="0" w="256" h="256" />
+
 	<Sprite id="test_unit" texture="units" x="0" y="0" yOffset="-16" w="192" h="192" >
 		<SwappableColor r="0" g="0" b="244"/>
 		<SwappableColor r="113" g="62" b="0"/>
@@ -12,6 +14,7 @@
 			<Sprite id="ui_resource" x="10" w="720" />
 		</Row>
 	</SpriteSheet>
+
 	<SpriteSheet texture="terrain">
 		<Sprite id="grass" x="192" y="0" w="192" h="192" />
 		<Row y="192" h="192">
@@ -19,6 +22,7 @@
 			<Sprite id="sand"       x="192" w="192" />
 		</Row>
 	</SpriteSheet>
+
 	<SpriteSheet texture="resource">
 		<Row y="0" h="192">
 			<Sprite id="gold"       x="0"   w="192" />

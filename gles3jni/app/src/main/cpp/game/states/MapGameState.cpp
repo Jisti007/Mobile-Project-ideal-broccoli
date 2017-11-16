@@ -86,12 +86,22 @@ void MapGameState::update(float deltaTime) {
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
-	game->getCampaign()->getScenario()->getActiveMap()->draw();
+	auto map = game->getCampaign()->getScenario()->getActiveMap();
+	map->draw();
+	if (pressedHex != nullptr) {
+		auto hexMarkerSprite = game->getAssets()->getSprite("hex_marker");
+		auto position = map->getScreenPosition(pressedHex->getPosition());
+		pipeline->draw(hexMarkerSprite, position, 1.0f);
+	}
 	GameState::draw(pipeline);
 }
 
 void MapGameState::move(float dx, float dy) {
-	game->getCampaign()->getScenario()->getActiveMap()->getCamera()->moveBy({dx, dy});
+	auto camera = game->getCampaign()->getScenario()->getActiveMap()->getCamera();
+	auto zoom = camera->getZoom();
+	dx /= zoom;
+	dy /= zoom;
+	camera->moveBy({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {
@@ -114,6 +124,7 @@ bool MapGameState::press(float x, float y) {
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
 	if (hex != nullptr) {
+		pressedHex = hex;
 		auto unit = hex->getUnit();
 		if (unit != nullptr) {
 			if (unit->getFaction() == activeFaction) {

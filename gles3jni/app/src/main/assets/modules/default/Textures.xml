@@ -24,4 +24,8 @@
 		id="font"
 	    path="textures/Font.png"
 	/>
+	<Texture
+		id="markers"
+		path="textures/Markers.png"
+	/>
 </Assets>

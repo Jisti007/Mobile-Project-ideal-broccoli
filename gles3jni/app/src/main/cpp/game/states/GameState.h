@@ -18,6 +18,7 @@ public:
 
 protected:
 	Game* game;
+	Camera camera;
 	std::unique_ptr<UIObject> uiRoot;
 };
 
