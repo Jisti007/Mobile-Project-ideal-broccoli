@@ -22,7 +22,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->width = width;
 	this->height = height;
 	this->scenario = scenario;
-	camera.setZoom(1.0f);
+	camera.setZoom(2.0f);
 
 	initializeHexes();
 	generate();
@@ -102,14 +102,14 @@ MapHex* GameMap::tryGetHex(int x, int y) {
 
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	//TODO: Android Studio complains about this, but it builds fine. Find a way to silence it?
-	auto position = screenPosition + camera.getPosition();
+	auto position = screenPosition / camera.getZoom() + camera.getPosition();
 	position.x /= gridSize * xOffset;
 	position.y /= gridSize;
 
-	int minX = (int)position.x;
-	int minY = (int)position.y;
-	int maxX = minX + 1;
-	int maxY = minY + 1;
+	int minX = (int)position.x - 1;
+	int minY = (int)position.y - 1;
+	int maxX = minX + 2;
+	int maxY = minY + 2;
 
 	Point nearest{0, 0};
 	float nearestDistanceSquared = numeric_limits<float>::max();
@@ -139,6 +139,10 @@ glm::vec2 GameMap::getHexPosition(int x, int y) {
 	}
 
 	return position;
+}
+
+glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
+	return gridSize * hexPosition;
 }
 
 void GameMap::initializeHexes() {
@@ -231,8 +235,3 @@ glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
 	glm::vec2 hexPosition = getHexPosition(x, y);
 	return getScreenPosition(hexPosition);
 }
-
-glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
-	return gridSize * hexPosition;
-}
-
