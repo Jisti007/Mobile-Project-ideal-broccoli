@@ -5,6 +5,7 @@
 #include "../glm/glm.hpp"
 #include "Sprite.h"
 #include "Rectangle.h"
+#include "Camera.h"
 
 class Pipeline {
 public:
@@ -17,7 +18,7 @@ public:
 	void draw(Sprite* sprite, glm::vec2 position, float scale = 1.0f);
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	void endDraw();
-	void setCameraPosition(glm::vec2 position);
+	void setCamera(Camera* camera);
 	void setViewportSize(int width, int height);
 
 	inline GLuint getProgram() { return program; }
@@ -34,7 +35,7 @@ private:
 	GLint sourceColorsLocation;
 	GLint destinationColorsLocation;
 	GLint numberOfColorSwapsLocation;
-	glm::vec2 cameraPosition;
+	Camera* camera;
 	glm::vec2 viewportSize;
 
 	GLuint createShader(const char* source, GLenum type);

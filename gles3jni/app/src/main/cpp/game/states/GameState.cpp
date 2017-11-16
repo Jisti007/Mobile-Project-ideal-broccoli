@@ -10,6 +10,6 @@ GameState::~GameState() {
 }
 
 void GameState::draw(Pipeline *pipeline) {
-	pipeline->setCameraPosition({0,0});
+	pipeline->setCamera(&camera);
 	uiRoot->draw(pipeline);
 }

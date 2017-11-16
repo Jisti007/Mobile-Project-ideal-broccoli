@@ -22,6 +22,7 @@ public:
 private:
 	Label* resourceLabel;
 	Unit* selectedUnit = nullptr;
+	MapHex* pressedHex = nullptr;
 	ScenarioEvent* animatingEvent = nullptr;
 	bool fastAnimation = false;
 };

@@ -22,6 +22,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->width = width;
 	this->height = height;
 	this->scenario = scenario;
+	camera.setZoom(1.0f);
 
 	initializeHexes();
 	generate();
@@ -62,7 +63,7 @@ void GameMap::generate() {
 
 void GameMap::draw() {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
-	pipeline->setCameraPosition(camera.getPosition());
+	pipeline->setCamera(&camera);
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex->getPosition());
