@@ -228,7 +228,19 @@ void AssetManager::loadUnitType(Node *node) {
 
 void AssetManager::loadBuildingType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	buildingTypes[node->getID()] = make_unique<BuildingType>(sprite);
+
+	std::vector<std::pair<Resource*, int>> resourceProductions;
+	auto productionNode = node->getData()->first_node("ResourceProduction");
+	while(productionNode){
+		auto resource = productionNode->first_attribute("resource")->value();
+		auto amount = atoi(productionNode->first_attribute("amount")->value());
+
+		resourceProductions.push_back(
+			std::pair<Resource*, int>(getResource(resource), amount));
+		productionNode = productionNode->next_sibling();
+	}
+
+	buildingTypes[node->getID()] = make_unique<BuildingType>(sprite, resourceProductions);
 }
 
 void AssetManager::loadResource(Node *node) {

@@ -51,7 +51,7 @@ private:
 	std::vector<MapRegion> regions;
 	std::vector<MapRegion*> expanders;
 	std::vector<std::unique_ptr<MapHex>> hexes;
-	std::vector<std::unique_ptr<MapObject>> mapObjects;
+	std::vector<std::unique_ptr<Building>> buildings;
 	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;
 	uint16_t height;

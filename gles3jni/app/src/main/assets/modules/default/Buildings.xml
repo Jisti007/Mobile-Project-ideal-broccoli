@@ -7,17 +7,25 @@
 	<Building
 		id="gold"
 		sprite="gold_building"
-	/>
+	>
+		<ResourceProduction resource="gold" amount="25" />
+	</Building>
 	<Building
 		id="food"
 		sprite="food_building"
-	/>
+	>
+		<ResourceProduction resource="food" amount="30" />
+	</Building>
 	<Building
 		id="material"
 		sprite="material_building"
-	/>
+	>
+		<ResourceProduction resource="material" amount="10" />
+	</Building>
 	<Building
 		id="crystal"
 		sprite="crystal_building"
-	/>
+	>
+		<ResourceProduction resource="crystal" amount="2" />
+	</Building>
 </Assets>

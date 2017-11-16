@@ -32,7 +32,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 void GameMap::generate() {
 	regions.clear();
 	expanders.clear();
-	mapObjects.clear();
+	buildings.clear();
 	units.clear();
 
 	initializeRegions(100);
@@ -70,7 +70,9 @@ void GameMap::generate() {
 				auto buildingType = buildingsList.getRandom();
 
 				if (buildingType != nullptr) {
-					mapObjects.push_back(make_unique<Building>(x, y, hexPosition, buildingType));
+
+					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
+					buildings.push_back(make_unique<Building>(x, y, hexPosition, buildingType, faction));
 				}
 			}
 		}
@@ -87,9 +89,9 @@ void GameMap::draw() {
 		pipeline->draw(hex->getSprite(), position);
 	}
 
-	for (auto& mapObject : mapObjects) {
-		auto position = getScreenPosition(mapObject->getPosition());
-		pipeline->draw(mapObject->getSprite(), position);
+	for (auto& building : buildings) {
+		auto position = getScreenPosition(building->getPosition());
+		pipeline->draw(building->getSprite(), position, building->getFaction()->getColors());
 	}
 
 	for (auto& unit : units) {
