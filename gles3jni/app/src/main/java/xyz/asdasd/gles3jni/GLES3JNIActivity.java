@@ -39,10 +39,7 @@ public class GLES3JNIActivity extends Activity {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {
-		scaleGestureDetector.onTouchEvent(e);
-		float scaleFactor = scaleGestureDetector.getScaleFactor();
-		if (scaleFactor != 1.0f) {
-			GLES3JNILib.zoom(scaleFactor);
+		if (scaleGestureDetector.onTouchEvent(e)) {
 			return true;
 		}
 
@@ -51,16 +48,15 @@ public class GLES3JNIActivity extends Activity {
 				float dx = e.getX() - previousX;
 				float dy = e.getY() - previousY;
 				GLES3JNILib.onMove(-dx, dy);
-				break;
+				previousX = e.getX();
+				previousY = e.getY();
+				return true;
 			case MotionEvent.ACTION_DOWN:
 				float x = e.getX();
 				float y = e.getY();
 				GLES3JNILib.onPress(x, y);
-				break;
+				return true;
 		}
-
-		previousX = e.getX();
-		previousY = e.getY();
 
 		return true;
 	}
@@ -74,9 +70,7 @@ public class GLES3JNIActivity extends Activity {
 		dataDirectory = getFilesDir() + "/";
 		extractFileOrDir("modules");
 
-		scaleGestureDetector = new ScaleGestureDetector(
-			this, new ScaleGestureDetector.SimpleOnScaleGestureListener()
-		);
+		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
 		view = new GLES3JNIView(getApplication(), this);
 		setContentView(view);
@@ -134,6 +128,19 @@ public class GLES3JNIActivity extends Activity {
 			out.flush();
 		} catch (Exception e) {
 			Log.e("main", e.getMessage());
+		}
+	}
+
+	private class ScaleListener
+		extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+		@Override
+		public boolean onScale(ScaleGestureDetector detector) {
+			float scaleFactor = scaleGestureDetector.getScaleFactor();
+			if (scaleFactor != 1.0f) {
+				GLES3JNILib.zoom(scaleFactor);
+				return true;
+			}
+			return false;
 		}
 	}
 }
