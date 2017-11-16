@@ -14,6 +14,7 @@ public:
 	virtual void onDraw(Pipeline* pipeline);
 
 	inline Sprite* getSprite() { return sprite;}
+	inline float getScale() { return scale; }
 
 private:
 	Sprite* sprite;

@@ -233,7 +233,7 @@ void AssetManager::loadBuildingType(Node *node) {
 
 void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
-	auto priority = (int)node->getPriority();
+	auto priority = atoi(node->getPriority());
 	resources[node->getID()] = make_unique<Resource>(sprite, priority);
 }
 

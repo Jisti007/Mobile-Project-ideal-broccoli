@@ -65,6 +65,7 @@ add_library(
     game/ui/Label.cpp
     game/ui/UIObject.cpp
     game/ui/UISprite.cpp
+    game/ui/ResourcePanel.cpp
 )
 
 # Include libraries needed for gles3jni lib

@@ -3,6 +3,8 @@
 #include "../ui/Button.h"
 #include "../events/Movement.h"
 #include "../ui/Label.h"
+#include "../ui/ResourcePanel.h"
+#include <algorithm>
 
 MapGameState::MapGameState(Game* game)
 	: GameState(game) {
@@ -21,37 +23,14 @@ MapGameState::MapGameState(Game* game)
 	uiRoot->addChild(button);
 
 	auto resourceSprite = assets->getSprite("ui_resource");
-	auto resourceInfo = new UISprite(
+	resourcePanel = new ResourcePanel(
 		resourceSprite, glm::vec2{
 			0, viewport.getTop() - resourceSprite->getHeight() / 2.0f
-		}
+		}, assets->getFont("default"), game->getCampaign()->getScenario()
 	);
-	std::unique_ptr<UIObject> resourceInfoPointer(resourceInfo);
+	std::unique_ptr<UIObject> resourceInfoPointer(resourcePanel);
 	uiRoot->addChild(resourceInfoPointer);
 
-	resourceLabel = new Label(
-		u8"609", assets->getFont("default"),
-		glm::vec2{resourceInfo->getLeft() + 50, viewport.getTop() - resourceSprite->getHeight() / 2.0f},
-		glm::vec2{400,200}
-	);
-	std::unique_ptr<UIObject> resourceLabelPointer(resourceLabel);
-	resourceInfo->addChild(resourceLabelPointer);
-
-	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
-
-	auto playerResources = game->getCampaign()->getScenario()->getPlayerFaction()->getResources();
-
-	int resourceOffset = 50;
-	for (auto const& playerResource : playerResources)
-	{
-		auto resourceUISprite = playerResource.first->getSprite();
-
-		auto resourceIcon = new UISprite(
-			resourceUISprite, glm::vec2{resourceInfo->getLeft() + resourceOffset, viewport.getTop() - resourceSprite->getHeight() / 2.0f}, 0.4f);
-		std::unique_ptr<UIObject> resourceIconPointer(resourceIcon);
-		resourceLabel->addChild(resourceIconPointer);
-		resourceOffset += 175;
-	}
 
 }
 
@@ -73,7 +52,8 @@ void MapGameState::update(float deltaTime) {
 		animatingEvent = scenario->peekAnimation();
 		animatingEvent->beginAnimation();
 	}
-	updateResourceUI();
+	// TODO: Move to when resources update
+	resourcePanel->updateResources(scenario);
 }
 
 void MapGameState::draw(Pipeline* pipeline) {
@@ -133,24 +113,6 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	return true;
-}
-
-void MapGameState::updateResourceUI() {
-	auto resources = game->getCampaign()->getScenario()->getPlayerFaction()->getResources();
-	auto gold = game->getAssets()->getResource("gold");
-	auto food = game->getAssets()->getResource("food");
-	auto material = game->getAssets()->getResource("material");
-	auto crystal = game->getAssets()->getResource("crystal");
-
-	int goldAmount = resources[gold];
-	int foodAmount = resources[food];
-	int materialAmount = resources[material];
-	int crystalAmount = resources[crystal];
-
-	std::stringstream resourceString;
-	resourceString << "G: " << goldAmount << " F: " << foodAmount << " M: " << materialAmount << " C: " << crystalAmount;
-
-	resourceLabel->setText(resourceString.str().c_str());
 }
 
 void MapGameState::zoom(float scaleFactor) {
