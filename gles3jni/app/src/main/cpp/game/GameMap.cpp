@@ -2,9 +2,9 @@
 
 using namespace std;
 
-const float gridSize = 128;
-const float xOffset = 0.75;
-const float yOffset = 0.50;
+const float GameMap::gridSize = 128.0f;
+const float GameMap::xOffset = 0.75f;
+const float GameMap::yOffset = 0.50f;
 
 GameMap::GameMap() {
 
@@ -23,6 +23,7 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->height = height;
 	this->scenario = scenario;
 	camera.setZoom(2.0f);
+	camera.setMaxPosition({width * xOffset, height});
 
 	initializeHexes();
 	generate();
@@ -78,7 +79,8 @@ void GameMap::generate() {
 
 void GameMap::draw() {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
-	pipeline->setCamera(&camera);
+	pipeline->setCameraPosition(camera.getPosition() * gridSize);
+	pipeline->setCameraZoom(camera.getZoom());
 
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex->getPosition());

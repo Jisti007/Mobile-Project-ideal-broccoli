@@ -28,4 +28,5 @@ public class GLES3JNILib {
 	public static native void step();
 	public static native void onMove(float dx, float dy);
 	public static native void onPress(float x, float y);
+	public static native void zoom(float scaleFactor);
 }

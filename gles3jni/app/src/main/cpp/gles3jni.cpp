@@ -19,6 +19,8 @@ JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy);
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onPress(JNIEnv *env, jobject obj, jfloat x, jfloat y);
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_zoom(JNIEnv *env, jobject obj, jfloat scaleFactor);
 };
 
 #if !defined(DYNAMIC_ES3)
@@ -70,4 +72,9 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_onPress(JNIEnv *env, jobject obj, jfloat x,
 	x -= screenWidth/2;
 	y = screenHeight/2 - y;
 	game.getState()->press(x, y);
+}
+
+JNIEXPORT void JNICALL
+Java_xyz_asdasd_gles3jni_GLES3JNILib_zoom(JNIEnv *env, jobject obj, jfloat scaleFactor) {
+	game.getState()->zoom(scaleFactor);
 }

@@ -42,6 +42,10 @@ public:
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
 
+	static const float gridSize;
+	static const float xOffset;
+	static const float yOffset;
+
 private:
 	Scenario* scenario;
 	std::vector<MapRegion> regions;

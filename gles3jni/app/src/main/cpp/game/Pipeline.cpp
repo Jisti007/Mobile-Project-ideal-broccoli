@@ -106,7 +106,10 @@ void Pipeline::beginDraw() {
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
-	Rectangle viewportBounds(camera->getPosition() - viewportSize / 2.0f, viewportSize);
+	Rectangle viewportBounds(
+		cameraPosition - viewportSize / 2.0f / cameraZoom,
+		viewportSize / cameraZoom
+	);
 	Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
 	if (viewportBounds.overlaps(spriteBounds)) {
 		glUniform2f(instancePositionLocation, position.x, position.y);
@@ -156,12 +159,14 @@ void Pipeline::endDraw() {
 	glUseProgram(0);
 }
 
-void Pipeline::setCamera(Camera* camera) {
-	this->camera = camera;
-	auto position = camera->getPosition();
-	auto zoom = camera->getZoom();
+void Pipeline::setCameraPosition(glm::vec2 position) {
+	this->cameraPosition = position;
 	auto cameraPositionLocation = glGetUniformLocation(getProgram(), "cameraPosition");
 	glUniform2f(cameraPositionLocation, position.x, position.y);
+}
+
+void Pipeline::setCameraZoom(float zoom) {
+	this->cameraZoom = zoom;
 	auto cameraSizeLocation = glGetUniformLocation(getProgram(), "cameraSize");
 	glUniform2f(cameraSizeLocation, viewportSize.x / 2.0f / zoom, viewportSize.y / 2.0f / zoom);
 }
