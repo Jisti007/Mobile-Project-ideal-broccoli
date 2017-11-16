@@ -6,11 +6,14 @@
 
 class Resource {
 public:
-	Resource(Sprite* sprite);
+	Resource(Sprite* sprite, int priority);
 	~Resource();
+
+	inline Sprite* getSprite() { return sprite; }
 
 private:
 	Sprite* sprite;
+	int priority;
 };
 
 #endif //GLES3JNI_RESOURCETYPE_H

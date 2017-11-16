@@ -50,10 +50,10 @@ void GameMap::generate() {
 	BuildingType* crystalBuilding = assets->getBuildingType("crystal");
 
 	WeightedList<BuildingType*> buildingsList;
-	buildingsList.add(goldBuilding, 20);
-	buildingsList.add(foodBuilding, 20);
-	buildingsList.add(materialBuilding, 20);
-	buildingsList.add(crystalBuilding, 20);
+	buildingsList.add(goldBuilding, 15);
+	buildingsList.add(foodBuilding, 15);
+	buildingsList.add(materialBuilding, 10);
+	buildingsList.add(crystalBuilding, 5);
 	buildingsList.add(nullptr, 1000);
 
 	for (uint16_t y = 0; y < width; y++) {

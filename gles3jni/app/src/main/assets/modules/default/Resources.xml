@@ -3,17 +3,21 @@
 	<Resource
 		id="gold"
 		sprite="gold"
+		priority="1"
 	/>
 	<Resource
 		id="food"
 		sprite="food"
+		priority="2"
 	/>
 	<Resource
 		id="material"
 		sprite="material"
+		priority="3"
 	/>
 	<Resource
 		id="crystal"
 		sprite="crystal"
+		priority="4"
 	/>
 </Assets>
