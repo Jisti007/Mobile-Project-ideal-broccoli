@@ -119,7 +119,7 @@ MapHex* GameMap::tryGetHex(int x, int y) {
 
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	//TODO: Android Studio complains about this, but it builds fine. Find a way to silence it?
-	auto position = screenPosition / camera.getZoom() + camera.getPosition();
+	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
 	position.x /= gridSize * xOffset;
 	position.y /= gridSize;
 
