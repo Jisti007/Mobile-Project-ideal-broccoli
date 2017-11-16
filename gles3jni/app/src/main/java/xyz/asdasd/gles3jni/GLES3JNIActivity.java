@@ -21,6 +21,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.WindowManager;
 
 import java.io.File;
@@ -30,13 +31,21 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class GLES3JNIActivity extends Activity {
-	GLES3JNIView view;
+	private GLES3JNIView view;
+	private ScaleGestureDetector scaleGestureDetector;
 	private String dataDirectory;
 	private float previousX;
 	private float previousY;
 
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {
+		scaleGestureDetector.onTouchEvent(e);
+		float scaleFactor = scaleGestureDetector.getScaleFactor();
+		if (scaleFactor != 1.0f) {
+			GLES3JNILib.zoom(scaleFactor);
+			return true;
+		}
+
 		switch (e.getAction()) {
 			case MotionEvent.ACTION_MOVE:
 				float dx = e.getX() - previousX;
@@ -64,6 +73,10 @@ public class GLES3JNIActivity extends Activity {
 		// so we can access them in C++ in a cross-platform way.
 		dataDirectory = getFilesDir() + "/";
 		extractFileOrDir("modules");
+
+		scaleGestureDetector = new ScaleGestureDetector(
+			this, new ScaleGestureDetector.SimpleOnScaleGestureListener()
+		);
 
 		view = new GLES3JNIView(getApplication(), this);
 		setContentView(view);

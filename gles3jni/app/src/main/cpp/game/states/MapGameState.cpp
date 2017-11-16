@@ -90,8 +90,8 @@ void MapGameState::draw(Pipeline* pipeline) {
 void MapGameState::move(float dx, float dy) {
 	auto camera = game->getCampaign()->getScenario()->getActiveMap()->getCamera();
 	auto zoom = camera->getZoom();
-	dx /= zoom;
-	dy /= zoom;
+	dx /= zoom * GameMap::gridSize;
+	dy /= zoom * GameMap::gridSize;
 	camera->moveBy({dx, dy});
 }
 
@@ -151,4 +151,9 @@ void MapGameState::updateResourceUI() {
 	resourceString << "G: " << goldAmount << " F: " << foodAmount << " M: " << materialAmount << " C: " << crystalAmount;
 
 	resourceLabel->setText(resourceString.str().c_str());
+}
+
+void MapGameState::zoom(float scaleFactor) {
+	auto camera = game->getCampaign()->getScenario()->getActiveMap()->getCamera();
+	camera->scaleZoom(scaleFactor);
 }

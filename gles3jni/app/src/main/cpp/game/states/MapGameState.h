@@ -16,6 +16,7 @@ public:
 	virtual void draw(Pipeline* pipeline);
 	virtual void move(float dx, float dy);
 	virtual bool press(float x, float y);
+	virtual void zoom(float scaleFactor);
 
 	void updateResourceUI();
 

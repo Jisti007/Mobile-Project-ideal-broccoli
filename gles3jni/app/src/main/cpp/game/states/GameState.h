@@ -15,10 +15,10 @@ public:
 	virtual void draw(Pipeline* pipeline);
 	virtual void move(float dx, float dy) = 0;
 	virtual bool press(float x, float y) { return uiRoot->press({x, y}); }
+	virtual void zoom(float scaleFactor) = 0;
 
 protected:
 	Game* game;
-	Camera camera;
 	std::unique_ptr<UIObject> uiRoot;
 };
 
