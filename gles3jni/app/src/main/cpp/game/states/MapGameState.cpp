@@ -22,16 +22,16 @@ MapGameState::MapGameState(Game* game)
 	button->setOnPress(std::bind(&GameMap::generate, map));
 	uiRoot->addChild(button);
 
-	auto resourceSprite = assets->getSprite("ui_resource");
+	auto resourcePanelSprite = assets->getSprite("ui_resource");
 	resourcePanel = new ResourcePanel(
-		resourceSprite, glm::vec2{
-			0, viewport.getTop() - resourceSprite->getHeight() / 2.0f
-		}, assets->getFont("default"), game->getCampaign()->getScenario()
+		resourcePanelSprite, glm::vec2{
+			0, viewport.getTop() - resourcePanelSprite->getHeight() / 2.0f
+		},
+		assets->getFont("default"),
+		game->getCampaign()->getScenario()
 	);
-	std::unique_ptr<UIObject> resourceInfoPointer(resourcePanel);
-	uiRoot->addChild(resourceInfoPointer);
-
-
+	std::unique_ptr<UIObject> resourcePanelPointer(resourcePanel);
+	uiRoot->addChild(resourcePanelPointer);
 }
 
 MapGameState::~MapGameState() {

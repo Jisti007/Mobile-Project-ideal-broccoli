@@ -17,9 +17,9 @@
 package xyz.asdasd.gles3jni;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.WindowManager;
@@ -32,34 +32,11 @@ import java.io.OutputStream;
 
 public class GLES3JNIActivity extends Activity {
 	private GLES3JNIView view;
+	private GestureDetector gestureDetector;
 	private ScaleGestureDetector scaleGestureDetector;
 	private String dataDirectory;
 	private float previousX;
 	private float previousY;
-
-	@Override
-	public boolean onTouchEvent(MotionEvent e) {
-		if (scaleGestureDetector.onTouchEvent(e)) {
-			return true;
-		}
-
-		switch (e.getAction()) {
-			case MotionEvent.ACTION_MOVE:
-				float dx = e.getX() - previousX;
-				float dy = e.getY() - previousY;
-				GLES3JNILib.onMove(-dx, dy);
-				previousX = e.getX();
-				previousY = e.getY();
-				return true;
-			case MotionEvent.ACTION_DOWN:
-				float x = e.getX();
-				float y = e.getY();
-				GLES3JNILib.onPress(x, y);
-				return true;
-		}
-
-		return true;
-	}
 
 	@Override
 	protected void onCreate(Bundle icicle) {
@@ -70,6 +47,7 @@ public class GLES3JNIActivity extends Activity {
 		dataDirectory = getFilesDir() + "/";
 		extractFileOrDir("modules");
 
+		gestureDetector = new GestureDetector(this, new GestureListener());
 		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
 		view = new GLES3JNIView(getApplication(), this);
@@ -87,6 +65,18 @@ public class GLES3JNIActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		view.onResume();
+	}
+
+	@Override
+	public boolean onTouchEvent(MotionEvent e) {
+		scaleGestureDetector.onTouchEvent(e);
+		if (scaleGestureDetector.isInProgress()) {
+			return true;
+		}
+
+		gestureDetector.onTouchEvent(e);
+
+		return true;
 	}
 
 	private void extractFileOrDir(String path) {
@@ -131,8 +121,23 @@ public class GLES3JNIActivity extends Activity {
 		}
 	}
 
-	private class ScaleListener
-		extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+	private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+		@Override
+		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+			GLES3JNILib.onMove(distanceX, -distanceY);
+			return true;
+		}
+
+		@Override
+		public boolean onSingleTapUp(MotionEvent e) {
+			float x = e.getX();
+			float y = e.getY();
+			GLES3JNILib.onPress(x, y);
+			return true;
+		}
+	}
+
+	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
 		@Override
 		public boolean onScale(ScaleGestureDetector detector) {
 			float scaleFactor = scaleGestureDetector.getScaleFactor();

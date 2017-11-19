@@ -54,7 +54,7 @@ void AssetManager::reloadAll() {
 
 void AssetManager::loadModule(const char* directory) {
 	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
-	loadedModules.insert(directory);
+	loadedModules.insert(std::string(directory));
 }
 
 bool AssetManager::isModuleLoaded(const char* module) {
@@ -236,7 +236,8 @@ void AssetManager::loadBuildingType(Node *node) {
 		auto amount = atoi(productionNode->first_attribute("amount")->value());
 
 		resourceProductions.push_back(
-			std::pair<Resource*, int>(getResource(resource), amount));
+			std::pair<Resource*, int>(getResource(resource), amount)
+		);
 		productionNode = productionNode->next_sibling();
 	}
 
