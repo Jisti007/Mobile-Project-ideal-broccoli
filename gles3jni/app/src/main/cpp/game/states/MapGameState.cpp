@@ -103,22 +103,10 @@ bool MapGameState::press(float x, float y) {
 		} else if (selectedUnit != nullptr) {
 			auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
-			auto scene = map->getScene();
-			auto actor = selectedUnit->getActor();
-			for (auto& link : path) {
-				auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
-				auto animation = std::unique_ptr<Animation>(new MovementAnimation(
-					actor, linkDestinationHex->getActor()->getPosition()
-				));
-				scene->queueAnimation(animation);
-			}
-			selectedUnit->moveTo(pressedHex);
-			/*
 			std::unique_ptr<ScenarioEvent> movement(new Movement(
 				selectedUnit, path
 			));
 			scenario->executeEvent(movement);
-			*/
 			fastAnimation = false;
 		}
 	}

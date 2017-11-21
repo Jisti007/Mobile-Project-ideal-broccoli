@@ -19,6 +19,7 @@ public:
 
 	bool moveTo(MapHex* destination);
 
+	inline GameMap* getMap() { return map; }
 	inline const UnitType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }
 	inline int getHP() { return hp; }

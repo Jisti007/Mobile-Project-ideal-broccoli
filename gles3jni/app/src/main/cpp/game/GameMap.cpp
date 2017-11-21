@@ -93,6 +93,8 @@ void GameMap::draw(float deltaTime) {
 	pipeline->setCameraPosition(camera.getPosition() * gridSize);
 	pipeline->setCameraZoom(camera.getZoom());
 	scene.draw(pipeline, deltaTime);
+	auto debugMarker = scenario->getCampaign()->getGame()->getAssets()->getSprite("dot_marker");
+	pipeline->draw(debugMarker, debugPosition, 1.0f);
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
@@ -143,10 +145,11 @@ Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
 	position.x /= gridSize;
 	position.y /= gridSize;
+	debugPosition = getScreenPosition(position);
 
-	int minX = (int)position.x;
+	int minX = (int)(position.x / xOffset);
 	int minY = (int)position.y;
-	int maxX = (int)position.x + 1;
+	int maxX = (int)(position.x / xOffset) + 1;
 	int maxY = (int)position.y + 1;
 
 	Point nearest{0, 0};

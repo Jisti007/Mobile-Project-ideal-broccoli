@@ -1,4 +1,5 @@
 #include "Movement.h"
+#include "../scenes/MovementAnimation.h"
 
 Movement::Movement(Unit* unit, std::list<Link*> path) {
 	this->unit = unit;
@@ -10,11 +11,20 @@ Movement::~Movement() {
 }
 
 bool Movement::execute() {
+	auto scene = unit->getMap()->getScene();
+	for (auto& link : path) {
+		auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
+		auto animation = std::unique_ptr<Animation>(new MovementAnimation(
+			unit->getActor(), linkDestinationHex->getActor()->getPosition()
+		));
+		scene->queueAnimation(animation);
+	}
 	auto destinationHex = static_cast<MapHex*>(path.back()->getDestination());
 	return unit->moveTo(destinationHex);
 }
 
 bool Movement::cancel() {
 	auto sourceHex = static_cast<MapHex*>(path.front()->getSource());
+	unit->getActor()->setPosition(sourceHex->getActor()->getPosition());
 	return unit->moveTo(sourceHex);
 }
