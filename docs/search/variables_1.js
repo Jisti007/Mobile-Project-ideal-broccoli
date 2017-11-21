@@ -5,5 +5,7 @@ var searchData=
   ['borderhexes',['borderHexes',['../class_map_region.html#a44514f0c27327dd183d8cdadfbf8eb2b',1,'MapRegion']]],
   ['bottom',['bottom',['../class_rectangle.html#a9b18ca2e2e8d9b333309d55c6e804b20',1,'Rectangle']]],
   ['build_5ftype',['BUILD_TYPE',['../classxyz_1_1asdasd_1_1gles3jni_1_1test_1_1_build_config.html#a55bcf5980e4651d43e497016dbd2a392',1,'xyz.asdasd.gles3jni.test.BuildConfig.BUILD_TYPE()'],['../classxyz_1_1asdasd_1_1gles3jni_1_1_build_config.html#a4b02127eb82d8dfbefc5ef67033b694e',1,'xyz.asdasd.gles3jni.BuildConfig.BUILD_TYPE()']]],
+  ['building',['building',['../class_map_hex.html#ad7e850e4c1e174791b359e91c3047e17',1,'MapHex']]],
+  ['buildings',['buildings',['../class_game_map.html#ae4f4b0677dd413b6e45f69c28bef4a91',1,'GameMap']]],
   ['buildingtypes',['buildingTypes',['../class_asset_manager.html#a4fea55fcfa82258972cdcbc441f89b59',1,'AssetManager']]]
 ];

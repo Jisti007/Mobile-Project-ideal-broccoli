@@ -81,42 +81,50 @@ Inheritance diagram for MapGameState:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a01020e76cc3a5f6f9f8196d1fcdeea5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a01020e76cc3a5f6f9f8196d1fcdeea5d">MapGameState</a> (<a class="el" href="class_asset_manager.html">AssetManager</a> *<a class="el" href="class_map_game_state.html#a094920a5195da41f63aa86a2c18d9132">assets</a>, <a class="el" href="class_game_map.html">GameMap</a> *<a class="el" href="class_map_game_state.html#a1671aa77ceb027a0fe12c73e7c70fd33">map</a>)</td></tr>
-<tr class="separator:a01020e76cc3a5f6f9f8196d1fcdeea5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0c43a423e82e5cf9a4e9431d49ccca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a3c0c43a423e82e5cf9a4e9431d49ccca">MapGameState</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_game_state.html#a355a79415b9ef63c2aec1448a99f6e71">game</a>)</td></tr>
+<tr class="separator:a3c0c43a423e82e5cf9a4e9431d49ccca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab63bb6915f8b57809f677c7570dcef27"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#ab63bb6915f8b57809f677c7570dcef27">~MapGameState</a> ()</td></tr>
 <tr class="separator:ab63bb6915f8b57809f677c7570dcef27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fdc318bd15093d66a9fc507d4f662fb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a0fdc318bd15093d66a9fc507d4f662fb">update</a> ()</td></tr>
-<tr class="separator:a0fdc318bd15093d66a9fc507d4f662fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac3d12d7017081962b3acfce1db46c60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#aac3d12d7017081962b3acfce1db46c60">draw</a> (<a class="el" href="class_pipeline.html">Pipeline</a> *pipeline)</td></tr>
-<tr class="separator:aac3d12d7017081962b3acfce1db46c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a318de5119503d9b950261f707c054e62"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a318de5119503d9b950261f707c054e62">update</a> (float deltaTime)</td></tr>
+<tr class="separator:a318de5119503d9b950261f707c054e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad0f52b3529c5a67c481eafc784b12ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#aad0f52b3529c5a67c481eafc784b12ec">draw</a> (<a class="el" href="class_pipeline.html">Pipeline</a> *pipeline, float deltaTime)</td></tr>
+<tr class="separator:aad0f52b3529c5a67c481eafc784b12ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc77877f24145ec10d64e1ad68bf341c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#adc77877f24145ec10d64e1ad68bf341c">move</a> (float dx, float dy)</td></tr>
 <tr class="separator:adc77877f24145ec10d64e1ad68bf341c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bfdb2c050588d760f860803c1958554"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a2bfdb2c050588d760f860803c1958554">press</a> (float x, float y)</td></tr>
 <tr class="separator:a2bfdb2c050588d760f860803c1958554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13599e86636bf9b027cde2956a2f226"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#ad13599e86636bf9b027cde2956a2f226">zoom</a> (float scaleFactor)</td></tr>
+<tr class="separator:ad13599e86636bf9b027cde2956a2f226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_game_state"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_game_state')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_game_state.html">GameState</a></td></tr>
-<tr class="memitem:a4fa0a2bf50315c4a35a3890a0adcee5c inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a4fa0a2bf50315c4a35a3890a0adcee5c">GameState</a> ()</td></tr>
-<tr class="separator:a4fa0a2bf50315c4a35a3890a0adcee5c inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a50af4416535fc9ed4462015de9bc3 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#ab0a50af4416535fc9ed4462015de9bc3">GameState</a> (<a class="el" href="class_game.html">Game</a> *<a class="el" href="class_game_state.html#a355a79415b9ef63c2aec1448a99f6e71">game</a>)</td></tr>
+<tr class="separator:ab0a50af4416535fc9ed4462015de9bc3 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae623df5042cd0c17daa3394fdcb397b3 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3">~GameState</a> ()</td></tr>
 <tr class="separator:ae623df5042cd0c17daa3394fdcb397b3 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a094920a5195da41f63aa86a2c18d9132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_asset_manager.html">AssetManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a094920a5195da41f63aa86a2c18d9132">assets</a></td></tr>
-<tr class="separator:a094920a5195da41f63aa86a2c18d9132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1671aa77ceb027a0fe12c73e7c70fd33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a1671aa77ceb027a0fe12c73e7c70fd33">map</a></td></tr>
-<tr class="separator:a1671aa77ceb027a0fe12c73e7c70fd33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a987fcdfcde90bb253d88e2ddd67851cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_resource_panel.html">ResourcePanel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a987fcdfcde90bb253d88e2ddd67851cc">resourcePanel</a></td></tr>
+<tr class="separator:a987fcdfcde90bb253d88e2ddd67851cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d6420d9779872303ead83e100aa4ae2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a4d6420d9779872303ead83e100aa4ae2">selectedUnit</a> = nullptr</td></tr>
 <tr class="separator:a4d6420d9779872303ead83e100aa4ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7893d904562dffe850dd67aa1116de29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a7893d904562dffe850dd67aa1116de29">pressedHex</a> = nullptr</td></tr>
+<tr class="separator:a7893d904562dffe850dd67aa1116de29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2328c8bf8d8bb8fa34f68de4cd9f1658"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a2328c8bf8d8bb8fa34f68de4cd9f1658">animatingEvent</a> = false</td></tr>
+<tr class="separator:a2328c8bf8d8bb8fa34f68de4cd9f1658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c3d0057b90c24db02e98523fc401c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a52c3d0057b90c24db02e98523fc401c2">fastAnimation</a> = false</td></tr>
+<tr class="separator:a52c3d0057b90c24db02e98523fc401c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_game_state"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_game_state')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_game_state.html">GameState</a></td></tr>
+<tr class="memitem:a355a79415b9ef63c2aec1448a99f6e71 inherit pro_attribs_class_game_state"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game.html">Game</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a355a79415b9ef63c2aec1448a99f6e71">game</a></td></tr>
+<tr class="separator:a355a79415b9ef63c2aec1448a99f6e71 inherit pro_attribs_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6cf5a3aaccad31a6b4c80d33ed38d30 inherit pro_attribs_class_game_state"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_u_i_object.html">UIObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#af6cf5a3aaccad31a6b4c80d33ed38d30">uiRoot</a></td></tr>
 <tr class="separator:af6cf5a3aaccad31a6b4c80d33ed38d30 inherit pro_attribs_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a01020e76cc3a5f6f9f8196d1fcdeea5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01020e76cc3a5f6f9f8196d1fcdeea5d">&#9670;&nbsp;</a></span>MapGameState()</h2>
+<a id="a3c0c43a423e82e5cf9a4e9431d49ccca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0c43a423e82e5cf9a4e9431d49ccca">&#9670;&nbsp;</a></span>MapGameState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,19 +132,9 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">MapGameState::MapGameState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_asset_manager.html">AssetManager</a> *&#160;</td>
-          <td class="paramname"><em>assets</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_game.html">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,8 +167,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aac3d12d7017081962b3acfce1db46c60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac3d12d7017081962b3acfce1db46c60">&#9670;&nbsp;</a></span>draw()</h2>
+<a id="aad0f52b3529c5a67c481eafc784b12ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0f52b3529c5a67c481eafc784b12ec">&#9670;&nbsp;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,8 +180,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void MapGameState::draw </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_pipeline.html">Pipeline</a> *&#160;</td>
-          <td class="paramname"><em>pipeline</em></td><td>)</td>
+          <td class="paramname"><em>pipeline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -193,7 +201,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_game_state.html#af2ef58a50c7455aeb83a327c02ec223c">GameState</a>.</p>
+<p>Reimplemented from <a class="el" href="class_game_state.html#aab50aafce67a149d6cf4f7e70f85d96f">GameState</a>.</p>
 
 </div>
 </div>
@@ -273,8 +281,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a0fdc318bd15093d66a9fc507d4f662fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fdc318bd15093d66a9fc507d4f662fb">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a318de5119503d9b950261f707c054e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a318de5119503d9b950261f707c054e62">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +293,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void MapGameState::update </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -296,13 +305,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_game_state.html#ab2864bfa04f92f6966861a1f2883bda0">GameState</a>.</p>
+<p>Implements <a class="el" href="class_game_state.html#a360521bb5b371ea942a9e4e2ba1e8145">GameState</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a094920a5195da41f63aa86a2c18d9132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a094920a5195da41f63aa86a2c18d9132">&#9670;&nbsp;</a></span>assets</h2>
+<a id="ad13599e86636bf9b027cde2956a2f226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad13599e86636bf9b027cde2956a2f226">&#9670;&nbsp;</a></span>zoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -311,7 +319,36 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_asset_manager.html">AssetManager</a>* MapGameState::assets</td>
+          <td class="memname">void MapGameState::zoom </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleFactor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_game_state.html#a96c1521b0bdd0452645ebdafe663e4ef">GameState</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2328c8bf8d8bb8fa34f68de4cd9f1658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2328c8bf8d8bb8fa34f68de4cd9f1658">&#9670;&nbsp;</a></span>animatingEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MapGameState::animatingEvent = false</td>
         </tr>
       </table>
   </td>
@@ -323,8 +360,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a1671aa77ceb027a0fe12c73e7c70fd33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1671aa77ceb027a0fe12c73e7c70fd33">&#9670;&nbsp;</a></span>map</h2>
+<a id="a52c3d0057b90c24db02e98523fc401c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c3d0057b90c24db02e98523fc401c2">&#9670;&nbsp;</a></span>fastAnimation</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,7 +370,51 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_game_map.html">GameMap</a>* MapGameState::map</td>
+          <td class="memname">bool MapGameState::fastAnimation = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7893d904562dffe850dd67aa1116de29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7893d904562dffe850dd67aa1116de29">&#9670;&nbsp;</a></span>pressedHex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_map_hex.html">MapHex</a>* MapGameState::pressedHex = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a987fcdfcde90bb253d88e2ddd67851cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987fcdfcde90bb253d88e2ddd67851cc">&#9670;&nbsp;</a></span>resourcePanel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_resource_panel.html">ResourcePanel</a>* MapGameState::resourcePanel</td>
         </tr>
       </table>
   </td>

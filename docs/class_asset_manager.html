@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96faef50e65cf928e3eecc3ee7af287c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0baa9e0420ccf33634c0fc5091825fde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_biome.html">Biome</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a0baa9e0420ccf33634c0fc5091825fde">getRandomBiome</a> ()</td></tr>
 <tr class="separator:a0baa9e0420ccf33634c0fc5091825fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13db5d6f33b82c2581c8d6a9ee76d813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_font.html">Font</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a13db5d6f33b82c2581c8d6a9ee76d813">getFont</a> (const char *assetId)</td></tr>
+<tr class="separator:a13db5d6f33b82c2581c8d6a9ee76d813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
@@ -133,6 +135,14 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:acc8ffdac1c10300a4964e8c8d5764ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb50534471c66993a4a8df81414bdbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#adbb50534471c66993a4a8df81414bdbd">loadSprite</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node)</td></tr>
 <tr class="separator:adbb50534471c66993a4a8df81414bdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0780c5803a16d659379417304bf47fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#aa0780c5803a16d659379417304bf47fd">loadSpriteUsing</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node, <a class="el" href="class_texture.html">Texture</a> *texture, const char *prefix)</td></tr>
+<tr class="separator:aa0780c5803a16d659379417304bf47fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b4829958ae5a1c67d554f44d7cc7470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a6b4829958ae5a1c67d554f44d7cc7470">loadSpriteUsing</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node, <a class="el" href="class_texture.html">Texture</a> *texture, const char *prefix, int y, int h)</td></tr>
+<tr class="separator:a6b4829958ae5a1c67d554f44d7cc7470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3692dadf5feadc2f176499ead3efdec6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a3692dadf5feadc2f176499ead3efdec6">loadSpriteSheet</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node)</td></tr>
+<tr class="separator:a3692dadf5feadc2f176499ead3efdec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcbb107905af8395f32e78c6fa370ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a3fcbb107905af8395f32e78c6fa370ab">loadFont</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node)</td></tr>
+<tr class="separator:a3fcbb107905af8395f32e78c6fa370ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c90c782668a85ef5539bec84d6e5aac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a6c90c782668a85ef5539bec84d6e5aac">loadHexType</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node)</td></tr>
 <tr class="separator:a6c90c782668a85ef5539bec84d6e5aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fc5263cd5007fe968a1d040f9b7c331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#a8fc5263cd5007fe968a1d040f9b7c331">loadBiome</a> (<a class="el" href="class_asset_manager_1_1_node.html">Node</a> *node)</td></tr>
@@ -168,6 +178,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a4fea55fcfa82258972cdcbc441f89b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac071054fd72641e5f66c85c757b45516"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_asset_manager.html#a67ef2a74c058b6cebefd838bcc3a7d96">AssetMap</a>&lt; <a class="el" href="class_resource.html">Resource</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#ac071054fd72641e5f66c85c757b45516">resources</a></td></tr>
 <tr class="separator:ac071054fd72641e5f66c85c757b45516"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f985a19d6e94270acd41353d7f0346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_asset_manager.html#a67ef2a74c058b6cebefd838bcc3a7d96">AssetMap</a>&lt; <a class="el" href="class_font.html">Font</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#ab0f985a19d6e94270acd41353d7f0346">fonts</a></td></tr>
+<tr class="separator:ab0f985a19d6e94270acd41353d7f0346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb9982a105cce102ebcf4a6cdc7644c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weighted_list.html">WeightedList</a>&lt; <a class="el" href="class_biome.html">Biome</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_asset_manager.html#adb9982a105cce102ebcf4a6cdc7644c2">weightedBiomes</a></td></tr>
 <tr class="separator:adb9982a105cce102ebcf4a6cdc7644c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -273,6 +285,32 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_building_type.html">BuildingType</a>* AssetManager::getBuildingType </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>assetId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13db5d6f33b82c2581c8d6a9ee76d813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13db5d6f33b82c2581c8d6a9ee76d813">&#9670;&nbsp;</a></span>getFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_font.html">Font</a>* AssetManager::getFont </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>assetId</em></td><td>)</td>
@@ -642,6 +680,32 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a3fcbb107905af8395f32e78c6fa370ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcbb107905af8395f32e78c6fa370ab">&#9670;&nbsp;</a></span>loadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AssetManager::loadFont </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_asset_manager_1_1_node.html">AssetManager::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6c90c782668a85ef5539bec84d6e5aac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c90c782668a85ef5539bec84d6e5aac">&#9670;&nbsp;</a></span>loadHexType()</h2>
 
@@ -727,6 +791,128 @@ template&lt;typename T &gt; </div>
           <td class="paramtype"><a class="el" href="class_asset_manager_1_1_node.html">AssetManager::Node</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3692dadf5feadc2f176499ead3efdec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3692dadf5feadc2f176499ead3efdec6">&#9670;&nbsp;</a></span>loadSpriteSheet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AssetManager::loadSpriteSheet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_asset_manager_1_1_node.html">AssetManager::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0780c5803a16d659379417304bf47fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0780c5803a16d659379417304bf47fd">&#9670;&nbsp;</a></span>loadSpriteUsing() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AssetManager::loadSpriteUsing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_asset_manager_1_1_node.html">AssetManager::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>prefix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b4829958ae5a1c67d554f44d7cc7470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b4829958ae5a1c67d554f44d7cc7470">&#9670;&nbsp;</a></span>loadSpriteUsing() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AssetManager::loadSpriteUsing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_asset_manager_1_1_node.html">AssetManager::Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>prefix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -922,6 +1108,28 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_asset_manager.html#a67ef2a74c058b6cebefd838bcc3a7d96">AssetMap</a>&lt;<a class="el" href="class_building_type.html">BuildingType</a>&gt; AssetManager::buildingTypes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0f985a19d6e94270acd41353d7f0346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f985a19d6e94270acd41353d7f0346">&#9670;&nbsp;</a></span>fonts</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_asset_manager.html#a67ef2a74c058b6cebefd838bcc3a7d96">AssetMap</a>&lt;<a class="el" href="class_font.html">Font</a>&gt; AssetManager::fonts</td>
         </tr>
       </table>
   </td>

@@ -6,6 +6,7 @@ var searchData=
   ['vertexbuffer',['vertexBuffer',['../class_mesh.html#ab929a49165b786e7c35d982713d6eca3',1,'Mesh']]],
   ['vertexshader',['vertexShader',['../class_pipeline.html#a7355b9ab47063a1cb683344113e964e3',1,'Pipeline']]],
   ['vertexsource',['vertexSource',['../_pipeline_8cpp.html#ab9074ab0c1c8dc12d38c788ede72bed0',1,'Pipeline.cpp']]],
-  ['vertices',['vertices',['../class_mesh.html#a6465a888c97232a39e12aad008c969c3',1,'Mesh::vertices()'],['../class_sprite.html#af77b5223fb08a56ef686ee5755e3e52a',1,'Sprite::vertices()']]],
-  ['view',['view',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#a2befb89b14e64b1080787351727f4121',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]]
+  ['vertices',['vertices',['../class_mesh.html#a6465a888c97232a39e12aad008c969c3',1,'Mesh']]],
+  ['view',['view',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#a2befb89b14e64b1080787351727f4121',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]],
+  ['viewportsize',['viewportSize',['../class_pipeline.html#a9339b444506cca7f94581ea917714753',1,'Pipeline']]]
 ];

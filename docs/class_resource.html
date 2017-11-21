@@ -72,19 +72,25 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a213d48c11908f21c5c3c43c3682af09f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a213d48c11908f21c5c3c43c3682af09f">Resource</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_resource.html#a786b65335656d3d4e9bebe44a6eeed5e">sprite</a>)</td></tr>
-<tr class="separator:a213d48c11908f21c5c3c43c3682af09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42fc6669c5b507d7a3fb9d4f0eea1ad3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a42fc6669c5b507d7a3fb9d4f0eea1ad3">Resource</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_resource.html#a786b65335656d3d4e9bebe44a6eeed5e">sprite</a>, int <a class="el" href="class_resource.html#a189953bafb3605f21fa9a11210f86c2c">priority</a>)</td></tr>
+<tr class="separator:a42fc6669c5b507d7a3fb9d4f0eea1ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e5ec475e2601bdb33644468e86f6f10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a0e5ec475e2601bdb33644468e86f6f10">~Resource</a> ()</td></tr>
 <tr class="separator:a0e5ec475e2601bdb33644468e86f6f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24072bb5520443719707d287eba3156"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#aa24072bb5520443719707d287eba3156">getSprite</a> ()</td></tr>
+<tr class="separator:aa24072bb5520443719707d287eba3156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af392957ec31dde6648e107b069ed01d4"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#af392957ec31dde6648e107b069ed01d4">getPriority</a> () const</td></tr>
+<tr class="separator:af392957ec31dde6648e107b069ed01d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a786b65335656d3d4e9bebe44a6eeed5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a786b65335656d3d4e9bebe44a6eeed5e">sprite</a></td></tr>
 <tr class="separator:a786b65335656d3d4e9bebe44a6eeed5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a189953bafb3605f21fa9a11210f86c2c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a189953bafb3605f21fa9a11210f86c2c">priority</a></td></tr>
+<tr class="separator:a189953bafb3605f21fa9a11210f86c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a213d48c11908f21c5c3c43c3682af09f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a213d48c11908f21c5c3c43c3682af09f">&#9670;&nbsp;</a></span>Resource()</h2>
+<a id="a42fc6669c5b507d7a3fb9d4f0eea1ad3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42fc6669c5b507d7a3fb9d4f0eea1ad3">&#9670;&nbsp;</a></span>Resource()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -93,8 +99,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">Resource::Resource </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em></td><td>)</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -118,7 +134,80 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af392957ec31dde6648e107b069ed01d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af392957ec31dde6648e107b069ed01d4">&#9670;&nbsp;</a></span>getPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Resource::getPriority </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa24072bb5520443719707d287eba3156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24072bb5520443719707d287eba3156">&#9670;&nbsp;</a></span>getSprite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_sprite.html">Sprite</a>* Resource::getSprite </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a189953bafb3605f21fa9a11210f86c2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a189953bafb3605f21fa9a11210f86c2c">&#9670;&nbsp;</a></span>priority</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Resource::priority</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a786b65335656d3d4e9bebe44a6eeed5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a786b65335656d3d4e9bebe44a6eeed5e">&#9670;&nbsp;</a></span>sprite</h2>
 

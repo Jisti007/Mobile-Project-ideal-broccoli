@@ -61,6 +61,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_game-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -78,14 +79,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae3d112ca6e0e55150d2fdbc704474530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14073b7ee15e3a60b72112519be85453"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a14073b7ee15e3a60b72112519be85453">initialize</a> ()</td></tr>
 <tr class="separator:a14073b7ee15e3a60b72112519be85453"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79df6376b332d63c9eca0dcee30305c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a79df6376b332d63c9eca0dcee30305c3">update</a> ()</td></tr>
-<tr class="separator:a79df6376b332d63c9eca0dcee30305c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a6d54497ce3a66f6dd45eacfdccc8d0bd">draw</a> ()</td></tr>
-<tr class="separator:a6d54497ce3a66f6dd45eacfdccc8d0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88beeab9c84d16800d6f95250768ef55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a88beeab9c84d16800d6f95250768ef55">step</a> ()</td></tr>
+<tr class="separator:a88beeab9c84d16800d6f95250768ef55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae14e1aa932e133b1a317a99e036f129d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ae14e1aa932e133b1a317a99e036f129d">resize</a> (int width, int height)</td></tr>
 <tr class="separator:ae14e1aa932e133b1a317a99e036f129d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d02990af82341b4eeb076740ba24ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_pipeline.html">Pipeline</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a06d02990af82341b4eeb076740ba24ae">getPipeline</a> ()</td></tr>
+<tr class="separator:a06d02990af82341b4eeb076740ba24ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17e6f0bc2623c3be50d37fb298ef230"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_asset_manager.html">AssetManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ae17e6f0bc2623c3be50d37fb298ef230">getAssets</a> ()</td></tr>
+<tr class="separator:ae17e6f0bc2623c3be50d37fb298ef230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59a975ea5e1c629249412a271690d237"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_state.html">GameState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a59a975ea5e1c629249412a271690d237">getState</a> ()</td></tr>
 <tr class="separator:a59a975ea5e1c629249412a271690d237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2eecf1250358b0f5106fddef5a148a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_campaign.html">Campaign</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#ae2eecf1250358b0f5106fddef5a148a9">getCampaign</a> ()</td></tr>
+<tr class="separator:ae2eecf1250358b0f5106fddef5a148a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a073d4a15a8ce6c024ebe2657e97540c2"><td class="memItemLeft" align="right" valign="top">typedef std::chrono::high_resolution_clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a073d4a15a8ce6c024ebe2657e97540c2">Clock</a></td></tr>
+<tr class="separator:a073d4a15a8ce6c024ebe2657e97540c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae372376a68a7f82476fa31c7cef4efc"><td class="memItemLeft" align="right" valign="top">typedef Clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#aae372376a68a7f82476fa31c7cef4efc">TimePoint</a></td></tr>
+<tr class="separator:aae372376a68a7f82476fa31c7cef4efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -93,11 +105,58 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a892521e52fc199340f33db5688d199b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4617966fb0ab4c35025e2b1b3c262e9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_asset_manager.html">AssetManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a4617966fb0ab4c35025e2b1b3c262e9e">assetManager</a></td></tr>
 <tr class="separator:a4617966fb0ab4c35025e2b1b3c262e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45be81aaf550d2abb9ac4ba9a59d1036"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a45be81aaf550d2abb9ac4ba9a59d1036">map</a></td></tr>
-<tr class="separator:a45be81aaf550d2abb9ac4ba9a59d1036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a507773b15044efdde915803f66f1d8bf"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_campaign.html">Campaign</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a507773b15044efdde915803f66f1d8bf">campaign</a></td></tr>
+<tr class="separator:a507773b15044efdde915803f66f1d8bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68904e18b37be9f13a2420050fd60448"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_game_state.html">GameState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a68904e18b37be9f13a2420050fd60448">state</a></td></tr>
 <tr class="separator:a68904e18b37be9f13a2420050fd60448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd5519138cc81c643704ca8c29f806a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game.html#aae372376a68a7f82476fa31c7cef4efc">TimePoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game.html#a5fd5519138cc81c643704ca8c29f806a">previousTime</a></td></tr>
+<tr class="separator:a5fd5519138cc81c643704ca8c29f806a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a073d4a15a8ce6c024ebe2657e97540c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a073d4a15a8ce6c024ebe2657e97540c2">&#9670;&nbsp;</a></span>Clock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::chrono::high_resolution_clock <a class="el" href="class_game.html#a073d4a15a8ce6c024ebe2657e97540c2">Game::Clock</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae372376a68a7f82476fa31c7cef4efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae372376a68a7f82476fa31c7cef4efc">&#9670;&nbsp;</a></span>TimePoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Clock::time_point <a class="el" href="class_game.html#aae372376a68a7f82476fa31c7cef4efc">Game::TimePoint</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad59df6562a58a614fda24622d3715b65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad59df6562a58a614fda24622d3715b65">&#9670;&nbsp;</a></span>Game()</h2>
@@ -134,19 +193,77 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6d54497ce3a66f6dd45eacfdccc8d0bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d54497ce3a66f6dd45eacfdccc8d0bd">&#9670;&nbsp;</a></span>draw()</h2>
+<a id="ae17e6f0bc2623c3be50d37fb298ef230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17e6f0bc2623c3be50d37fb298ef230">&#9670;&nbsp;</a></span>getAssets()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Game::draw </td>
+          <td class="memname"><a class="el" href="class_asset_manager.html">AssetManager</a>* Game::getAssets </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2eecf1250358b0f5106fddef5a148a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2eecf1250358b0f5106fddef5a148a9">&#9670;&nbsp;</a></span>getCampaign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_campaign.html">Campaign</a>* Game::getCampaign </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06d02990af82341b4eeb076740ba24ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d02990af82341b4eeb076740ba24ae">&#9670;&nbsp;</a></span>getPipeline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_pipeline.html">Pipeline</a>* Game::getPipeline </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -221,14 +338,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a79df6376b332d63c9eca0dcee30305c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79df6376b332d63c9eca0dcee30305c3">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a88beeab9c84d16800d6f95250768ef55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88beeab9c84d16800d6f95250768ef55">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Game::update </td>
+          <td class="memname">void Game::step </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -261,8 +378,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45be81aaf550d2abb9ac4ba9a59d1036"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45be81aaf550d2abb9ac4ba9a59d1036">&#9670;&nbsp;</a></span>map</h2>
+<a id="a507773b15044efdde915803f66f1d8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a507773b15044efdde915803f66f1d8bf">&#9670;&nbsp;</a></span>campaign</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +388,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_game_map.html">GameMap</a> Game::map</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_campaign.html">Campaign</a>&gt; Game::campaign</td>
         </tr>
       </table>
   </td>
@@ -294,6 +411,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_pipeline.html">Pipeline</a> Game::pipeline</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fd5519138cc81c643704ca8c29f806a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd5519138cc81c643704ca8c29f806a">&#9670;&nbsp;</a></span>previousTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game.html#aae372376a68a7f82476fa31c7cef4efc">TimePoint</a> Game::previousTime</td>
         </tr>
       </table>
   </td>

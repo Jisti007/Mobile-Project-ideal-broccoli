@@ -1,13 +1,19 @@
 var searchData=
 [
+  ['offsetposition',['offsetPosition',['../class_actor.html#a9bddd6753c127f763a7fd4762556d208',1,'Actor']]],
   ['oncreate',['onCreate',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#addc65f2124d4cd7b1f80f7a79b57ae4c',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]],
-  ['ondraw',['onDraw',['../class_u_i_object.html#a00602c4cb573cb6bdcd0eec3c957db3e',1,'UIObject::onDraw()'],['../class_u_i_sprite.html#a69d8d7af4226114f680f892d2c650926',1,'UISprite::onDraw()']]],
+  ['ondraw',['onDraw',['../class_label.html#a77c96be3589205206743cd6602c68159',1,'Label::onDraw()'],['../class_u_i_object.html#a00602c4cb573cb6bdcd0eec3c957db3e',1,'UIObject::onDraw()'],['../class_u_i_sprite.html#a69d8d7af4226114f680f892d2c650926',1,'UISprite::onDraw()']]],
   ['ondrawframe',['onDrawFrame',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html#acb6410e1c7136fb4619f833a8a6f222b',1,'xyz::asdasd::gles3jni::GLES3JNIView::Renderer']]],
   ['onmove',['onMove',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_lib.html#a338d505395c1c6d77d77ceab47e325ab',1,'xyz::asdasd::gles3jni::GLES3JNILib']]],
   ['onpause',['onPause',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#a621fd95aed44053ab00c094ad755c666',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]],
   ['onpress',['onPress',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_lib.html#accaee0101c5b5b96e5f61da93da221d1',1,'xyz::asdasd::gles3jni::GLES3JNILib']]],
   ['onresume',['onResume',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#a21726157a7c15b48c69f960f32f86760',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]],
+  ['onscale',['onScale',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity_1_1_scale_listener.html#a639af61cec2649d40ba37c2d08a067f1',1,'xyz::asdasd::gles3jni::GLES3JNIActivity::ScaleListener']]],
+  ['onscroll',['onScroll',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity_1_1_gesture_listener.html#a6947a73ce955db38c13f677c4cf826ea',1,'xyz::asdasd::gles3jni::GLES3JNIActivity::GestureListener']]],
+  ['onsingletapup',['onSingleTapUp',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity_1_1_gesture_listener.html#a32ad73636bee0dcfc54b52f04a6c8ea8',1,'xyz::asdasd::gles3jni::GLES3JNIActivity::GestureListener']]],
   ['onsurfacechanged',['onSurfaceChanged',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html#a641118b0930da49417e4791dc7d08453',1,'xyz::asdasd::gles3jni::GLES3JNIView::Renderer']]],
   ['onsurfacecreated',['onSurfaceCreated',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view_1_1_renderer.html#aca6d67247aecd388480000030d8ca804',1,'xyz::asdasd::gles3jni::GLES3JNIView::Renderer']]],
-  ['ontouchevent',['onTouchEvent',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#ade8aa81e5fa05a5d49b6dc26e7339e94',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]]
+  ['ontouchevent',['onTouchEvent',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_activity.html#ade8aa81e5fa05a5d49b6dc26e7339e94',1,'xyz::asdasd::gles3jni::GLES3JNIActivity']]],
+  ['operator_28_29',['operator()',['../struct_resource_sorter.html#af68bcd765637c28081341d481116251a',1,'ResourceSorter::operator()()'],['../struct_actor_sorter.html#a8960b3cce485920c54d78b00f5b01fc4',1,'ActorSorter::operator()()'],['../struct_actor_pointer_sorter.html#a0a876cd95d9e8a4c6a70ba78e25caf24',1,'ActorPointerSorter::operator()()']]],
+  ['overlaps',['overlaps',['../class_rectangle.html#ab6fe5378371c9f1300013b5befb5ea94',1,'Rectangle']]]
 ];

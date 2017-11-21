@@ -61,7 +61,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_link-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Link Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -78,7 +78,8 @@ Inheritance diagram for Link:</div>
  <div class="center">
   <img src="class_link.png" usemap="#Link_map" alt=""/>
   <map id="Link_map" name="Link_map">
-<area href="class_simple_link.html" title="Constant cost for all agents. " alt="SimpleLink" shape="rect" coords="0,56,72,80"/>
+<area href="class_movement_link.html" alt="MovementLink" shape="rect" coords="0,56,93,80"/>
+<area href="class_simple_link.html" title="Constant cost for all agents. " alt="SimpleLink" shape="rect" coords="103,56,196,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -88,15 +89,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8bd74cd13248c41c42c6c705bd9505e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a666e442abb3122fe5eb1705f1b2d650d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#a666e442abb3122fe5eb1705f1b2d650d">~Link</a> ()</td></tr>
 <tr class="separator:a666e442abb3122fe5eb1705f1b2d650d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e8a85eba6e6b24751ba9b5b92e06dae"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#a4e8a85eba6e6b24751ba9b5b92e06dae">getCost</a> (<a class="el" href="class_agent.html">Agent</a> *agent)=0</td></tr>
-<tr class="separator:a4e8a85eba6e6b24751ba9b5b92e06dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33de4200def03aba0c6e924a2909bab"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#ae33de4200def03aba0c6e924a2909bab">getCost</a> (<a class="el" href="class_agent.html">Agent</a> *agent, float pathCost)=0</td></tr>
+<tr class="separator:ae33de4200def03aba0c6e924a2909bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9878daef7fd8039c29ed95e12f7f406"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#aa9878daef7fd8039c29ed95e12f7f406">getSource</a> ()</td></tr>
 <tr class="separator:aa9878daef7fd8039c29ed95e12f7f406"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633f15916e8f21f1651d272e1ef957d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#a633f15916e8f21f1651d272e1ef957d7">getDestination</a> ()</td></tr>
 <tr class="separator:a633f15916e8f21f1651d272e1ef957d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
 <tr class="memitem:aff3295df86f52a2ae282db4370d83081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#aff3295df86f52a2ae282db4370d83081">source</a></td></tr>
 <tr class="separator:aff3295df86f52a2ae282db4370d83081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abff6c26a75fd1a73ee9ee3c1ee5c060d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_link.html#abff6c26a75fd1a73ee9ee3c1ee5c060d">destination</a></td></tr>
@@ -159,8 +160,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4e8a85eba6e6b24751ba9b5b92e06dae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e8a85eba6e6b24751ba9b5b92e06dae">&#9670;&nbsp;</a></span>getCost()</h2>
+<a id="ae33de4200def03aba0c6e924a2909bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33de4200def03aba0c6e924a2909bab">&#9670;&nbsp;</a></span>getCost()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,8 +173,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">virtual float Link::getCost </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
-          <td class="paramname"><em>agent</em></td><td>)</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>pathCost</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -183,7 +194,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_simple_link.html#a3947c8f4f70dfa81193ae5d9d1244ad4">SimpleLink</a>.</p>
+<p>Implemented in <a class="el" href="class_simple_link.html#a85300b8828204a6b690cc02bdaa0d4e1">SimpleLink</a>, and <a class="el" href="class_movement_link.html#a1055779c5fda9f4da1d59dddb4c07bdc">MovementLink</a>.</p>
 
 </div>
 </div>
@@ -253,7 +264,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -275,7 +286,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

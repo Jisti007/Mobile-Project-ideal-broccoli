@@ -91,8 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af76889d57cc721f3de9820a0a2ea4990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a869ddcb3bb5c5adcf9cbdde97020597a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a869ddcb3bb5c5adcf9cbdde97020597a">compareTo</a> (<a class="el" href="class_comparable.html">Comparable</a> *other)</td></tr>
 <tr class="separator:a869ddcb3bb5c5adcf9cbdde97020597a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a322378d326bc4b4024b6748accab1874"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_node.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a322378d326bc4b4024b6748accab1874">findShortestPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent, size_t graphSize=128)</td></tr>
-<tr class="separator:a322378d326bc4b4024b6748accab1874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92cdff51452d08468d0d89cdd33920d6"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_link.html">Link</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a92cdff51452d08468d0d89cdd33920d6">findShortestPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent, size_t graphSize=128)</td></tr>
+<tr class="separator:a92cdff51452d08468d0d89cdd33920d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable</a></td></tr>
 <tr class="memitem:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#a5bfe7437bd0027fd02ce22f608fce92a">~Comparable</a> ()</td></tr>
 <tr class="separator:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,8 +104,8 @@ Protected Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a17c0c1c22413b76152cd8f513a961022"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a17c0c1c22413b76152cd8f513a961022">previous</a> = nullptr</td></tr>
-<tr class="separator:a17c0c1c22413b76152cd8f513a961022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c1d34d33aa3c14a4d65094cb3c7b9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_link.html">Link</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a81c1d34d33aa3c14a4d65094cb3c7b9d">pathLink</a> = nullptr</td></tr>
+<tr class="separator:a81c1d34d33aa3c14a4d65094cb3c7b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95314c432adbee13bcac6876597b21a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdd">NodeStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a95314c432adbee13bcac6876597b21a7">status</a> = <a class="el" href="_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdda7fc5c694a226faa9d2e8ce37d31d4c2b">NodeStatus::unvisited</a></td></tr>
 <tr class="separator:a95314c432adbee13bcac6876597b21a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40814e0542b6c954edfde73823a7681e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a40814e0542b6c954edfde73823a7681e">lastVisit</a> = 0</td></tr>
@@ -187,14 +187,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a322378d326bc4b4024b6748accab1874"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a322378d326bc4b4024b6748accab1874">&#9670;&nbsp;</a></span>findShortestPath()</h2>
+<a id="a92cdff51452d08468d0d89cdd33920d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cdff51452d08468d0d89cdd33920d6">&#9670;&nbsp;</a></span>findShortestPath()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; <a class="el" href="class_node.html">Node</a> * &gt; Node::findShortestPath </td>
+          <td class="memname">std::list&lt; <a class="el" href="class_link.html">Link</a> * &gt; Node::findShortestPath </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>destination</em>, </td>
@@ -338,8 +338,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a17c0c1c22413b76152cd8f513a961022"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17c0c1c22413b76152cd8f513a961022">&#9670;&nbsp;</a></span>previous</h2>
+<a id="a81c1d34d33aa3c14a4d65094cb3c7b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c1d34d33aa3c14a4d65094cb3c7b9d">&#9670;&nbsp;</a></span>pathLink</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +348,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_node.html">Node</a>* Node::previous = nullptr</td>
+          <td class="memname"><a class="el" href="class_link.html">Link</a>* Node::pathLink = nullptr</td>
         </tr>
       </table>
   </td>

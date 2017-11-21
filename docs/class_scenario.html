@@ -59,14 +59,586 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="class_scenario-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Scenario Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_scenario_8h_source.html">Scenario.h</a>&gt;</code></p>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad4ce08d70795484c6cb32ce8b622f164"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#ad4ce08d70795484c6cb32ce8b622f164">Scenario</a> (<a class="el" href="class_campaign.html">Campaign</a> *<a class="el" href="class_scenario.html#a28b62d8d54f08f9a6e0cb1ba2667979a">campaign</a>)</td></tr>
+<tr class="separator:ad4ce08d70795484c6cb32ce8b622f164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e7548858cbc52614d46723c0333038"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#aa7e7548858cbc52614d46723c0333038">~Scenario</a> ()</td></tr>
+<tr class="separator:aa7e7548858cbc52614d46723c0333038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a170fc5351993817f9648133caf238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a58a170fc5351993817f9648133caf238">executeEvent</a> (std::unique_ptr&lt; <a class="el" href="class_scenario_event.html">ScenarioEvent</a> &gt; &amp;event)</td></tr>
+<tr class="separator:a58a170fc5351993817f9648133caf238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ef0d1a27e81c32bb3a380994e39e98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#ae0ef0d1a27e81c32bb3a380994e39e98">endTurn</a> ()</td></tr>
+<tr class="separator:ae0ef0d1a27e81c32bb3a380994e39e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9376a8d03d5714e043741c5ab6ea052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_campaign.html">Campaign</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#ac9376a8d03d5714e043741c5ab6ea052">getCampaign</a> ()</td></tr>
+<tr class="separator:ac9376a8d03d5714e043741c5ab6ea052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b5c58fec9074a3fc04d602d700e3706"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a1b5c58fec9074a3fc04d602d700e3706">getActiveMap</a> ()</td></tr>
+<tr class="separator:a1b5c58fec9074a3fc04d602d700e3706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae86db42bed06fca21d97ab724968e5ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#ae86db42bed06fca21d97ab724968e5ef">getMap</a> (size_t index)</td></tr>
+<tr class="separator:ae86db42bed06fca21d97ab724968e5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df22f24c9e2ad87ea41c69a0129e5f0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a7df22f24c9e2ad87ea41c69a0129e5f0">getMapCount</a> ()</td></tr>
+<tr class="separator:a7df22f24c9e2ad87ea41c69a0129e5f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40bae9f188b9d91e3e1ee9258c5273b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a40bae9f188b9d91e3e1ee9258c5273b0">getPlayerFaction</a> ()</td></tr>
+<tr class="separator:a40bae9f188b9d91e3e1ee9258c5273b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ed24dfa2cacc374d9c3f556da4b032"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a93ed24dfa2cacc374d9c3f556da4b032">getActiveFaction</a> ()</td></tr>
+<tr class="separator:a93ed24dfa2cacc374d9c3f556da4b032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2894528423e11462757b8fd2504359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a7f2894528423e11462757b8fd2504359">getFaction</a> (size_t index)</td></tr>
+<tr class="separator:a7f2894528423e11462757b8fd2504359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a283bca7f2534b9f8931d863867ee28bf"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a283bca7f2534b9f8931d863867ee28bf">getFactionCount</a> ()</td></tr>
+<tr class="separator:a283bca7f2534b9f8931d863867ee28bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd7e23a56b30b4e015d58577ca29d361"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scenario_event.html">ScenarioEvent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#acd7e23a56b30b4e015d58577ca29d361">peekAnimation</a> ()</td></tr>
+<tr class="separator:acd7e23a56b30b4e015d58577ca29d361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d26626d36a6735e62b6a2ea1b5de81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#af8d26626d36a6735e62b6a2ea1b5de81">popAnimation</a> ()</td></tr>
+<tr class="separator:af8d26626d36a6735e62b6a2ea1b5de81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818a05c52685c8463e140e6b33d360bb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a818a05c52685c8463e140e6b33d360bb">getAnimationCount</a> ()</td></tr>
+<tr class="separator:a818a05c52685c8463e140e6b33d360bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a28b62d8d54f08f9a6e0cb1ba2667979a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_campaign.html">Campaign</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a28b62d8d54f08f9a6e0cb1ba2667979a">campaign</a></td></tr>
+<tr class="separator:a28b62d8d54f08f9a6e0cb1ba2667979a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe98a911860dfc0ba5cd3fd221c2e0cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#afe98a911860dfc0ba5cd3fd221c2e0cf">turn</a> = 1</td></tr>
+<tr class="separator:afe98a911860dfc0ba5cd3fd221c2e0cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addcff6be2a0f14489ea4e9828f5f8f99"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#addcff6be2a0f14489ea4e9828f5f8f99">activeFactionIndex</a> = 0</td></tr>
+<tr class="separator:addcff6be2a0f14489ea4e9828f5f8f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8cd2584c38abcb4a169cfbc4c3ea39"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_faction.html">Faction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a7c8cd2584c38abcb4a169cfbc4c3ea39">factions</a></td></tr>
+<tr class="memdesc:a7c8cd2584c38abcb4a169cfbc4c3ea39"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of factions in the scenario. The player faction is 0 by default.  <a href="#a7c8cd2584c38abcb4a169cfbc4c3ea39">More...</a><br /></td></tr>
+<tr class="separator:a7c8cd2584c38abcb4a169cfbc4c3ea39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0561d36c4aa0ca9c439ca23cf20e50a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_game_map.html">GameMap</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#ae0561d36c4aa0ca9c439ca23cf20e50a">maps</a></td></tr>
+<tr class="memdesc:ae0561d36c4aa0ca9c439ca23cf20e50a"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the maps that belong to the scenario.  <a href="#ae0561d36c4aa0ca9c439ca23cf20e50a">More...</a><br /></td></tr>
+<tr class="separator:ae0561d36c4aa0ca9c439ca23cf20e50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd64a64df3a55640521ebf50026d4e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_scenario_event.html">ScenarioEvent</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#a5cd64a64df3a55640521ebf50026d4e0">eventLog</a></td></tr>
+<tr class="memdesc:a5cd64a64df3a55640521ebf50026d4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of events that have been executed.  <a href="#a5cd64a64df3a55640521ebf50026d4e0">More...</a><br /></td></tr>
+<tr class="separator:a5cd64a64df3a55640521ebf50026d4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af572b59216f8add7e54a0ed224c1d21c"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="class_scenario_event.html">ScenarioEvent</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scenario.html#af572b59216f8add7e54a0ed224c1d21c">animationQueue</a></td></tr>
+<tr class="memdesc:af572b59216f8add7e54a0ed224c1d21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue of events not yet animated.  <a href="#af572b59216f8add7e54a0ed224c1d21c">More...</a><br /></td></tr>
+<tr class="separator:af572b59216f8add7e54a0ed224c1d21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad4ce08d70795484c6cb32ce8b622f164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ce08d70795484c6cb32ce8b622f164">&#9670;&nbsp;</a></span>Scenario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scenario::Scenario </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_campaign.html">Campaign</a> *&#160;</td>
+          <td class="paramname"><em>campaign</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7e7548858cbc52614d46723c0333038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7e7548858cbc52614d46723c0333038">&#9670;&nbsp;</a></span>~Scenario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scenario::~Scenario </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae0ef0d1a27e81c32bb3a380994e39e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ef0d1a27e81c32bb3a380994e39e98">&#9670;&nbsp;</a></span>endTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scenario::endTurn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58a170fc5351993817f9648133caf238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a170fc5351993817f9648133caf238">&#9670;&nbsp;</a></span>executeEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scenario::executeEvent </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="class_scenario_event.html">ScenarioEvent</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93ed24dfa2cacc374d9c3f556da4b032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ed24dfa2cacc374d9c3f556da4b032">&#9670;&nbsp;</a></span>getActiveFaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_faction.html">Faction</a>* Scenario::getActiveFaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b5c58fec9074a3fc04d602d700e3706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b5c58fec9074a3fc04d602d700e3706">&#9670;&nbsp;</a></span>getActiveMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_map.html">GameMap</a>* Scenario::getActiveMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a818a05c52685c8463e140e6b33d360bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a818a05c52685c8463e140e6b33d360bb">&#9670;&nbsp;</a></span>getAnimationCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Scenario::getAnimationCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9376a8d03d5714e043741c5ab6ea052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9376a8d03d5714e043741c5ab6ea052">&#9670;&nbsp;</a></span>getCampaign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_campaign.html">Campaign</a>* Scenario::getCampaign </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f2894528423e11462757b8fd2504359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2894528423e11462757b8fd2504359">&#9670;&nbsp;</a></span>getFaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_faction.html">Faction</a>* Scenario::getFaction </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a283bca7f2534b9f8931d863867ee28bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283bca7f2534b9f8931d863867ee28bf">&#9670;&nbsp;</a></span>getFactionCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Scenario::getFactionCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae86db42bed06fca21d97ab724968e5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae86db42bed06fca21d97ab724968e5ef">&#9670;&nbsp;</a></span>getMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_game_map.html">GameMap</a>* Scenario::getMap </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7df22f24c9e2ad87ea41c69a0129e5f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df22f24c9e2ad87ea41c69a0129e5f0">&#9670;&nbsp;</a></span>getMapCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Scenario::getMapCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40bae9f188b9d91e3e1ee9258c5273b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40bae9f188b9d91e3e1ee9258c5273b0">&#9670;&nbsp;</a></span>getPlayerFaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_faction.html">Faction</a>* Scenario::getPlayerFaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd7e23a56b30b4e015d58577ca29d361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7e23a56b30b4e015d58577ca29d361">&#9670;&nbsp;</a></span>peekAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scenario_event.html">ScenarioEvent</a>* Scenario::peekAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8d26626d36a6735e62b6a2ea1b5de81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d26626d36a6735e62b6a2ea1b5de81">&#9670;&nbsp;</a></span>popAnimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scenario::popAnimation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="addcff6be2a0f14489ea4e9828f5f8f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addcff6be2a0f14489ea4e9828f5f8f99">&#9670;&nbsp;</a></span>activeFactionIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Scenario::activeFactionIndex = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af572b59216f8add7e54a0ed224c1d21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af572b59216f8add7e54a0ed224c1d21c">&#9670;&nbsp;</a></span>animationQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="class_scenario_event.html">ScenarioEvent</a>*&gt; Scenario::animationQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queue of events not yet animated. </p>
+
+</div>
+</div>
+<a id="a28b62d8d54f08f9a6e0cb1ba2667979a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b62d8d54f08f9a6e0cb1ba2667979a">&#9670;&nbsp;</a></span>campaign</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_campaign.html">Campaign</a>* Scenario::campaign</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cd64a64df3a55640521ebf50026d4e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cd64a64df3a55640521ebf50026d4e0">&#9670;&nbsp;</a></span>eventLog</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_scenario_event.html">ScenarioEvent</a>&gt; &gt; Scenario::eventLog</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of events that have been executed. </p>
+
+</div>
+</div>
+<a id="a7c8cd2584c38abcb4a169cfbc4c3ea39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8cd2584c38abcb4a169cfbc4c3ea39">&#9670;&nbsp;</a></span>factions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_faction.html">Faction</a>&gt; Scenario::factions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of factions in the scenario. The player faction is 0 by default. </p>
+
+</div>
+</div>
+<a id="ae0561d36c4aa0ca9c439ca23cf20e50a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0561d36c4aa0ca9c439ca23cf20e50a">&#9670;&nbsp;</a></span>maps</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_game_map.html">GameMap</a>&gt; &gt; Scenario::maps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>All the maps that belong to the scenario. </p>
+
+</div>
+</div>
+<a id="afe98a911860dfc0ba5cd3fd221c2e0cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe98a911860dfc0ba5cd3fd221c2e0cf">&#9670;&nbsp;</a></span>turn</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Scenario::turn = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>gles3jni/app/src/main/cpp/game/<a class="el" href="_scenario_8h_source.html">Scenario.h</a></li>
+<li>gles3jni/app/src/main/cpp/game/<a class="el" href="_scenario_8cpp.html">Scenario.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -72,8 +72,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adc1276b1e62e04a1c6ea914b6d2d19b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#adc1276b1e62e04a1c6ea914b6d2d19b9">BuildingType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_building_type.html#a478ebad17c32cae3c5def69b87b7d898">sprite</a>)</td></tr>
-<tr class="separator:adc1276b1e62e04a1c6ea914b6d2d19b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70256401412c3d23ad33a710ba13e501"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#a70256401412c3d23ad33a710ba13e501">BuildingType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_building_type.html#a478ebad17c32cae3c5def69b87b7d898">sprite</a>, std::vector&lt; std::pair&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt;&gt; <a class="el" href="class_building_type.html#a7b9f6a6a53cd71814ef7336f7017fa0b">resourceProductions</a>)</td></tr>
+<tr class="separator:a70256401412c3d23ad33a710ba13e501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab307f939c2dfa1ec9732e369932aa601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#ab307f939c2dfa1ec9732e369932aa601">~BuildingType</a> ()</td></tr>
 <tr class="separator:ab307f939c2dfa1ec9732e369932aa601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e5e9337b34369ea7ccb9bfded67f7a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#a1e5e9337b34369ea7ccb9bfded67f7a1">getSprite</a> () const</td></tr>
@@ -83,10 +83,12 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a478ebad17c32cae3c5def69b87b7d898"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#a478ebad17c32cae3c5def69b87b7d898">sprite</a></td></tr>
 <tr class="separator:a478ebad17c32cae3c5def69b87b7d898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9f6a6a53cd71814ef7336f7017fa0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building_type.html#a7b9f6a6a53cd71814ef7336f7017fa0b">resourceProductions</a></td></tr>
+<tr class="separator:a7b9f6a6a53cd71814ef7336f7017fa0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adc1276b1e62e04a1c6ea914b6d2d19b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc1276b1e62e04a1c6ea914b6d2d19b9">&#9670;&nbsp;</a></span>BuildingType()</h2>
+<a id="a70256401412c3d23ad33a710ba13e501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70256401412c3d23ad33a710ba13e501">&#9670;&nbsp;</a></span>BuildingType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,8 +97,18 @@ Private Attributes</h2></td></tr>
           <td class="memname">BuildingType::BuildingType </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em></td><td>)</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt;&gt;&#160;</td>
+          <td class="paramname"><em>resourceProductions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,6 +159,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7b9f6a6a53cd71814ef7336f7017fa0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b9f6a6a53cd71814ef7336f7017fa0b">&#9670;&nbsp;</a></span>resourceProductions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::pair&lt;<a class="el" href="class_resource.html">Resource</a>*, int&gt; &gt; BuildingType::resourceProductions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a478ebad17c32cae3c5def69b87b7d898"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a478ebad17c32cae3c5def69b87b7d898">&#9670;&nbsp;</a></span>sprite</h2>
 

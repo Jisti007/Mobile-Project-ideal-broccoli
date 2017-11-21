@@ -1,21 +1,15 @@
 var searchData=
 [
-  ['uiobject',['UIObject',['../class_u_i_object.html',1,'UIObject'],['../class_u_i_object.html#a1df4f0580f1d1744ea15f42c28dfce59',1,'UIObject::UIObject()']]],
-  ['uiobject_2ecpp',['UIObject.cpp',['../_u_i_object_8cpp.html',1,'']]],
-  ['uiobject_2eh',['UIObject.h',['../_u_i_object_8h.html',1,'']]],
-  ['uiroot',['uiRoot',['../class_game_state.html#af6cf5a3aaccad31a6b4c80d33ed38d30',1,'GameState']]],
-  ['uisprite',['UISprite',['../class_u_i_sprite.html',1,'UISprite'],['../class_u_i_sprite.html#a47d01060e38d902124bc4efb82f833b3',1,'UISprite::UISprite()']]],
-  ['uisprite_2ecpp',['UISprite.cpp',['../_u_i_sprite_8cpp.html',1,'']]],
-  ['uisprite_2eh',['UISprite.h',['../_u_i_sprite_8h.html',1,'']]],
-  ['unit',['Unit',['../class_unit.html',1,'Unit'],['../class_unit.html#a8e46f663a95736c8002d85ab271a7581',1,'Unit::Unit()'],['../class_unit.html#ab88102c849f79baf4179cf4bc3fbedee',1,'Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction *faction, GameMap *map)'],['../class_map_hex.html#ac828a1134dad20ed68d04924212467ed',1,'MapHex::unit()']]],
-  ['unit_2ecpp',['Unit.cpp',['../_unit_8cpp.html',1,'']]],
-  ['unit_2eh',['Unit.h',['../_unit_8h.html',1,'']]],
-  ['units',['units',['../class_game_map.html#a20a5fbe47341112f2b515e539c66d469',1,'GameMap']]],
-  ['unittype',['UnitType',['../class_unit_type.html',1,'UnitType'],['../class_unit_type.html#a6d11faab12b8ee66423a63a2414e668f',1,'UnitType::UnitType()']]],
-  ['unittype_2ecpp',['UnitType.cpp',['../_unit_type_8cpp.html',1,'']]],
-  ['unittype_2eh',['UnitType.h',['../_unit_type_8h.html',1,'']]],
-  ['unittypes',['unitTypes',['../class_asset_manager.html#ad9a5e153c6a6e8eabae3c5bfcb2357e3',1,'AssetManager']]],
-  ['unloadall',['unloadAll',['../class_asset_manager.html#a34c0028e4cfb8e23642f161c1369cd56',1,'AssetManager']]],
-  ['unvisited',['unvisited',['../_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdda7fc5c694a226faa9d2e8ce37d31d4c2b',1,'Node.h']]],
-  ['update',['update',['../class_game.html#a79df6376b332d63c9eca0dcee30305c3',1,'Game::update()'],['../class_game_state.html#ab2864bfa04f92f6966861a1f2883bda0',1,'GameState::update()'],['../class_map_game_state.html#a0fdc318bd15093d66a9fc507d4f662fb',1,'MapGameState::update()']]]
+  ['tag',['TAG',['../classxyz_1_1asdasd_1_1gles3jni_1_1_g_l_e_s3_j_n_i_view.html#ac2d92c5f042ecccc1a703a09b99662d0',1,'xyz::asdasd::gles3jni::GLES3JNIView']]],
+  ['text',['text',['../class_label.html#a42fe861748a96acc7071c1c9f4d7a81d',1,'Label']]],
+  ['texture',['Texture',['../class_texture.html',1,'Texture'],['../class_texture.html#a09b74fe4a769d09eb0dc6ce263fb21e8',1,'Texture::Texture()'],['../struct_vertex.html#ad5205b18f6136bb5df01082f5d509be1',1,'Vertex::texture()'],['../class_sprite.html#a3d42412fa0ae1138f7f7bcf4e8d85110',1,'Sprite::texture()']]],
+  ['texture_2ecpp',['Texture.cpp',['../_texture_8cpp.html',1,'']]],
+  ['texture_2eh',['Texture.h',['../_texture_8h.html',1,'']]],
+  ['textures',['textures',['../class_asset_manager.html#ab8a68f50bb34f1daee3ea563c0ba31e7',1,'AssetManager']]],
+  ['timepoint',['TimePoint',['../class_game.html#aae372376a68a7f82476fa31c7cef4efc',1,'Game']]],
+  ['top',['top',['../class_rectangle.html#a87a5fabfb34ee12b61f58f9fcd8a32d3',1,'Rectangle']]],
+  ['totalweight',['totalWeight',['../class_weighted_list.html#ae5d2c187b4fa7250cb5c7db66eecbc64',1,'WeightedList']]],
+  ['trygethex',['tryGetHex',['../class_game_map.html#a2c9f979e21c9211f1ae1618f09256cff',1,'GameMap::tryGetHex(int x, int y)'],['../class_game_map.html#ad02dd520c4f08c76fe3c94a9102cfd3f',1,'GameMap::tryGetHex(Point position)']]],
+  ['turn',['turn',['../class_scenario.html#afe98a911860dfc0ba5cd3fd221c2e0cf',1,'Scenario']]],
+  ['type',['type',['../class_building.html#a523cec1e5e46e521a0f202ffb20f2b62',1,'Building::type()'],['../class_map_hex.html#acdc5f2afda9662cee5cd861d2ea98111',1,'MapHex::type()'],['../class_unit.html#ab0f889c1dcbe02864fad1fa6af62aa37',1,'Unit::type()']]]
 ];

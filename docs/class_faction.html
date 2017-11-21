@@ -76,13 +76,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acf37cad6b6550598d9c59980f95206a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83ef1c6c68945eb21dcc104196b06a84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a83ef1c6c68945eb21dcc104196b06a84">~Faction</a> ()</td></tr>
 <tr class="separator:a83ef1c6c68945eb21dcc104196b06a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5862fdcb533089f0c02d04092bddbb71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a5862fdcb533089f0c02d04092bddbb71">modifyResource</a> (<a class="el" href="class_resource.html">Resource</a> *resource, int amount)</td></tr>
+<tr class="separator:a5862fdcb533089f0c02d04092bddbb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed1b8636d66b1ebade8f08c749959c4"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a8ed1b8636d66b1ebade8f08c749959c4">getResources</a> () const</td></tr>
+<tr class="separator:a8ed1b8636d66b1ebade8f08c749959c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a302367858679b7700c27bcdd2582e91b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; glm::vec3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a302367858679b7700c27bcdd2582e91b">getColors</a> () const</td></tr>
 <tr class="separator:a302367858679b7700c27bcdd2582e91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc539c4d786bb06d88318fa691a69963"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#abc539c4d786bb06d88318fa691a69963">isPlayer</a> ()</td></tr>
+<tr class="separator:abc539c4d786bb06d88318fa691a69963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab41d715996c8fd66c40a9586efc19b1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#ab41d715996c8fd66c40a9586efc19b1d">setPlayer</a> (bool <a class="el" href="class_faction.html#a93210dcac6b2439c180f6957d4d3ae1b">player</a>)</td></tr>
+<tr class="separator:ab41d715996c8fd66c40a9586efc19b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a8f17ebea80da83ae86c9a1a518462ea5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; glm::vec3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a8f17ebea80da83ae86c9a1a518462ea5">colors</a></td></tr>
 <tr class="separator:a8f17ebea80da83ae86c9a1a518462ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ebe5d945103b75b3c1531823734a631"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a0ebe5d945103b75b3c1531823734a631">resources</a></td></tr>
+<tr class="separator:a0ebe5d945103b75b3c1531823734a631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93210dcac6b2439c180f6957d4d3ae1b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a93210dcac6b2439c180f6957d4d3ae1b">player</a> = false</td></tr>
+<tr class="separator:a93210dcac6b2439c180f6957d4d3ae1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acf37cad6b6550598d9c59980f95206a3"></a>
@@ -146,6 +158,110 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8ed1b8636d66b1ebade8f08c749959c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ed1b8636d66b1ebade8f08c749959c4">&#9670;&nbsp;</a></span>getResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::unordered_map&lt;<a class="el" href="class_resource.html">Resource</a>*, int&gt; Faction::getResources </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc539c4d786bb06d88318fa691a69963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc539c4d786bb06d88318fa691a69963">&#9670;&nbsp;</a></span>isPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::isPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5862fdcb533089f0c02d04092bddbb71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5862fdcb533089f0c02d04092bddbb71">&#9670;&nbsp;</a></span>modifyResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::modifyResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_resource.html">Resource</a> *&#160;</td>
+          <td class="paramname"><em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab41d715996c8fd66c40a9586efc19b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41d715996c8fd66c40a9586efc19b1d">&#9670;&nbsp;</a></span>setPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Faction::setPlayer </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8f17ebea80da83ae86c9a1a518462ea5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8f17ebea80da83ae86c9a1a518462ea5">&#9670;&nbsp;</a></span>colors</h2>
@@ -158,6 +274,50 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;glm::vec3&gt; Faction::colors</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93210dcac6b2439c180f6957d4d3ae1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93210dcac6b2439c180f6957d4d3ae1b">&#9670;&nbsp;</a></span>player</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::player = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ebe5d945103b75b3c1531823734a631"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ebe5d945103b75b3c1531823734a631">&#9670;&nbsp;</a></span>resources</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="class_resource.html">Resource</a>*, int&gt; Faction::resources</td>
         </tr>
       </table>
   </td>
