@@ -37,17 +37,7 @@ void Game::step() {
 	}
 	previousTime = currentTime;
 }
-/*
-void Game::draw() {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	if (state) {
-		pipeline.beginDraw();
-		state->draw(&pipeline);
-		pipeline.endDraw();
-	}
-}
-*/
+
 void Game::resize(int width, int height) {
 	pipeline.setViewportSize(width, height);
 	state = std::make_unique<MapGameState>(this);

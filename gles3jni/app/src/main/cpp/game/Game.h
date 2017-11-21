@@ -21,7 +21,6 @@ public:
 
 	void initialize();
 	void step();
-	//void draw();
 	void resize(int width, int height);
 
 	inline Pipeline* getPipeline() { return &pipeline; }

@@ -60,7 +60,6 @@ private:
 	uint16_t width;
 	uint16_t height;
 	Camera camera;
-	glm::vec2 debugPosition;
 
 	Actor* createActor(Sprite* sprite, glm::vec2 position, float depth);
 	Actor* createActor(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth);

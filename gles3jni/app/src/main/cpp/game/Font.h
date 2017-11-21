@@ -1,7 +1,6 @@
 #ifndef GLES3JNI_FONT_H
 #define GLES3JNI_FONT_H
 
-
 #include <unordered_map>
 #include "Sprite.h"
 
@@ -13,6 +12,5 @@ public:
 private:
 	std::unordered_map<char, Sprite*> mappings;
 };
-
 
 #endif //GLES3JNI_FONT_H

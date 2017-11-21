@@ -50,20 +50,6 @@ void MapGameState::update(float deltaTime) {
 	if (!animatingEvent) {
 		fastAnimation = false;
 	}
-	/*
-	if (animatingEvent) {
-		if (fastAnimation) {
-			deltaTime *= 16;
-		}
-		if (animatingEvent->animate(deltaTime)) {
-			scenario->popAnimation();
-			animatingEvent = nullptr;
-		}
-	} else if (scenario->getAnimationCount() > 0) {
-		animatingEvent = scenario->peekAnimation();
-		animatingEvent->beginAnimation();
-	}
-	*/
 
 	// TODO: Move to when resources update
 	resourcePanel->updateResources(scenario);

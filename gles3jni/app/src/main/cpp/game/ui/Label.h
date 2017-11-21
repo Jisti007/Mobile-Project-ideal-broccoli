@@ -1,10 +1,5 @@
-//
-// Created by K1697 on 8.11.2017.
-//
-
 #ifndef GLES3JNI_LABEL_H
 #define GLES3JNI_LABEL_H
-
 
 #include "UISprite.h"
 #include "../Font.h"
@@ -20,6 +15,5 @@ private:
 	Font* font;
 	std::string text;
 };
-
 
 #endif //GLES3JNI_LABEL_H

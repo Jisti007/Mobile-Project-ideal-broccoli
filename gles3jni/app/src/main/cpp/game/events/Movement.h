@@ -8,11 +8,7 @@ class Movement : public ScenarioEvent {
 public:
 	Movement(Unit* unit, std::list<Link*> path);
 	virtual ~Movement();
-	/*
-	virtual void beginAnimation();
-	virtual bool animate(float deltaTime);
-	virtual void endAnimation();
-	*/
+
 	virtual bool execute();
 	virtual bool cancel();
 

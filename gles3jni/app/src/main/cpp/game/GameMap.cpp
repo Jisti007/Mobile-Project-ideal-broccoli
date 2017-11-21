@@ -47,7 +47,6 @@ void GameMap::generate() {
 	UnitType* testUnit = assets->getUnitType("test");
 
 	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
-	//BuildingType* testBuilding = assets->getBuildingType("test");
 	BuildingType* goldBuilding = assets->getBuildingType("gold");
 	BuildingType* foodBuilding = assets->getBuildingType("food");
 	BuildingType* materialBuilding = assets->getBuildingType("material");
@@ -93,25 +92,7 @@ void GameMap::draw(float deltaTime) {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
 	pipeline->setCameraPosition(camera.getPosition() * gridSize);
 	pipeline->setCameraZoom(camera.getZoom());
-	/*
-	for (auto& hex : hexes) {
-		auto position = getScreenPosition(hex->getPosition());
-		pipeline->draw(hex->getSprite(), position);
-	}
-	for (auto& building : buildings) {
-		auto position = getScreenPosition(building->getPosition());
-		pipeline->draw(building->getSprite(), position, building->getFaction()->getColors());
-	}
-
-	for (auto& unit : units) {
-		auto position = getScreenPosition(unit->getPosition());
-		pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
-	}
-	*/
 	scene.draw(pipeline, deltaTime);
-
-	auto debugMarker = scenario->getCampaign()->getGame()->getAssets()->getSprite("dot_marker");
-	pipeline->draw(debugMarker, debugPosition, 0.2f);
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
@@ -162,12 +143,11 @@ Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
 	position.x /= gridSize;
 	position.y /= gridSize;
-	debugPosition = getScreenPosition(position);
 
-	int minX = (int)position.x - 10;
-	int minY = (int)position.y - 10;
-	int maxX = (int)position.x + 10;
-	int maxY = (int)position.y + 10;
+	int minX = (int)position.x;
+	int minY = (int)position.y;
+	int maxX = (int)position.x + 1;
+	int maxY = (int)position.y + 1;
 
 	Point nearest{0, 0};
 	float nearestDistanceSquared = numeric_limits<float>::max();

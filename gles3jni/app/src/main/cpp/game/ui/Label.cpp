@@ -1,7 +1,3 @@
-//
-//
-// Created by K1697 on 8.11.2017.
-
 #include "Label.h"
 
 Label::Label(const char* text, Font* font, glm::vec2 position, glm::vec2 size) : UIObject(position, size) {
