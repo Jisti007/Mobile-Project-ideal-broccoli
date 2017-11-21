@@ -84,8 +84,6 @@ void GameMap::generate() {
 			}
 		}
 	}
-
-	scene.sort();
 }
 
 void GameMap::draw(float deltaTime) {

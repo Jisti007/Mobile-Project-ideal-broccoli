@@ -12,7 +12,6 @@ public:
 	/// Returns false if the animation queue is empty.
 	bool animate(float deltaTime);
 	void draw(Pipeline* pipeline, float deltaTime);
-	void sort();
 	void clear();
 	void addActor(std::unique_ptr<Actor>& actor);
 

@@ -106,28 +106,21 @@ void Pipeline::beginDraw() {
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
-	Rectangle viewportBounds(
-		cameraPosition - viewportSize / 2.0f / cameraZoom,
-		viewportSize / cameraZoom
-	);
-	Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
-	if (viewportBounds.overlaps(spriteBounds)) {
-		glUniform2f(instancePositionLocation, position.x, position.y);
-		glUniform1f(instanceScaleLocation, scale);
-		auto texture = sprite->getTexture()->getHandle();
-		if (texture != lastTexture) {
-			glBindTexture(GL_TEXTURE_2D, texture);
-			lastTexture = texture;
-		}
-		auto mesh = sprite->getMesh();
-		auto vertexArray = mesh->getVertexArray();
-		if (vertexArray != lastVertexArray) {
-			glBindVertexArray(vertexArray);
-			lastVertexArray = vertexArray;
-		}
-
-		glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+	glUniform2f(instancePositionLocation, position.x, position.y);
+	glUniform1f(instanceScaleLocation, scale);
+	auto texture = sprite->getTexture()->getHandle();
+	if (texture != lastTexture) {
+		glBindTexture(GL_TEXTURE_2D, texture);
+		lastTexture = texture;
 	}
+	auto mesh = sprite->getMesh();
+	auto vertexArray = mesh->getVertexArray();
+	if (vertexArray != lastVertexArray) {
+		glBindVertexArray(vertexArray);
+		lastVertexArray = vertexArray;
+	}
+
+	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
@@ -174,6 +167,14 @@ void Pipeline::setCameraZoom(float zoom) {
 void Pipeline::setViewportSize(int width, int height) {
 	viewportSize = { width, height };
 	glViewport(0, 0, width, height);
+}
+
+bool Pipeline::isVisible(Rectangle rectangle) {
+	Rectangle viewportBounds(
+		cameraPosition - viewportSize / 2.0f / cameraZoom,
+		viewportSize / cameraZoom
+	);
+	return viewportBounds.overlaps(rectangle);
 }
 
 GLuint Pipeline::createShader(const char* source, GLenum type) {

@@ -21,6 +21,7 @@ public:
 	void setCameraPosition(glm::vec2 position);
 	void setCameraZoom(float zoom);
 	void setViewportSize(int width, int height);
+	bool isVisible(Rectangle rectangle);
 
 	inline GLuint getProgram() { return program; }
 	inline Rectangle getViewport() { return Rectangle(viewportSize / -2.0f, viewportSize); }

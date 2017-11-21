@@ -14,13 +14,20 @@ bool Scene::animate(float deltaTime) {
 }
 
 void Scene::draw(Pipeline* pipeline, float deltaTime) {
+	std::vector<Actor*> visibleActors;
 	for (auto& actor : actors) {
+		auto position = actor->getPosition();
+		auto sprite = actor->getSprite();
+		Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
+		if (pipeline->isVisible(spriteBounds)) {
+			visibleActors.push_back(actor.get());
+		}
+	}
+
+	std::sort(visibleActors.begin(), visibleActors.end(), ActorSorter());
+	for (auto& actor : visibleActors) {
 		actor->draw(pipeline);
 	}
-}
-
-void Scene::sort() {
-	actors.sort(ActorPointerSorter());
 }
 
 void Scene::clear() {
