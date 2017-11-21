@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Assets>
-	<Sprite id="hex_marker" texture="markers" x="0" y="0" w="256" h="256" />
+	<Sprite id="hex_marker" texture="markers" x="0" y="0" w="128" h="128" />
+	<Sprite id="dot_marker" texture="markers" x="128" y="0" w="128" h="128" />
 
 	<Sprite id="test_unit" texture="units" x="0" y="0" yOffset="-16" w="192" h="192" >
 		<SwappableColor r="0" g="0" b="244"/>

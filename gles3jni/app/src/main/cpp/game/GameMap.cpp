@@ -109,6 +109,9 @@ void GameMap::draw(float deltaTime) {
 	}
 	*/
 	scene.draw(pipeline, deltaTime);
+
+	auto debugMarker = scenario->getCampaign()->getGame()->getAssets()->getSprite("dot_marker");
+	pipeline->draw(debugMarker, debugPosition, 0.2f);
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
@@ -157,13 +160,14 @@ MapHex* GameMap::tryGetHex(int x, int y) {
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	//TODO: Android Studio complains about this, but it builds fine. Find a way to silence it?
 	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
-	position.x /= gridSize * xOffset;
+	position.x /= gridSize;
 	position.y /= gridSize;
+	debugPosition = getScreenPosition(position);
 
-	int minX = (int)position.x - 1;
-	int minY = (int)position.y - 1;
-	int maxX = (int)position.x + 1;
-	int maxY = (int)position.y + 1;
+	int minX = (int)position.x - 10;
+	int minY = (int)position.y - 10;
+	int maxX = (int)position.x + 10;
+	int maxY = (int)position.y + 10;
 
 	Point nearest{0, 0};
 	float nearestDistanceSquared = numeric_limits<float>::max();
