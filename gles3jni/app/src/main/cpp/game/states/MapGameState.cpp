@@ -4,6 +4,7 @@
 #include "../events/Movement.h"
 #include "../ui/Label.h"
 #include "../ui/ResourcePanel.h"
+#include "../scenes/MovementAnimation.h"
 #include <algorithm>
 
 MapGameState::MapGameState(Game* game)
@@ -40,6 +41,16 @@ MapGameState::~MapGameState() {
 
 void MapGameState::update(float deltaTime) {
 	auto scenario = game->getCampaign()->getScenario();
+	auto scene = scenario->getActiveMap()->getScene();
+
+	if (fastAnimation) {
+		deltaTime *= 16;
+	}
+	animatingEvent = scene->animate(deltaTime);
+	if (!animatingEvent) {
+		fastAnimation = false;
+	}
+	/*
 	if (animatingEvent) {
 		if (fastAnimation) {
 			deltaTime *= 16;
@@ -52,19 +63,21 @@ void MapGameState::update(float deltaTime) {
 		animatingEvent = scenario->peekAnimation();
 		animatingEvent->beginAnimation();
 	}
+	*/
+
 	// TODO: Move to when resources update
 	resourcePanel->updateResources(scenario);
 }
 
-void MapGameState::draw(Pipeline* pipeline) {
+void MapGameState::draw(Pipeline* pipeline, float deltaTime) {
 	auto map = game->getCampaign()->getScenario()->getActiveMap();
-	map->draw();
+	map->draw(deltaTime);
 	if (pressedHex != nullptr) {
 		auto hexMarkerSprite = game->getAssets()->getSprite("hex_marker");
-		auto position = map->getScreenPosition(pressedHex->getPosition());
+		auto position = pressedHex->getActor()->getPosition();
 		pipeline->draw(hexMarkerSprite, position, 1.0f);
 	}
-	GameState::draw(pipeline);
+	GameState::draw(pipeline, deltaTime);
 }
 
 void MapGameState::move(float dx, float dy) {
@@ -80,7 +93,7 @@ bool MapGameState::press(float x, float y) {
 		return true;
 	}
 
-	if (animatingEvent != nullptr) {
+	if (animatingEvent) {
 		fastAnimation = true;
 		return true;
 	}
@@ -104,10 +117,22 @@ bool MapGameState::press(float x, float y) {
 		} else if (selectedUnit != nullptr) {
 			auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 			auto path = selectedUnitHex->findShortestPath(hex, selectedUnit);
+			auto scene = map->getScene();
+			auto actor = selectedUnit->getActor();
+			for (auto& link : path) {
+				auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
+				auto animation = std::unique_ptr<Animation>(new MovementAnimation(
+					actor, linkDestinationHex->getActor()->getPosition()
+				));
+				scene->queueAnimation(animation);
+			}
+			selectedUnit->moveTo(pressedHex);
+			/*
 			std::unique_ptr<ScenarioEvent> movement(new Movement(
 				selectedUnit, path
 			));
 			scenario->executeEvent(movement);
+			*/
 			fastAnimation = false;
 		}
 	}

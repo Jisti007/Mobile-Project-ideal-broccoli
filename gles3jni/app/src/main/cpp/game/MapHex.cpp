@@ -1,8 +1,8 @@
 #include "MapHex.h"
 #include "pathing/MovementLink.h"
 
-MapHex::MapHex(uint16_t gridX, uint16_t gridY, glm::vec2 position, HexType* type)
-	: MapObject(gridX, gridY, position) {
+MapHex::MapHex(uint16_t gridX, uint16_t gridY, HexType* type)
+	: MapObject(gridX, gridY) {
 	this->type = type;
 	this->unit = nullptr;
 	this->region = nullptr;

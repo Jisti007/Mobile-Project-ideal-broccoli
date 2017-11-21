@@ -8,7 +8,7 @@ Movement::Movement(Unit* unit, std::list<Link*> path) {
 Movement::~Movement() {
 
 }
-
+/*
 void Movement::beginAnimation() {
 	auto beginHex = static_cast<MapHex*>(path.front()->getSource());
 	unit->setPosition(beginHex->getPosition());
@@ -42,7 +42,7 @@ void Movement::endAnimation() {
 	unit->setPosition(endHex->getPosition());
 	animationPath.clear();
 }
-
+*/
 bool Movement::execute() {
 	auto destinationHex = static_cast<MapHex*>(path.back()->getDestination());
 	return unit->moveTo(destinationHex);

@@ -12,7 +12,7 @@ public:
 	virtual ~GameState();
 
 	virtual void update(float deltaTime) = 0;
-	virtual void draw(Pipeline* pipeline);
+	virtual void draw(Pipeline* pipeline, float deltaTime);
 	virtual void move(float dx, float dy) = 0;
 	virtual bool press(float x, float y) { return uiRoot->press({x, y}); }
 	virtual void zoom(float scaleFactor) = 0;

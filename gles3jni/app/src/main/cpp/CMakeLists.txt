@@ -42,6 +42,7 @@ add_library(
     game/Mesh.cpp
     game/Pipeline.cpp
     game/Point.cpp
+    game/Random.cpp
     game/Rectangle.cpp
     game/Resource.cpp
     game/Scenario.cpp
@@ -50,17 +51,27 @@ add_library(
     game/Unit.cpp
     game/UnitType.cpp
     game/WeightedList.cpp
+
     game/events/Attack.cpp
     game/events/ScenarioEvent.cpp
     game/events/Movement.cpp
+
     game/pathing/Agent.cpp
     game/pathing/BinaryHeap.cpp
     game/pathing/Comparable.cpp
     game/pathing/Link.cpp
     game/pathing/MovementLink.cpp
     game/pathing/Node.cpp
+
+    game/scenes/Actor.cpp
+    game/scenes/Animation.cpp
+    game/scenes/MovementAnimation.cpp
+    game/scenes/RecoloredActor.cpp
+    game/scenes/Scene.cpp
+
     game/states/GameState.cpp
     game/states/MapGameState.cpp
+
     game/ui/Button.cpp
     game/ui/Label.cpp
     game/ui/UIObject.cpp

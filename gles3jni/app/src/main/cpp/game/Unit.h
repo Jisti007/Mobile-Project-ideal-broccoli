@@ -8,10 +8,11 @@ class GameMap;
 #include "Faction.h"
 #include "GameMap.h"
 #include "pathing/Agent.h"
+#include "scenes/Actor.h"
 
 class Unit : public MapObject, public Agent {
 public:
-	Unit(uint16_t gridX, uint16_t gridY, glm::vec2 position, UnitType *type, Faction* faction, GameMap* map);
+	Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map);
 	virtual ~Unit();
 
 	virtual Sprite* getSprite() {return type->getSprite(); }

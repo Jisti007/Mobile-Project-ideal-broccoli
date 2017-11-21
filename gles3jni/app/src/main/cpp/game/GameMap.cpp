@@ -1,4 +1,7 @@
 #include "GameMap.h"
+#include "scenes/RecoloredActor.h"
+#include "Random.h"
+#include <memory>
 
 using namespace std;
 
@@ -34,6 +37,7 @@ void GameMap::generate() {
 	expanders.clear();
 	buildings.clear();
 	units.clear();
+	scene.clear();
 
 	initializeRegions(100);
 	expandRegions(-1, -1);
@@ -58,7 +62,13 @@ void GameMap::generate() {
 
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			if (getHex(x, y)->getType() != water) {
+			auto hex = getHex(x, y);
+			auto actor = createActor(
+				hex->getSprite(), getHexPosition(x, y), -Random::generateFloat()
+			);
+			hex->setActor(actor);
+
+			if (hex->getType() != water) {
 				glm::vec2 hexPosition = getHexPosition(x, y);
 
 				auto rn = rand() % 100;
@@ -68,27 +78,26 @@ void GameMap::generate() {
 				}
 
 				auto buildingType = buildingsList.getRandom();
-
 				if (buildingType != nullptr) {
-
 					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
-					buildings.push_back(make_unique<Building>(x, y, hexPosition, buildingType, faction));
+					createBuilding({x, y}, buildingType, faction);
 				}
 			}
 		}
 	}
+
+	scene.sort();
 }
 
-void GameMap::draw() {
+void GameMap::draw(float deltaTime) {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
 	pipeline->setCameraPosition(camera.getPosition() * gridSize);
 	pipeline->setCameraZoom(camera.getZoom());
-
+	/*
 	for (auto& hex : hexes) {
 		auto position = getScreenPosition(hex->getPosition());
 		pipeline->draw(hex->getSprite(), position);
 	}
-
 	for (auto& building : buildings) {
 		auto position = getScreenPosition(building->getPosition());
 		pipeline->draw(building->getSprite(), position, building->getFaction()->getColors());
@@ -98,6 +107,8 @@ void GameMap::draw() {
 		auto position = getScreenPosition(unit->getPosition());
 		pipeline->draw(unit->getSprite(), position, unit->getFaction()->getColors());
 	}
+	*/
+	scene.draw(pipeline, deltaTime);
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
@@ -106,10 +117,34 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 		return nullptr;
 	}
 
-	auto unit = new Unit(hex->getGridX(), hex->getGridY(), hex->getPosition(), type, faction, this);
+	auto x = position.x;
+	auto y = position.y;
+	auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 1.0f);
+	auto unit = new Unit(
+		hex->getGridX(), hex->getGridY(), type, faction, this
+	);
+	unit->setActor(actor);
 	units.push_back(std::unique_ptr<Unit>(unit));
 	hex->setUnit(unit);
 	return unit;
+}
+
+Building* GameMap::createBuilding(Point position, BuildingType* type, Faction* faction) {
+	MapHex* hex = tryGetHex(position);
+	if (hex == nullptr || hex->getUnit() != nullptr) {
+		return nullptr;
+	}
+
+	auto x = position.x;
+	auto y = position.y;
+	auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 0.5f);
+	auto building = new Building(
+		hex->getGridX(), hex->getGridY(), type, faction
+	);
+	building->setActor(actor);
+	buildings.push_back(std::unique_ptr<Building>(building));
+	hex->setBuilding(building);
+	return building;
 }
 
 MapHex* GameMap::tryGetHex(int x, int y) {
@@ -127,8 +162,8 @@ Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 
 	int minX = (int)position.x - 1;
 	int minY = (int)position.y - 1;
-	int maxX = minX + 2;
-	int maxY = minY + 2;
+	int maxX = (int)position.x + 1;
+	int maxY = (int)position.y + 1;
 
 	Point nearest{0, 0};
 	float nearestDistanceSquared = numeric_limits<float>::max();
@@ -164,6 +199,22 @@ glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
 	return gridSize * hexPosition;
 }
 
+Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
+	auto actor = new Actor(sprite, getScreenPosition(position), depth);
+	auto actorPointer = std::unique_ptr<Actor>(actor);
+	scene.addActor(actorPointer);
+	return actor;
+}
+
+Actor* GameMap::createActor(
+	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth
+) {
+	auto actor = new RecoloredActor(sprite, getScreenPosition(position), depth, colors);
+	auto actorPointer = std::unique_ptr<Actor>(actor);
+	scene.addActor(actorPointer);
+	return actor;
+}
+
 void GameMap::initializeHexes() {
 	hexes.clear();
 	hexes.reserve(width * height);
@@ -173,7 +224,7 @@ void GameMap::initializeHexes() {
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			auto position = getHexPosition(x, y);
-			auto hex = make_unique<MapHex>(x, y, position, grass);
+			auto hex = make_unique<MapHex>(x, y, grass);
 			hexes.push_back(move(hex));
 		}
 	}

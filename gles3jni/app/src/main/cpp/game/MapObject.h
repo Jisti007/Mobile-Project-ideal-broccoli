@@ -4,24 +4,31 @@
 #include <cstdint>
 #include "Sprite.h"
 #include "Point.h"
+#include "scenes/Actor.h"
 
 class MapObject {
 public:
-	MapObject(uint16_t gridX, uint16_t gridY, glm::vec2 position);
+	MapObject(uint16_t gridX, uint16_t gridY); //glm::vec2 position);
 	virtual ~MapObject();
 
+	inline Actor* getActor() { return actor; }
+	inline void setActor(Actor* actor) { this->actor = actor; }
 	inline const uint16_t getGridX() const { return gridX; }
 	inline const uint16_t getGridY() const { return gridY; }
 	inline Point getGridPosition() { return Point{getGridX(), getGridY()}; }
+	/*
 	inline glm::vec2 getPosition() { return position; }
 	inline void setPosition(glm::vec2 position) { this->position = position; }
 	inline void moveBy(glm::vec2 delta) { this->position += delta; }
-
+	*/
 	virtual Sprite* getSprite() = 0;
 
 protected:
 	uint16_t gridX, gridY;
-	glm::vec2 position;
+	//glm::vec2 position;
+
+private:
+	Actor* actor = nullptr;
 };
 
 #endif //GLES3JNI_MAPOBJECT_H

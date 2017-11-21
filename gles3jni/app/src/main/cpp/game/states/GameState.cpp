@@ -9,7 +9,7 @@ GameState::~GameState() {
 
 }
 
-void GameState::draw(Pipeline *pipeline) {
+void GameState::draw(Pipeline *pipeline, float deltaTime) {
 	pipeline->setCameraPosition({0, 0});
 	pipeline->setCameraZoom(1.0f);
 	uiRoot->draw(pipeline);

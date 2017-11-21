@@ -1,9 +1,9 @@
 #include "MapObject.h"
 
-MapObject::MapObject(uint16_t gridX, uint16_t gridY, glm::vec2 position) {
+MapObject::MapObject(uint16_t gridX, uint16_t gridY) {
 	this->gridX = gridX;
 	this->gridY = gridY;
-	this->position = position;
+	//this->position = position;
 }
 
 MapObject::~MapObject() {

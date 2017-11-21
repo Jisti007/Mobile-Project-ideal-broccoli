@@ -1,7 +1,7 @@
 #include "Unit.h"
 
-Unit::Unit(uint16_t gridX, uint16_t gridY, glm::vec2 position, UnitType *type, Faction* faction, GameMap* map)
-	: MapObject(gridX, gridY, position) {
+Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map)
+	: MapObject(gridX, gridY) {
 	this->type = type;
 	this->faction = faction;
 	this->map = map;

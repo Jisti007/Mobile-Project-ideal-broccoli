@@ -16,6 +16,7 @@ class Scenario;
 #include "Faction.h"
 #include "Point.h"
 #include "Scenario.h"
+#include "scenes/Scene.h"
 
 class GameMap {
 public:
@@ -25,8 +26,9 @@ public:
 
 	void initialize(uint16_t width, uint16_t height, Scenario* scenario);
 	void generate();
-	void draw();
+	void draw(float deltaTime);
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
+	Building* createBuilding(Point position, BuildingType* type, Faction* faction);
 	/// Returns nullptr if out of bounds. Otherwise returns the hex at the given grid coordinates.
 	MapHex* tryGetHex(int x, int y);
 	/// Transforms the given screen coordinates to grid coordinates.
@@ -36,6 +38,7 @@ public:
 	/// Transforms the given hex position to screen coordinates.
 	glm::vec2 getScreenPosition(glm::vec2 hexPosition);
 
+	inline Scene* getScene() { return &scene; }
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
 	inline MapHex* tryGetHex(Point position) { return tryGetHex(position.x, position.y); }
 	inline Camera* getCamera() { return &camera; }
@@ -47,6 +50,7 @@ public:
 	static const float yOffset;
 
 private:
+	Scene scene;
 	Scenario* scenario;
 	std::vector<MapRegion> regions;
 	std::vector<MapRegion*> expanders;
@@ -57,12 +61,15 @@ private:
 	uint16_t height;
 	Camera camera;
 
+	Actor* createActor(Sprite* sprite, glm::vec2 position, float depth);
+	Actor* createActor(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth);
 	void initializeHexes();
 	void initializeRegions(int count);
 	void expandRegions(int iterations, int maxPerRegion);
 	MapHex* findFreeHex(int maxTries);
 	glm::vec2 getScreenPosition(int32_t x, int32_t y);
-	int getDefaultMaxExpansionsPerRegion() {
+
+	inline int getDefaultMaxExpansionsPerRegion() {
 		return (int) (hexes.size() / (1 + regions.size()));
 	}
 };

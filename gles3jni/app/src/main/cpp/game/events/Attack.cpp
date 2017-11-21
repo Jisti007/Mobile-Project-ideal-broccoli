@@ -9,7 +9,7 @@ Attack::Attack(Unit* attacker, Unit* defender, int damage) {
 Attack::~Attack() {
 
 }
-
+/*
 void Attack::beginAnimation() {
 
 }
@@ -21,7 +21,7 @@ bool Attack::animate(float deltaTime) {
 void Attack::endAnimation() {
 
 }
-
+*/
 bool Attack::execute() {
 	defender->modifyHP(-damage);
 	return true;

@@ -35,8 +35,6 @@ public class GLES3JNIActivity extends Activity {
 	private GestureDetector gestureDetector;
 	private ScaleGestureDetector scaleGestureDetector;
 	private String dataDirectory;
-	private float previousX;
-	private float previousY;
 
 	@Override
 	protected void onCreate(Bundle icicle) {

@@ -7,6 +7,7 @@ class Unit;
 
 #include "HexType.h"
 #include "Unit.h"
+#include "Building.h"
 #include "GameMap.h"
 #include "MapRegion.h"
 #include "pathing/Comparable.h"
@@ -14,7 +15,7 @@ class Unit;
 
 class MapHex : public MapObject, public Node {
 public:
-	MapHex(uint16_t gridX, uint16_t gridY, glm::vec2 position, HexType* type);
+	MapHex(uint16_t gridX, uint16_t gridY, HexType* type);
 	virtual ~MapHex();
 
 	virtual float getHeuristic(Node* destination);
@@ -28,12 +29,15 @@ public:
 	inline const HexType* getType() const { return type; }
 	inline Unit* getUnit() { return unit; }
 	inline void setUnit(Unit* unit) { this->unit = unit; }
+	inline Building* getBuilding() { return building; }
+	inline void setBuilding(Building* building) { this->building = building; }
 
 private:
 	std::vector<MapHex*> neighbors;
 	MapRegion* region;
 	HexType* type;
 	Unit* unit;
+	Building* building;
 
 	void addNeighbor(GameMap* map, int x, int y);
 };

@@ -7,7 +7,7 @@
 
 class Building : public MapObject {
 public:
-	Building(uint16_t gridX, uint16_t gridY, glm::vec2 position, BuildingType *type, Faction* faction);
+	Building(uint16_t gridX, uint16_t gridY, BuildingType *type, Faction* faction);
 	virtual ~Building();
 
 	virtual Sprite* getSprite() {return type->getSprite(); }

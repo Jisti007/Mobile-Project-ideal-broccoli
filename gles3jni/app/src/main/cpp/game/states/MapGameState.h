@@ -14,7 +14,7 @@ public:
 	virtual ~MapGameState();
 
 	virtual void update(float deltaTime);
-	virtual void draw(Pipeline* pipeline);
+	virtual void draw(Pipeline* pipeline, float deltaTime);
 	virtual void move(float dx, float dy);
 	virtual bool press(float x, float y);
 	virtual void zoom(float scaleFactor);
@@ -23,7 +23,7 @@ private:
 	ResourcePanel* resourcePanel;
 	Unit* selectedUnit = nullptr;
 	MapHex* pressedHex = nullptr;
-	ScenarioEvent* animatingEvent = nullptr;
+	bool animatingEvent = false;
 	bool fastAnimation = false;
 };
 

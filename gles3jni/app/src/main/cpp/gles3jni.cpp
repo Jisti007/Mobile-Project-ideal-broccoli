@@ -58,8 +58,8 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
-	game.update();
-	game.draw();
+	game.step();
+	//game.draw();
 }
 
 JNIEXPORT void JNICALL

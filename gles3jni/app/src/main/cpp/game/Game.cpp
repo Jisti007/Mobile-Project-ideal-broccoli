@@ -24,15 +24,20 @@ void Game::initialize() {
 	}
 }
 
-void Game::update() {
+void Game::step() {
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
 	auto currentTime = Clock::now();
 	std::chrono::duration<float> deltaTime = currentTime - previousTime;
 	if (state) {
 		state->update(deltaTime.count());
+		pipeline.beginDraw();
+		state->draw(&pipeline, deltaTime.count());
+		pipeline.endDraw();
 	}
 	previousTime = currentTime;
 }
-
+/*
 void Game::draw() {
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -42,7 +47,7 @@ void Game::draw() {
 		pipeline.endDraw();
 	}
 }
-
+*/
 void Game::resize(int width, int height) {
 	pipeline.setViewportSize(width, height);
 	state = std::make_unique<MapGameState>(this);

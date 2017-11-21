@@ -20,8 +20,8 @@ public:
 	~Game();
 
 	void initialize();
-	void update();
-	void draw();
+	void step();
+	//void draw();
 	void resize(int width, int height);
 
 	inline Pipeline* getPipeline() { return &pipeline; }
