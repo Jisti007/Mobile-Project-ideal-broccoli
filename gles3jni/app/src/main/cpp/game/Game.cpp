@@ -20,8 +20,24 @@ void Game::initialize() {
 		assetManager.unloadAll();
 		assetManager.loadModule("modules/default");
 		campaign = std::make_unique<Campaign>(this);
-		previousTime =  Clock::now();
 	}
+
+	previousTime =  Clock::now();
+
+	/*
+	// Testing
+	auto map = campaign->getScenario()->getActiveMap();
+	auto node1 = map->tryGetHex(0, 0);
+	auto node2 = map->tryGetHex(map->getWidth() - 1, map->getHeight() - 1);
+	auto t1 = Clock::now();
+	for (int i = 0; i < 100; i++) {
+		node1->findShortestPath(node2, nullptr);
+	}
+	auto t2 = Clock::now();
+	std::chrono::duration<float> deltaTime = t2 - t1;
+	auto count = deltaTime.count();
+	// Original 100x: 7.93162822
+	*/
 }
 
 void Game::step() {

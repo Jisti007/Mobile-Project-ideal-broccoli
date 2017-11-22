@@ -49,7 +49,9 @@
 			<Sprite id="material_building" x="768" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
 			</Sprite>
-			<Sprite id="crystal_building"  x="1024" w="256">
+		</Row>
+		<Row y="256" h="256" yOffset="-15">
+			<Sprite id="crystal_building"  x="0" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
 			</Sprite>
 		</Row>

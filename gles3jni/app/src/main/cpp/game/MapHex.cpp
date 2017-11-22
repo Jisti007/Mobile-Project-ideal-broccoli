@@ -13,13 +13,10 @@ MapHex::~MapHex() {
 }
 
 float MapHex::getHeuristic(Node* destination) {
-	/*
 	auto destinationHex = static_cast<MapHex*>(destination);
 	int dx = destinationHex->getGridX() - getGridX();
 	int dy = destinationHex->getGridY() - getGridY();
 	return abs(dx) + abs(dy);
-	*/
-	return 0;
 }
 
 void MapHex::initializeNeighbors(GameMap* map) {

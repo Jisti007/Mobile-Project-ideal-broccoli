@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <sstream>
 
-ResourcePanel::ResourcePanel(Sprite* sprite, glm::vec2 position, Font* font, Scenario* scenario)
+ResourcePanel::ResourcePanel(Sprite* sprite, glm::vec2 position, Font* font)
 	: UISprite(sprite, position) {
 	this->font = font;
 }

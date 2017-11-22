@@ -1,5 +1,4 @@
 #include "Node.h"
-#include "BinaryHeap.h"
 
 uint64_t currentPathfinderRun = 0;
 
@@ -12,47 +11,42 @@ Node::~Node() {
 }
 
 std::list<Link*> Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
-	currentPathfinderRun++;
-	this->lastVisit = currentPathfinderRun;
-	this->pathLink = nullptr;
+	BinaryHeap openNodes;
+	initializePathfinder(openNodes, graphSize);
 
-	BinaryHeap open;
-	open.reserve(graphSize);
-	open.add(this);
-
-	while (open.count() > 0) {
-		auto active = static_cast<Node*>(open.remove());
+	while (openNodes.count() > 0) {
+		auto active = static_cast<Node*>(openNodes.remove());
 		active->status = NodeStatus::closed;
 		if (active == destination) {
 			break;
 		}
 
-		for (auto& link : active->links) {
-			auto neighbor = link->getDestination();
-
-			if (neighbor->lastVisit != currentPathfinderRun) {
-				neighbor->status = NodeStatus::unvisited;
-				neighbor->lastVisit = currentPathfinderRun;
-			}
-
-			if (neighbor->status != NodeStatus::closed) {
-				auto cost = active->pathCost + link->getCost(agent, active->pathCost);
-
-				if (neighbor->status == NodeStatus::unvisited) {
-					neighbor->pathLink = link.get();
-					neighbor->pathCost = cost;
-					neighbor->heuristic = neighbor->getHeuristic(destination);
-					neighbor->status = NodeStatus::open;
-					open.add(neighbor);
-				} else if (cost < neighbor->pathCost) {
-					neighbor->pathLink = link.get();
-					neighbor->pathCost = cost;
-					open.reposition(neighbor);
-				}
-			}
-		}
+		active->visitNeighbors(openNodes, agent, destination);
 	}
 
+	return buildPath(destination);
+}
+
+std::vector<Node*> Node::findAllNodes(Agent* agent, float maxPathCost, size_t graphSize) {
+	std::vector<Node*> nodesFound;
+	BinaryHeap openNodes;
+	initializePathfinder(openNodes, graphSize);
+
+	while (openNodes.count() > 0) {
+		auto active = static_cast<Node*>(openNodes.remove());
+		active->status = NodeStatus::closed;
+		if (active->pathCost > maxPathCost) {
+			break;
+		}
+
+		nodesFound.push_back(active);
+		active->visitNeighbors(openNodes, agent);
+	}
+
+	return nodesFound;
+}
+
+std::list<Link*> Node::buildPath(Node* destination) {
 	// Backtrack from the destination to build the path.
 	std::list<Link*> path;
 	Link* pathLink = destination->pathLink;
@@ -74,4 +68,76 @@ int Node::compareTo(Comparable* other) {
 		return -1;
 	}
 	return 0;
+}
+
+void Node::initializePathfinder(BinaryHeap& openNodes, size_t graphSize) {
+	currentPathfinderRun++;
+	this->lastVisit = currentPathfinderRun;
+	this->pathLink = nullptr;
+	openNodes.reserve(graphSize);
+	openNodes.add(this);
+}
+
+void Node::visitNeighbors(BinaryHeap& openNodes, Agent* agent) {
+	for (auto& link : links) {
+		auto neighbor = link->getDestination();
+		neighbor->tryReset();
+
+		switch (neighbor->status) {
+			case NodeStatus::unvisited:
+				neighbor->heuristic = 0;
+				neighbor->tryOpen(openNodes, link.get(), agent);
+				break;
+			case NodeStatus::open:
+				neighbor->tryReposition(openNodes, link.get(), agent);
+				break;
+			case NodeStatus::closed:
+				break;
+		}
+	}
+}
+
+void Node::visitNeighbors(BinaryHeap& openNodes, Agent* agent, Node* destination) {
+	for (auto& link : links) {
+		auto neighbor = link->getDestination();
+		neighbor->tryReset();
+
+		switch (neighbor->status) {
+			case NodeStatus::unvisited:
+				neighbor->heuristic = neighbor->getHeuristic(destination);
+				neighbor->tryOpen(openNodes, link.get(), agent);
+				break;
+			case NodeStatus::open:
+				neighbor->tryReposition(openNodes, link.get(), agent);
+				break;
+			case NodeStatus::closed:
+				break;
+		}
+	}
+}
+
+void Node::tryReset() {
+	if (lastVisit != currentPathfinderRun) {
+		status = NodeStatus::unvisited;
+		lastVisit = currentPathfinderRun;
+	}
+}
+
+void Node::tryOpen(BinaryHeap& openNodes, Link* link, Agent* agent) {
+	auto source = link->getSource();
+	auto cost = source->pathCost + link->getCost(agent, source->pathCost);
+	pathLink = link;
+	pathCost = cost;
+	status = NodeStatus::open;
+	openNodes.add(this);
+}
+
+void Node::tryReposition(BinaryHeap& openNodes, Link* link, Agent* agent) {
+	auto source = link->getSource();
+	auto cost = source->pathCost + link->getCost(agent, source->pathCost);
+	if (cost < pathCost) {
+		pathLink = link;
+		pathCost = cost;
+		openNodes.reposition(this);
+	}
 }

@@ -8,7 +8,7 @@
 
 class ResourcePanel : public UISprite {
 public:
-	ResourcePanel(Sprite* sprite, glm::vec2 position, Font* font, Scenario* scenario);
+	ResourcePanel(Sprite* sprite, glm::vec2 position, Font* font);
 	~ResourcePanel();
 	void updateResources(Scenario* scenario);
 

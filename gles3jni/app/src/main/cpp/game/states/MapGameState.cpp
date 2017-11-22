@@ -28,8 +28,7 @@ MapGameState::MapGameState(Game* game)
 		resourcePanelSprite, glm::vec2{
 			0, viewport.getTop() - resourcePanelSprite->getHeight() / 2.0f
 		},
-		assets->getFont("default"),
-		game->getCampaign()->getScenario()
+		assets->getFont("default")
 	);
 	std::unique_ptr<UIObject> resourcePanelPointer(resourcePanel);
 	uiRoot->addChild(resourcePanelPointer);
