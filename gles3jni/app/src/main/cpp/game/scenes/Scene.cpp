@@ -38,3 +38,12 @@ void Scene::clear() {
 void Scene::addActor(std::unique_ptr<Actor>& actor) {
 	actors.push_back(std::move(actor));
 }
+
+void Scene::removeActor(Actor* actor) {
+	for (auto i = actors.begin(); i != actors.end(); i++) {
+		if ((*i).get() == actor) {
+			actors.erase(i);
+			break;
+		}
+	}
+}

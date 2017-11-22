@@ -18,13 +18,14 @@ public:
 	virtual Sprite* getSprite() {return type->getSprite(); }
 
 	bool moveTo(MapHex* destination);
+	void die();
+	void setHP(int hp);
 
 	inline GameMap* getMap() { return map; }
 	inline const UnitType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }
 	inline int getHP() { return hp; }
-	inline void setHP(int hp) { this->hp = hp; }
-	inline void modifyHP(int deltaHP) { this->hp += deltaHP; }
+	inline void modifyHP(int deltaHP) { setHP(hp + deltaHP); }
 
 private:
     UnitType* type;

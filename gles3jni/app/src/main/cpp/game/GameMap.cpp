@@ -113,6 +113,17 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 	return unit;
 }
 
+void GameMap::removeUnit(Unit* unit) {
+	auto unitHex = getHex(unit->getGridX(), unit->getGridY());
+	unitHex->setUnit(nullptr);
+	for (int i = 0; i < units.size(); i++) {
+		if (units[i].get() == unit) {
+			units.erase(units.begin() + i);
+			break;
+		}
+	}
+}
+
 Building* GameMap::createBuilding(Point position, BuildingType* type, Faction* faction) {
 	MapHex* hex = tryGetHex(position);
 	if (hex == nullptr || hex->getUnit() != nullptr) {

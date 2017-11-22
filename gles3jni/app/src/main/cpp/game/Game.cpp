@@ -45,6 +45,7 @@ void Game::step() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	auto currentTime = Clock::now();
 	std::chrono::duration<float> deltaTime = currentTime - previousTime;
+	auto state = getState();
 	if (state) {
 		state->update(deltaTime.count());
 		pipeline.beginDraw();
@@ -56,5 +57,36 @@ void Game::step() {
 
 void Game::resize(int width, int height) {
 	pipeline.setViewportSize(width, height);
-	state = std::make_unique<MapGameState>(this);
+	auto state = getState();
+	if (state == nullptr) {
+		std::unique_ptr<GameState> newState(new MapGameState(this));
+		pushState(newState);
+	} else {
+		state->recreateUI();
+	}
+}
+
+void Game::pushState(std::unique_ptr<GameState>& state) {
+	states.push_back(std::move(state));
+}
+
+void Game::popState() {
+	if (states.size() > 1) {
+		states.pop_back();
+	}
+}
+
+void Game::changeState(std::unique_ptr<GameState>& state) {
+	if (states.size() > 0) {
+		oldState = std::move(states.back());
+		states.pop_back();
+	}
+	pushState(state);
+}
+
+GameState* Game::getState() {
+	if (states.size() > 0) {
+		return states.back().get();
+	}
+	return nullptr;
 }

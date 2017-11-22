@@ -16,5 +16,6 @@ bool Attack::execute() {
 }
 
 bool Attack::cancel() {
+	// Can't be cancelled, at least for now.
 	return false;
 }

@@ -21,70 +21,73 @@ else ()
 endif (${ANDROID_PLATFORM_LEVEL} LESS 11)
 
 add_library(
-    gles3jni SHARED
-    gl3stub_wrapper.c
-    gles3jni.cpp
-    game/AssetManager.cpp
-    game/Biome.cpp
-    game/Building.cpp
-    game/BuildingType.cpp
-    game/Camera.cpp
-    game/Campaign.cpp
-    game/Faction.cpp
-    game/FileHelper.cpp
-    game/Font.cpp
-    game/Game.cpp
-    game/GameMap.cpp
-    game/HexType.cpp
-    game/MapHex.cpp
-    game/MapObject.cpp
-    game/MapRegion.cpp
-    game/Mesh.cpp
-    game/Pipeline.cpp
-    game/Point.cpp
-    game/Random.cpp
-    game/Rectangle.cpp
-    game/Resource.cpp
-    game/Scenario.cpp
-    game/Sprite.cpp
-    game/Texture.cpp
-    game/Unit.cpp
-    game/UnitType.cpp
-    game/WeightedList.cpp
+	gles3jni SHARED
+	gl3stub_wrapper.c
+	gles3jni.cpp
+	game/AssetManager.cpp
+	game/Biome.cpp
+	game/Building.cpp
+	game/BuildingType.cpp
+	game/Camera.cpp
+	game/Campaign.cpp
+	game/Faction.cpp
+	game/FileHelper.cpp
+	game/Font.cpp
+	game/Game.cpp
+	game/GameMap.cpp
+	game/HexType.cpp
+	game/MapHex.cpp
+	game/MapObject.cpp
+	game/MapRegion.cpp
+	game/Mesh.cpp
+	game/Pipeline.cpp
+	game/Point.cpp
+	game/Random.cpp
+	game/Rectangle.cpp
+	game/Resource.cpp
+	game/Scenario.cpp
+	game/Sprite.cpp
+	game/Texture.cpp
+	game/Unit.cpp
+	game/UnitType.cpp
+	game/WeightedList.cpp
 
-    game/events/Attack.cpp
-    game/events/ScenarioEvent.cpp
-    game/events/Movement.cpp
+	game/events/Attack.cpp
+	game/events/ScenarioEvent.cpp
+	game/events/Movement.cpp
 
-    game/pathing/Agent.cpp
-    game/pathing/BinaryHeap.cpp
-    game/pathing/Comparable.cpp
-    game/pathing/Link.cpp
-    game/pathing/MovementLink.cpp
-    game/pathing/Node.cpp
+	game/pathing/Agent.cpp
+	game/pathing/BinaryHeap.cpp
+	game/pathing/Comparable.cpp
+	game/pathing/Link.cpp
+	game/pathing/MovementLink.cpp
+	game/pathing/Node.cpp
 
-    game/scenes/Actor.cpp
-    game/scenes/Animation.cpp
-    game/scenes/MovementAnimation.cpp
-    game/scenes/RecoloredActor.cpp
-    game/scenes/Scene.cpp
+	game/scenes/Actor.cpp
+	game/scenes/Animation.cpp
+	game/scenes/DeathAnimation.cpp
+	game/scenes/MovementAnimation.cpp
+	game/scenes/RecoloredActor.cpp
+	game/scenes/Scene.cpp
 
-    game/states/GameState.cpp
-    game/states/MapGameState.cpp
+	game/states/AnimationGameState.cpp
+	game/states/GameState.cpp
+	game/states/MapGameState.cpp
+	game/states/UnitSelectedGameState.cpp
 
-    game/ui/Button.cpp
-    game/ui/Label.cpp
-    game/ui/UIObject.cpp
-    game/ui/UISprite.cpp
-    game/ui/ResourcePanel.cpp
+	game/ui/Button.cpp
+	game/ui/Label.cpp
+	game/ui/UIObject.cpp
+	game/ui/UISprite.cpp
+	game/ui/ResourcePanel.cpp
 )
 
 # Include libraries needed for gles3jni lib
 target_link_libraries(
-    gles3jni
-    ${OPENGL_LIB}
-    android
-    EGL
-    log
-    m
+	gles3jni
+	${OPENGL_LIB}
+	android
+	EGL
+	log
+	m
 )

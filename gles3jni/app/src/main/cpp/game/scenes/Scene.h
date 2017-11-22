@@ -14,6 +14,7 @@ public:
 	void draw(Pipeline* pipeline, float deltaTime);
 	void clear();
 	void addActor(std::unique_ptr<Actor>& actor);
+	void removeActor(Actor* actor);
 
 	inline void queueAnimation(std::unique_ptr<Animation>& animation) {
 		animationQueue.push_back(std::move(animation));

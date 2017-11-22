@@ -11,20 +11,26 @@ Movement::~Movement() {
 }
 
 bool Movement::execute() {
-	auto scene = unit->getMap()->getScene();
-	for (auto& link : path) {
-		auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
-		auto animation = std::unique_ptr<Animation>(new MovementAnimation(
-			unit->getActor(), linkDestinationHex->getActor()->getPosition()
-		));
-		scene->queueAnimation(animation);
-	}
 	auto destinationHex = static_cast<MapHex*>(path.back()->getDestination());
-	return unit->moveTo(destinationHex);
+	if (unit->moveTo(destinationHex)) {
+		auto scene = unit->getMap()->getScene();
+		for (auto& link : path) {
+			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
+			auto animation = std::unique_ptr<Animation>(new MovementAnimation(
+				unit->getActor(), linkDestinationHex->getActor()->getPosition()
+			));
+			scene->queueAnimation(animation);
+		}
+		return true;
+	}
+	return false;
 }
 
 bool Movement::cancel() {
 	auto sourceHex = static_cast<MapHex*>(path.front()->getSource());
-	unit->getActor()->setPosition(sourceHex->getActor()->getPosition());
-	return unit->moveTo(sourceHex);
+	if (unit->moveTo(sourceHex)) {
+		unit->getActor()->setPosition(sourceHex->getActor()->getPosition());
+		return true;
+	}
+	return false;
 }

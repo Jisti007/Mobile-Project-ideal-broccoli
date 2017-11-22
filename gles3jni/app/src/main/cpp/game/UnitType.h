@@ -5,13 +5,15 @@
 
 class UnitType {
 public:
-	UnitType(Sprite* sprite);
+	UnitType(Sprite* sprite, int hp);
 	~UnitType();
 
 	inline Sprite* getSprite() const { return sprite; }
+	inline int getHP() { return hp; }
 
 private:
 	Sprite* sprite;
+	int hp;
 };
 
 #endif //GLES3JNI_UNITTYPE_H

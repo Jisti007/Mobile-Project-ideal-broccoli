@@ -98,6 +98,7 @@ private:
 		const char* getWeight() { return data->first_attribute("weight")->value(); }
 		const char* getMovementCost() { return data->first_attribute("movementCost")->value(); }
 		const char* getPriority() { return data->first_attribute("priority")->value(); }
+		const char* getHP() { return data->first_attribute("hp")->value(); }
 
 	private:
 		const char* directory;

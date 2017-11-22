@@ -28,6 +28,7 @@ public:
 	void generate();
 	void draw(float deltaTime);
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
+	void removeUnit(Unit* unit);
 	Building* createBuilding(Point position, BuildingType* type, Faction* faction);
 	/// Returns nullptr if out of bounds. Otherwise returns the hex at the given grid coordinates.
 	MapHex* tryGetHex(int x, int y);

@@ -11,6 +11,7 @@ public:
 	GameState(Game* game);
 	virtual ~GameState();
 
+	virtual void recreateUI();
 	virtual void update(float deltaTime) = 0;
 	virtual void draw(Pipeline* pipeline, float deltaTime);
 	virtual void move(float dx, float dy) = 0;
@@ -20,6 +21,9 @@ public:
 protected:
 	Game* game;
 	std::unique_ptr<UIObject> uiRoot;
+
+private:
+	void createUI();
 };
 
 #endif //GLES3JNI_GAMESTATE_H
