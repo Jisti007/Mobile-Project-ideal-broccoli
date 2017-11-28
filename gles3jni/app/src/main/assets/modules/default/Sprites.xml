@@ -14,6 +14,7 @@
 		<Row y="424" h="115">
 			<Sprite id="ui_resource" x="10" w="720" />
 		</Row>
+		<Sprite id="end_turn_button" x="12" y="550" w="260" h="260" />
 	</SpriteSheet>
 
 	<SpriteSheet texture="terrain">

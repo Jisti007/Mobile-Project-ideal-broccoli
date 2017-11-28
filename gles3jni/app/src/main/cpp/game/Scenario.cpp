@@ -1,4 +1,5 @@
 #include "Scenario.h"
+#include "states/MapGameState.h"
 
 Scenario::Scenario(Campaign* campaign) {
 	this->campaign = campaign;
@@ -44,8 +45,12 @@ void Scenario::executeEvent(std::unique_ptr<ScenarioEvent>& event) {
 
 void Scenario::endTurn() {
 	activeFactionIndex++;
-	if (activeFactionIndex <= getFactionCount()) {
+	if (activeFactionIndex >= getFactionCount()) {
 		turn++;
 		activeFactionIndex = 0;
 	}
+
+	auto game = getCampaign()->getGame();
+	std::unique_ptr<GameState> unitSelectedState(new MapGameState(game));
+	game->changeState(unitSelectedState);
 }

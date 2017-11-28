@@ -54,11 +54,12 @@ bool MapGameState::press(float x, float y) {
 	}
 
 	auto scenario = game->getCampaign()->getScenario();
+	/*
 	auto activeFaction = scenario->getActiveFaction();
 	if (!activeFaction->isPlayer()) {
 		return true;
 	}
-
+	*/
 	auto map = scenario->getActiveMap();
 	auto gridPosition = map->getGridPosition({x, y});
 	auto hex = map->tryGetHex(gridPosition);
@@ -82,13 +83,14 @@ void MapGameState::onPressHex(MapHex* hex) {
 	auto unit = hex->getUnit();
 	if (unit != nullptr && unit->getFaction() == activeFaction) {
 		std::unique_ptr<GameState> unitSelectedState(new UnitSelectedGameState(game, unit));
-		game->pushState(unitSelectedState);
+		game->changeState(unitSelectedState);
 	}
 }
 
 void MapGameState::createUI() {
 	auto assets = game->getAssets();
-	auto map = game->getCampaign()->getScenario()->getActiveMap();
+	auto scenario = game->getCampaign()->getScenario();
+	auto map = scenario->getActiveMap();
 	auto viewport = game->getPipeline()->getViewport();
 
 	auto buttonSprite = assets->getSprite("test_button");
@@ -110,4 +112,14 @@ void MapGameState::createUI() {
 	);
 	std::unique_ptr<UIObject> resourcePanelPointer(resourcePanel);
 	uiRoot->addChild(resourcePanelPointer);
+
+	auto endTurnButtonSprite = assets->getSprite("end_turn_button");
+	std::unique_ptr<UIObject> endTurnButton(new Button(
+		endTurnButtonSprite, glm::vec2{
+			viewport.getLeft() + endTurnButtonSprite->getWidth() / 2.0f,
+			viewport.getBottom() + endTurnButtonSprite->getHeight() / 2.0f
+		}
+	));
+	endTurnButton->setOnPress(std::bind(&Scenario::endTurn, scenario));
+	uiRoot->addChild(endTurnButton);
 }
