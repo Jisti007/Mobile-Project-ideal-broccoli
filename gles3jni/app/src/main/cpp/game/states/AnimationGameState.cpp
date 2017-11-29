@@ -1,12 +1,12 @@
 #include "AnimationGameState.h"
 #include "UnitSelectedGameState.h"
 
-AnimationGameState::AnimationGameState(Game* game, Unit* selectedUnit) : MapGameState(game) {
+AnimationGameState::AnimationGameState(Game* game, Unit* selectedUnit) : PlayerGameState(game) {
 	this->selectedUnit = selectedUnit;
 }
 
 void AnimationGameState::update(float deltaTime) {
-	MapGameState::update(deltaTime);
+	PlayerGameState::update(deltaTime);
 	auto scene = game->getCampaign()->getScenario()->getActiveMap()->getScene();
 	if (fastAnimation) {
 		deltaTime *= 16;
@@ -19,7 +19,7 @@ void AnimationGameState::update(float deltaTime) {
 			game->changeState(unitSelectedGameState);
 		} else {
 			std::unique_ptr<GameState> mapGameState(
-				new MapGameState(game)
+				new PlayerGameState(game)
 			);
 			game->changeState(mapGameState);
 		}

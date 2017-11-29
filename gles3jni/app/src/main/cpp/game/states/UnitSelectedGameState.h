@@ -2,8 +2,9 @@
 #define GLES3JNI_UNITSELECTEDGAMESTATE_H
 
 #include "MapGameState.h"
+#include "PlayerGameState.h"
 
-class UnitSelectedGameState : public MapGameState {
+class UnitSelectedGameState : public PlayerGameState {
 public:
 	UnitSelectedGameState(Game* game, Unit* selectedUnit);
 

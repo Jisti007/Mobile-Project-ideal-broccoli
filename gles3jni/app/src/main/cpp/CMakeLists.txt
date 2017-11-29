@@ -72,7 +72,9 @@ add_library(
 
 	game/states/AnimationGameState.cpp
 	game/states/GameState.cpp
+	game/states/InfoGameState.cpp
 	game/states/MapGameState.cpp
+	game/states/PlayerGameState.cpp
 	game/states/UnitSelectedGameState.cpp
 
 	game/ui/Button.cpp
