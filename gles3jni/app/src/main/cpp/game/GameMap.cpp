@@ -95,6 +95,10 @@ void GameMap::draw(float deltaTime) {
 	pipeline->draw(debugMarker, debugPosition, 1.0f);
 }
 
+void GameMap::onEndTurn() {
+
+}
+
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 	MapHex* hex = tryGetHex(position);
 	if (hex == nullptr || hex->getUnit() != nullptr) {

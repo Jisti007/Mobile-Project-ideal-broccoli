@@ -27,6 +27,7 @@ public:
 	void initialize(uint16_t width, uint16_t height, Scenario* scenario);
 	void generate();
 	void draw(float deltaTime);
+	void onEndTurn();
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
 	void removeUnit(Unit* unit);
 	Building* createBuilding(Point position, BuildingType* type, Faction* faction);

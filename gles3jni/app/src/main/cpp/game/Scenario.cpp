@@ -50,6 +50,10 @@ void Scenario::endTurn() {
 		activeFactionIndex = 0;
 	}
 
+	for (auto& map : maps) {
+		map->onEndTurn();
+	}
+
 	auto game = getCampaign()->getGame();
 	std::unique_ptr<GameState> unitSelectedState(new MapGameState(game));
 	game->changeState(unitSelectedState);
