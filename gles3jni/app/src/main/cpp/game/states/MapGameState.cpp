@@ -7,6 +7,7 @@
 #include "../scenes/MovementAnimation.h"
 #include "../events/Attack.h"
 #include "UnitSelectedGameState.h"
+#include "../ui/RecoloredUISprite.h"
 #include <algorithm>
 
 MapGameState::MapGameState(Game* game)
@@ -93,16 +94,6 @@ void MapGameState::createUI() {
 	auto map = scenario->getActiveMap();
 	auto viewport = game->getPipeline()->getViewport();
 
-	auto buttonSprite = assets->getSprite("test_button");
-	std::unique_ptr<UIObject> button(new Button(
-		buttonSprite, glm::vec2{
-			viewport.getLeft() + buttonSprite->getWidth() / 2.0f,
-			viewport.getTop() - buttonSprite->getHeight() / 2.0f
-		}
-	));
-	button->setOnPress(std::bind(&GameMap::generate, map));
-	uiRoot->addChild(button);
-
 	auto resourcePanelSprite = assets->getSprite("ui_resource");
 	resourcePanel = new ResourcePanel(
 		resourcePanelSprite, glm::vec2{
@@ -112,6 +103,16 @@ void MapGameState::createUI() {
 	);
 	std::unique_ptr<UIObject> resourcePanelPointer(resourcePanel);
 	uiRoot->addChild(resourcePanelPointer);
+
+	auto crestSprite = assets->getSprite("faction_crest");
+	auto colors = scenario->getActiveFaction()->getColors();
+	std::unique_ptr<UIObject> crest(new RecoloredUISprite(
+		crestSprite, glm::vec2{
+			0 - resourcePanelSprite->getWidth() / 2.0f - crestSprite->getWidth() / 2.0f,
+			viewport.getTop() - crestSprite->getHeight() * 0.5f / 2.0f},
+		0.5f, colors
+	));
+	uiRoot->addChild(crest);
 
 	resourcePanel->updateResources(scenario);
 

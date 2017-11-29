@@ -15,6 +15,10 @@
 			<Sprite id="ui_resource" x="10" w="720" />
 		</Row>
 		<Sprite id="end_turn_button" x="12" y="550" w="260" h="260" />
+		<Sprite id="faction_crest" x="340" y="570" w="240" h="260">
+			<SwappableColor r="255" g="255" b="255"/>
+			<SwappableColor r="0" g="0" b="160"/>
+		</Sprite>
 	</SpriteSheet>
 
 	<SpriteSheet texture="terrain">

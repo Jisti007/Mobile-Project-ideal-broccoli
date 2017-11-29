@@ -121,9 +121,17 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
 	}
 
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
+	glUniform1i(numberOfColorSwapsLocation, 0);
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
+	draw(sprite, position, 1, destinationColors);
+}
+
+
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale,
+	std::vector<glm::vec3> destinationColors) {
+
 	auto numberOfColorSwaps = (GLint)std::min(
 		sprite->getSwappableColors().size(), destinationColors.size()
 	);
@@ -139,7 +147,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> d
 		(GLfloat*)destinationColors.data()
 	);
 
-	draw(sprite, position);
+	draw(sprite, position, scale);
 }
 
 void Pipeline::endDraw() {

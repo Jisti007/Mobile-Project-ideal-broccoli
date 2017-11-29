@@ -17,6 +17,7 @@ public:
 	void beginDraw();
 	void draw(Sprite* sprite, glm::vec2 position, float scale = 1.0f);
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
+	void draw(Sprite* sprite, glm::vec2 position, float scale, std::vector<glm::vec3> destinationColors);
 	void endDraw();
 	void setCameraPosition(glm::vec2 position);
 	void setCameraZoom(float zoom);

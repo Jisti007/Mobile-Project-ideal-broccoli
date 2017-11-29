@@ -79,6 +79,7 @@ add_library(
 	game/ui/Label.cpp
 	game/ui/UIObject.cpp
 	game/ui/UISprite.cpp
+	game/ui/RecoloredUISprite.cpp
 	game/ui/ResourcePanel.cpp
 )
 
