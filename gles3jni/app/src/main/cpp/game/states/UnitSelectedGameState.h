@@ -8,7 +8,7 @@ public:
 	UnitSelectedGameState(Game* game, Unit* selectedUnit);
 
 protected:
-	virtual void onPressHex(MapHex* hex);
+	virtual void onPressHex(MapHex* pressedHex);
 
 private:
 	Unit* selectedUnit;

@@ -4,8 +4,8 @@
 		id="test"
 		sprite="test_unit"
 		hp="10"
-		atk="2"
-		def="2"
+		attack="2"
+		defense="2"
 		range="2"
 	/>
 </Assets>

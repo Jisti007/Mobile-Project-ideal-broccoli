@@ -14,9 +14,7 @@ MapHex::~MapHex() {
 
 float MapHex::getHeuristic(Node* destination) {
 	auto destinationHex = static_cast<MapHex*>(destination);
-	int dx = destinationHex->getGridX() - getGridX();
-	int dy = destinationHex->getGridY() - getGridY();
-	return abs(dx) + abs(dy);
+	return getDistance(destinationHex);
 }
 
 void MapHex::initializeNeighbors(GameMap* map) {
@@ -54,4 +52,21 @@ void MapHex::setRegion(MapRegion* region) {
 	if (region != nullptr) {
 		type = region->getBiome()->getRandomHexType();
 	}
+}
+
+int MapHex::getDistance(MapHex* other) {
+	Point3D cube = getCubePosition();
+	Point3D otherCube = other->getCubePosition();
+	return (
+		abs(cube.x - otherCube.x)
+		+ abs(cube.y - otherCube.y)
+		+ abs(cube.z - otherCube.z)
+	) / 2;
+}
+
+Point3D MapHex::getCubePosition() {
+	int x = gridX;
+	int z = gridY - (gridX + (gridX & 1)) / 2;
+	int y = -x - z;
+	return Point3D{x, y, z};
 }

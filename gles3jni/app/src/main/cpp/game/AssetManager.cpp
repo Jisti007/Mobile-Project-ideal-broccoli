@@ -223,8 +223,13 @@ void AssetManager::loadBiome(AssetManager::Node* node) {
 
 void AssetManager::loadUnitType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
+	auto data = node->getData();
 	auto hp = atoi(node->getHP());
-	unitTypes[node->getID()] = make_unique<UnitType>(sprite, hp);
+	auto attack = atoi(data->first_attribute("attack")->value());
+	auto defense = atoi(data->first_attribute("defense")->value());
+	auto range = atoi(data->first_attribute("range")->value());
+
+	unitTypes[node->getID()] = make_unique<UnitType>(sprite, hp, attack, defense, range);
 }
 
 void AssetManager::loadBuildingType(Node *node) {

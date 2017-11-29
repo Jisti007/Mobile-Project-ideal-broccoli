@@ -6,4 +6,8 @@ public:
 	int x, y;
 };
 
+struct Point3D {
+	int x, y, z;
+};
+
 #endif //GLES3JNI_POINT_H
