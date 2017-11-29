@@ -14,7 +14,7 @@ ResourcePanel::~ResourcePanel() {
 
 void ResourcePanel::updateResources(Scenario* scenario) {
 	getChildren().clear();
-	auto playerResources = scenario->getPlayerFaction()->getResources();
+	auto playerResources = scenario->getActiveFaction()->getResources();
 	std::vector<Resource*> resourceList;
 
 	for (auto const& playerResource : playerResources) {

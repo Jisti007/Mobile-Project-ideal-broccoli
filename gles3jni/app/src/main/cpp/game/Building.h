@@ -1,6 +1,7 @@
 #ifndef GLES3JNI_BUILDING_H
 #define GLES3JNI_BUILDING_H
 
+class Faction;
 #include "BuildingType.h"
 #include "MapObject.h"
 #include "Faction.h"

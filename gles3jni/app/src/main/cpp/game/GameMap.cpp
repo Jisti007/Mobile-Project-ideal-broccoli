@@ -95,8 +95,17 @@ void GameMap::draw(float deltaTime) {
 	pipeline->draw(debugMarker, debugPosition, 1.0f);
 }
 
-void GameMap::onEndTurn() {
+void GameMap::onBeginTurn() {
+	auto faction = scenario->getActiveFaction();
 
+	for (auto& building : buildings) {
+		if (building->getFaction() == faction) {
+
+			for(auto& resourceProduction : building->getType()->getResourceProductions()) {
+				faction->modifyResource(resourceProduction);
+			}
+		}
+	}
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
