@@ -15,3 +15,7 @@ bool Faction::modifyResource(Resource* resource, int amount) {
 	resources[resource] += amount;
 	return true;
 }
+
+bool Faction::modifyResource(ResourceAmount amount) {
+	return modifyResource(amount.first, amount.second);
+}

@@ -30,6 +30,10 @@ Scenario::Scenario(Campaign* campaign) {
 	maps.push_back(
 		std::make_unique<GameMap>(160, 160, this)
 	);
+
+	for (auto& map : maps) {
+		map->onBeginTurn();
+	}
 }
 
 Scenario::~Scenario() {
@@ -51,7 +55,7 @@ void Scenario::endTurn() {
 	}
 
 	for (auto& map : maps) {
-		map->onEndTurn();
+		map->onBeginTurn();
 	}
 
 	auto game = getCampaign()->getGame();

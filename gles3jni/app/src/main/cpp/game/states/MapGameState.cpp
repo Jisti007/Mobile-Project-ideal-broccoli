@@ -26,7 +26,7 @@ void MapGameState::recreateUI() {
 void MapGameState::update(float deltaTime) {
 	// TODO: Move to when resources update
 	auto scenario = game->getCampaign()->getScenario();
-	resourcePanel->updateResources(scenario);
+	//resourcePanel->updateResources(scenario);
 }
 
 void MapGameState::draw(Pipeline* pipeline, float deltaTime) {
@@ -112,6 +112,8 @@ void MapGameState::createUI() {
 	);
 	std::unique_ptr<UIObject> resourcePanelPointer(resourcePanel);
 	uiRoot->addChild(resourcePanelPointer);
+
+	resourcePanel->updateResources(scenario);
 
 	auto endTurnButtonSprite = assets->getSprite("end_turn_button");
 	std::unique_ptr<UIObject> endTurnButton(new Button(

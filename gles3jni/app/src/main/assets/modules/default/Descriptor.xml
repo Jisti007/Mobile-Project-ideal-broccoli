@@ -4,11 +4,11 @@
 >
 	<LoadAssets path="Textures.xml" />
 	<LoadAssets path="Sprites.xml" />
+	<LoadAssets path="Resources.xml" />
 	<LoadAssets path="Hexes.xml" />
 	<LoadAssets path="Biomes.xml" />
 	<LoadAssets path="Units.xml" />
 	<LoadAssets path="Buildings.xml" />
-	<LoadAssets path="Resources.xml" />
 	<LoadAssets path="FontSprites.xml" />
 	<LoadAssets path="Font.xml" />
 </Module>
