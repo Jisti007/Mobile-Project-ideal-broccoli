@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "states/MapGameState.h"
+#include "states/PlayerGameState.h"
 
 using namespace std;
 
@@ -59,7 +60,7 @@ void Game::resize(int width, int height) {
 	pipeline.setViewportSize(width, height);
 	auto state = getState();
 	if (state == nullptr) {
-		std::unique_ptr<GameState> newState(new MapGameState(this));
+		std::unique_ptr<GameState> newState(new PlayerGameState(this));
 		pushState(newState);
 	} else {
 		state->recreateUI();

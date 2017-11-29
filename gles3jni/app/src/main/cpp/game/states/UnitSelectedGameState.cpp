@@ -3,13 +3,11 @@
 #include "AnimationGameState.h"
 #include "PathSelectedGameState.h"
 
-UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : MapGameState(game) {
+UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : PlayerGameState(game) {
 	this->selectedUnit = selectedUnit;
 }
 
 void UnitSelectedGameState::onPressHex(MapHex* pressedHex) {
-	debugHex = pressedHex;
-
 	auto scenario = game->getCampaign()->getScenario();
 	auto activeFaction = scenario->getActiveFaction();
 	auto map = scenario->getActiveMap();
