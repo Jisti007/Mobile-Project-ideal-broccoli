@@ -1,9 +1,9 @@
 #ifndef GLES3JNI_PATHSELECTEDGAMESTATE_H
 #define GLES3JNI_PATHSELECTEDGAMESTATE_H
 
-#include "MapGameState.h"
+#include "PlayerGameState.h"
 
-class PathSelectedGameState : public MapGameState {
+class PathSelectedGameState : public PlayerGameState {
 public:
 	PathSelectedGameState(Game* game, std::list<Link*> path);
 

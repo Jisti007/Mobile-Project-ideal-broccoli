@@ -2,7 +2,7 @@
 #include "AnimationGameState.h"
 
 PathSelectedGameState::PathSelectedGameState(Game* game, std::list<Link*> path)
-	: MapGameState(game) {
+	: PlayerGameState(game) {
 	this->path = path;
 }
 
