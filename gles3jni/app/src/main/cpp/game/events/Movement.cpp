@@ -1,9 +1,8 @@
 #include "Movement.h"
 #include "../scenes/MovementAnimation.h"
 
-Movement::Movement(Unit* unit, std::list<Link*> path) {
+Movement::Movement(Unit* unit, Path path) : path(path) {
 	this->unit = unit;
-	this->path = path;
 }
 
 Movement::~Movement() {
@@ -11,10 +10,11 @@ Movement::~Movement() {
 }
 
 bool Movement::execute() {
-	auto destinationHex = static_cast<MapHex*>(path.back()->getDestination());
+	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
 	if (unit->moveTo(destinationHex)) {
+		unit->modifyMovement(-path.getCost());
 		auto scene = unit->getMap()->getScene();
-		for (auto& link : path) {
+		for (auto& link : path.getLinks()) {
 			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
 			auto animation = std::unique_ptr<Animation>(new MovementAnimation(
 				unit->getActor(), linkDestinationHex->getActor()->getPosition()
@@ -27,7 +27,7 @@ bool Movement::execute() {
 }
 
 bool Movement::cancel() {
-	auto sourceHex = static_cast<MapHex*>(path.front()->getSource());
+	auto sourceHex = static_cast<MapHex*>(path.getLinks().front()->getSource());
 	if (unit->moveTo(sourceHex)) {
 		unit->getActor()->setPosition(sourceHex->getActor()->getPosition());
 		return true;

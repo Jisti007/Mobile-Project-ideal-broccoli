@@ -62,6 +62,7 @@ add_library(
 	game/pathing/Link.cpp
 	game/pathing/MovementLink.cpp
 	game/pathing/Node.cpp
+	game/pathing/Path.cpp
 
 	game/scenes/Actor.cpp
 	game/scenes/Animation.cpp

@@ -4,13 +4,8 @@
 #include <vector>
 #include "../../glm/glm.hpp"
 
-PathSelectedGameState::PathSelectedGameState(Game* game, std::list<Link*> path, Unit* selectedUnit)
-	: PlayerGameState(game) {
-	this->path = path;
-	this->selectedUnit = selectedUnit;
-	for (auto& link : path) {
-		pathCost += link->getCost(selectedUnit, pathCost);
-	}
+PathSelectedGameState::PathSelectedGameState(Game* game, Path path, Unit* selectedUnit)
+	: path(path), UnitSelectedGameState(game, selectedUnit) {
 }
 
 void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {
@@ -19,7 +14,7 @@ void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {
 
 	auto pathMarker = game->getAssets()->getSprite("dot_marker");
 	auto costSoFar = 0.0f;
-	for (auto& link : path) {
+	for (auto& link : path.getLinks()) {
 		costSoFar += link->getCost(selectedUnit, costSoFar);
 		auto hex = static_cast<MapHex*>(link->getDestination());
 		auto position = hex->getActor()->getPosition();
@@ -36,8 +31,8 @@ void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {
 
 void PathSelectedGameState::onPressHex(MapHex* pressedHex) {
 	auto scenario = game->getCampaign()->getScenario();
-	if (pressedHex == path.back()->getDestination()) {
-		if (pathCost <= selectedUnit->getMovement()) {
+	if (pressedHex == path.getLinks().back()->getDestination()) {
+		if (path.getCost() <= selectedUnit->getMovement()) {
 			std::unique_ptr<ScenarioEvent> movement(new Movement(
 				selectedUnit, path
 			));
@@ -49,12 +44,6 @@ void PathSelectedGameState::onPressHex(MapHex* pressedHex) {
 			game->changeState(animationGameState);
 		}
 	} else {
-		auto map = scenario->getActiveMap();
-		auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
-		path = selectedUnitHex->findShortestPath(pressedHex, selectedUnit);
-		pathCost = 0.0f;
-		for (auto& link : path) {
-			pathCost += link->getCost(selectedUnit, pathCost);
-		}
+		UnitSelectedGameState::onPressHex(pressedHex);
 	}
 }

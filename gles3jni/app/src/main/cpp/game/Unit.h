@@ -28,6 +28,7 @@ public:
 	inline int getHP() { return hp; }
 	inline void modifyHP(int deltaHP) { setHP(hp + deltaHP); }
 	inline float getMovement() { return movementRemaining; }
+	inline void modifyMovement(float deltaMovement) { movementRemaining += deltaMovement; }
 
 private:
     UnitType* type;

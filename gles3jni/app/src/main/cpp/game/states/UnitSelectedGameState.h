@@ -9,10 +9,9 @@ public:
 	UnitSelectedGameState(Game* game, Unit* selectedUnit);
 
 protected:
-	virtual void onPressHex(MapHex* pressedHex);
-
-private:
 	Unit* selectedUnit;
+
+	virtual void onPressHex(MapHex* pressedHex);
 };
 
 #endif //GLES3JNI_UNITSELECTEDGAMESTATE_H
