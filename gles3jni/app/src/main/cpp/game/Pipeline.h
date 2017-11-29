@@ -19,6 +19,7 @@ public:
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	void draw(Sprite* sprite, glm::vec2 position, float scale, std::vector<glm::vec3> destinationColors);
 	void endDraw();
+	void setAmbientColor(glm::vec3 color);
 	void setCameraPosition(glm::vec2 position);
 	void setCameraZoom(float zoom);
 	void setViewportSize(int width, int height);
@@ -33,6 +34,7 @@ private:
 	GLuint fragmentShader;
 	GLuint lastTexture = 0;
 	GLuint lastVertexArray = 0;
+	GLint ambientColorLocation;
 	GLint instancePositionLocation;
 	GLint instanceScaleLocation;
 	GLint sourceColorsLocation;

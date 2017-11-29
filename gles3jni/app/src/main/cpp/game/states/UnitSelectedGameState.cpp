@@ -32,19 +32,8 @@ void UnitSelectedGameState::onPressHex(MapHex* pressedHex) {
 	} else {
 		auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 		auto path = selectedUnitHex->findShortestPath(pressedHex, selectedUnit);
-		/*
-		std::unique_ptr<ScenarioEvent> movement(new Movement(
-			selectedUnit, path
-		));
-		scenario->executeEvent(movement);
-
-		std::unique_ptr<GameState> animationGameState(
-			new AnimationGameState(game, selectedUnit)
-		);
-		game->changeState(animationGameState);
-		*/
 		std::unique_ptr<GameState> pathSelectedGameState(
-			new PathSelectedGameState(game, path)
+			new PathSelectedGameState(game, path, selectedUnit)
 		);
 		game->changeState(pathSelectedGameState);
 	}

@@ -7,6 +7,7 @@ precision highp int;
 precision lowp sampler2D;
 precision lowp samplerCube;
 
+uniform vec3 ambientColor;
 uniform vec2 cameraSize;
 uniform vec2 cameraPosition;
 uniform vec2 instancePosition;
@@ -16,14 +17,16 @@ layout(location = 0) in vec2 vertexPosition;
 layout(location = 1) in vec2 vertexTexture;
 
 out vec2 fragmentTexture;
+out vec3 fragmentColor;
 
 void main(){
-    vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
-    position.x = position.x / cameraSize.x;
-    position.y = position.y / cameraSize.y;
+	vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
+	position.x = position.x / cameraSize.x;
+	position.y = position.y / cameraSize.y;
 
 	gl_Position = vec4(position, 0.0, 1.0);
 	fragmentTexture = vertexTexture;
+	fragmentColor = ambientColor;
 }
 )glsl";
 
@@ -43,11 +46,12 @@ uniform vec3 destinationColors[MAX_COLOR_SWAPS];
 uniform int numberOfColorSwaps;
 
 in vec2 fragmentTexture;
+in vec3 fragmentColor;
 
 layout(location = 0) out vec4 outColor;
 
 void main(){
-	outColor = texture(sampler, fragmentTexture);
+	outColor = vec4(fragmentColor, 1.0) * texture(sampler, fragmentTexture);
 	for (int i = 0; i < numberOfColorSwaps; i++) {
 		float dr = abs(outColor.r - sourceColors[i].r);
 		float dg = abs(outColor.g - sourceColors[i].g);
@@ -85,6 +89,7 @@ void Pipeline::initialize() {
 		glGetProgramInfoLog(program, 512, NULL, log);
 	}
 
+	ambientColorLocation = glGetUniformLocation(getProgram(), "ambientColor");
 	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
 	instanceScaleLocation = glGetUniformLocation(getProgram(), "instanceScale");
 	sourceColorsLocation = glGetUniformLocation(getProgram(), "sourceColors");
@@ -104,6 +109,7 @@ void Pipeline::destroy() {
 void Pipeline::beginDraw() {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
+	setAmbientColor({1.0f, 1.0f, 1.0f});
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
@@ -159,6 +165,10 @@ void Pipeline::endDraw() {
 	lastVertexArray = 0;
 	glBindVertexArray(lastVertexArray);
 	glUseProgram(0);
+}
+
+void Pipeline::setAmbientColor(glm::vec3 color) {
+	glUniform3f(ambientColorLocation, color.r, color.g, color.b);
 }
 
 void Pipeline::setCameraPosition(glm::vec2 position) {
