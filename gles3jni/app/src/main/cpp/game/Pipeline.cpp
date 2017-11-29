@@ -7,7 +7,6 @@ precision highp int;
 precision lowp sampler2D;
 precision lowp samplerCube;
 
-uniform vec3 ambientColor;
 uniform vec2 cameraSize;
 uniform vec2 cameraPosition;
 uniform vec2 instancePosition;
@@ -17,7 +16,6 @@ layout(location = 0) in vec2 vertexPosition;
 layout(location = 1) in vec2 vertexTexture;
 
 out vec2 fragmentTexture;
-out vec3 fragmentColor;
 
 void main(){
 	vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
@@ -26,7 +24,6 @@ void main(){
 
 	gl_Position = vec4(position, 0.0, 1.0);
 	fragmentTexture = vertexTexture;
-	fragmentColor = ambientColor;
 }
 )glsl";
 
@@ -41,17 +38,17 @@ const int MAX_COLOR_SWAPS = 4;
 const float COLOR_SWAP_TOLERANCE = 0.25 / 255.0;
 
 uniform sampler2D sampler;
+uniform vec3 ambientColor;
 uniform vec3 sourceColors[MAX_COLOR_SWAPS];
 uniform vec3 destinationColors[MAX_COLOR_SWAPS];
 uniform int numberOfColorSwaps;
 
 in vec2 fragmentTexture;
-in vec3 fragmentColor;
 
 layout(location = 0) out vec4 outColor;
 
 void main(){
-	outColor = vec4(fragmentColor, 1.0) * texture(sampler, fragmentTexture);
+	outColor = vec4(ambientColor, 1.0) * texture(sampler, fragmentTexture);
 	for (int i = 0; i < numberOfColorSwaps; i++) {
 		float dr = abs(outColor.r - sourceColors[i].r);
 		float dg = abs(outColor.g - sourceColors[i].g);
