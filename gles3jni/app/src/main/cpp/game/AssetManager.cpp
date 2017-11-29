@@ -228,8 +228,9 @@ void AssetManager::loadUnitType(Node *node) {
 	auto attack = atoi(data->first_attribute("attack")->value());
 	auto defense = atoi(data->first_attribute("defense")->value());
 	auto range = atoi(data->first_attribute("range")->value());
+	auto movement = atoi(data->first_attribute("movement")->value());
 
-	unitTypes[node->getID()] = make_unique<UnitType>(sprite, hp, attack, defense, range);
+	unitTypes[node->getID()] = make_unique<UnitType>(sprite, hp, attack, defense, range, movement);
 }
 
 void AssetManager::loadBuildingType(Node *node) {

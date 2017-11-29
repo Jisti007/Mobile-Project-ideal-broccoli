@@ -1,6 +1,7 @@
 #include "UnitSelectedGameState.h"
 #include "../events/Attack.h"
 #include "AnimationGameState.h"
+#include "PathSelectedGameState.h"
 
 UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : MapGameState(game) {
 	this->selectedUnit = selectedUnit;
@@ -33,6 +34,7 @@ void UnitSelectedGameState::onPressHex(MapHex* pressedHex) {
 	} else {
 		auto selectedUnitHex = map->tryGetHex(selectedUnit->getGridPosition());
 		auto path = selectedUnitHex->findShortestPath(pressedHex, selectedUnit);
+		/*
 		std::unique_ptr<ScenarioEvent> movement(new Movement(
 			selectedUnit, path
 		));
@@ -42,6 +44,11 @@ void UnitSelectedGameState::onPressHex(MapHex* pressedHex) {
 			new AnimationGameState(game, selectedUnit)
 		);
 		game->changeState(animationGameState);
+		*/
+		std::unique_ptr<GameState> pathSelectedGameState(
+			new PathSelectedGameState(game, path)
+		);
+		game->changeState(pathSelectedGameState);
 	}
 }
 

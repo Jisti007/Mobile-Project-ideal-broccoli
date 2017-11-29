@@ -91,20 +91,18 @@ void GameMap::draw(float deltaTime) {
 	pipeline->setCameraPosition(camera.getPosition() * gridSize);
 	pipeline->setCameraZoom(camera.getZoom());
 	scene.draw(pipeline, deltaTime);
+	/*
 	auto debugMarker = scenario->getCampaign()->getGame()->getAssets()->getSprite("dot_marker");
 	pipeline->draw(debugMarker, debugPosition, 1.0f);
+	*/
 }
 
 void GameMap::onBeginTurn() {
-	auto faction = scenario->getActiveFaction();
-
+	for (auto& unit : units) {
+		unit->onBeginTurn();
+	}
 	for (auto& building : buildings) {
-		if (building->getFaction() == faction) {
-
-			for(auto& resourceProduction : building->getType()->getResourceProductions()) {
-				faction->modifyResource(resourceProduction);
-			}
-		}
+		building->onBeginTurn(this);
 	}
 }
 
@@ -167,7 +165,7 @@ Point GameMap::getGridPosition(glm::vec2 screenPosition) {
 	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
 	position.x /= gridSize;
 	position.y /= gridSize;
-	debugPosition = getScreenPosition(position);
+	//debugPosition = getScreenPosition(position);
 
 	int minX = (int)(position.x / xOffset);
 	int minY = (int)position.y;

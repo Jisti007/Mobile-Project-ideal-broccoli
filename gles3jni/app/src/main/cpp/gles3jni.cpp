@@ -64,17 +64,26 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onMove(JNIEnv *env, jobject obj, jfloat dx, jfloat dy) {
-	game.getState()->move(dx, dy);
+	auto state = game.getState();
+	if (state != nullptr) {
+		state->move(dx, dy);
+	}
 }
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_onPress(JNIEnv *env, jobject obj, jfloat x, jfloat y) {
-	x -= screenWidth/2;
-	y = screenHeight/2 - y;
-	game.getState()->press(x, y);
+	auto state = game.getState();
+	if (state != nullptr) {
+		x -= screenWidth / 2;
+		y = screenHeight / 2 - y;
+		state->press(x, y);
+	}
 }
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_zoom(JNIEnv *env, jobject obj, jfloat scaleFactor) {
-	game.getState()->zoom(scaleFactor);
+	auto state = game.getState();
+	if (state != nullptr) {
+		state->zoom(scaleFactor);
+	}
 }

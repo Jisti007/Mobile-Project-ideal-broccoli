@@ -54,6 +54,7 @@ void main(){
 		float db = abs(outColor.b - sourceColors[i].b);
 		if (dr < COLOR_SWAP_TOLERANCE && dg < COLOR_SWAP_TOLERANCE && db < COLOR_SWAP_TOLERANCE) {
 			outColor.rgb = destinationColors[i];
+			break;
 		}
 	}
 }

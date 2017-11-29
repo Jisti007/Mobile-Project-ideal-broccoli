@@ -47,3 +47,9 @@ void Unit::setHP(int hp) {
 		die();
 	}
 }
+
+void Unit::onBeginTurn() {
+	if (getFaction() == map->getScenario()->getActiveFaction()) {
+		movementRemaining = getType()->getMovement();
+	}
+}

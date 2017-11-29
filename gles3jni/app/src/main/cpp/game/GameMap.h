@@ -40,6 +40,7 @@ public:
 	/// Transforms the given hex position to screen coordinates.
 	glm::vec2 getScreenPosition(glm::vec2 hexPosition);
 
+	inline Scenario* getScenario() { return scenario; }
 	inline Scene* getScene() { return &scene; }
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
 	inline MapHex* tryGetHex(Point position) { return tryGetHex(position.x, position.y); }
@@ -62,7 +63,7 @@ private:
 	uint16_t width;
 	uint16_t height;
 	Camera camera;
-	glm::vec2 debugPosition;
+	//glm::vec2 debugPosition;
 
 	Actor* createActor(Sprite* sprite, glm::vec2 position, float depth);
 	Actor* createActor(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth);

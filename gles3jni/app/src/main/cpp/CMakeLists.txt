@@ -71,8 +71,10 @@ add_library(
 	game/scenes/Scene.cpp
 
 	game/states/AnimationGameState.cpp
+	game/states/ComputerGameState.cpp
 	game/states/GameState.cpp
 	game/states/MapGameState.cpp
+	game/states/PathSelectedGameState.cpp
 	game/states/UnitSelectedGameState.cpp
 
 	game/ui/Button.cpp

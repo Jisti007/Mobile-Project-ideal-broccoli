@@ -2,6 +2,7 @@
 #define GLES3JNI_FACTION_H
 
 class Building;
+
 #include <vector>
 #include <unordered_map>
 #include "../glm/glm.hpp"
