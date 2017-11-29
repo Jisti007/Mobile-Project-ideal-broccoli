@@ -239,7 +239,7 @@ void AssetManager::loadBuildingType(Node *node) {
 		resourceProductions.push_back(
 			std::pair<Resource*, int>(getResource(resource), amount)
 		);
-		productionNode = productionNode->next_sibling();
+		productionNode = productionNode->next_sibling("ResourceProduction");
 	}
 
 	buildingTypes[node->getID()] = make_unique<BuildingType>(sprite, resourceProductions);

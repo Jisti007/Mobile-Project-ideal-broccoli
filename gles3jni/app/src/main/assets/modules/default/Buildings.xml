@@ -3,7 +3,11 @@
 	<Building
 		id="test"
 		sprite="test_building"
-	/>
+	>
+		<Recruitment unit="test" time="0">
+			<ResourceCost id="gold" amount="100"/>
+		</Recruitment>
+	</Building>
 	<Building
 		id="gold"
 		sprite="gold_building"
