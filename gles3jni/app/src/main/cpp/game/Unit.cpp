@@ -1,5 +1,6 @@
 #include "Unit.h"
 #include "scenes/DeathAnimation.h"
+#include "scenes/MovementAnimation.h"
 
 Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map)
 	: MapObject(gridX, gridY) {
@@ -11,6 +12,24 @@ Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, Gam
 
 Unit::~Unit() {
 
+}
+
+bool Unit::move(Path& path) {
+	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+	if (moveTo(destinationHex)) {
+		modifyMovement(-path.getCost());
+
+		auto scene = getMap()->getScene();
+		for (auto& link : path.getLinks()) {
+			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
+			auto animation = std::unique_ptr<Animation>(new MovementAnimation(
+				getActor(), linkDestinationHex->getActor()->getPosition()
+			));
+			scene->queueAnimation(animation);
+		}
+		return true;
+	}
+	return false;
 }
 
 bool Unit::moveTo(MapHex* destination) {
@@ -49,7 +68,10 @@ void Unit::setHP(int hp) {
 }
 
 void Unit::onBeginTurn() {
-	if (getFaction() == map->getScenario()->getActiveFaction()) {
-		movementRemaining = getType()->getMovement();
-	}
+	movable = true;
+	movementRemaining = getType()->getMovement();
+}
+
+MapHex* Unit::getHex() {
+	return map->tryGetHex(getGridPosition());
 }

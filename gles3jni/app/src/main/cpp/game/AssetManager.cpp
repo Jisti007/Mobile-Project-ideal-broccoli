@@ -53,7 +53,7 @@ void AssetManager::reloadAll() {
 }
 
 void AssetManager::loadModule(const char* directory) {
-	loadXml(directory, "Descriptor.xml", bind(&AssetManager::handleModuleNode, this, _1));
+	loadXml(directory, "_Module.xml", bind(&AssetManager::handleModuleNode, this, _1));
 	loadedModules.insert(std::string(directory));
 }
 

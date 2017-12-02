@@ -20,6 +20,7 @@ public:
 
 	virtual float getHeuristic(Node* destination);
 
+	std::vector<MapHex*> getHexesWithin(int radius, GameMap* map);
 	void initializeNeighbors(GameMap* map);
 	void setRegion(MapRegion* region);
 	int getDistance(MapHex* other);

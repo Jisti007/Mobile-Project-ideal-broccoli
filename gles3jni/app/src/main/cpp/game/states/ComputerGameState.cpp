@@ -5,5 +5,7 @@ ComputerGameState::ComputerGameState(Game* game) : AnimationGameState(game, null
 }
 
 void ComputerGameState::update(float deltaTime) {
+
+
 	AnimationGameState::update(deltaTime);
 }

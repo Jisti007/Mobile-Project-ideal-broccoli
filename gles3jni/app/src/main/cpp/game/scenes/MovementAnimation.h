@@ -6,12 +6,13 @@
 
 class MovementAnimation : public Animation {
 public:
-	MovementAnimation(Actor* actor, glm::vec2 destination);
+	MovementAnimation(Actor* actor, glm::vec2 destination, float speed = 2.0f);
 	virtual bool animate(float deltaTime);
 
 private:
 	Actor* actor;
 	glm::vec2 destination;
+	float speed;
 };
 
 #endif //GLES3JNI_MOVEMENTANIMATION_H

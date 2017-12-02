@@ -17,6 +17,26 @@ float MapHex::getHeuristic(Node* destination) {
 	return getDistance(destinationHex);
 }
 
+std::vector<MapHex*> MapHex::getHexesWithin(int radius, GameMap* map) {
+	std::vector<MapHex*> hexes;
+
+	int minX = getGridX() - radius;
+	int minY = getGridY() - radius;
+	int maxX = getGridX() + radius;
+	int maxY = getGridY() + radius;
+
+	for (int x = minX; x <= maxX; x++) {
+		for (int y = minY; y <= maxY; y++) {
+			auto hex = map->tryGetHex(x, y);
+			if (hex != nullptr && getDistance(hex) <= radius) {
+				hexes.push_back(hex);
+			}
+		}
+	}
+
+	return hexes;
+}
+
 void MapHex::initializeNeighbors(GameMap* map) {
 	neighbors.clear();
 	neighbors.reserve(6);

@@ -19,6 +19,7 @@
 			<SwappableColor r="255" g="255" b="255"/>
 			<SwappableColor r="0" g="0" b="160"/>
 		</Sprite>
+		<Sprite id="attack" x="32" y="856" w="140" h="140"/>
 	</SpriteSheet>
 
 	<SpriteSheet texture="terrain">

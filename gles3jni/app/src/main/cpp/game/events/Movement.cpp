@@ -10,20 +10,7 @@ Movement::~Movement() {
 }
 
 bool Movement::execute() {
-	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
-	if (unit->moveTo(destinationHex)) {
-		unit->modifyMovement(-path.getCost());
-		auto scene = unit->getMap()->getScene();
-		for (auto& link : path.getLinks()) {
-			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
-			auto animation = std::unique_ptr<Animation>(new MovementAnimation(
-				unit->getActor(), linkDestinationHex->getActor()->getPosition()
-			));
-			scene->queueAnimation(animation);
-		}
-		return true;
-	}
-	return false;
+	return unit->move(path);
 }
 
 bool Movement::cancel() {

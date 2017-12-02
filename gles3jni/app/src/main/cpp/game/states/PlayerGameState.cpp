@@ -21,9 +21,7 @@ void PlayerGameState::recreateUI() {
 }
 
 void PlayerGameState::update(float deltaTime) {
-	// TODO: Move to when resources update
-	auto scenario = game->getCampaign()->getScenario();
-	//resourcePanel->updateResources(scenario);
+
 }
 
 void PlayerGameState::onPressHex(MapHex* hex) {

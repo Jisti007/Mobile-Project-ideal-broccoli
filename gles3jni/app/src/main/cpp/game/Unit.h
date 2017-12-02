@@ -2,6 +2,7 @@
 #define GLES3JNI_UNIT_H
 
 class GameMap;
+class MapHex;
 
 #include "UnitType.h"
 #include "MapObject.h"
@@ -9,6 +10,7 @@ class GameMap;
 #include "GameMap.h"
 #include "pathing/Agent.h"
 #include "scenes/Actor.h"
+#include "pathing/Path.h"
 
 class Unit : public MapObject, public Agent {
 public:
@@ -17,12 +19,15 @@ public:
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
 
+	bool move(Path& path);
 	bool moveTo(MapHex* destination);
 	void die();
 	void setHP(int hp);
 	void onBeginTurn();
+	MapHex* getHex();
 
 	inline GameMap* getMap() { return map; }
+	//inline MapHex* getHex() { return map->tryGetHex(getGridPosition()); }
 	inline const UnitType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }
 	inline int getHP() { return hp; }
@@ -36,6 +41,7 @@ private:
 	GameMap* map;
 	int hp;
 	float movementRemaining;
+	bool movable = true;
 };
 
 #endif //GLES3JNI_UNIT_H
