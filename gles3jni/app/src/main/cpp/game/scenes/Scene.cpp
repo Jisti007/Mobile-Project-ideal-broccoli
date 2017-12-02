@@ -2,15 +2,24 @@
 #include "Scene.h"
 
 bool Scene::animate(float deltaTime) {
+	/*
 	if (animationQueue.empty()) {
 		return false;
 	}
-
-	auto animation = animationQueue.front().get();
-	if (animation->animate(deltaTime)) {
-		animationQueue.pop_front();
+	*/
+	auto i = animationQueue.begin();
+	while (i != animationQueue.end()) {
+		auto animation = i->get();
+		if (animation->animate(deltaTime)) {
+			animationQueue.erase(i++);
+		} else if (animation->isBlocking()) {
+			return true;
+		} else {
+			i++;
+		}
 	}
-	return true;
+
+	return !animationQueue.empty();
 }
 
 void Scene::draw(Pipeline* pipeline, float deltaTime) {

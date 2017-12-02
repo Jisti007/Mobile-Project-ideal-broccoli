@@ -12,8 +12,10 @@ public:
 
 private:
 	Unit* target;
+	std::vector<Skill*> skills;
 
 	void createUI();
+	void skillButton_onPress(void* skillArg);
 };
 
 #endif //GLES3JNI_TARGETSELECTEDGAMESTATE_H

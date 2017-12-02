@@ -48,7 +48,7 @@ in vec2 fragmentTexture;
 layout(location = 0) out vec4 outColor;
 
 void main(){
-	outColor = vec4(ambientColor, 1.0) * texture(sampler, fragmentTexture);
+	outColor = texture(sampler, fragmentTexture);
 	for (int i = 0; i < numberOfColorSwaps; i++) {
 		float dr = abs(outColor.r - sourceColors[i].r);
 		float dg = abs(outColor.g - sourceColors[i].g);
@@ -58,6 +58,8 @@ void main(){
 			break;
 		}
 	}
+
+	outColor *= vec4(ambientColor, 1.0);
 }
 )glsl";
 
@@ -110,6 +112,8 @@ void Pipeline::beginDraw() {
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
+	draw(sprite, position, 0, scale);
+	/*
 	glUniform2f(instancePositionLocation, position.x, position.y);
 	glUniform1f(instanceScaleLocation, scale);
 	auto texture = sprite->getTexture()->getHandle();
@@ -126,20 +130,19 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
 
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 	glUniform1i(numberOfColorSwapsLocation, 0);
+	*/
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
-	draw(sprite, position, 1, destinationColors);
+	draw(sprite, position, destinationColors, 1);
 }
 
-
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale,
-	std::vector<glm::vec3> destinationColors) {
-
+void Pipeline::draw(
+	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, float scale
+) {
 	auto numberOfColorSwaps = (GLint)std::min(
 		sprite->getSwappableColors().size(), destinationColors.size()
 	);
-	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
 	glUniform3fv(
 		sourceColorsLocation,
 		(GLsizei)numberOfColorSwaps,
@@ -151,7 +154,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale,
 		(GLfloat*)destinationColors.data()
 	);
 
-	draw(sprite, position, scale);
+	draw(sprite, position, numberOfColorSwaps, scale);
 }
 
 void Pipeline::endDraw() {
@@ -191,6 +194,25 @@ bool Pipeline::isVisible(Rectangle rectangle) {
 		viewportSize / cameraZoom
 	);
 	return viewportBounds.overlaps(rectangle);
+}
+
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps, float scale) {
+	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
+	glUniform2f(instancePositionLocation, position.x, position.y);
+	glUniform1f(instanceScaleLocation, scale);
+	auto texture = sprite->getTexture()->getHandle();
+	if (texture != lastTexture) {
+		glBindTexture(GL_TEXTURE_2D, texture);
+		lastTexture = texture;
+	}
+	auto mesh = sprite->getMesh();
+	auto vertexArray = mesh->getVertexArray();
+	if (vertexArray != lastVertexArray) {
+		glBindVertexArray(vertexArray);
+		lastVertexArray = vertexArray;
+	}
+
+	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
 GLuint Pipeline::createShader(const char* source, GLenum type) {

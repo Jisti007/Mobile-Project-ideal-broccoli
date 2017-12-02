@@ -42,14 +42,21 @@ private:
 	std::unordered_set<std::string> loadedModules;
 
 	template <typename T>
-	using FunctionMap = std::unordered_map<std::string, std::function<T>>;
-	typedef FunctionMap<void(Node*)> NodeFunction;
-	NodeFunction moduleFunctions;
-	NodeFunction assetFunctions;
-	FunctionMap<std::unique_ptr<Effect>(Node*)> effectFunctions;
+	using StringMap = std::unordered_map<std::string, T>;
 
 	template <typename T>
-	using AssetMap = std::unordered_map<std::string, std::unique_ptr<T>>;
+	using FunctionMap = StringMap<std::function<T>>;
+	typedef FunctionMap<void(Node*)> VoidFunctionMap;
+	VoidFunctionMap moduleFunctions;
+	VoidFunctionMap assetFunctions;
+
+	template <typename T>
+	using PtrFunctionMap = FunctionMap<std::unique_ptr<T>(Node*)>;
+	PtrFunctionMap<Effect> effectFunctions;
+	PtrFunctionMap<SkillAnimation> animationFunctions;
+
+	template <typename T>
+	using AssetMap = StringMap<std::unique_ptr<T>>;
 	AssetMap<Texture> textures;
 	AssetMap<Mesh> meshes;
 	AssetMap<Sprite> sprites;
@@ -60,7 +67,8 @@ private:
 	AssetMap<Resource> resources;
 	AssetMap<Font> fonts;
 	WeightedList<Biome*> weightedBiomes;
-	std::unordered_map<std::string, TargetType> targetTypes;
+	StringMap<SkillAnimation::Role> skillAnimationActors;
+	StringMap<TargetType> targetTypes;
 
 	void
 	loadXml(const char* directory, const char* fileName, std::function<void(Node*)> nodeFunction);
@@ -80,6 +88,8 @@ private:
 	void loadResource(Node* node);
 
 	std::unique_ptr<Effect> loadHPModification(Node* node);
+	std::unique_ptr<SkillAnimation> loadNudge(Node* node);
+	std::unique_ptr<SkillAnimation> loadProjectile(Node* node);
 
 	class Node {
 	public:

@@ -5,6 +5,8 @@
 #include "../Rectangle.h"
 #include "../Pipeline.h"
 
+
+
 class UIObject {
 	//typedef std::unique_ptr<UIObject> ChildPtr;
 
@@ -14,7 +16,7 @@ public:
 	virtual void onDraw(Pipeline* pipeline) {}
 
 	void draw(Pipeline* pipeline);
-	void setOnPress(std::function<void()> onPress);
+	void setOnPress(std::function<void(void*)> onPress);
 	bool press(glm::vec2 position);
 	/// Convenience method for moving unique pointer to the UI object's children.
 	void addChild(std::unique_ptr<UIObject>& newChild);
@@ -32,12 +34,14 @@ public:
 	inline float getRight() { return position.x + size.x / 2.0f; }
 	inline float getTop() { return position.y + size.y / 2.0f; }
 	inline float getBottom() { return position.y - size.y / 2.0f; }
+	inline void setOnPressArgs(void* args) { this->onPressArgs = args; }
 
 private:
 	std::vector<std::unique_ptr<UIObject>> children;
 	glm::vec2 position;
 	glm::vec2 size;
-	std::function<void()> onPress;
+	std::function<void(void*)> onPress;
+	void* onPressArgs;
 };
 
 template<class T, typename... Args>

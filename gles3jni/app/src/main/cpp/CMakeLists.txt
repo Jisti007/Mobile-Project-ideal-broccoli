@@ -46,6 +46,7 @@ add_library(
 	game/Rectangle.cpp
 	game/Resource.cpp
 	game/Scenario.cpp
+	game/Skill.cpp
 	game/Sprite.cpp
 	game/Texture.cpp
 	game/Unit.cpp

@@ -26,7 +26,7 @@ RecoloredUISprite::RecoloredUISprite(Sprite* sprite, glm::vec2 position,
 }
 
 void RecoloredUISprite::onDraw(Pipeline* pipeline) {
-	pipeline->draw(getSprite(), getPosition(), getScale(), destinationColors);
+	pipeline->draw(getSprite(), getPosition(), destinationColors, getScale());
 }
 
 RecoloredUISprite::~RecoloredUISprite() {

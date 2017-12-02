@@ -12,7 +12,7 @@ void UIObject::draw(Pipeline *pipeline) {
 	}
 }
 
-void UIObject::setOnPress(std::function<void()> onPress) {
+void UIObject::setOnPress(std::function<void(void*)> onPress) {
 	this->onPress = onPress;
 }
 
@@ -24,7 +24,7 @@ bool UIObject::press(glm::vec2 position) {
 	}
 	if (getRectangle().contains(position)) {
 		if (onPress) {
-			onPress();
+			onPress(onPressArgs);
 		}
 		return true;
 	}

@@ -17,7 +17,7 @@ public:
 	void beginDraw();
 	void draw(Sprite* sprite, glm::vec2 position, float scale = 1.0f);
 	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
-	void draw(Sprite* sprite, glm::vec2 position, float scale, std::vector<glm::vec3> destinationColors);
+	void draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, float scale);
 	void endDraw();
 	void setAmbientColor(glm::vec3 color);
 	void setCameraPosition(glm::vec2 position);
@@ -44,6 +44,7 @@ private:
 	glm::vec2 cameraPosition;
 	float cameraZoom;
 
+	void draw(Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps, float scale = 1.0f);
 	GLuint createShader(const char* source, GLenum type);
 	void deleteShader(GLuint* shader);
 };

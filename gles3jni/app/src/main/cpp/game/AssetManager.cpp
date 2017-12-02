@@ -10,19 +10,25 @@ using placeholders::_1;
 AssetManager::AssetManager() {
 	// Bind functions to maps, primarily so we won't need if-else chains.
 	// moduleFunctions and assetFunctions are separate to prevent possible recursion.
-	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
+	moduleFunctions["LoadAssets"] = std::bind(&AssetManager::loadAssets, this, _1);
 
-	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
-	assetFunctions["Sprite"] = bind(&AssetManager::loadSprite, this, _1);
-	assetFunctions["SpriteSheet"] = bind(&AssetManager::loadSpriteSheet, this, _1);
-	assetFunctions["Font"] = bind(&AssetManager::loadFont, this, _1);
-	assetFunctions["Hex"] = bind(&AssetManager::loadHexType, this, _1);
-	assetFunctions["Biome"] = bind(&AssetManager::loadBiome, this, _1);
-	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
-	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
-	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
+	assetFunctions["Texture"] = std::bind(&AssetManager::loadTexture, this, _1);
+	assetFunctions["Sprite"] = std::bind(&AssetManager::loadSprite, this, _1);
+	assetFunctions["SpriteSheet"] = std::bind(&AssetManager::loadSpriteSheet, this, _1);
+	assetFunctions["Font"] = std::bind(&AssetManager::loadFont, this, _1);
+	assetFunctions["Hex"] = std::bind(&AssetManager::loadHexType, this, _1);
+	assetFunctions["Biome"] = std::bind(&AssetManager::loadBiome, this, _1);
+	assetFunctions["Unit"] = std::bind(&AssetManager::loadUnitType, this, _1);
+	assetFunctions["Building"] = std::bind(&AssetManager::loadBuildingType, this, _1);
+	assetFunctions["Resource"] = std::bind(&AssetManager::loadResource, this, _1);
 
-	effectFunctions["HPModification"] = bind(&AssetManager::loadHPModification, this, _1);
+	effectFunctions["HPModification"] = std::bind(&AssetManager::loadHPModification, this, _1);
+
+	animationFunctions["Nudge"] = std::bind(&AssetManager::loadNudge, this, _1);
+	animationFunctions["Projectile"] = std::bind(&AssetManager::loadProjectile, this, _1);
+
+	skillAnimationActors["user"] = SkillAnimation::Role::user;
+	skillAnimationActors["target"] = SkillAnimation::Role::target;
 
 	targetTypes["enemy"] = TargetType::enemy;
 	targetTypes["friendly"] = TargetType::friendly;
@@ -260,8 +266,22 @@ void AssetManager::loadUnitType(Node *node) {
 			effectNode = effectNode->next_sibling();
 		}
 
+		Skill::AnimationList animations;
+		auto animationNode = skillNode->first_node("Animations")->first_node();
+		while (animationNode) {
+			auto function = animationFunctions[animationNode->name()];
+			if (function) {
+				Node animationNode2(node->getDirectory(), animationNode);
+				auto animation = function(&animationNode2);
+				// Android Studio gives a false error. Compiles fine.
+				animations.push_back(std::move(animation));
+			}
+
+			animationNode = animationNode->next_sibling();
+		}
+
 		skills.push_back(std::make_unique<Skill>(
-			skillSprite, targetType, skillRange, skillCost, effects
+			skillSprite, targetType, skillRange, skillCost, effects, animations
 		));
 
 		skillNode = skillNode->next_sibling();
@@ -299,5 +319,20 @@ void AssetManager::loadResource(Node *node) {
 std::unique_ptr<Effect> AssetManager::loadHPModification(AssetManager::Node* node) {
 	auto amount = atoi(node->getData()->first_attribute("amount")->value());
 	return std::unique_ptr<Effect>(new HPModification(amount));
+}
+
+std::unique_ptr<SkillAnimation> AssetManager::loadNudge(AssetManager::Node* node) {
+	auto source = skillAnimationActors[node->getData()->first_attribute("source")->value()];
+	auto destination = skillAnimationActors[node->getData()->first_attribute("destination")->value()];
+	float distance = (float)atof(node->getData()->first_attribute("distance")->value());
+	return std::unique_ptr<SkillAnimation>(new Nudge(source, destination, distance));
+}
+
+std::unique_ptr<SkillAnimation> AssetManager::loadProjectile(AssetManager::Node* node) {
+	auto sprite = getSprite(node->getSprite());
+	auto source = skillAnimationActors[node->getData()->first_attribute("source")->value()];
+	auto destination = skillAnimationActors[node->getData()->first_attribute("destination")->value()];
+	auto speed = (float)atof(node->getData()->first_attribute("speed")->value());
+	return std::unique_ptr<SkillAnimation>(new Projectile(sprite, source, destination, speed));
 }
 

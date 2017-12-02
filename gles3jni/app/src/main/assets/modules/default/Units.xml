@@ -13,6 +13,10 @@
 			<Effects>
 				<HPModification amount="-3" />
 			</Effects>
+			<Animations>
+				<Nudge source="user" destination="target" distance="0.25"/>
+				<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+			</Animations>
 		</Skill>
 	</Unit>
 </Assets>
