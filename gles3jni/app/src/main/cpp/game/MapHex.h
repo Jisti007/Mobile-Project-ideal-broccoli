@@ -23,7 +23,7 @@ public:
 	std::vector<MapHex*> getHexesWithin(int radius, GameMap* map);
 	void initializeNeighbors(GameMap* map);
 	void setRegion(MapRegion* region);
-	int getDistance(MapHex* other);
+	//int getDistance(MapHex* other);
 
 	virtual Sprite* getSprite() { return type->getSprite(); }
 	inline const std::vector<MapHex*>& getNeighbors() const { return neighbors; }
@@ -42,7 +42,7 @@ private:
 	Building* building;
 
 	void addNeighbor(GameMap* map, int x, int y);
-	Point3D getCubePosition();
+	//Point3D getCubePosition();
 };
 
 #endif //GLES3JNI_MAPHEX_H

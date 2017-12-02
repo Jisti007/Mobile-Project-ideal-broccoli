@@ -37,6 +37,29 @@ float Skill::evaluate(MapObject* user, MapObject* target) {
 	return evaluation;
 }
 
+bool Skill::validate(MapObject* user, MapObject* target) {
+	if (user->getDistance(target) > getRange()) {
+		return false;
+	}
+
+	auto userUnit = static_cast<Unit*>(user);
+	auto targetUnit = dynamic_cast<Unit*>(target);
+	if (targetUnit) {
+		switch (targetType) {
+			case TargetType::unit:
+				return  true;
+			case enemy:
+				return userUnit->isHostileTowards(targetUnit);
+			case friendly:
+				return userUnit->isFriendlyTowards(targetUnit);
+			case hex:
+				return false;
+		}
+	}
+
+	return false;
+}
+
 UnitType::UnitType(
 	Sprite* sprite, int hp, int attack, int defense,
 	int range, int movement, SkillList& skills
@@ -48,4 +71,14 @@ UnitType::UnitType(
 	this->range = range;
 	this->movement = movement;
 	this->skills = std::move(skills);
+}
+
+const std::vector<Skill*> UnitType::getValidSkills(MapObject* user, MapObject* target) const {
+	std::vector<Skill*> validSkills;
+	for (auto& skill :skills) {
+		if (skill->validate(user, target)) {
+			validSkills.push_back(skill.get());
+		}
+	}
+	return validSkills;
 }

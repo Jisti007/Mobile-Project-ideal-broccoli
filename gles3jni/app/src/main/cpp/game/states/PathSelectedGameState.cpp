@@ -5,7 +5,7 @@
 #include "../../glm/glm.hpp"
 
 PathSelectedGameState::PathSelectedGameState(Game* game, Path path, Unit* selectedUnit)
-	: path(path), UnitSelectedGameState(game, selectedUnit) {
+	: UnitSelectedGameState(game, selectedUnit), path(path) {
 }
 
 void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {

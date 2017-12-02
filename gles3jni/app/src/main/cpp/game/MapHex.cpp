@@ -73,7 +73,7 @@ void MapHex::setRegion(MapRegion* region) {
 		type = region->getBiome()->getRandomHexType();
 	}
 }
-
+/*
 int MapHex::getDistance(MapHex* other) {
 	Point3D cube = getCubePosition();
 	Point3D otherCube = other->getCubePosition();
@@ -90,3 +90,4 @@ Point3D MapHex::getCubePosition() {
 	int y = -x - z;
 	return Point3D{x, y, z};
 }
+*/

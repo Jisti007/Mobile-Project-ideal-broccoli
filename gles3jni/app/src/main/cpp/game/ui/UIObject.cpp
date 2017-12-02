@@ -34,3 +34,4 @@ bool UIObject::press(glm::vec2 position) {
 void UIObject::addChild(std::unique_ptr<UIObject>& newChild) {
 	children.push_back(std::move(newChild));
 }
+

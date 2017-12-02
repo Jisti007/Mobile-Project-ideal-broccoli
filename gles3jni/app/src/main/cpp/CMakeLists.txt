@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.4.1)
 #   [24, infinite)   ES2 & ES3 & Vulkan
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fno-rtti -Wall") # -fno-exceptions
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall") # -fno-rtti -fno-exceptions
 
 if (${ANDROID_PLATFORM_LEVEL} LESS 12)
     message(FATAL_ERROR "OpenGL 2 is not supported before API level 11 (currently using ${ANDROID_PLATFORM_LEVEL}).")
@@ -78,6 +78,7 @@ add_library(
 	game/states/MapGameState.cpp
 	game/states/PlayerGameState.cpp
 	game/states/PathSelectedGameState.cpp
+	game/states/TargetSelectedGameState.cpp
 	game/states/UnitSelectedGameState.cpp
 
 	game/ui/Button.cpp

@@ -1,7 +1,3 @@
-//
-// Created by K1697 on 29.11.2017.
-//
-
 #include "PlayerGameState.h"
 #include "UnitSelectedGameState.h"
 #include "../ui/RecoloredUISprite.h"

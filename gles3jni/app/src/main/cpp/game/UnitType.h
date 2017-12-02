@@ -41,8 +41,10 @@ public:
 	/// Helps the AI evaluate the value of using this skill.
 	/// The higher the returned number, the better for the AI.
 	float evaluate(MapObject* user, MapObject* target);
+	/// Returns true if the rules allow the user to use this skill against the target.
+	bool validate(MapObject* user, MapObject* target);
 
-	inline const Sprite* getSprite() const { return sprite; }
+	inline Sprite* getSprite() const { return sprite; }
 	inline const TargetType getTargetType() const { return targetType; }
 	inline const int getRange() const { return range; }
 	inline const float getCost() const { return cost; }
@@ -64,6 +66,8 @@ public:
 		Sprite* sprite, int hp, int attack, int defense,
 		int range, int movement, SkillList& skills
 	);
+
+	const std::vector<Skill*> getValidSkills(MapObject* user, MapObject* target) const;
 
 	inline Sprite* getSprite() const { return sprite; }
 	inline int getHP() { return hp; }

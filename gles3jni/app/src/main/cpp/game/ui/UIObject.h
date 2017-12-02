@@ -16,8 +16,11 @@ public:
 	void draw(Pipeline* pipeline);
 	void setOnPress(std::function<void()> onPress);
 	bool press(glm::vec2 position);
-	/// Convenience method for moving unique pointer to the ui object's children.
+	/// Convenience method for moving unique pointer to the UI object's children.
 	void addChild(std::unique_ptr<UIObject>& newChild);
+	/// Convenience method for constructing and adding a new child for the UI object.
+	template <class T, typename... Args>
+	T* addNewChild(Args&& ... args);
 
 	inline std::vector<std::unique_ptr<UIObject>>& getChildren() { return children; }
 	inline glm::vec2 getPosition() { return position; }
@@ -36,5 +39,13 @@ private:
 	glm::vec2 size;
 	std::function<void()> onPress;
 };
+
+template<class T, typename... Args>
+T* UIObject::addNewChild(Args&& ... args) {
+	auto child = new T(std::forward<Args>(args)...);
+	std::unique_ptr<UIObject> childPtr(child);
+	addChild(childPtr);
+	return child;
+}
 
 #endif //GLES3JNI_UIOBJECT_H

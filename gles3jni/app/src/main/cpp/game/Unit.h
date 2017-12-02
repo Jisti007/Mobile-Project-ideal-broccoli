@@ -35,6 +35,7 @@ public:
 	inline void modifyHP(int deltaHP) { setHP(hp + deltaHP); }
 	inline float getMovement() { return movementRemaining; }
 	inline void modifyMovement(float deltaMovement) { movementRemaining += deltaMovement; }
+	inline bool isHostileTowards(Unit* other) { return !isFriendlyTowards(other); }
 
 private:
     UnitType* type;

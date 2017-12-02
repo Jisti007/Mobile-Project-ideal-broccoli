@@ -68,8 +68,6 @@ void GameMap::generate() {
 			hex->setActor(actor);
 
 			if (hex->getType() != water) {
-				glm::vec2 hexPosition = getHexPosition(x, y);
-
 				auto rn = rand() % 100;
 				if (rn > 95) {
 					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
@@ -230,7 +228,6 @@ void GameMap::initializeHexes() {
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto position = getHexPosition(x, y);
 			auto hex = make_unique<MapHex>(x, y, grass);
 			hexes.push_back(move(hex));
 		}
