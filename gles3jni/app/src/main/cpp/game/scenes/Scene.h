@@ -9,9 +9,9 @@
 class Scene {
 public:
 	template <class T, typename... Args>
-	T* add(Args&& ... args);
+	T* addNew(Args&& ... args);
 	template <class T, typename... Args>
-	T* queue(Args&& ... args);
+	T* queueNew(Args&& ... args);
 
 	/// Runs the animation(s) at the front of the queue.
 	/// Returns false if the animation queue is empty.
@@ -31,7 +31,7 @@ private:
 };
 
 template<class T, typename... Args>
-T* Scene::add(Args&& ... args) {
+T* Scene::addNew(Args&& ... args) {
 	auto actor = new T(std::forward<Args>(args)...);
 	std::unique_ptr<Actor> actorPtr(actor);
 	addActor(actorPtr);
@@ -39,7 +39,7 @@ T* Scene::add(Args&& ... args) {
 }
 
 template<class T, typename... Args>
-T* Scene::queue(Args&& ... args) {
+T* Scene::queueNew(Args&& ... args) {
 	auto animation = new T(std::forward<Args>(args)...);
 	std::unique_ptr<Animation> animationPtr(animation);
 	queueAnimation(animationPtr);

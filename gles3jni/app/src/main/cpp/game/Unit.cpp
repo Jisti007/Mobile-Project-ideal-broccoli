@@ -22,7 +22,7 @@ bool Unit::move(Path& path) {
 		auto scene = getMap()->getScene();
 		for (auto& link : path.getLinks()) {
 			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
-			scene->queue<MovementAnimation>(
+			scene->queueNew<MovementAnimation>(
 				getActor(), linkDestinationHex->getActor()->getPosition()
 			);
 		}
@@ -55,7 +55,7 @@ bool Unit::moveTo(MapHex* destination) {
 void Unit::die() {
 	map->removeUnit(this);
 	auto scene = map->getScene();
-	scene->queue<DeathAnimation>(getActor(), scene);
+	scene->queueNew<DeathAnimation>(getActor(), scene);
 }
 
 void Unit::setHP(int hp) {

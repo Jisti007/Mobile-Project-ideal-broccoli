@@ -59,9 +59,14 @@ void Nudge::queue(SkillUser* user, SkillTarget* target) {
 	auto userUnit = static_cast<Unit*>(user);
 	auto scene = userUnit->getMap()->getScene();
 	auto sourceActor = getSourceActor(user, target);
+	auto originalPosition = sourceActor->getPosition();
 	auto destinationActor = getDestinationActor(user, target);
-
-
+	auto delta = destinationActor->getPosition() - originalPosition;
+	auto direction = glm::normalize(delta);
+	auto distance = sqrtf(glm::dot(delta, delta));
+	auto destinationPosition = originalPosition + this->distance * distance * direction;
+	auto first = scene->queueNew<MovementAnimation>(sourceActor, destinationPosition, 2.0f, false);
+	first->chainNew<MovementAnimation>(sourceActor, originalPosition);
 }
 
 Projectile::Projectile(
@@ -81,9 +86,9 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto scene = userUnit->getMap()->getScene();
 	auto sourceActor = getSourceActor(user, target);
 	auto destinationActor = getDestinationActor(user, target);
-	auto projectile = scene->add<Actor>(sprite, sourceActor->getPosition(), 1.0f);
-	scene->queue<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
-	scene->queue<DeathAnimation>(projectile, scene);
+	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f);
+	scene->queueNew<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
+	scene->queueNew<DeathAnimation>(projectile, scene);
 }
 
 Skill::Skill(
