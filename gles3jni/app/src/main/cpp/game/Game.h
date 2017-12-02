@@ -21,6 +21,8 @@ public:
 
 	template <class State, typename... Args>
 	void changeToNew(Args&& ... args);
+	template <class State, typename... Args>
+	void pushNew(Args&& ... args);
 
 	void initialize();
 	void step();
@@ -47,6 +49,12 @@ template<class State, typename... Args>
 void Game::changeToNew(Args&& ... args) {
 	std::unique_ptr<GameState> state(new State(std::forward<Args>(args)...));
 	changeState(state);
+}
+
+template<class State, typename... Args>
+void Game::pushNew(Args&& ... args) {
+	std::unique_ptr<GameState> state(new State(std::forward<Args>(args)...));
+	pushState(state);
 }
 
 #endif //GLES3JNI_GAME_H

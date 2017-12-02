@@ -60,8 +60,7 @@ void Game::resize(int width, int height) {
 	pipeline.setViewportSize(width, height);
 	auto state = getState();
 	if (state == nullptr) {
-		std::unique_ptr<GameState> newState(new PlayerGameState(this));
-		pushState(newState);
+		pushNew<PlayerGameState>(this);
 	} else {
 		state->recreateUI();
 	}

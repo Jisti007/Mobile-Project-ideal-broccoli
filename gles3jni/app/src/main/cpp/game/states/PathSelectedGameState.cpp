@@ -38,10 +38,7 @@ void PathSelectedGameState::onPressHex(MapHex* pressedHex) {
 			));
 			scenario->executeEvent(movement);
 
-			std::unique_ptr<GameState> animationGameState(
-				new AnimationGameState(game, selectedUnit)
-			);
-			game->changeState(animationGameState);
+			game->changeToNew<AnimationGameState>(game, selectedUnit);
 		}
 	} else {
 		UnitSelectedGameState::onPressHex(pressedHex);
