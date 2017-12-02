@@ -75,3 +75,7 @@ void Unit::onBeginTurn() {
 MapHex* Unit::getHex() {
 	return map->tryGetHex(getGridPosition());
 }
+
+bool Unit::isFriendlyTowards(Unit* other) {
+	return getFaction() == other->getFaction();
+}

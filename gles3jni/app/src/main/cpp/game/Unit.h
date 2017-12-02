@@ -25,6 +25,7 @@ public:
 	void setHP(int hp);
 	void onBeginTurn();
 	MapHex* getHex();
+	bool isFriendlyTowards(Unit* other);
 
 	inline GameMap* getMap() { return map; }
 	//inline MapHex* getHex() { return map->tryGetHex(getGridPosition()); }

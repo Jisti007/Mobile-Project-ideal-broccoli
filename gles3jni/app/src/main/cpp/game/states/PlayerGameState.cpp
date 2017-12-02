@@ -35,10 +35,9 @@ void PlayerGameState::onPressHex(MapHex* hex) {
 }
 
 void PlayerGameState::createUI() {
-
 	auto assets = game->getAssets();
 	auto scenario = game->getCampaign()->getScenario();
-	auto map = scenario->getActiveMap();
+	//auto map = scenario->getActiveMap();
 	auto viewport = game->getPipeline()->getViewport();
 
 	auto resourcePanelSprite = assets->getSprite("ui_resource");
@@ -60,7 +59,6 @@ void PlayerGameState::createUI() {
 		0.5f, colors
 	));
 	uiRoot->addChild(crest);
-
 	resourcePanel->updateResources(scenario);
 
 	auto endTurnButtonSprite = assets->getSprite("end_turn_button");

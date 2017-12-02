@@ -11,6 +11,7 @@ AssetManager::AssetManager() {
 	// Bind functions to maps, primarily so we won't need if-else chains.
 	// moduleFunctions and assetFunctions are separate to prevent possible recursion.
 	moduleFunctions["LoadAssets"] = bind(&AssetManager::loadAssets, this, _1);
+
 	assetFunctions["Texture"] = bind(&AssetManager::loadTexture, this, _1);
 	assetFunctions["Sprite"] = bind(&AssetManager::loadSprite, this, _1);
 	assetFunctions["SpriteSheet"] = bind(&AssetManager::loadSpriteSheet, this, _1);
@@ -20,6 +21,13 @@ AssetManager::AssetManager() {
 	assetFunctions["Unit"] = bind(&AssetManager::loadUnitType, this, _1);
 	assetFunctions["Building"] = bind(&AssetManager::loadBuildingType, this, _1);
 	assetFunctions["Resource"] = bind(&AssetManager::loadResource, this, _1);
+
+	effectFunctions["HPModification"] = bind(&AssetManager::loadHPModification, this, _1);
+
+	targetTypes["enemy"] = TargetType::enemy;
+	targetTypes["friendly"] = TargetType::friendly;
+	targetTypes["unit"] = TargetType::unit;
+	targetTypes["hex"] = TargetType::hex;
 }
 
 AssetManager::~AssetManager() {
@@ -229,8 +237,39 @@ void AssetManager::loadUnitType(Node *node) {
 	auto defense = atoi(data->first_attribute("defense")->value());
 	auto range = atoi(data->first_attribute("range")->value());
 	auto movement = atoi(data->first_attribute("movement")->value());
+	UnitType::SkillList skills;
 
-	unitTypes[node->getID()] = make_unique<UnitType>(sprite, hp, attack, defense, range, movement);
+	auto skillNode = node->getData()->first_node("Skill");
+	while (skillNode) {
+		auto skillSprite = getSprite(skillNode->first_attribute("sprite")->value());
+		auto targetType = targetTypes[skillNode->first_attribute("target")->value()];
+		auto skillRange = atoi(skillNode->first_attribute("range")->value());
+		auto skillCost = atof(skillNode->first_attribute("cost")->value());
+
+		Skill::EffectList effects;
+		auto effectNode = skillNode->first_node("Effects")->first_node();
+		while (effectNode) {
+			auto function = effectFunctions[effectNode->name()];
+			if (function) {
+				Node effectNode2(node->getDirectory(), effectNode);
+				auto effect = function(&effectNode2);
+				// Android Studio gives a false error. Compiles fine.
+				effects.push_back(std::move(effect));
+			}
+
+			effectNode = effectNode->next_sibling();
+		}
+
+		skills.push_back(std::make_unique<Skill>(
+			skillSprite, targetType, skillRange, skillCost, effects
+		));
+
+		skillNode = skillNode->next_sibling();
+	}
+
+	unitTypes[node->getID()] = make_unique<UnitType>(
+		sprite, hp, attack, defense, range, movement, skills
+	);
 }
 
 void AssetManager::loadBuildingType(Node *node) {
@@ -255,5 +294,10 @@ void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	auto priority = atoi(node->getPriority());
 	resources[node->getID()] = make_unique<Resource>(sprite, priority);
+}
+
+std::unique_ptr<Effect> AssetManager::loadHPModification(AssetManager::Node* node) {
+	auto amount = atoi(node->getData()->first_attribute("amount")->value());
+	return std::unique_ptr<Effect>(new HPModification(amount));
 }
 

@@ -41,11 +41,14 @@ private:
 
 	std::unordered_set<std::string> loadedModules;
 
-	typedef std::unordered_map<std::string, std::function<void(Node*)>> NodeFunction;
+	template <typename T>
+	using FunctionMap = std::unordered_map<std::string, std::function<T>>;
+	typedef FunctionMap<void(Node*)> NodeFunction;
 	NodeFunction moduleFunctions;
 	NodeFunction assetFunctions;
+	FunctionMap<std::unique_ptr<Effect>(Node*)> effectFunctions;
 
-	template<typename T>
+	template <typename T>
 	using AssetMap = std::unordered_map<std::string, std::unique_ptr<T>>;
 	AssetMap<Texture> textures;
 	AssetMap<Mesh> meshes;
@@ -57,6 +60,7 @@ private:
 	AssetMap<Resource> resources;
 	AssetMap<Font> fonts;
 	WeightedList<Biome*> weightedBiomes;
+	std::unordered_map<std::string, TargetType> targetTypes;
 
 	void
 	loadXml(const char* directory, const char* fileName, std::function<void(Node*)> nodeFunction);
@@ -75,6 +79,7 @@ private:
 	void loadBuildingType(Node* node);
 	void loadResource(Node* node);
 
+	std::unique_ptr<Effect> loadHPModification(Node* node);
 
 	class Node {
 	public:

@@ -6,20 +6,24 @@
 
 class Effect {
 public:
-	virtual void apply(MapObject* target) = 0;
+	virtual void apply(MapObject* user, MapObject* target) = 0;
+	/// Helps the AI evaluate the value of an action that will have this effect.
+	/// The higher the returned number, the better for the AI.
+	virtual float evaluate(MapObject* user, MapObject* target) = 0;
 };
 
 class HPModification : public Effect {
 public:
 	HPModification(int amount);
 
-	virtual void apply(MapObject* target);
+	virtual void apply(MapObject* user, MapObject* target);
+	virtual float evaluate(MapObject* user, MapObject* target);
 
 private:
 	int amount;
 };
 
-enum Target {
+enum TargetType {
 	enemy,
 	friendly,
 	unit,
@@ -28,25 +32,38 @@ enum Target {
 
 class Skill {
 public:
-	Skill(Sprite* sprite, Target target, int range, float cost, std::vector<Effect*> effects);
+	typedef std::vector<std::unique_ptr<Effect>> EffectList;
+
+	Skill(
+		Sprite* sprite, TargetType targetType, int range, float cost, EffectList& effects
+	);
+
+	/// Helps the AI evaluate the value of using this skill.
+	/// The higher the returned number, the better for the AI.
+	float evaluate(MapObject* user, MapObject* target);
 
 	inline const Sprite* getSprite() const { return sprite; }
-	inline const Target getTarget() const { return target; }
+	inline const TargetType getTargetType() const { return targetType; }
 	inline const int getRange() const { return range; }
 	inline const float getCost() const { return cost; }
-	inline const std::vector<Effect*>& getEffects() const {  return effects; }
+	inline const EffectList& getEffects() const {  return effects; }
 
 private:
 	Sprite* sprite;
-	Target target;
+	TargetType targetType;
 	int range;
 	float cost;
-	std::vector<Effect*> effects;
+	EffectList effects;
 };
 
 class UnitType {
 public:
-	UnitType(Sprite* sprite, int hp, int attack, int defense, int range, int movement);
+	typedef std::vector<std::unique_ptr<Skill>> SkillList;
+
+	UnitType(
+		Sprite* sprite, int hp, int attack, int defense,
+		int range, int movement, SkillList& skills
+	);
 
 	inline Sprite* getSprite() const { return sprite; }
 	inline int getHP() { return hp; }
@@ -54,10 +71,12 @@ public:
 	inline int getDefense() { return defense; }
 	inline const int getRange() const { return range; }
 	inline const int getMovement() const { return movement; }
+	inline const SkillList& getSkills() { return skills; };
 
 private:
 	Sprite* sprite;
 	int hp, attack, defense, range, movement;
+	SkillList skills;
 };
 
 #endif //GLES3JNI_UNITTYPE_H
