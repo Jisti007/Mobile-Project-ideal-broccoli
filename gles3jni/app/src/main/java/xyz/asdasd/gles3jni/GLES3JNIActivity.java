@@ -37,13 +37,18 @@ public class GLES3JNIActivity extends Activity {
 	private String dataDirectory;
 
 	@Override
-	protected void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-		// Extract files from the .apk into the cache
-		// so we can access them in C++ in a cross-platform way.
-		dataDirectory = getFilesDir() + "/";
-		extractFileOrDir("modules");
+		if (
+			savedInstanceState != null
+			&& !savedInstanceState.getBoolean("assetsExtracted")
+		) {
+			// Extract files from the .apk into the cache
+			// so we can access them in C++ in a cross-platform way.
+			dataDirectory = getFilesDir() + "/";
+			extractFileOrDir("modules");
+		}
 
 		gestureDetector = new GestureDetector(this, new GestureListener());
 		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
@@ -51,6 +56,11 @@ public class GLES3JNIActivity extends Activity {
 		view = new GLES3JNIView(getApplication(), this);
 		setContentView(view);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		outState.putBoolean("assetsExtracted", true);
 	}
 
 	@Override
