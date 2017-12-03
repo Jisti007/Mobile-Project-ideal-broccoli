@@ -6,13 +6,15 @@ Decoration::Decoration(Sprite* sprite) {
 
 HexType::HexType(
 	Sprite* sprite, float movementCost,
-	WeightedList<Decoration> decorations, int minDecorations, int maxDecorations
+	WeightedList<Decoration> decorations,
+	int minDecorations, int maxDecorations, float decorationDistance
 ) {
 	this->sprite = sprite;
 	this->movementCost = movementCost;
 	this->decorations = decorations;
 	this->minDecorations = minDecorations;
 	this->maxDecorations = maxDecorations;
+	this->decorationDistance = decorationDistance;
 }
 
 std::vector<Sprite*> HexType::getRandomDecorations() const {

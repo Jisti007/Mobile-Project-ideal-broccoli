@@ -79,7 +79,7 @@ void MapHex::clearDecorations() {
 void MapHex::createDecorations() {
 	auto scene = map->getScene();
 	for (auto& decorationSprite : getType()->getRandomDecorations()) {
-		auto offset = glm::vec2(Random::generateFloat() / 2.0f, 0);
+		auto offset = glm::vec2(Random::generateFloat() * type->getDecorationDistance(), 0);
 		auto angle = 360.0f * Random::generateFloat();
 		offset = glm::rotate(offset, angle);
 		auto position = map->getHexPosition(getGridX(), getGridY()) + offset;

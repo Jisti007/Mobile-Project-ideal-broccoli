@@ -9,6 +9,9 @@ public:
 
 	virtual void draw(Pipeline* pipeline);
 
+	inline const std::vector<glm::vec3>& getColors() const { return colors; }
+	inline void setColors(std::vector<glm::vec3> colors) { this->colors = colors; }
+
 private:
 	std::vector<glm::vec3> colors;
 };

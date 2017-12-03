@@ -219,10 +219,14 @@ void AssetManager::loadHexType(Node *node) {
 	WeightedList<Decoration> decorations;
 	int minDecorations = 0;
 	int maxDecorations = 0;
+	auto decorationDistance = 0.0f;
 	auto decorationsNode = data->first_node("Decorations");
 	if (decorationsNode) {
 		minDecorations = atoi(decorationsNode->first_attribute("min")->value());
 		maxDecorations = atoi(decorationsNode->first_attribute("max")->value());
+		decorationDistance = static_cast<float>(
+			atof(decorationsNode->first_attribute("distance")->value())
+		);
 		auto decorationNode = decorationsNode->first_node("Decoration");
 		while (decorationNode) {
 			auto decorationSprite = getSprite(decorationNode->first_attribute("sprite")->value());
@@ -235,7 +239,7 @@ void AssetManager::loadHexType(Node *node) {
 	}
 
 	hexTypes[node->getID()] = std::make_unique<HexType>(
-		sprite, movementCost, decorations, minDecorations, maxDecorations
+		sprite, movementCost, decorations, minDecorations, maxDecorations, decorationDistance
 	);
 }
 
