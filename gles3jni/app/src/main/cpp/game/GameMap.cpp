@@ -66,6 +66,8 @@ void GameMap::generate() {
 				hex->getSprite(), getHexPosition(x, y), -Random::generateFloat()
 			);
 			hex->setActor(actor);
+			hex->clearDecorations();
+			hex->createDecorations();
 
 			if (hex->getType() != water) {
 				auto rn = rand() % 100;
@@ -228,13 +230,13 @@ void GameMap::initializeHexes() {
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto hex = make_unique<MapHex>(x, y, grass);
+			auto hex = make_unique<MapHex>(x, y, grass, this);
 			hexes.push_back(move(hex));
 		}
 	}
 
 	for (auto& hex : hexes) {
-		hex->initializeNeighbors(this);
+		hex->initializeNeighbors();
 	}
 }
 

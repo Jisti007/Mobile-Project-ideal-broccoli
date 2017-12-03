@@ -15,6 +15,7 @@ public:
 	inline void offsetPosition(glm::vec2 delta) { this->position += delta; }
 	inline glm::vec2 getPosition() { return position; }
 	inline Sprite* getSprite() { return sprite; }
+	inline void setSprite(Sprite* sprite) { this->sprite = sprite; }
 	inline float getDepth() { return depth; }
 	inline void setDepth(float depth) { this->depth = depth; }
 

@@ -6,6 +6,30 @@
 		movementCost="1.0"
 	/>
 	<Hex
+		id="grass_mountain"
+		sprite="grass"
+		movementCost="8.0"
+	>
+		<Decorations min="1" max="3">
+			<Decoration sprite="mountain_1" weight="20" />
+			<Decoration sprite="mountain_2" weight="15" />
+			<Decoration sprite="mountain_3" weight="10" />
+			<Decoration sprite="mountain_4" weight="15" />
+		</Decorations>
+	</Hex>
+	<Hex
+		id="forest"
+		sprite="forest"
+		movementCost="2.0"
+	>
+		<Decorations min="3" max="6">
+			<Decoration sprite="tree_1" weight="20" />
+			<Decoration sprite="tree_2" weight="15" />
+			<Decoration sprite="tree_3" weight="20" />
+			<Decoration sprite="tree_4" weight="15" />
+		</Decorations>
+	</Hex>
+	<Hex
 		id="water"
 		sprite="water"
 		movementCost="8.0"

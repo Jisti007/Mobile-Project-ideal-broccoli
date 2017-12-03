@@ -5,23 +5,27 @@
 	    weight="50"
 	>
 		<Hex id="grass" weight="100" />
-		<Hex id="sand" weight="10" />
-		<Hex id="water" weight="10" />
+		<Hex id="grass_mountain" weight="10" />
+		<Hex id="forest" weight="20" />
+		<Hex id="sand" weight="5" />
+		<Hex id="water" weight="5" />
 	</Biome>
 	<Biome
 		id="desert"
 	    weight="20"
 	>
-		<Hex id="grass" weight="10" />
+		<Hex id="grass" weight="5" />
 		<Hex id="sand" weight="100" />
-		<Hex id="water" weight="10" />
+		<Hex id="water" weight="5" />
+		<Hex id="forest" weight="5" />
 	</Biome>
 	<Biome
 		id="sea"
 	    weight="100"
 	>
-		<Hex id="grass" weight="10" />
-		<Hex id="sand" weight="10" />
+		<Hex id="grass" weight="5" />
+		<Hex id="sand" weight="5" />
 		<Hex id="water" weight="100" />
+		<Hex id="forest" weight="5" />
 	</Biome>
 </Assets>

@@ -25,7 +25,7 @@ protected:
 	uint16_t gridX, gridY;
 
 private:
-	Actor* actor = nullptr;
+	Actor* actor;
 
 	Point3D getCubePosition();
 };

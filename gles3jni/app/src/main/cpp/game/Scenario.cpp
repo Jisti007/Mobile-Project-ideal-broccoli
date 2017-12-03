@@ -29,7 +29,7 @@ Scenario::Scenario(Campaign* campaign) {
 	factions.push_back(testFaction3);
 
 	maps.push_back(
-		std::make_unique<GameMap>(160, 160, this)
+		std::make_unique<GameMap>(32, 32, this)
 	);
 
 	for (auto& map : maps) {

@@ -7,6 +7,7 @@
 		<SwappableColor r="0" g="0" b="244"/>
 		<SwappableColor r="113" g="62" b="0"/>
 	</Sprite>
+
 	<SpriteSheet texture="ui">
 		<Row y="0" h="110">
 			<Sprite id="test_button" x="0"   w="360" />
@@ -23,10 +24,28 @@
 	</SpriteSheet>
 
 	<SpriteSheet texture="terrain">
-		<Sprite id="grass" x="192" y="0" w="192" h="192" />
+		<Row y="0" h="192">
+			<Sprite id="grass" x="192" w="192" />
+			<Sprite id="forest" x="384" w="192" />
+		</Row>
 		<Row y="192" h="192">
 			<Sprite id="water"      x="0"   w="192" />
 			<Sprite id="sand"       x="192" w="192" />
+		</Row>
+	</SpriteSheet>
+
+	<SpriteSheet texture="decorations">
+		<Row y="0" h="128">
+			<Sprite id="mountain_1" x="0" w="128" />
+			<Sprite id="mountain_2" x="128" w="128" />
+			<Sprite id="mountain_3" x="256" w="128" />
+			<Sprite id="mountain_4" x="384" w="128" />
+		</Row>
+		<Row y="128" h="64">
+			<Sprite id="tree_1" x="0" w="64" />
+			<Sprite id="tree_2" x="64" w="64" />
+			<Sprite id="tree_3" x="128" w="64" />
+			<Sprite id="tree_4" x="192" w="64" />
 		</Row>
 	</SpriteSheet>
 
@@ -40,7 +59,7 @@
 			<Sprite id="crystal"    x="192" w="192" />
 		</Row>
 	</SpriteSheet>
-	<!--<Sprite id="test_building" texture="buildings" x="0" y="0" yOffset="-16" w="192" h="192" />-->
+
 	<SpriteSheet texture="buildings">
 		<Row y="0" h="256" yOffset="-16">
 			<Sprite id="test_building"     x="0"   w="256">

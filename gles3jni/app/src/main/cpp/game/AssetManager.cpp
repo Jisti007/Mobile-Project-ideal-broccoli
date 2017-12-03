@@ -209,13 +209,34 @@ void AssetManager::loadFont(AssetManager::Node* node) {
 		mappings[mappingChar] = sprite;
 		mappingNode = mappingNode->next_sibling();
 	}
-	fonts[node->getID()] = make_unique<Font>(mappings);
+	fonts[node->getID()] = std::make_unique<Font>(mappings);
 }
 
 void AssetManager::loadHexType(Node *node) {
+	auto data = node->getData();
 	auto sprite = sprites[node->getSprite()].get();
 	auto movementCost = (float)atof(node->getMovementCost());
-	hexTypes[node->getID()] = make_unique<HexType>(sprite, movementCost);
+	WeightedList<Decoration> decorations;
+	int minDecorations = 0;
+	int maxDecorations = 0;
+	auto decorationsNode = data->first_node("Decorations");
+	if (decorationsNode) {
+		minDecorations = atoi(decorationsNode->first_attribute("min")->value());
+		maxDecorations = atoi(decorationsNode->first_attribute("max")->value());
+		auto decorationNode = decorationsNode->first_node("Decoration");
+		while (decorationNode) {
+			auto decorationSprite = getSprite(decorationNode->first_attribute("sprite")->value());
+			auto weight = atof(decorationNode->first_attribute("weight")->value());
+			Decoration decoration(decorationSprite);
+			decorations.add(decoration, weight);
+
+			decorationNode = decorationNode->next_sibling();
+		}
+	}
+
+	hexTypes[node->getID()] = std::make_unique<HexType>(
+		sprite, movementCost, decorations, minDecorations, maxDecorations
+	);
 }
 
 void AssetManager::loadBiome(AssetManager::Node* node) {
@@ -231,7 +252,7 @@ void AssetManager::loadBiome(AssetManager::Node* node) {
 	}
 
 	auto biome = new Biome(biomeHexes);
-	biomes[node->getID()] = unique_ptr<Biome>(biome);
+	biomes[node->getID()] = std::unique_ptr<Biome>(biome);
 	weightedBiomes.add(biome, atof(node->getWeight()));
 }
 
@@ -285,7 +306,7 @@ void AssetManager::loadUnitType(Node *node) {
 		skillNode = skillNode->next_sibling();
 	}
 
-	unitTypes[node->getID()] = make_unique<UnitType>(
+	unitTypes[node->getID()] = std::make_unique<UnitType>(
 		sprite, hp, defense, movement, skills
 	);
 }
@@ -305,13 +326,13 @@ void AssetManager::loadBuildingType(Node *node) {
 		productionNode = productionNode->next_sibling("ResourceProduction");
 	}
 
-	buildingTypes[node->getID()] = make_unique<BuildingType>(sprite, resourceProductions);
+	buildingTypes[node->getID()] = std::make_unique<BuildingType>(sprite, resourceProductions);
 }
 
 void AssetManager::loadResource(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	auto priority = atoi(node->getPriority());
-	resources[node->getID()] = make_unique<Resource>(sprite, priority);
+	resources[node->getID()] = std::make_unique<Resource>(sprite, priority);
 }
 
 std::unique_ptr<Effect> AssetManager::loadHPModification(AssetManager::Node* node) {
