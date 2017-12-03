@@ -41,7 +41,7 @@
 			<Sprite id="mountain_3" x="256" w="128" />
 			<Sprite id="mountain_4" x="384" w="128" />
 		</Row>
-		<Row y="128" h="64">
+		<Row y="128" h="64" yOffset="-16">
 			<Sprite id="tree_1" x="0" w="64" />
 			<Sprite id="tree_2" x="64" w="64" />
 			<Sprite id="tree_3" x="128" w="64" />

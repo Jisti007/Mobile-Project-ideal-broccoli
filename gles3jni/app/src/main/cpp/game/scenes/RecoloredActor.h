@@ -5,7 +5,9 @@
 
 class RecoloredActor : public Actor {
 public:
-	RecoloredActor(Sprite* sprite, glm::vec2 position, float depth, std::vector<glm::vec3> colors);
+	RecoloredActor(
+		Sprite* sprite, glm::vec2 position, float depth, int layer, std::vector<glm::vec3> colors
+	);
 
 	virtual void draw(Pipeline* pipeline);
 

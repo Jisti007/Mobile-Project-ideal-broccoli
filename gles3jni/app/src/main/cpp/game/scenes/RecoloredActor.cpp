@@ -1,8 +1,8 @@
 #include "RecoloredActor.h"
 
 RecoloredActor::RecoloredActor(
-	Sprite* sprite, glm::vec2 position, float depth, std::vector<glm::vec3> colors
-) : Actor(sprite, position, depth) {
+	Sprite* sprite, glm::vec2 position, float depth, int layer, std::vector<glm::vec3> colors
+) : Actor(sprite, position, depth, layer) {
 	this->colors = colors;
 }
 

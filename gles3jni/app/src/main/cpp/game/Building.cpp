@@ -21,5 +21,6 @@ void Building::onBeginTurn(GameMap* map) {
 void Building::setFaction(Faction* faction) {
 	this->faction = faction;
 	auto actor = static_cast<RecoloredActor*>(getActor());
+	// TODO: Queue an Animation to change the color instead.
 	actor->setColors(faction->getColors());
 }

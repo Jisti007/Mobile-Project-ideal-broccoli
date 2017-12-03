@@ -207,7 +207,7 @@ glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
 }
 
 Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
-	auto actor = new Actor(sprite, getScreenPosition(position), depth);
+	auto actor = new Actor(sprite, getScreenPosition(position), depth, 0);
 	auto actorPointer = std::unique_ptr<Actor>(actor);
 	scene.addActor(actorPointer);
 	return actor;
@@ -216,7 +216,7 @@ Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
 Actor* GameMap::createActor(
 	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth
 ) {
-	auto actor = new RecoloredActor(sprite, getScreenPosition(position), depth, colors);
+	auto actor = new RecoloredActor(sprite, getScreenPosition(position), depth, 2, colors);
 	auto actorPointer = std::unique_ptr<Actor>(actor);
 	scene.addActor(actorPointer);
 	return actor;

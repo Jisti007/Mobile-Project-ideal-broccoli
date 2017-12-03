@@ -7,7 +7,7 @@
 
 class Actor {
 public:
-	Actor(Sprite* sprite, glm::vec2 position, float depth);
+	Actor(Sprite* sprite, glm::vec2 position, float depth, int layer);
 
 	virtual void draw(Pipeline* pipeline);
 
@@ -18,23 +18,26 @@ public:
 	inline void setSprite(Sprite* sprite) { this->sprite = sprite; }
 	inline float getDepth() { return depth; }
 	inline void setDepth(float depth) { this->depth = depth; }
+	inline int getLayer() { return layer; }
 
 private:
 	Sprite* sprite;
 	glm::vec2 position;
 	float depth = 0.0f;
+	int layer;
 };
 
 struct ActorSorter {
-	inline bool operator() (Actor* actor1, Actor* actor2) {
-		return (actor1->getDepth() < actor2->getDepth());
-	}
-};
-
-struct ActorPointerSorter {
-	inline bool operator() (std::unique_ptr<Actor>& actor1, std::unique_ptr<Actor>& actor2)
-	{
-		return (actor1->getDepth() > actor2->getDepth());
+	inline bool operator() (Actor* a, Actor* b) {
+		if (a->getLayer() < b->getLayer()) {
+			return true;
+		}
+/*
+		if (a->getSprite()->getTexture() < b->getSprite()->getTexture()) {
+			return true;
+		}
+*/
+		return a->getDepth() < b->getDepth();
 	}
 };
 

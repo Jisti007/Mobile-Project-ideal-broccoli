@@ -131,19 +131,28 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, const char* prefix) {
 	int y = atoi(node->getY());
 	int h = atoi(node->getH());
-	loadSpriteUsing(node, texture, prefix, y, h);
+	int yOffset = 0;
+	auto yOffsetAttribute = node->getData()->first_attribute("yOffset");
+	if (yOffsetAttribute) {
+		yOffset = atoi(yOffsetAttribute->value());
+	}
+	loadSpriteUsing(node, texture, prefix, y, h, yOffset);
 }
 
-void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, const char* prefix, int y, int h) {
+void AssetManager::loadSpriteUsing(
+	AssetManager::Node* node, Texture* texture, const char* prefix, int y, int h, int yOffset
+) {
 	int xOffset = 0;
-	int yOffset = 0;
+	//int yOffset = 0;
 
 	if(node->getData()->first_attribute("xOffset")) {
 		yOffset = atoi(node->getData()->first_attribute("xOffset")->value());
 	}
+	/*
 	if(node->getData()->first_attribute("yOffset")) {
 		yOffset = atoi(node->getData()->first_attribute("yOffset")->value());
 	}
+	*/
 
 	std::vector<glm::vec3> swappableColors;
 	auto swappableColorNode = node->getData()->first_node("SwappableColor");
@@ -182,10 +191,15 @@ void AssetManager::loadSpriteSheet(AssetManager::Node* node) {
 	while (rowNode) {
 		int y = atoi(rowNode->first_attribute("y")->value());
 		int h = atoi(rowNode->first_attribute("h")->value());
+		int yOffset = 0;
+		auto yOffsetAttribute = rowNode->first_attribute("yOffset");
+		if (yOffsetAttribute) {
+			yOffset = atoi(yOffsetAttribute->value());
+		}
 		auto rowSpriteNode = rowNode->first_node("Sprite");
 		while (rowSpriteNode) {
 			Node node1(node->getDirectory(), rowSpriteNode);
-			loadSpriteUsing(&node1, texture, prefix.c_str(), y, h);
+			loadSpriteUsing(&node1, texture, prefix.c_str(), y, h, yOffset);
 			rowSpriteNode = rowSpriteNode->next_sibling();
 		}
 		rowNode = rowNode->next_sibling("Row");

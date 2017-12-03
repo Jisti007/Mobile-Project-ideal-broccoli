@@ -11,6 +11,16 @@
 		<Hex id="water" weight="5" />
 	</Biome>
 	<Biome
+		id="forest"
+		weight="30"
+	>
+		<Hex id="grass" weight="20" />
+		<Hex id="grass_mountain" weight="10" />
+		<Hex id="forest" weight="100" />
+		<Hex id="sand" weight="5" />
+		<Hex id="water" weight="10" />
+	</Biome>
+	<Biome
 		id="desert"
 	    weight="20"
 	>

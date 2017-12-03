@@ -86,7 +86,7 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto scene = userUnit->getMap()->getScene();
 	auto sourceActor = getSourceActor(user, target);
 	auto destinationActor = getDestinationActor(user, target);
-	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f);
+	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f, 3);
 	scene->queueNew<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
 	scene->queueNew<DeathAnimation>(projectile, scene);
 }
