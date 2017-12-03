@@ -11,7 +11,7 @@
 	>
 		<Skill sprite="attack" target="enemy" range="2" cost="2">
 			<Effects>
-				<HPModification amount="-3" />
+				<HPModification amount="-10" />
 			</Effects>
 			<Animations>
 				<Nudge source="user" destination="target" distance="0.25"/>

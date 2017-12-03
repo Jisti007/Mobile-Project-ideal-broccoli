@@ -4,40 +4,45 @@ def platformVersion = 18    //openGLES 3 min Version
 //def platformVersion = 12 //openGLES 2 min version
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+	compileSdkVersion 26
+	buildToolsVersion '26.0.2'
 
-    defaultConfig {
-        applicationId 'xyz.asdasd.gles3jni'
-        versionCode 1
-        versionName "0.1.0.0"
-        minSdkVersion 19
-        targetSdkVersion 26
-        ndk {
-            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
-        }
-        externalNativeBuild {
-            cmake {
-                // pass command line arguments to cmake: our CMakeLists.txt needs it
-                // to load the right openGL lib (gles2 vs. gles3 )
-                // other ndk flags could also be configured there [cppFlags, cFlags...]
-                arguments "-DANDROID_PLATFORM_LEVEL=${platformVersion}",
-                          '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
-            }
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled = true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'),
-                          'proguard-rules.pro'
-        }
-    }
-    externalNativeBuild {
-        cmake {
-            path 'src/main/cpp/CMakeLists.txt'
-        }
-    }
+	defaultConfig {
+		applicationId 'xyz.asdasd.gles3jni'
+		versionCode 1
+		versionName "0.1.0.0"
+		minSdkVersion 19
+		targetSdkVersion 26
+		ndk {
+			abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+		}
+		externalNativeBuild {
+			cmake {
+				// pass command line arguments to cmake: our CMakeLists.txt needs it
+				// to load the right openGL lib (gles2 vs. gles3 )
+				// other ndk flags could also be configured there [cppFlags, cFlags...]
+				arguments "-DANDROID_PLATFORM_LEVEL=${platformVersion}",
+						'-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+			}
+		}
+	}
+	buildTypes {
+		release {
+			minifyEnabled = true
+			proguardFiles getDefaultProguardFile('proguard-android.txt'),
+					'proguard-rules.pro'
+		}
+	}
+	externalNativeBuild {
+		cmake {
+			path 'src/main/cpp/CMakeLists.txt'
+		}
+	}
+}
+dependencies {
+	implementation 'com.android.support:support-v4:26.+'
+	implementation 'com.android.support:appcompat-v7:26.1.0'
+	implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 }
 
 

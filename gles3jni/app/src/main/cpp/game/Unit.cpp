@@ -60,7 +60,7 @@ void Unit::die() {
 
 void Unit::setHP(int hp) {
 	this->hp = hp;
-	if (hp < 0) {
+	if (hp <= 0) {
 		die();
 	}
 }
