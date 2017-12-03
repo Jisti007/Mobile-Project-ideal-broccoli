@@ -16,6 +16,7 @@ public:
 	virtual Sprite* getSprite() { return type->getSprite(); }
 
 	void onBeginTurn(GameMap* map);
+	void setFaction(Faction* faction);
 
 	inline const BuildingType* getType() const { return type; }
 	inline const Faction* getFaction() const { return faction; }

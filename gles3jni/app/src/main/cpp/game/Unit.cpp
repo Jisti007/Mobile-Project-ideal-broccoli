@@ -49,6 +49,13 @@ bool Unit::moveTo(MapHex* destination) {
 	gridX = destination->getGridX();
 	gridY = destination->getGridY();
 
+	auto building = destination->getBuilding();
+	if (building) {
+		if (getFaction() != building->getFaction()) {
+			building->setFaction(getFaction());
+		}
+	}
+
 	return true;
 }
 

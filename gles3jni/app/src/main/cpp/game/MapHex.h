@@ -41,8 +41,8 @@ private:
 	GameMap* map;
 	MapRegion* region;
 	HexType* type;
-	Unit* unit;
-	Building* building;
+	Unit* unit = nullptr;
+	Building* building = nullptr;
 
 	void addNeighbor(GameMap* map, int x, int y);
 };

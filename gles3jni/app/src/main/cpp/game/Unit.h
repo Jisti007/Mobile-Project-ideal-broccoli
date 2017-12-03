@@ -30,7 +30,7 @@ public:
 	inline GameMap* getMap() { return map; }
 	//inline MapHex* getHex() { return map->tryGetHex(getGridPosition()); }
 	inline const UnitType* getType() const { return type; }
-	inline const Faction* getFaction() const { return faction; }
+	inline Faction* getFaction() const { return faction; }
 	inline int getHP() { return hp; }
 	inline void modifyHP(int deltaHP) { setHP(hp + deltaHP); }
 	inline float getMovement() { return movementRemaining; }
