@@ -17,51 +17,20 @@
 package xyz.asdasd.gles3jni;
 
 import android.app.Activity;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.WindowManager;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 public class GLES3JNIActivity extends Activity {
 	private GLES3JNIView view;
 	private GestureDetector gestureDetector;
 	private ScaleGestureDetector scaleGestureDetector;
-	//private String dataDirectory;
-	//private String versionName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		/*
-		try {
-			PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
-			versionName = info.versionName;
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		if (
-			savedInstanceState == null
-			|| !versionName.equals(savedInstanceState.getString("version"))
-			|| !savedInstanceState.getBoolean("assetsExtracted")
-		) {
-			// Extract files from the .apk into the cache
-			// so we can access them in C++ in a cross-platform way.
-			dataDirectory = getFilesDir() + "/";
-			extractFileOrDir("modules");
-		}
-		*/
 
 		gestureDetector = new GestureDetector(this, new GestureListener());
 		scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
@@ -102,52 +71,6 @@ public class GLES3JNIActivity extends Activity {
 
 		return true;
 	}
-
-	/*
-	private void extractFileOrDir(String path) {
-		try {
-			String[] assets = getAssets().list(path);
-			if (assets.length == 0) {
-				extractFile(path);
-			} else {
-				File dir = new File(dataDirectory + path);
-				if (!dir.exists() && !dir.mkdir()) {
-					Log.e("main", "failed to create directory: " + path);
-					return;
-				}
-
-				for (String asset : assets) {
-					String nextFileOrDir = path;
-					if (!nextFileOrDir.equals("")) {
-						nextFileOrDir += "/";
-					}
-					nextFileOrDir += asset;
-					extractFileOrDir(nextFileOrDir);
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			//Log.e("main", "I/O Exception", e);
-		}
-	}
-
-	private void extractFile(String filename) {
-		try (
-			InputStream in = getAssets().open(filename);
-			OutputStream out = new FileOutputStream(dataDirectory + filename)
-		) {
-			byte[] buffer = new byte[32 * 1024];
-			int numberOfBytesRead;
-			while ((numberOfBytesRead = in.read(buffer)) != -1) {
-				out.write(buffer, 0, numberOfBytesRead);
-			}
-			out.flush();
-		} catch (Exception e) {
-			e.printStackTrace();
-			//Log.e("main", e.getMessage());
-		}
-	}
-	*/
 
 	private class GestureListener extends GestureDetector.SimpleOnGestureListener {
 		@Override

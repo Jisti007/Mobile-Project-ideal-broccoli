@@ -239,9 +239,7 @@ void AssetManager::loadUnitType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	auto data = node->getData();
 	auto hp = atoi(node->getHP());
-	auto attack = atoi(data->first_attribute("attack")->value());
 	auto defense = atoi(data->first_attribute("defense")->value());
-	auto range = atoi(data->first_attribute("range")->value());
 	auto movement = atoi(data->first_attribute("movement")->value());
 	UnitType::SkillList skills;
 
@@ -288,7 +286,7 @@ void AssetManager::loadUnitType(Node *node) {
 	}
 
 	unitTypes[node->getID()] = make_unique<UnitType>(
-		sprite, hp, attack, defense, range, movement, skills
+		sprite, hp, defense, movement, skills
 	);
 }
 

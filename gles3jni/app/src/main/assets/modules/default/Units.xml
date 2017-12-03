@@ -4,9 +4,7 @@
 		id="test"
 		sprite="test_unit"
 		hp="10"
-		attack="2"
 		defense="2"
-		range="2"
 		movement="5"
 	>
 		<Skill sprite="attack" target="enemy" range="2" cost="2">

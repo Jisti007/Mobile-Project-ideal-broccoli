@@ -31,9 +31,9 @@ static GLboolean gl3stubInit() {
 
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_initialize(JNIEnv *env, jobject obj, jobject activity) {
-	JavaVM *vm;
-	env->GetJavaVM(&vm);
-	vm->AttachCurrentThread(&env, NULL);
+	//JavaVM *vm;
+	//env->GetJavaVM(&vm);
+	//vm->AttachCurrentThread(&env, NULL);
 
 	jclass activityClass = env->GetObjectClass(activity);
 	jmethodID getCacheDir = env->GetMethodID(activityClass, "getFilesDir", "()Ljava/io/File;");
@@ -59,7 +59,6 @@ Java_xyz_asdasd_gles3jni_GLES3JNILib_resize(JNIEnv *env, jobject obj, jint width
 JNIEXPORT void JNICALL
 Java_xyz_asdasd_gles3jni_GLES3JNILib_step(JNIEnv *env, jobject obj) {
 	game.step();
-	//game.draw();
 }
 
 JNIEXPORT void JNICALL

@@ -2,14 +2,11 @@
 #include "Unit.h"
 
 UnitType::UnitType(
-	Sprite* sprite, int hp, int attack, int defense,
-	int range, int movement, SkillList& skills
+	Sprite* sprite, int hp, int defense, int movement, SkillList& skills
 ) {
 	this->sprite = sprite;
 	this->hp = hp;
-	this->attack = attack;
 	this->defense = defense;
-	this->range = range;
 	this->movement = movement;
 	this->skills = std::move(skills);
 }
