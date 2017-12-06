@@ -52,14 +52,5 @@ void PlayerGameState::createUI() {
 			viewport.getTop() - crestSprite->getHeight() * 0.5f / 2.0f},
 		0.5f, colors
 	);
-
-	auto endTurnButtonSprite = assets->getSprite("end_turn_button");
-	auto endTurnButton = uiRoot->addNewChild<Button>(
-		endTurnButtonSprite, glm::vec2{
-			viewport.getLeft() + endTurnButtonSprite->getWidth() / 2.0f,
-			viewport.getBottom() + endTurnButtonSprite->getHeight() / 2.0f
-		}
-	);
-	endTurnButton->setOnPress(std::bind(&Scenario::endTurn, scenario));
 }
 

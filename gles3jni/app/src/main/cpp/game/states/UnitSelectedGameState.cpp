@@ -4,7 +4,7 @@
 #include "PathSelectedGameState.h"
 #include "TargetSelectedGameState.h"
 
-UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : PlayerGameState(game) {
+UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : IdleGameState(game) {
 	this->selectedUnit = selectedUnit;
 }
 

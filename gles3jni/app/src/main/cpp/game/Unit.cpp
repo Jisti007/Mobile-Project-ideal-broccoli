@@ -15,6 +15,10 @@ Unit::~Unit() {
 }
 
 bool Unit::move(Path& path) {
+	if (path.getLinks().size() == 0) {
+		return true;
+	}
+
 	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
 	if (moveTo(destinationHex)) {
 		modifyMovement(-path.getCost());

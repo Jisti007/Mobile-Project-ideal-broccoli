@@ -37,9 +37,11 @@ Unit* ComputerGameState::pickUnit() {
 }
 
 SkillUsage ComputerGameState::getBestSkill(Unit* unit, Path& path, int maxRange, SkillUsage currentBest) {
-	auto hex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
-	if (hex->getUnit() != nullptr) {
-		return currentBest;
+	if (path.getLinks().size() > 0) {
+		auto hex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+		if (hex->getUnit() != nullptr) {
+			return currentBest;
+		}
 	}
 
 	auto potentialTargets = unit->getHex()->getHexesWithin(maxRange);
@@ -66,5 +68,5 @@ SkillUsage ComputerGameState::getBestSkill(Unit* unit, Path& path, MapObject* ta
 }
 
 void ComputerGameState::onAnimationFinished() {
-	//game->getCampaign()->getScenario()->endTurn();
+	game->getCampaign()->getScenario()->endTurn();
 }

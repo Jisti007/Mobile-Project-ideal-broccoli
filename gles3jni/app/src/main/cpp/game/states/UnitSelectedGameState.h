@@ -3,8 +3,9 @@
 
 #include "MapGameState.h"
 #include "PlayerGameState.h"
+#include "IdleGameState.h"
 
-class UnitSelectedGameState : public PlayerGameState {
+class UnitSelectedGameState : public IdleGameState {
 public:
 	UnitSelectedGameState(Game* game, Unit* selectedUnit);
 
