@@ -5,6 +5,12 @@
 #include "../Sprite.h"
 #include "../Pipeline.h"
 
+const int HEX_LAYER = 0;
+const int DECORATION_LAYER= 1;
+const int BUILDING_LAYER = 2;
+const int UNIT_LAYER = 3;
+const int PROJECTILE_LAYER = 4;
+
 class Actor {
 public:
 	Actor(Sprite* sprite, glm::vec2 position, float depth, int layer);

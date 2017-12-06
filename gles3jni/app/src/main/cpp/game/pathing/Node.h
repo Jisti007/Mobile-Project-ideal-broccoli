@@ -34,10 +34,9 @@ public:
 	/// \param graphSize The estimated number of nodes traversed.
 	std::vector<Node*> findAllNodes(Agent* agent, float maxPathCost, size_t graphSize = 128);
 
-	/// Use this function with caution.
-	/// It should only be called after pathfinding has finished and before it is called again.
+	/// Should only be called after pathfinding has finished and before it is called again.
 	/// findShortestPath uses this function automatically,  but it can be useful after findAllNodes.
-	/// You need to make sure the destination is one of the nodes returned.
+	/// Returns an empty path if the node wasn't visited in the preceding pathfinding run.
 	Path buildPath(Node* destination, Agent* agent);
 
 	int compareTo(Comparable* other);

@@ -8,6 +8,7 @@ class Node;
 
 class Path {
 public:
+	Path();
 	Path(std::list<Link*> links, Agent* agent);
 
 	inline std::list<Link*>& getLinks() { return links; }

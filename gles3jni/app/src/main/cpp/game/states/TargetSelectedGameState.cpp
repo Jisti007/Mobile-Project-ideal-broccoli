@@ -1,5 +1,6 @@
 #include "TargetSelectedGameState.h"
 #include "AnimationGameState.h"
+#include "PlayerAnimationGameState.h"
 
 TargetSelectedGameState::TargetSelectedGameState(
 	Game* game, Unit* selectedUnit, Unit* target)
@@ -36,5 +37,5 @@ void TargetSelectedGameState::move(float dx, float dy) {
 void TargetSelectedGameState::skillButton_onPress(void* skillArg) {
 	auto skill = static_cast<Skill*>(skillArg);
 	skill->use(selectedUnit, target);
-	game->changeToNew<AnimationGameState>(game, selectedUnit);
+	game->changeToNew<PlayerAnimationGameState>(game, selectedUnit);
 }

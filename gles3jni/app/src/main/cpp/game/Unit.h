@@ -35,6 +35,8 @@ public:
 	inline void modifyHP(int deltaHP) { setHP(hp + deltaHP); }
 	inline float getMovement() { return movementRemaining; }
 	inline void modifyMovement(float deltaMovement) { movementRemaining += deltaMovement; }
+	inline void endTurn() { movementRemaining = 0; }
+	inline bool isMovable() { return movementRemaining >= 1.0f; }
 	inline bool isHostileTowards(Unit* other) { return !isFriendlyTowards(other); }
 
 private:
@@ -43,7 +45,7 @@ private:
 	GameMap* map;
 	int hp;
 	float movementRemaining;
-	bool movable = true;
+	//bool movable = true;
 };
 
 #endif //GLES3JNI_UNIT_H

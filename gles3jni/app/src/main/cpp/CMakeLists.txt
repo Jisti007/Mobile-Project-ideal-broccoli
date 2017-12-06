@@ -77,6 +77,7 @@ add_library(
 	game/states/GameState.cpp
 	game/states/InfoGameState.cpp
 	game/states/MapGameState.cpp
+	game/states/PlayerAnimationGameState.cpp
 	game/states/PlayerGameState.cpp
 	game/states/PathSelectedGameState.cpp
 	game/states/TargetSelectedGameState.cpp

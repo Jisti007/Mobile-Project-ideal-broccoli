@@ -13,7 +13,7 @@ public:
 	virtual void apply(SkillUser* user, SkillTarget* target) = 0;
 	/// Helps the AI evaluate the value of an action that will have this effect.
 	/// The higher the returned number, the better for the AI.
-	virtual float evaluate(SkillUser* user, SkillTarget* target) = 0;
+	virtual float evaluate(SkillUser* user, SkillTarget* target, float cost) = 0;
 };
 
 class HPModification : public Effect {
@@ -21,7 +21,7 @@ public:
 	HPModification(int amount);
 
 	virtual void apply(SkillUser* user, SkillTarget* target);
-	virtual float evaluate(SkillUser* user, SkillTarget* target);
+	virtual float evaluate(SkillUser* user, SkillTarget* target, float cost);
 
 private:
 	int amount;
@@ -93,9 +93,9 @@ public:
 	void use(SkillUser* user, SkillTarget* target);
 	/// Helps the AI evaluate the value of using this skill.
 	/// The higher the returned number, the better for the AI.
-	float evaluate(SkillUser* user, SkillTarget* target);
+	float evaluate(SkillUser* user, SkillTarget* target, float extraCost);
 	/// Returns true if the rules allow the user to use this skill against the target.
-	bool validate(SkillUser* user, SkillTarget* target);
+	bool validate(SkillUser* user, SkillTarget* target, float extraCost);
 
 	inline Sprite* getSprite() const { return sprite; }
 	inline const TargetType getTargetType() const { return targetType; }

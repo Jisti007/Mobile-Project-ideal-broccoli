@@ -12,13 +12,13 @@ void HPModification::apply(SkillUser* user, SkillTarget* target) {
 	targetUnit->modifyHP(amount);
 }
 
-float HPModification::evaluate(SkillUser* user, SkillTarget* target) {
+float HPModification::evaluate(SkillUser* user, SkillTarget* target, float cost) {
 	auto userUnit = static_cast<Unit*>(user);
 	auto targetUnit = static_cast<Unit*>(target);
 	if (userUnit->isFriendlyTowards(targetUnit)) {
-		return amount;
+		return amount / cost;
 	}
-	return -amount;
+	return -amount / cost;
 }
 
 SourceDestination::SourceDestination(
@@ -86,7 +86,7 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto scene = userUnit->getMap()->getScene();
 	auto sourceActor = getSourceActor(user, target);
 	auto destinationActor = getDestinationActor(user, target);
-	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f, 3);
+	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f, PROJECTILE_LAYER);
 	scene->queueNew<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
 	scene->queueNew<DeathAnimation>(projectile, scene);
 }
@@ -114,36 +114,38 @@ void Skill::use(SkillUser* user, SkillTarget* target) {
 	userUnit->modifyMovement(-getCost());
 }
 
-float Skill::evaluate(SkillUser* user, SkillTarget* target) {
+float Skill::evaluate(SkillUser* user, SkillTarget* target, float extraCost) {
 	float evaluation = 0.0f;
 	for (auto& effect : effects) {
-		evaluation += effect->evaluate(user, target);
+		evaluation += effect->evaluate(user, target, cost + extraCost);
 	}
 	return evaluation;
 }
 
-bool Skill::validate(SkillUser* user, SkillTarget* target) {
-	if (user->getDistance(target) > getRange()) {
+bool Skill::validate(SkillUser* user, SkillTarget* target, float extraCost) {
+	auto targetUnit = dynamic_cast<Unit*>(target);
+	if (!targetUnit) {
 		return false;
 	}
 
 	auto userUnit = static_cast<Unit*>(user);
-	if (userUnit->getMovement() < getCost()) {
+	if (userUnit->getMovement() < getCost() + extraCost) {
 		return false;
 	}
 
-	auto targetUnit = dynamic_cast<Unit*>(target);
-	if (targetUnit) {
-		switch (targetType) {
-			case TargetType::unit:
-				return  true;
-			case enemy:
-				return userUnit->isHostileTowards(targetUnit);
-			case friendly:
-				return userUnit->isFriendlyTowards(targetUnit);
-			case hex:
-				return false;
-		}
+	if (user->getDistance(target) > getRange()) {
+		return false;
+	}
+
+	switch (targetType) {
+		case TargetType::unit:
+			return  true;
+		case enemy:
+			return userUnit->isHostileTowards(targetUnit);
+		case friendly:
+			return userUnit->isFriendlyTowards(targetUnit);
+		case hex:
+			return false;
 	}
 
 	return false;

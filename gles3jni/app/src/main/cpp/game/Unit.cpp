@@ -73,7 +73,7 @@ void Unit::setHP(int hp) {
 }
 
 void Unit::onBeginTurn() {
-	movable = true;
+	//movable = true;
 	movementRemaining = getType()->getMovement();
 }
 

@@ -6,13 +6,15 @@
 
 class AnimationGameState : public PlayerGameState {
 public:
-	AnimationGameState(Game* game, Unit* selectedUnit);
+	AnimationGameState(Game* game);
 
 	virtual void update(float deltaTime);
 	virtual bool press(float x, float y);
 
+protected:
+	virtual void onAnimationFinished() = 0;
+
 private:
-	Unit* selectedUnit;
 	bool fastAnimation = false;
 };
 

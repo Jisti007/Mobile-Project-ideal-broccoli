@@ -3,6 +3,7 @@
 #include "../pathing/MovementLink.h"
 #include <vector>
 #include "../../glm/glm.hpp"
+#include "PlayerAnimationGameState.h"
 
 PathSelectedGameState::PathSelectedGameState(Game* game, Path path, Unit* selectedUnit)
 	: UnitSelectedGameState(game, selectedUnit), path(path) {
@@ -38,7 +39,7 @@ void PathSelectedGameState::onPressHex(MapHex* pressedHex) {
 			));
 			scenario->executeEvent(movement);
 
-			game->changeToNew<AnimationGameState>(game, selectedUnit);
+			game->changeToNew<PlayerAnimationGameState>(game, selectedUnit);
 		}
 	} else {
 		UnitSelectedGameState::onPressHex(pressedHex);

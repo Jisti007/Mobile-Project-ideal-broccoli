@@ -1,6 +1,7 @@
 #include "Scenario.h"
 #include "states/MapGameState.h"
 #include "states/PlayerGameState.h"
+#include "states/ComputerGameState.h"
 
 Scenario::Scenario(Campaign* campaign) {
 	this->campaign = campaign;
@@ -60,6 +61,11 @@ void Scenario::endTurn() {
 	}
 
 	auto game = getCampaign()->getGame();
-	std::unique_ptr<GameState> unitSelectedState(new PlayerGameState(game));
-	game->changeState(unitSelectedState);
+	//std::unique_ptr<GameState> unitSelectedState(new PlayerGameState(game));
+	//game->changeState(unitSelectedState);
+	if (getActiveFaction()->isPlayer()) {
+		game->changeToNew<PlayerGameState>(game);
+	} else {
+		game->changeToNew<ComputerGameState>(game);
+	}
 }

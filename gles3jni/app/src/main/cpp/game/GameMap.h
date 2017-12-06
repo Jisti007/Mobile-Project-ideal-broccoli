@@ -47,6 +47,7 @@ public:
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
+	inline std::vector<std::unique_ptr<Unit>>& getUnits() { return units; }
 
 	static const float gridSize;
 	static const float xOffset;

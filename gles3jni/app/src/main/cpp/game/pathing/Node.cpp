@@ -47,12 +47,14 @@ std::vector<Node*> Node::findAllNodes(Agent* agent, float maxPathCost, size_t gr
 }
 
 Path Node::buildPath(Node* destination, Agent* agent) {
-	// Backtrack from the destination to build the path.
 	std::list<Link*> links;
-	Link* pathLink = destination->pathLink;
-	while (pathLink != nullptr) {
-		links.push_front(pathLink);
-		pathLink = pathLink->getSource()->pathLink;
+	if (destination->lastVisit == currentPathfinderRun) {
+		// Backtrack from the destination to build the path.
+		Link* pathLink = destination->pathLink;
+		while (pathLink != nullptr) {
+			links.push_front(pathLink);
+			pathLink = pathLink->getSource()->pathLink;
+		}
 	}
 	return Path(links, agent);
 }

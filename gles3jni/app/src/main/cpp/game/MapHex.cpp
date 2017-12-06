@@ -84,7 +84,7 @@ void MapHex::createDecorations() {
 		offset = glm::rotate(offset, angle);
 		auto position = map->getHexPosition(getGridX(), getGridY()) + offset;
 		position = map->getScreenPosition(position);
-		auto decorationActor = scene->addNew<Actor>(decorationSprite, position, 0.25f, 1);
+		auto decorationActor = scene->addNew<Actor>(decorationSprite, position, 0.25f, DECORATION_LAYER);
 		decorations.push_back(decorationActor);
 	}
 }
