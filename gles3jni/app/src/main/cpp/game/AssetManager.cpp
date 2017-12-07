@@ -277,6 +277,7 @@ void AssetManager::loadBiome(AssetManager::Node* node) {
 void AssetManager::loadUnitType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
 	auto data = node->getData();
+	auto name = data->first_attribute("name")->value();
 	auto hp = atoi(node->getHP());
 	auto defense = atoi(data->first_attribute("defense")->value());
 	auto movement = atoi(data->first_attribute("movement")->value());
@@ -285,6 +286,8 @@ void AssetManager::loadUnitType(Node *node) {
 	auto skillNode = node->getData()->first_node("Skill");
 	while (skillNode) {
 		auto skillSprite = getSprite(skillNode->first_attribute("sprite")->value());
+		auto skillName = skillNode->first_attribute("name")->value();
+		auto description = skillNode->first_attribute("description")->value();
 		auto targetType = targetTypes[skillNode->first_attribute("target")->value()];
 		auto skillRange = atoi(skillNode->first_attribute("range")->value());
 		auto skillCost = atof(skillNode->first_attribute("cost")->value());
@@ -318,14 +321,14 @@ void AssetManager::loadUnitType(Node *node) {
 		}
 
 		skills.push_back(std::make_unique<Skill>(
-			skillSprite, targetType, skillRange, skillCost, effects, animations
+			skillSprite, skillName, description, targetType, skillRange, skillCost, effects, animations
 		));
 
 		skillNode = skillNode->next_sibling();
 	}
 
 	unitTypes[node->getID()] = std::make_unique<UnitType>(
-		sprite, hp, defense, movement, skills
+		sprite, name, hp, defense, movement, skills
 	);
 }
 

@@ -2,14 +2,36 @@
 <Assets>
 	<Unit
 		id="test"
+		name="Test Wizard"
 		sprite="test_unit"
 		hp="10"
 		defense="2"
 		movement="5"
 	>
-		<Skill sprite="attack" target="enemy" range="2" cost="2">
+		<Skill
+			sprite="attack"
+			name="Magic Missile"
+			description="Shoots an enemy unit from a short distance with a powerful blast of magic."
+			target="enemy"
+			range="2"
+			cost="2">
 			<Effects>
 				<HPModification amount="-3" />
+			</Effects>
+			<Animations>
+				<Nudge source="user" destination="target" distance="0.25"/>
+				<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+			</Animations>
+		</Skill>
+		<Skill
+			sprite="attack"
+			name="Flash Heal"
+			description="Heals an ally."
+			target="friendly"
+			range="1"
+			cost="2">
+			<Effects>
+				<HPModification amount="2" />
 			</Effects>
 			<Animations>
 				<Nudge source="user" destination="target" distance="0.25"/>

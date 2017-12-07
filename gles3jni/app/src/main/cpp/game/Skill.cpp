@@ -97,10 +97,12 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 }
 
 Skill::Skill(
-	Sprite* sprite, TargetType targetType, int range, float cost,
+	Sprite* sprite, std::string name, std::string description, TargetType targetType, int range, float cost,
 	EffectList& effects, AnimationList& animations
 ) {
 	this->sprite = sprite;
+	this->name = name;
+	this->description = description;
 	this->targetType = targetType;
 	this->range = range;
 	this->cost = cost;

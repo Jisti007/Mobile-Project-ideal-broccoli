@@ -86,7 +86,7 @@ public:
 	typedef std::vector<std::unique_ptr<SkillAnimation>> AnimationList;
 
 	Skill(
-		Sprite* sprite, TargetType targetType, int range, float cost,
+		Sprite* sprite, std::string name, std::string description, TargetType targetType, int range, float cost,
 		EffectList& effects, AnimationList& animations
 	);
 
@@ -100,6 +100,8 @@ public:
 	bool validate(SkillUser* user, SkillTarget* target, float extraCost, int range);
 
 	inline Sprite* getSprite() const { return sprite; }
+	inline const std::string getName() const { return name; }
+	inline const std::string getDescription() const { return description; }
 	inline const TargetType getTargetType() const { return targetType; }
 	inline const int getRange() const { return range; }
 	inline const float getCost() const { return cost; }
@@ -107,6 +109,8 @@ public:
 
 private:
 	Sprite* sprite;
+	std::string name;
+	std::string description;
 	TargetType targetType;
 	int range;
 	float cost;
