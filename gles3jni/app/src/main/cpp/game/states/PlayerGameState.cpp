@@ -2,6 +2,7 @@
 #include "UnitSelectedGameState.h"
 #include "../ui/RecoloredUISprite.h"
 #include "../ui/Button.h"
+#include "BuildingSelectedGameState.h"
 
 PlayerGameState::PlayerGameState(Game* game) : MapGameState(game) {
 	createUI();
@@ -24,8 +25,12 @@ void PlayerGameState::onPressHex(MapHex* hex) {
 	auto scenario = game->getCampaign()->getScenario();
 	auto activeFaction = scenario->getActiveFaction();
 	auto unit = hex->getUnit();
+	auto building = hex->getBuilding();
 	if (unit != nullptr && unit->getFaction() == activeFaction) {
 		game->changeToNew<UnitSelectedGameState>(game, unit);
+	}
+	if (building != nullptr && building->getFaction() == activeFaction) {
+		game->changeToNew<BuildingSelectedGameState>(game, building);
 	}
 }
 

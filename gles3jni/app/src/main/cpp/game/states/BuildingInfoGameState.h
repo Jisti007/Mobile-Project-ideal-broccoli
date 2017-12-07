@@ -3,14 +3,21 @@
 
 
 #include "PlayerGameState.h"
+#include "../ui/InfoPanel.h"
 
 class BuildingInfoGameState : public PlayerGameState {
 public:
 	BuildingInfoGameState(Game* game, Building* selectedBuilding);
 
+	virtual void recreateUI();
+
+	virtual void move(float dx, float dy);
+	virtual bool press(float x, float y);
+	virtual void zoom(float scaleFactor);
 private:
-	Unit* selectedUnit;
 	Building* selectedBuilding;
+	InfoPanel* infoPanel;
+	void createUI();
 };
 
 

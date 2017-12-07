@@ -11,7 +11,7 @@
 		<Skill
 			sprite="attack"
 			name="Magic Missile"
-			description="Shoots an enemy unit from a short distance with a powerful blast of magic."
+			description="Short range projectile"
 			target="enemy"
 			range="2"
 			cost="2">
@@ -26,7 +26,7 @@
 		<Skill
 			sprite="attack"
 			name="Flash Heal"
-			description="Heals an ally."
+			description="Heals an ally"
 			target="friendly"
 			range="1"
 			cost="2">

@@ -75,6 +75,7 @@ add_library(
 
 	game/states/AnimationGameState.cpp
 	game/states/BuildingInfoGameState.cpp
+	game/states/BuildingSelectedGameState.cpp
 	game/states/ComputerGameState.cpp
 	game/states/GameState.cpp
 	game/states/IdleGameState.cpp

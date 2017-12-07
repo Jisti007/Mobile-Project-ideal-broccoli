@@ -33,7 +33,7 @@ void InfoPanel::updateInfo(Unit* unit) {
 	std::stringstream nameString;
 	nameString << unitName;
 
-	auto nameLabel = addNewChild<Label>(
+	nameLabel = addNewChild<Label>(
 		nameString.str().c_str(),
 		font,
 		glm::vec2{0,infoPanelSprite->getHeight() / 3.0f},
@@ -43,7 +43,7 @@ void InfoPanel::updateInfo(Unit* unit) {
 	std::stringstream hpString;
 	hpString << "HP: " << currentHP << "/" << maxHP;
 
-	auto hpLabel = addNewChild<Label>(
+	hpLabel = addNewChild<Label>(
 		hpString.str().c_str(),
 		font,
 		glm::vec2{0, 0 + 100},
@@ -53,7 +53,7 @@ void InfoPanel::updateInfo(Unit* unit) {
 	std::stringstream defenseString;
 	defenseString << "Defense: " << defense;
 
-	auto defenseLabel = addNewChild<Label>(
+	defenseLabel = addNewChild<Label>(
 		defenseString.str().c_str(),
 		font,
 		glm::vec2{0, hpLabel->getBottom() - hpLabel->getSize().y},
@@ -63,43 +63,47 @@ void InfoPanel::updateInfo(Unit* unit) {
 	std::stringstream movementString;
 	movementString << "Movement: " << movement;
 
-	auto movementLabel = addNewChild<Label>(
+	movementLabel = addNewChild<Label>(
 		movementString.str().c_str(),
 		font,
 		glm::vec2{0, defenseLabel->getBottom() - defenseLabel->getSize().y},
 		glm::vec2{100,20}
 	);
 
-
-
-
 	std::stringstream skillString;
-	int skillOffset = 50;
+	int skillOffset = 30;
 
 	for (auto& skill : unitType->getSkills()){
-		auto skillName = skill->getName();
-		auto skillSprite = skill->getSprite();
-		auto description = skill->getDescription();
-		auto cost = skill->getCost();
-		auto range = skill->getRange();
-		//auto effects = skill->getEffects();
-		auto target = skill->getTargetType();
 
+		auto skillSprite = skill->getSprite();
 		auto skillIcon = addNewChild<UISprite>(
 			skillSprite,
 			glm::vec2{0,movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
 			0.75f
 		);
 
-		skillString << skillName;
+		//TODO: Make this a bit smoother
+		/*auto name = skill->getName();
+		auto description = skill->getDescription();
+		auto cost = skill->getCost();
+		auto range = skill->getRange();
+		auto effects = skill->getEffects();
+		auto target = skill->getTargetType();*/
+
+		newStringLabel(skill->getName(), -30 + skillOffset);
+		newStringLabel(skill->getDescription(), -10 + skillOffset);
+		newStringLabel("Cost: ", skill->getCost(), 10 + skillOffset);
+		newStringLabel("Range: ", skill->getRange(), 30 + skillOffset);
+
+		/*skillString << skillName;
 		auto skillLabel = addNewChild<Label>(
 			skillString.str().c_str(),
 			font,
 			glm::vec2{skillIcon->getPosition().x + skillIcon->getSize().x / 2.0f, movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
 			glm::vec2{100,20}
-		);
+		);*/
 
-		skillOffset += skillIcon->getSize().y + skillLabel->getSize().y;
+		skillOffset += skillIcon->getSize().y;
 
 		skillString.str(std::string());
 	}
@@ -112,5 +116,97 @@ void InfoPanel::updateInfo(Unit* unit) {
 	);
 	//exitButton->setOnPress(std::bind(&Game::popState, game));
 
+}
 
+void InfoPanel::updateInfo(Building* building) {
+	getChildren().clear();
+
+	auto infoPanelSprite = assetManager->getSprite("ui_info");
+	auto buildingType = building->getType();
+
+	auto buildingUISprite = buildingType->getSprite();
+	auto buildingIcon = addNewChild<UISprite>(
+		buildingUISprite,
+		glm::vec2{0 - infoPanelSprite->getWidth() / 3, 0},
+		2.4f
+	);
+
+	auto buildingName = "not actual building name";
+
+	std::stringstream nameString;
+	nameString << buildingName;
+
+	nameLabel = addNewChild<Label>(
+		nameString.str().c_str(),
+		font,
+		glm::vec2{0,infoPanelSprite->getHeight() / 3.0f},
+		glm::vec2{100,20}
+	);
+
+	/*
+	std::stringstream skillString;
+	int skillOffset = 30;
+
+	for (auto& skill : unitType->getSkills()){
+
+		auto skillSprite = skill->getSprite();
+		auto skillIcon = addNewChild<UISprite>(
+			skillSprite,
+			glm::vec2{0,movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
+			0.75f
+		);
+
+		//TODO: Make this a bit smoother
+
+		newStringLabel(skill->getName(), -30 + skillOffset);
+		newStringLabel(skill->getDescription(), -10 + skillOffset);
+		newStringLabel("Cost: ", skill->getCost(), 10 + skillOffset);
+		newStringLabel("Range: ", skill->getRange(), 30 + skillOffset);
+
+		skillOffset += skillIcon->getSize().y;
+
+		skillString.str(std::string());
+	}*/
+
+	auto exitButtonSprite = assetManager->getSprite("no_button");
+	auto exitButton = addNewChild<Button>(
+		exitButtonSprite,
+		glm::vec2{getRight() -  exitButtonSprite->getWidth() / 2, getTop() + exitButtonSprite->getHeight() / 2},
+		glm::vec2{0,0}
+	);
+	//exitButton->setOnPress(std::bind(&Game::popState, game));
+
+}
+
+void InfoPanel::newStringLabel(std::string textString, int skillOffset) {
+	std::stringstream skillString;
+	skillString << textString;
+	auto skillLabel = addNewChild<Label>(
+		skillString.str().c_str(),
+		font,
+		glm::vec2{assetManager->getSprite("attack")->getWidth() / 2.0f, movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
+		glm::vec2{100,20}
+	);
+}
+
+void InfoPanel::newStringLabel(std::string textString, int value, int skillOffset) {
+	std::stringstream skillString;
+	skillString << textString << value;
+	auto skillLabel = addNewChild<Label>(
+		skillString.str().c_str(),
+		font,
+		glm::vec2{assetManager->getSprite("attack")->getWidth() / 2.0f, movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
+		glm::vec2{100,20}
+	);
+}
+
+void InfoPanel::newStringLabel(std::string textString, float value, int skillOffset) {
+	std::stringstream skillString;
+	skillString << textString << value;
+	auto skillLabel = addNewChild<Label>(
+		skillString.str().c_str(),
+		font,
+		glm::vec2{assetManager->getSprite("attack")->getWidth() / 2.0f, movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
+		glm::vec2{100,20}
+	);
 }

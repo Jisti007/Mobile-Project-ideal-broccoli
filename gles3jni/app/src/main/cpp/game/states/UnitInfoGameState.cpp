@@ -17,8 +17,7 @@ void UnitInfoGameState::createUI() {
 	auto infoPanelSprite = assets->getSprite("ui_info");
 	auto infoPanel = uiRoot->addNewChild<InfoPanel>(
 		infoPanelSprite, glm::vec2{
-			0, 0
-		},
+			0,0},
 		assets->getFont("default"),
 		assets,
 		game
