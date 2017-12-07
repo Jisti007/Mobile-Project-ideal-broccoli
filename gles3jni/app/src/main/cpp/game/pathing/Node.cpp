@@ -18,13 +18,31 @@ Path Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
 		auto active = static_cast<Node*>(openNodes.remove());
 		active->status = NodeStatus::closed;
 		if (active == destination) {
-			break;
+			return buildPath(destination, agent);
 		}
 
 		active->visitNeighbors(openNodes, agent, destination);
 	}
 
-	return buildPath(destination, agent);
+	return Path();
+}
+
+Path Node::findNearest(Agent* agent, std::function<bool(Node*)> condition, size_t graphSize) {
+	Path path;
+	BinaryHeap openNodes;
+	initializePathfinder(openNodes, graphSize);
+
+	while (openNodes.count() > 0) {
+		auto active = static_cast<Node*>(openNodes.remove());
+		active->status = NodeStatus::closed;
+		if (condition(active)) {
+			return buildPath(active, agent);
+		}
+
+		active->visitNeighbors(openNodes, agent);
+	}
+
+	return Path();
 }
 
 std::vector<Node*> Node::findAllNodes(Agent* agent, float maxPathCost, size_t graphSize) {

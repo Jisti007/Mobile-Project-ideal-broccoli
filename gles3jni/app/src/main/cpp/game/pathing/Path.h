@@ -11,6 +11,9 @@ public:
 	Path();
 	Path(std::list<Link*> links, Agent* agent);
 
+	//void shorten(float maxCost);
+	void popLast();
+
 	inline std::list<Link*>& getLinks() { return links; }
 	inline Agent* getAgent() { return agent; }
 	inline float getCost() { return cost; }

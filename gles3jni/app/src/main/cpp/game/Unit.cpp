@@ -14,17 +14,27 @@ Unit::~Unit() {
 
 }
 
-bool Unit::move(Path& path) {
-	if (path.getLinks().size() == 0) {
-		return true;
+bool Unit::move(Path path) {
+	auto& links = path.getLinks();
+	while (true) {
+		if (links.size() == 0) {
+			return true;
+		}
+		auto lastLink = links.back();
+		auto lastHex = static_cast<MapHex*>(lastLink->getDestination());
+		if (path.getCost() > getMovement() || !canMoveTo(lastHex)) {
+			path.popLast();
+		} else {
+			break;
+		}
 	}
 
-	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+	auto destinationHex = static_cast<MapHex*>(links.back()->getDestination());
 	if (moveTo(destinationHex)) {
 		modifyMovement(-path.getCost());
 
 		auto scene = getMap()->getScene();
-		for (auto& link : path.getLinks()) {
+		for (auto& link : links) {
 			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
 			scene->queueNew<MovementAnimation>(
 				getActor(), scene, linkDestinationHex->getActor()->getPosition(), true
@@ -32,19 +42,45 @@ bool Unit::move(Path& path) {
 		}
 		return true;
 	}
+	/*
+	MapHex* destination = nullptr;
+	auto pathCost = 0.0f;
+	for (auto& nextLink : path.getLinks()) {
+		auto linkCost = nextLink->getCost(this, pathCost);
+		pathCost += linkCost;
+		if (pathCost > getMovement()) {
+			break;
+		}
+		auto nextHex = static_cast<MapHex*>(nextLink->getDestination());
+		if (canMoveTo(nextHex)) {
+			destination = nextHex;
+		}
+	}
+	if (destination != nullptr && moveTo(destination)) {
+		pathCost = 0.0f;
+		auto scene = getMap()->getScene();
+		for (auto& nextLink : path.getLinks()) {
+			modifyMovement(-nextLink->getCost(this, pathCost));
+			auto nextHex = static_cast<MapHex*>(nextLink->getDestination());
+			scene->queueNew<MovementAnimation>(
+				getActor(), scene, nextHex->getActor()->getPosition(), true
+			);
+			if (nextHex == destination) {
+				break;
+			}
+		}
+		return true;
+	}
+	*/
 	return false;
 }
 
 bool Unit::moveTo(MapHex* destination) {
-	if (destination->getUnit() != nullptr) {
+	if (!canMoveTo(destination)) {
 		return false;
 	}
 
-	MapHex* origin = map->tryGetHex(getGridX(), getGridY());
-	if (origin == nullptr) {
-		return false;
-	}
-
+	auto origin = map->tryGetHex(getGridX(), getGridY());
 	if (origin->getUnit() == this) {
 		origin->setUnit(nullptr);
 	}
@@ -61,6 +97,15 @@ bool Unit::moveTo(MapHex* destination) {
 	}
 
 	return true;
+}
+
+bool Unit::canMoveTo(MapHex* destination) {
+	if (destination->getUnit() != nullptr) {
+		return false;
+	}
+
+	MapHex* origin = map->tryGetHex(getGridX(), getGridY());
+	return origin != nullptr;
 }
 
 void Unit::die() {

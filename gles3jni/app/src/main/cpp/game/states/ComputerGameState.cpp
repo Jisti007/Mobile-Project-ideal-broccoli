@@ -25,6 +25,13 @@ void ComputerGameState::update(float deltaTime) {
 				unit->move(best.path);
 				best.skill->use(unit, best.target);
 			} else {
+				auto hexWithEnemy = [&unit](Node* node){
+					auto hex = static_cast<MapHex*>(node);
+					auto hexUnit = hex->getUnit();
+					return hexUnit != nullptr && unit->isHostileTowards(hexUnit);
+				};
+				auto path = unit->getHex()->findNearest(unit, hexWithEnemy);
+				unit->move(path);
 				unit->endTurn();
 			}
 		}

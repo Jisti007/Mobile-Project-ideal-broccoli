@@ -10,3 +10,19 @@ Path::Path(std::list<Link*> links, Agent* agent) {
 		cost += link->getCost(agent, cost);
 	}
 }
+
+void Path::popLast() {
+	auto link = links.back();
+	cost -= link->getCost(agent, cost);
+	links.pop_back();
+}
+
+/*
+void Path::shorten(float maxCost) {
+	while (cost > maxCost) {
+		auto link = links.back();
+		cost -= link->getCost(agent, cost);
+		links.pop_back();
+	}
+}
+*/

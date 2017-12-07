@@ -31,6 +31,8 @@ public:
 	/// \param graphSize The estimated number of nodes traversed.
 	Path findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
 
+	Path findNearest(Agent* agent, std::function<bool(Node*)> condition, size_t graphSize = 128);
+
 	/// \param graphSize The estimated number of nodes traversed.
 	std::vector<Node*> findAllNodes(Agent* agent, float maxPathCost, size_t graphSize = 128);
 
