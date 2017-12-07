@@ -4,6 +4,7 @@
 >
 	<LoadAssets path="Textures.xml" />
 	<LoadAssets path="Sprites.xml" />
+	<LoadAssets path="DamageTypes.xml" />
 	<LoadAssets path="Resources.xml" />
 	<LoadAssets path="Hexes.xml" />
 	<LoadAssets path="Biomes.xml" />

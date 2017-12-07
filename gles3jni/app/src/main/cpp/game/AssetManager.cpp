@@ -15,6 +15,7 @@ AssetManager::AssetManager() {
 	assetFunctions["Texture"] = std::bind(&AssetManager::loadTexture, this, _1);
 	assetFunctions["Sprite"] = std::bind(&AssetManager::loadSprite, this, _1);
 	assetFunctions["SpriteSheet"] = std::bind(&AssetManager::loadSpriteSheet, this, _1);
+	assetFunctions["DamageType"] = std::bind(&AssetManager::loadDamageType, this, _1);
 	assetFunctions["Font"] = std::bind(&AssetManager::loadFont, this, _1);
 	assetFunctions["Hex"] = std::bind(&AssetManager::loadHexType, this, _1);
 	assetFunctions["Biome"] = std::bind(&AssetManager::loadBiome, this, _1);
@@ -22,6 +23,7 @@ AssetManager::AssetManager() {
 	assetFunctions["Building"] = std::bind(&AssetManager::loadBuildingType, this, _1);
 	assetFunctions["Resource"] = std::bind(&AssetManager::loadResource, this, _1);
 
+	effectFunctions["Damage"] = std::bind(&AssetManager::loadDamage, this, _1);
 	effectFunctions["HPModification"] = std::bind(&AssetManager::loadHPModification, this, _1);
 
 	animationFunctions["Nudge"] = std::bind(&AssetManager::loadNudge, this, _1);
@@ -213,6 +215,13 @@ void AssetManager::loadSpriteSheet(AssetManager::Node* node) {
 	}
 }
 
+void AssetManager::loadDamageType(AssetManager::Node* node) {
+	auto id = node->getID();
+	auto name = node->getData()->first_attribute("name")->value();
+	auto sprite = getSprite(node->getSprite());
+	damageTypes[id] = std::make_unique<DamageType>(name, sprite);
+}
+
 void AssetManager::loadFont(AssetManager::Node* node) {
 	std::unordered_map<char, Sprite*> mappings;
 	auto mappingNode = node->getData()->first_node("SpriteMapping");
@@ -283,7 +292,7 @@ void AssetManager::loadUnitType(Node *node) {
 	auto movement = atoi(data->first_attribute("movement")->value());
 	UnitType::SkillList skills;
 
-	auto skillNode = node->getData()->first_node("Skill");
+	auto skillNode = node->getData()->first_node("Skills")->first_node("Skill");
 	while (skillNode) {
 		auto skillSprite = getSprite(skillNode->first_attribute("sprite")->value());
 		auto skillName = skillNode->first_attribute("name")->value();
@@ -356,6 +365,12 @@ void AssetManager::loadResource(Node *node) {
 	resources[node->getID()] = std::make_unique<Resource>(sprite, priority);
 }
 
+std::unique_ptr<Damage> AssetManager::loadDamage(AssetManager::Node* node) {
+	auto type = getDamageType(node->getData()->first_attribute("type")->value());
+	auto amount = atoi(node->getData()->first_attribute("amount")->value());
+	return std::make_unique<Damage>(type, amount);
+}
+
 std::unique_ptr<Effect> AssetManager::loadHPModification(AssetManager::Node* node) {
 	auto amount = atoi(node->getData()->first_attribute("amount")->value());
 	return std::unique_ptr<Effect>(new HPModification(amount));
@@ -375,4 +390,3 @@ std::unique_ptr<SkillAnimation> AssetManager::loadProjectile(AssetManager::Node*
 	auto speed = (float)atof(node->getData()->first_attribute("speed")->value());
 	return std::unique_ptr<SkillAnimation>(new Projectile(sprite, source, destination, speed));
 }
-

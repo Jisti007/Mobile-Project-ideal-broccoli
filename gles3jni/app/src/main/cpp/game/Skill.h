@@ -8,12 +8,36 @@
 typedef MapObject SkillUser;
 typedef MapObject SkillTarget;
 
+class DamageType {
+public:
+	DamageType(const char* name, Sprite* sprite);
+
+	inline const char* getName() const { return name.c_str(); }
+	inline const Sprite* getSprite() const { return sprite; }
+
+private:
+	std::string name;
+	Sprite* sprite;
+};
+
 class Effect {
 public:
 	virtual void apply(SkillUser* user, SkillTarget* target) = 0;
 	/// Helps the AI evaluate the value of an action that will have this effect.
 	/// The higher the returned number, the better for the AI.
 	virtual float evaluate(SkillUser* user, SkillTarget* target, float cost) = 0;
+};
+
+class Damage : public Effect {
+public:
+	Damage(DamageType* type, int amount);
+
+	virtual void apply(SkillUser* user, SkillTarget* target);
+	virtual float evaluate(SkillUser* user, SkillTarget* target, float cost);
+
+private:
+	DamageType* type;
+	int amount;
 };
 
 class HPModification : public Effect {

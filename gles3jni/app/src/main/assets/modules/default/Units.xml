@@ -8,35 +8,48 @@
 		defense="2"
 		movement="5"
 	>
-		<Skill
-			sprite="attack"
-			name="Magic Missile"
-			description="Short range projectile"
-			target="enemy"
-			range="2"
-			cost="2">
-			<Effects>
-				<HPModification amount="-3" />
-			</Effects>
-			<Animations>
-				<Nudge source="user" destination="target" distance="0.25"/>
-				<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
-			</Animations>
-		</Skill>
-		<Skill
-			sprite="attack"
-			name="Flash Heal"
-			description="Heals an ally"
-			target="friendly"
-			range="1"
-			cost="2">
-			<Effects>
-				<HPModification amount="2" />
-			</Effects>
-			<Animations>
-				<Nudge source="user" destination="target" distance="0.25"/>
-				<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
-			</Animations>
-		</Skill>
+		<Skills>
+			<Skill
+				sprite="attack"
+				name="Magic Missile"
+				description="Short range projectile"
+				target="enemy"
+				range="2"
+				cost="2"
+			>
+				<Effects>
+					<Damage type="magic" amount="5" />
+					<!-- HPModification amount="-3" /-->
+				</Effects>
+				<Animations>
+					<Nudge source="user" destination="target" distance="0.25"/>
+					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+				</Animations>
+			</Skill>
+			<Skill
+				sprite="attack"
+				name="Flash Heal"
+				description="Heals an ally"
+				target="friendly"
+				range="1"
+				cost="2"
+			>
+				<Effects>
+					<HPModification amount="2" />
+				</Effects>
+				<Animations>
+					<Nudge source="user" destination="target" distance="0.25"/>
+					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+				</Animations>
+			</Skill>
+		</Skills>
+		<Buffs>
+			<Buff
+				name="Magic Resistance"
+				sprite="attack"
+			>
+				<Resistance type="magic" amount="2" />
+			</Buff>
+		</Buffs>
 	</Unit>
 </Assets>

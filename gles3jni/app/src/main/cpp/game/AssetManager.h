@@ -28,6 +28,7 @@ public:
 	inline Texture* getTexture(const char* assetId) { return textures[assetId].get(); }
 	inline Mesh* getMesh(const char* assetId) { return meshes[assetId].get(); }
 	inline Sprite* getSprite(const char* assetId) { return sprites[assetId].get(); }
+	inline DamageType* getDamageType(const char* assetId) { return damageTypes[assetId].get(); }
 	inline HexType* getHexType(const char* assetId) { return hexTypes[assetId].get(); }
 	inline size_t getHexTypeCount() { return hexTypes.size(); }
 	inline UnitType* getUnitType(const char* assetId) { return unitTypes[assetId].get(); }
@@ -60,6 +61,7 @@ private:
 	AssetMap<Texture> textures;
 	AssetMap<Mesh> meshes;
 	AssetMap<Sprite> sprites;
+	AssetMap<DamageType> damageTypes;
 	AssetMap<HexType> hexTypes;
 	AssetMap<Biome> biomes;
 	AssetMap<UnitType> unitTypes;
@@ -82,6 +84,7 @@ private:
 		Node* node, Texture* texture, const char* prefix, int y, int h, int yOffset
 	);
 	void loadSpriteSheet(Node* node);
+	void loadDamageType(Node* node);
 	void loadFont(Node* node);
 	void loadHexType(Node* node);
 	void loadBiome(Node* node);
@@ -89,6 +92,7 @@ private:
 	void loadBuildingType(Node* node);
 	void loadResource(Node* node);
 
+	std::unique_ptr<Damage> loadDamage(Node* node);
 	std::unique_ptr<Effect> loadHPModification(Node* node);
 	std::unique_ptr<SkillAnimation> loadNudge(Node* node);
 	std::unique_ptr<SkillAnimation> loadProjectile(Node* node);

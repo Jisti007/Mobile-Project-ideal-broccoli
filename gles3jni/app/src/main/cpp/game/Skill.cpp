@@ -4,6 +4,30 @@
 #include "scenes/DeathAnimation.h"
 #include "scenes/ActorVisibilityAnimation.h"
 
+DamageType::DamageType(const char* name, Sprite* sprite) {
+	this->name = name;
+	this->sprite = sprite;
+}
+
+Damage::Damage(DamageType* type, int amount) {
+	this->type = type;
+	this->amount = amount;
+}
+
+void Damage::apply(SkillUser* user, SkillTarget* target) {
+	auto targetUnit = static_cast<Unit*>(target);
+	targetUnit->modifyHP(-amount);
+}
+
+float Damage::evaluate(SkillUser* user, SkillTarget* target, float cost) {
+	auto userUnit = static_cast<Unit*>(user);
+	auto targetUnit = static_cast<Unit*>(target);
+	if (userUnit->isFriendlyTowards(targetUnit)) {
+		return -amount / cost;
+	}
+	return amount / cost;
+}
+
 HPModification::HPModification(int amount) {
 	this->amount = amount;
 }
