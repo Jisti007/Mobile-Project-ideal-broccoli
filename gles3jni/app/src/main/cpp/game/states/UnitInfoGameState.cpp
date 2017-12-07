@@ -2,21 +2,44 @@
 
 UnitInfoGameState::UnitInfoGameState(Game* game, Unit* selectedUnit) : PlayerGameState(game) {
 	this->selectedUnit = selectedUnit;
+	createUI();
 }
 
-void UnitInfoGameState::createInfo(Unit* selectedUnit) {
+void UnitInfoGameState::recreateUI() {
+	PlayerGameState::recreateUI();
+	createUI();
+}
+
+void UnitInfoGameState::createUI() {
 	auto assets = game->getAssets();
 	auto viewport = game->getPipeline()->getViewport();
 
 	auto infoPanelSprite = assets->getSprite("ui_info");
-	infoPanel = uiRoot->addNewChild<InfoPanel>(
+	auto infoPanel = uiRoot->addNewChild<InfoPanel>(
 		infoPanelSprite, glm::vec2{
-			0, viewport.getTop() - infoPanelSprite->getHeight() / 2.0f
+			0, 0
 		},
 		assets->getFont("default"),
-	    assets
+		assets,
+		game
 	);
 	infoPanel->updateInfo(selectedUnit);
+}
+
+void UnitInfoGameState::move(float dx, float dy) {
+	game->popState();
+}
+
+bool UnitInfoGameState::press(float x, float y) {
+	if (GameState::press(x, y)) {
+		return true;
+	}
+	game->popState();
+	return true;
+}
+
+void UnitInfoGameState::zoom(float scaleFactor) {
+	game->popState();
 }
 
 

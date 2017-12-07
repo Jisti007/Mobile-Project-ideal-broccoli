@@ -3,6 +3,7 @@
 #include "AnimationGameState.h"
 #include "PathSelectedGameState.h"
 #include "TargetSelectedGameState.h"
+#include "UnitInfoGameState.h"
 
 UnitSelectedGameState::UnitSelectedGameState(Game* game, Unit* selectedUnit) : IdleGameState(game) {
 	this->selectedUnit = selectedUnit;
@@ -14,7 +15,10 @@ void UnitSelectedGameState::onPressHex(MapHex* pressedHex) {
 	auto map = scenario->getActiveMap();
 	auto unit = pressedHex->getUnit();
 	if (unit != nullptr) {
-		if (unit->getFaction() != activeFaction) {
+		if (unit == selectedUnit) {
+			game->pushNew<UnitInfoGameState>(game, selectedUnit);
+		}
+		else if (unit->getFaction() != activeFaction) {
 			game->changeToNew<TargetSelectedGameState>(game, selectedUnit, unit);
 		} else {
 			game->changeToNew<UnitSelectedGameState>(game, unit);

@@ -73,6 +73,7 @@ void Game::pushState(std::unique_ptr<GameState>& state) {
 
 void Game::popState() {
 	if (states.size() > 1) {
+		oldState = std::move(states.back());
 		states.pop_back();
 	}
 }
