@@ -71,7 +71,7 @@ void Nudge::queue(SkillUser* user, SkillTarget* target) {
 		destinationPosition = originalPosition;
 	}
 	auto first = scene->queueNew<MovementAnimation>(
-		sourceActor, scene, destinationPosition, false, 2.0f, false
+		sourceActor, scene, destinationPosition, true, 2.0f, false
 	);
 	first->chainNew<MovementAnimation>(sourceActor, scene, originalPosition, false);
 }

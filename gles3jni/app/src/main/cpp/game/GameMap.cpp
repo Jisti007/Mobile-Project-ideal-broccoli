@@ -47,12 +47,14 @@ void GameMap::generate() {
 	UnitType* testUnit = assets->getUnitType("test");
 
 	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
+	BuildingType* testBuilding = assets->getBuildingType("test");
 	BuildingType* goldBuilding = assets->getBuildingType("gold");
 	BuildingType* foodBuilding = assets->getBuildingType("food");
 	BuildingType* materialBuilding = assets->getBuildingType("material");
 	BuildingType* crystalBuilding = assets->getBuildingType("crystal");
 
 	WeightedList<BuildingType*> buildingsList;
+	buildingsList.add(testBuilding, 10);
 	buildingsList.add(goldBuilding, 15);
 	buildingsList.add(foodBuilding, 15);
 	buildingsList.add(materialBuilding, 10);
