@@ -21,7 +21,6 @@ protected:
 	virtual void onAnimationFinished();
 
 private:
-	Unit* pickUnit();
 	SkillUsage getBestSkill(Unit* unit, Path& path, int maxRange, SkillUsage currentBest);
 	SkillUsage getBestSkill(Unit* unit, Path& path, MapObject* target, Skill* skill, SkillUsage currentBest);
 };

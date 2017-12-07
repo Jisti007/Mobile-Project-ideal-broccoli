@@ -24,10 +24,12 @@ public:
 	inline void queueAnimation(std::unique_ptr<Animation>& animation) {
 		animationQueue.push_back(std::move(animation));
 	}
+	inline Camera* getCamera() { return &camera; }
 
 private:
 	std::list<std::unique_ptr<Actor>> actors;
 	std::list<std::unique_ptr<Animation>> animationQueue;
+	Camera camera;
 };
 
 template<class T, typename... Args>

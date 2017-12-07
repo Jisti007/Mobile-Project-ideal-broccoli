@@ -26,11 +26,12 @@ void MapGameState::draw(Pipeline* pipeline, float deltaTime) {
 }
 
 void MapGameState::move(float dx, float dy) {
-	auto camera = game->getCampaign()->getScenario()->getActiveMap()->getCamera();
+	auto scene = game->getCampaign()->getScenario()->getActiveMap()->getScene();
+	auto camera = scene->getCamera();
 	auto zoom = camera->getZoom();
 	dx /= zoom * GameMap::gridSize;
 	dy /= zoom * GameMap::gridSize;
-	camera->moveBy({dx, dy});
+	camera->modifyTarget({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {
@@ -56,6 +57,7 @@ bool MapGameState::press(float x, float y) {
 }
 
 void MapGameState::zoom(float scaleFactor) {
-	auto camera = game->getCampaign()->getScenario()->getActiveMap()->getCamera();
+	auto scene = game->getCampaign()->getScenario()->getActiveMap()->getScene();
+	auto camera = scene->getCamera();
 	camera->scaleZoom(scaleFactor);
 }

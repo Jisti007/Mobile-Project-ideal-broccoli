@@ -20,8 +20,9 @@ void TargetSelectedGameState::createUI() {
 		auto skill = skills[0];
 		auto sprite = skill->getSprite();
 		auto map = target->getMap();
+		auto camera = map->getScene()->getCamera();
 		auto skillButton = uiRoot->addNewChild<UISprite>(
-			sprite, target->getActor()->getPosition() - map->getCamera()->getPosition() * GameMap::gridSize
+			sprite, target->getActor()->getPosition() - camera->getPosition() * GameMap::gridSize
 		);
 		skillButton->setOnPress(
 			std::bind(&TargetSelectedGameState::skillButton_onPress, this, std::placeholders::_1
