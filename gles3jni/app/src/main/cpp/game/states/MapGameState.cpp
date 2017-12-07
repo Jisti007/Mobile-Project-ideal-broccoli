@@ -31,7 +31,7 @@ void MapGameState::move(float dx, float dy) {
 	auto zoom = camera->getZoom();
 	dx /= zoom * GameMap::gridSize;
 	dy /= zoom * GameMap::gridSize;
-	camera->moveBy({dx, dy});
+	camera->modifyTarget({dx, dy});
 }
 
 bool MapGameState::press(float x, float y) {

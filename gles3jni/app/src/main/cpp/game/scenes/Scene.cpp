@@ -24,6 +24,7 @@ bool Scene::animate(float deltaTime) {
 
 void Scene::draw(Pipeline* pipeline, float deltaTime) {
 	//TODO: Replace 128.0f with a constant or variable.
+	camera.update(deltaTime);
 	pipeline->setCameraPosition(camera.getPosition() * 128.0f);
 	pipeline->setCameraZoom(camera.getZoom());
 

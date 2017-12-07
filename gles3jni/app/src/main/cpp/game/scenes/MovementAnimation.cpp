@@ -26,7 +26,7 @@ bool MovementAnimation::onAnimate(float deltaTime) {
 		actor->offsetPosition(direction * movementDistance);
 	}
 	if (follows) {
-		scene->getCamera()->move(actor->getPosition() / 128.0f);
+		scene->getCamera()->setTarget(actor->getPosition() / 128.0f);
 	}
 	return destinationReached;
 }
