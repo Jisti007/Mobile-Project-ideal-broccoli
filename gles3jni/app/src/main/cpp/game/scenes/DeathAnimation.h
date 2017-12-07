@@ -7,9 +7,10 @@
 
 class DeathAnimation : public Animation {
 public:
-	DeathAnimation(Actor* actor, Scene* scene);
+	DeathAnimation(Actor* actor, Scene* scene, bool blocking = true);
 
-	virtual bool animate(float deltaTime);
+protected:
+	virtual bool onAnimate(float deltaTime);
 
 private:
 	Actor* actor;

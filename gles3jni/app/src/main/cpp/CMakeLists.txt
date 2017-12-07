@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.4.1)
 #   [24, infinite)   ES2 & ES3 & Vulkan
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fno-rtti -Wall") # -fno-exceptions
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Wall") # -fno-rtti -fno-exceptions
 
 if (${ANDROID_PLATFORM_LEVEL} LESS 12)
     message(FATAL_ERROR "OpenGL 2 is not supported before API level 11 (currently using ${ANDROID_PLATFORM_LEVEL}).")
@@ -46,6 +46,7 @@ add_library(
 	game/Rectangle.cpp
 	game/Resource.cpp
 	game/Scenario.cpp
+	game/Skill.cpp
 	game/Sprite.cpp
 	game/Texture.cpp
 	game/Unit.cpp
@@ -62,8 +63,10 @@ add_library(
 	game/pathing/Link.cpp
 	game/pathing/MovementLink.cpp
 	game/pathing/Node.cpp
+	game/pathing/Path.cpp
 
 	game/scenes/Actor.cpp
+	game/scenes/ActorVisibilityAnimation.cpp
 	game/scenes/Animation.cpp
 	game/scenes/DeathAnimation.cpp
 	game/scenes/MovementAnimation.cpp
@@ -74,9 +77,13 @@ add_library(
 	game/states/BuildingInfoGameState.cpp
 	game/states/ComputerGameState.cpp
 	game/states/GameState.cpp
+	game/states/IdleGameState.cpp
+	game/states/InfoGameState.cpp
 	game/states/MapGameState.cpp
+	game/states/PlayerAnimationGameState.cpp
 	game/states/PlayerGameState.cpp
 	game/states/PathSelectedGameState.cpp
+	game/states/TargetSelectedGameState.cpp
 	game/states/UnitInfoGameState.cpp
 	game/states/UnitSelectedGameState.cpp
 

@@ -1,11 +1,11 @@
 #ifndef GLES3JNI_PATHSELECTEDGAMESTATE_H
 #define GLES3JNI_PATHSELECTEDGAMESTATE_H
 
-#include "PlayerGameState.h"
+#include "UnitSelectedGameState.h"
 
-class PathSelectedGameState : public PlayerGameState {
+class PathSelectedGameState : public UnitSelectedGameState {
 public:
-	PathSelectedGameState(Game* game, std::list<Link*> path);
+	PathSelectedGameState(Game* game, Path path, Unit* selectedUnit);
 
 	virtual void draw(Pipeline* pipeline, float deltaTime);
 
@@ -13,7 +13,7 @@ protected:
 	virtual void onPressHex(MapHex* pressedHex);
 
 private:
-	std::list<Link*> path;
+	Path path;
 };
 
 #endif //GLES3JNI_PATHSELECTEDGAMESTATE_H

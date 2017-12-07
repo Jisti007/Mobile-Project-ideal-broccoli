@@ -7,7 +7,7 @@
 template <typename T>
 class WeightedList {
 public:
-	T getRandom();
+	T getRandom() const;
 	bool add(T item, double weight);
 	void remove(T item);
 	void clear();
@@ -19,7 +19,7 @@ private:
 };
 
 template <typename T>
-T WeightedList<T>::getRandom() {
+T WeightedList<T>::getRandom() const {
 	if (totalWeight > 0) {
 		double rn = (double)rand() / RAND_MAX * totalWeight;
 		for (auto& weightItem : items) {

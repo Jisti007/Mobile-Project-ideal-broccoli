@@ -1,5 +1,6 @@
 #include "Unit.h"
 #include "scenes/DeathAnimation.h"
+#include "scenes/MovementAnimation.h"
 
 Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, GameMap* map)
 	: MapObject(gridX, gridY) {
@@ -11,6 +12,27 @@ Unit::Unit(uint16_t gridX, uint16_t gridY, UnitType *type, Faction* faction, Gam
 
 Unit::~Unit() {
 
+}
+
+bool Unit::move(Path& path) {
+	if (path.getLinks().size() == 0) {
+		return true;
+	}
+
+	auto destinationHex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+	if (moveTo(destinationHex)) {
+		modifyMovement(-path.getCost());
+
+		auto scene = getMap()->getScene();
+		for (auto& link : path.getLinks()) {
+			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
+			scene->queueNew<MovementAnimation>(
+				getActor(), linkDestinationHex->getActor()->getPosition()
+			);
+		}
+		return true;
+	}
+	return false;
 }
 
 bool Unit::moveTo(MapHex* destination) {
@@ -31,25 +53,38 @@ bool Unit::moveTo(MapHex* destination) {
 	gridX = destination->getGridX();
 	gridY = destination->getGridY();
 
+	auto building = destination->getBuilding();
+	if (building) {
+		if (getFaction() != building->getFaction()) {
+			building->setFaction(getFaction());
+		}
+	}
+
 	return true;
 }
 
 void Unit::die() {
 	map->removeUnit(this);
 	auto scene = map->getScene();
-	std::unique_ptr<Animation> animation(new DeathAnimation(getActor(), scene));
-	scene->queueAnimation(animation);
+	scene->queueNew<DeathAnimation>(getActor(), scene);
 }
 
 void Unit::setHP(int hp) {
 	this->hp = hp;
-	if (hp < 0) {
+	if (hp <= 0) {
 		die();
 	}
 }
 
 void Unit::onBeginTurn() {
-	if (getFaction() == map->getScenario()->getActiveFaction()) {
-		movementRemaining = getType()->getMovement();
-	}
+	//movable = true;
+	movementRemaining = getType()->getMovement();
+}
+
+MapHex* Unit::getHex() {
+	return map->tryGetHex(getGridPosition());
+}
+
+bool Unit::isFriendlyTowards(Unit* other) {
+	return getFaction() == other->getFaction();
 }

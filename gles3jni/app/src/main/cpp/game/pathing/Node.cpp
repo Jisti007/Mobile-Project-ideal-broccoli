@@ -10,7 +10,7 @@ Node::~Node() {
 
 }
 
-std::list<Link*> Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
+Path Node::findShortestPath(Node* destination, Agent* agent, size_t graphSize) {
 	BinaryHeap openNodes;
 	initializePathfinder(openNodes, graphSize);
 
@@ -24,7 +24,7 @@ std::list<Link*> Node::findShortestPath(Node* destination, Agent* agent, size_t 
 		active->visitNeighbors(openNodes, agent, destination);
 	}
 
-	return buildPath(destination);
+	return buildPath(destination, agent);
 }
 
 std::vector<Node*> Node::findAllNodes(Agent* agent, float maxPathCost, size_t graphSize) {
@@ -46,15 +46,17 @@ std::vector<Node*> Node::findAllNodes(Agent* agent, float maxPathCost, size_t gr
 	return nodesFound;
 }
 
-std::list<Link*> Node::buildPath(Node* destination) {
-	// Backtrack from the destination to build the path.
-	std::list<Link*> path;
-	Link* pathLink = destination->pathLink;
-	while (pathLink != nullptr) {
-		path.push_front(pathLink);
-		pathLink = pathLink->getSource()->pathLink;
+Path Node::buildPath(Node* destination, Agent* agent) {
+	std::list<Link*> links;
+	if (destination->lastVisit == currentPathfinderRun) {
+		// Backtrack from the destination to build the path.
+		Link* pathLink = destination->pathLink;
+		while (pathLink != nullptr) {
+			links.push_front(pathLink);
+			pathLink = pathLink->getSource()->pathLink;
+		}
 	}
-	return path;
+	return Path(links, agent);
 }
 
 int Node::compareTo(Comparable* other) {

@@ -3,16 +3,16 @@
 
 #include "MapGameState.h"
 #include "PlayerGameState.h"
+#include "IdleGameState.h"
 
-class UnitSelectedGameState : public PlayerGameState {
+class UnitSelectedGameState : public IdleGameState {
 public:
 	UnitSelectedGameState(Game* game, Unit* selectedUnit);
 
 protected:
-	virtual void onPressHex(MapHex* pressedHex);
-
-private:
 	Unit* selectedUnit;
+
+	virtual void onPressHex(MapHex* pressedHex);
 };
 
 #endif //GLES3JNI_UNITSELECTEDGAMESTATE_H

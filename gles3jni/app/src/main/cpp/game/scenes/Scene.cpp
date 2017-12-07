@@ -2,20 +2,33 @@
 #include "Scene.h"
 
 bool Scene::animate(float deltaTime) {
+	/*
 	if (animationQueue.empty()) {
 		return false;
 	}
-
-	auto animation = animationQueue.front().get();
-	if (animation->animate(deltaTime)) {
-		animationQueue.pop_front();
+	*/
+	auto i = animationQueue.begin();
+	while (i != animationQueue.end()) {
+		auto animation = i->get();
+		if (animation->animate(deltaTime)) {
+			animationQueue.erase(i++);
+		} else if (animation->isBlocking()) {
+			return true;
+		} else {
+			i++;
+		}
 	}
-	return true;
+
+	return !animationQueue.empty();
 }
 
 void Scene::draw(Pipeline* pipeline, float deltaTime) {
 	std::vector<Actor*> visibleActors;
 	for (auto& actor : actors) {
+		if (!actor->isVisible()) {
+			continue;
+		}
+
 		auto position = actor->getPosition();
 		auto sprite = actor->getSprite();
 		Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());

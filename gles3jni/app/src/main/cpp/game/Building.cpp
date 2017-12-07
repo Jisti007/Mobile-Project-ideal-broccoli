@@ -1,4 +1,5 @@
 #include "Building.h"
+#include "scenes/RecoloredActor.h"
 
 Building::Building(uint16_t gridX, uint16_t gridY, BuildingType *type, Faction* faction)
 	: MapObject(gridX, gridY) {
@@ -15,4 +16,11 @@ void Building::onBeginTurn(GameMap* map) {
 			faction->modifyResource(resourceProduction);
 		}
 	}
+}
+
+void Building::setFaction(Faction* faction) {
+	this->faction = faction;
+	auto actor = static_cast<RecoloredActor*>(getActor());
+	// TODO: Queue an Animation to change the color instead.
+	actor->setColors(faction->getColors());
 }

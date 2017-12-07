@@ -28,4 +28,8 @@
 		id="markers"
 		path="textures/Markers.png"
 	/>
+	<Texture
+		id="decorations"
+		path="textures/Decorations.png"
+	/>
 </Assets>

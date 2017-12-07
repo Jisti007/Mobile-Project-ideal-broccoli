@@ -41,12 +41,22 @@ private:
 
 	std::unordered_set<std::string> loadedModules;
 
-	typedef std::unordered_map<std::string, std::function<void(Node*)>> NodeFunction;
-	NodeFunction moduleFunctions;
-	NodeFunction assetFunctions;
+	template <typename T>
+	using StringMap = std::unordered_map<std::string, T>;
 
-	template<typename T>
-	using AssetMap = std::unordered_map<std::string, std::unique_ptr<T>>;
+	template <typename T>
+	using FunctionMap = StringMap<std::function<T>>;
+	typedef FunctionMap<void(Node*)> VoidFunctionMap;
+	VoidFunctionMap moduleFunctions;
+	VoidFunctionMap assetFunctions;
+
+	template <typename T>
+	using PtrFunctionMap = FunctionMap<std::unique_ptr<T>(Node*)>;
+	PtrFunctionMap<Effect> effectFunctions;
+	PtrFunctionMap<SkillAnimation> animationFunctions;
+
+	template <typename T>
+	using AssetMap = StringMap<std::unique_ptr<T>>;
 	AssetMap<Texture> textures;
 	AssetMap<Mesh> meshes;
 	AssetMap<Sprite> sprites;
@@ -57,6 +67,8 @@ private:
 	AssetMap<Resource> resources;
 	AssetMap<Font> fonts;
 	WeightedList<Biome*> weightedBiomes;
+	StringMap<SkillAnimation::Role> skillAnimationActors;
+	StringMap<TargetType> targetTypes;
 
 	void
 	loadXml(const char* directory, const char* fileName, std::function<void(Node*)> nodeFunction);
@@ -66,7 +78,9 @@ private:
 	void loadTexture(Node* node);
 	void loadSprite(Node* node);
 	void loadSpriteUsing(Node* node, Texture* texture, const char* prefix);
-	void loadSpriteUsing(Node* node, Texture* texture, const char* prefix, int y, int h);
+	void loadSpriteUsing(
+		Node* node, Texture* texture, const char* prefix, int y, int h, int yOffset
+	);
 	void loadSpriteSheet(Node* node);
 	void loadFont(Node* node);
 	void loadHexType(Node* node);
@@ -75,6 +89,9 @@ private:
 	void loadBuildingType(Node* node);
 	void loadResource(Node* node);
 
+	std::unique_ptr<Effect> loadHPModification(Node* node);
+	std::unique_ptr<SkillAnimation> loadNudge(Node* node);
+	std::unique_ptr<SkillAnimation> loadProjectile(Node* node);
 
 	class Node {
 	public:

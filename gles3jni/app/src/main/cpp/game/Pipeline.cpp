@@ -18,9 +18,9 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-    vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
-    position.x = position.x / cameraSize.x;
-    position.y = position.y / cameraSize.y;
+	vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
+	position.x = position.x / cameraSize.x;
+	position.y = position.y / cameraSize.y;
 
 	gl_Position = vec4(position, 0.0, 1.0);
 	fragmentTexture = vertexTexture;
@@ -38,6 +38,7 @@ const int MAX_COLOR_SWAPS = 4;
 const float COLOR_SWAP_TOLERANCE = 0.25 / 255.0;
 
 uniform sampler2D sampler;
+uniform vec3 ambientColor;
 uniform vec3 sourceColors[MAX_COLOR_SWAPS];
 uniform vec3 destinationColors[MAX_COLOR_SWAPS];
 uniform int numberOfColorSwaps;
@@ -57,6 +58,8 @@ void main(){
 			break;
 		}
 	}
+
+	outColor *= vec4(ambientColor, 1.0);
 }
 )glsl";
 
@@ -85,6 +88,7 @@ void Pipeline::initialize() {
 		glGetProgramInfoLog(program, 512, NULL, log);
 	}
 
+	ambientColorLocation = glGetUniformLocation(getProgram(), "ambientColor");
 	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
 	instanceScaleLocation = glGetUniformLocation(getProgram(), "instanceScale");
 	sourceColorsLocation = glGetUniformLocation(getProgram(), "sourceColors");
@@ -104,9 +108,12 @@ void Pipeline::destroy() {
 void Pipeline::beginDraw() {
 	glUseProgram(getProgram());
 	Vertex::enableAttributes();
+	setAmbientColor({1.0f, 1.0f, 1.0f});
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
+	draw(sprite, position, 0, scale);
+	/*
 	glUniform2f(instancePositionLocation, position.x, position.y);
 	glUniform1f(instanceScaleLocation, scale);
 	auto texture = sprite->getTexture()->getHandle();
@@ -123,20 +130,19 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
 
 	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 	glUniform1i(numberOfColorSwapsLocation, 0);
+	*/
 }
 
 void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
-	draw(sprite, position, 1, destinationColors);
+	draw(sprite, position, destinationColors, 1);
 }
 
-
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale,
-	std::vector<glm::vec3> destinationColors) {
-
+void Pipeline::draw(
+	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, float scale
+) {
 	auto numberOfColorSwaps = (GLint)std::min(
 		sprite->getSwappableColors().size(), destinationColors.size()
 	);
-	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
 	glUniform3fv(
 		sourceColorsLocation,
 		(GLsizei)numberOfColorSwaps,
@@ -148,7 +154,7 @@ void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale,
 		(GLfloat*)destinationColors.data()
 	);
 
-	draw(sprite, position, scale);
+	draw(sprite, position, numberOfColorSwaps, scale);
 }
 
 void Pipeline::endDraw() {
@@ -159,6 +165,10 @@ void Pipeline::endDraw() {
 	lastVertexArray = 0;
 	glBindVertexArray(lastVertexArray);
 	glUseProgram(0);
+}
+
+void Pipeline::setAmbientColor(glm::vec3 color) {
+	glUniform3f(ambientColorLocation, color.r, color.g, color.b);
 }
 
 void Pipeline::setCameraPosition(glm::vec2 position) {
@@ -184,6 +194,25 @@ bool Pipeline::isVisible(Rectangle rectangle) {
 		viewportSize / cameraZoom
 	);
 	return viewportBounds.overlaps(rectangle);
+}
+
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps, float scale) {
+	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
+	glUniform2f(instancePositionLocation, position.x, position.y);
+	glUniform1f(instanceScaleLocation, scale);
+	auto texture = sprite->getTexture()->getHandle();
+	if (texture != lastTexture) {
+		glBindTexture(GL_TEXTURE_2D, texture);
+		lastTexture = texture;
+	}
+	auto mesh = sprite->getMesh();
+	auto vertexArray = mesh->getVertexArray();
+	if (vertexArray != lastVertexArray) {
+		glBindVertexArray(vertexArray);
+		lastVertexArray = vertexArray;
+	}
+
+	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
 }
 
 GLuint Pipeline::createShader(const char* source, GLenum type) {

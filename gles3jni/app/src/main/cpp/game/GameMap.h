@@ -39,6 +39,7 @@ public:
 	glm::vec2 getHexPosition(int x, int y);
 	/// Transforms the given hex position to screen coordinates.
 	glm::vec2 getScreenPosition(glm::vec2 hexPosition);
+	glm::vec2 getScreenPosition(Point gridPosition);
 
 	inline Scenario* getScenario() { return scenario; }
 	inline Scene* getScene() { return &scene; }
@@ -47,6 +48,7 @@ public:
 	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
+	inline std::vector<std::unique_ptr<Unit>>& getUnits() { return units; }
 
 	static const float gridSize;
 	static const float xOffset;

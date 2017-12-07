@@ -4,9 +4,17 @@
 		id="test"
 		sprite="test_unit"
 		hp="10"
-		attack="2"
 		defense="2"
-		range="2"
 		movement="5"
-	/>
+	>
+		<Skill sprite="attack" target="enemy" range="2" cost="2">
+			<Effects>
+				<HPModification amount="-3" />
+			</Effects>
+			<Animations>
+				<Nudge source="user" destination="target" distance="0.25"/>
+				<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+			</Animations>
+		</Skill>
+	</Unit>
 </Assets>

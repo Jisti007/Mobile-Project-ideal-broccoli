@@ -66,10 +66,10 @@ void GameMap::generate() {
 				hex->getSprite(), getHexPosition(x, y), -Random::generateFloat()
 			);
 			hex->setActor(actor);
+			hex->clearDecorations();
+			hex->createDecorations();
 
 			if (hex->getType() != water) {
-				glm::vec2 hexPosition = getHexPosition(x, y);
-
 				auto rn = rand() % 100;
 				if (rn > 95) {
 					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
@@ -207,7 +207,7 @@ glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
 }
 
 Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
-	auto actor = new Actor(sprite, getScreenPosition(position), depth);
+	auto actor = new Actor(sprite, getScreenPosition(position), depth, HEX_LAYER);
 	auto actorPointer = std::unique_ptr<Actor>(actor);
 	scene.addActor(actorPointer);
 	return actor;
@@ -216,7 +216,7 @@ Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
 Actor* GameMap::createActor(
 	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> colors, float depth
 ) {
-	auto actor = new RecoloredActor(sprite, getScreenPosition(position), depth, colors);
+	auto actor = new RecoloredActor(sprite, getScreenPosition(position), depth, BUILDING_LAYER, colors);
 	auto actorPointer = std::unique_ptr<Actor>(actor);
 	scene.addActor(actorPointer);
 	return actor;
@@ -230,14 +230,13 @@ void GameMap::initializeHexes() {
 	HexType* grass = assets->getHexType("grass");
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
-			auto position = getHexPosition(x, y);
-			auto hex = make_unique<MapHex>(x, y, grass);
+			auto hex = make_unique<MapHex>(x, y, grass, this);
 			hexes.push_back(move(hex));
 		}
 	}
 
 	for (auto& hex : hexes) {
-		hex->initializeNeighbors(this);
+		hex->initializeNeighbors();
 	}
 }
 
@@ -311,4 +310,8 @@ MapHex* GameMap::findFreeHex(int maxTries) {
 glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
 	glm::vec2 hexPosition = getHexPosition(x, y);
 	return getScreenPosition(hexPosition);
+}
+
+glm::vec2 GameMap::getScreenPosition(Point gridPosition) {
+	return getScreenPosition(getHexPosition(gridPosition.x, gridPosition.y));
 }

@@ -6,7 +6,7 @@
 
 class Movement : public ScenarioEvent {
 public:
-	Movement(Unit* unit, std::list<Link*> path);
+	Movement(Unit* unit, Path path);
 	virtual ~Movement();
 
 	virtual bool execute();
@@ -14,8 +14,8 @@ public:
 
 private:
 	Unit* unit;
-	std::list<Link*> path;
-	std::list<Link*> animationPath;
+	Path path;
+	//std::list<Link*> animationPath;
 };
 
 #endif //GLES3JNI_MOVEMENT_H

@@ -15,14 +15,16 @@ class Unit;
 
 class MapHex : public MapObject, public Node {
 public:
-	MapHex(uint16_t gridX, uint16_t gridY, HexType* type);
+	MapHex(uint16_t gridX, uint16_t gridY, HexType* type, GameMap* map);
 	virtual ~MapHex();
 
 	virtual float getHeuristic(Node* destination);
 
-	void initializeNeighbors(GameMap* map);
+	std::vector<MapHex*> getHexesWithin(int radius);
+	void initializeNeighbors();
 	void setRegion(MapRegion* region);
-	int getDistance(MapHex* other);
+	void clearDecorations();
+	void createDecorations();
 
 	virtual Sprite* getSprite() { return type->getSprite(); }
 	inline const std::vector<MapHex*>& getNeighbors() const { return neighbors; }
@@ -35,13 +37,14 @@ public:
 
 private:
 	std::vector<MapHex*> neighbors;
+	std::vector<Actor*> decorations;
+	GameMap* map;
 	MapRegion* region;
 	HexType* type;
-	Unit* unit;
-	Building* building;
+	Unit* unit = nullptr;
+	Building* building = nullptr;
 
 	void addNeighbor(GameMap* map, int x, int y);
-	Point3D getCubePosition();
 };
 
 #endif //GLES3JNI_MAPHEX_H

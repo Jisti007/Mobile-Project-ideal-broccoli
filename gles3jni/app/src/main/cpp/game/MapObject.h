@@ -13,6 +13,8 @@ public:
 
 	virtual Sprite* getSprite() = 0;
 
+	int getDistance(MapObject* other);
+
 	inline Actor* getActor() { return actor; }
 	inline void setActor(Actor* actor) { this->actor = actor; }
 	inline const uint16_t getGridX() const { return gridX; }
@@ -23,7 +25,9 @@ protected:
 	uint16_t gridX, gridY;
 
 private:
-	Actor* actor = nullptr;
+	Actor* actor;
+
+	Point3D getCubePosition();
 };
 
 #endif //GLES3JNI_MAPOBJECT_H

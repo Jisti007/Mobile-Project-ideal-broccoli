@@ -2,11 +2,13 @@
 #define GLES3JNI_NODE_H
 
 class Link;
+class Path;
 
 #include "Comparable.h"
 #include "Agent.h"
 #include "Link.h"
 #include "BinaryHeap.h"
+#include "Path.h"
 #include <list>
 #include <vector>
 #include <cstdio>
@@ -27,16 +29,15 @@ public:
 	virtual float getHeuristic(Node* destination) = 0;
 
 	/// \param graphSize The estimated number of nodes traversed.
-	std::list<Link*> findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
+	Path findShortestPath(Node* destination, Agent* agent, size_t graphSize = 128);
 
 	/// \param graphSize The estimated number of nodes traversed.
 	std::vector<Node*> findAllNodes(Agent* agent, float maxPathCost, size_t graphSize = 128);
 
-	/// Use this function with caution.
-	/// It should only be called after pathfinding has finished and before it is called again.
+	/// Should only be called after pathfinding has finished and before it is called again.
 	/// findShortestPath uses this function automatically,  but it can be useful after findAllNodes.
-	/// You need to make sure the destination is one of the nodes returned.
-	std::list<Link*> buildPath(Node* destination);
+	/// Returns an empty path if the node wasn't visited in the preceding pathfinding run.
+	Path buildPath(Node* destination, Agent* agent);
 
 	int compareTo(Comparable* other);
 
