@@ -27,7 +27,7 @@ bool Unit::move(Path& path) {
 		for (auto& link : path.getLinks()) {
 			auto linkDestinationHex = static_cast<MapHex*>(link->getDestination());
 			scene->queueNew<MovementAnimation>(
-				getActor(), linkDestinationHex->getActor()->getPosition()
+				getActor(), scene, linkDestinationHex->getActor()->getPosition(), true
 			);
 		}
 		return true;
