@@ -37,14 +37,17 @@ Unit* ComputerGameState::pickUnit() {
 }
 
 SkillUsage ComputerGameState::getBestSkill(Unit* unit, Path& path, int maxRange, SkillUsage currentBest) {
+	MapHex* hex;
 	if (path.getLinks().size() > 0) {
-		auto hex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+		hex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
 		if (hex->getUnit() != nullptr) {
 			return currentBest;
 		}
+	} else {
+		hex = unit->getHex();
 	}
 
-	auto potentialTargets = unit->getHex()->getHexesWithin(maxRange);
+	auto potentialTargets = hex->getHexesWithin(maxRange);
 	for (auto& potentialTarget : potentialTargets) {
 		auto potentialTargetUnit = potentialTarget->getUnit();
 		for (auto& skill : unit->getType()->getSkills()) {
@@ -58,7 +61,14 @@ SkillUsage ComputerGameState::getBestSkill(Unit* unit, Path& path, int maxRange,
 }
 
 SkillUsage ComputerGameState::getBestSkill(Unit* unit, Path& path, MapObject* target, Skill* skill, SkillUsage currentBest) {
-	if (skill->validate(unit, target, path.getCost())) {
+	MapHex* hex;
+	if (path.getLinks().size() > 0) {
+		hex = static_cast<MapHex*>(path.getLinks().back()->getDestination());
+	} else {
+		hex = unit->getHex();
+	}
+
+	if (skill->validate(unit, target, path.getCost(), hex->getDistance(target))) {
 		auto evaluation = skill->evaluate(unit, target, path.getCost());
 		if (evaluation > currentBest.evaluation) {
 			return {skill, unit, target, path, evaluation};

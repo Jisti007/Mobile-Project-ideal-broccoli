@@ -39,6 +39,7 @@ public:
 	glm::vec2 getHexPosition(int x, int y);
 	/// Transforms the given hex position to screen coordinates.
 	glm::vec2 getScreenPosition(glm::vec2 hexPosition);
+	glm::vec2 getScreenPosition(Point gridPosition);
 
 	inline Scenario* getScenario() { return scenario; }
 	inline Scene* getScene() { return &scene; }

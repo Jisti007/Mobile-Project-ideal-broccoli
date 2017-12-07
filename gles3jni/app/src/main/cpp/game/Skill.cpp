@@ -57,9 +57,10 @@ Nudge::Nudge(
 
 void Nudge::queue(SkillUser* user, SkillTarget* target) {
 	auto userUnit = static_cast<Unit*>(user);
-	auto scene = userUnit->getMap()->getScene();
+	auto map = userUnit->getMap();
+	auto scene = map->getScene();
 	auto sourceActor = getSourceActor(user, target);
-	auto originalPosition = sourceActor->getPosition();
+	auto originalPosition = map->getScreenPosition(user->getGridPosition());
 	auto destinationActor = getDestinationActor(user, target);
 	auto delta = destinationActor->getPosition() - originalPosition;
 	auto direction = glm::normalize(delta);
@@ -83,10 +84,12 @@ Projectile::Projectile(
 
 void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto userUnit = static_cast<Unit*>(user);
-	auto scene = userUnit->getMap()->getScene();
+	auto map = userUnit->getMap();
+	auto scene = map->getScene();
 	auto sourceActor = getSourceActor(user, target);
+	auto sourcePosition = map->getScreenPosition(userUnit->getGridPosition());
 	auto destinationActor = getDestinationActor(user, target);
-	auto projectile = scene->addNew<Actor>(sprite, sourceActor->getPosition(), 1.0f, PROJECTILE_LAYER);
+	auto projectile = scene->addNew<Actor>(sprite, sourcePosition, 1.0f, PROJECTILE_LAYER);
 	scene->queueNew<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
 	scene->queueNew<DeathAnimation>(projectile, scene);
 }
@@ -133,10 +136,6 @@ bool Skill::validate(SkillUser* user, SkillTarget* target, float extraCost) {
 		return false;
 	}
 
-	if (user->getDistance(target) > getRange()) {
-		return false;
-	}
-
 	switch (targetType) {
 		case TargetType::unit:
 			return  true;
@@ -148,5 +147,12 @@ bool Skill::validate(SkillUser* user, SkillTarget* target, float extraCost) {
 			return false;
 	}
 
+	return false;
+}
+
+bool Skill::validate(SkillUser* user, SkillTarget* target, float extraCost, int range) {
+	if (range <= getRange()) {
+		return validate(user, target, extraCost);
+	}
 	return false;
 }

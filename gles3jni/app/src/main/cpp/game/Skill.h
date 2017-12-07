@@ -96,6 +96,8 @@ public:
 	float evaluate(SkillUser* user, SkillTarget* target, float extraCost);
 	/// Returns true if the rules allow the user to use this skill against the target.
 	bool validate(SkillUser* user, SkillTarget* target, float extraCost);
+	/// Returns true if the rules allow the user to use this skill against the target.
+	bool validate(SkillUser* user, SkillTarget* target, float extraCost, int range);
 
 	inline Sprite* getSprite() const { return sprite; }
 	inline const TargetType getTargetType() const { return targetType; }

@@ -311,3 +311,7 @@ glm::vec2 GameMap::getScreenPosition(int32_t x, int32_t y) {
 	glm::vec2 hexPosition = getHexPosition(x, y);
 	return getScreenPosition(hexPosition);
 }
+
+glm::vec2 GameMap::getScreenPosition(Point gridPosition) {
+	return getScreenPosition(getHexPosition(gridPosition.x, gridPosition.y));
+}

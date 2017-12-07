@@ -14,7 +14,7 @@ UnitType::UnitType(
 const std::vector<Skill*> UnitType::getValidSkills(MapObject* user, MapObject* target) const {
 	std::vector<Skill*> validSkills;
 	for (auto& skill : skills) {
-		if (skill->validate(user, target, 0)) {
+		if (skill->validate(user, target, 0, user->getDistance(target))) {
 			validSkills.push_back(skill.get());
 		}
 	}
