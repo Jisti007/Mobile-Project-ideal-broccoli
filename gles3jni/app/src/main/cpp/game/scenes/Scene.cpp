@@ -23,6 +23,9 @@ bool Scene::animate(float deltaTime) {
 }
 
 void Scene::draw(Pipeline* pipeline, float deltaTime) {
+	pipeline->setCameraPosition(camera.getPosition() * 128.0f);
+	pipeline->setCameraZoom(camera.getZoom());
+
 	std::vector<Actor*> visibleActors;
 	for (auto& actor : actors) {
 		if (!actor->isVisible()) {
@@ -38,6 +41,7 @@ void Scene::draw(Pipeline* pipeline, float deltaTime) {
 	}
 
 	std::sort(visibleActors.begin(), visibleActors.end(), ActorSorter());
+	//TODO: Replace 128.0f with a constant.
 	for (auto& actor : visibleActors) {
 		actor->draw(pipeline);
 	}

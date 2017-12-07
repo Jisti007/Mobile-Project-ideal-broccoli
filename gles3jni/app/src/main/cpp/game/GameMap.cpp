@@ -25,8 +25,8 @@ void GameMap::initialize(uint16_t width, uint16_t height, Scenario* scenario) {
 	this->width = width;
 	this->height = height;
 	this->scenario = scenario;
-	camera.setZoom(2.0f);
-	camera.setMaxPosition({width * xOffset, height});
+	scene.getCamera()->setZoom(2.0f);
+	scene.getCamera()->setMaxPosition({width * xOffset, height});
 
 	initializeHexes();
 	generate();
@@ -88,8 +88,6 @@ void GameMap::generate() {
 
 void GameMap::draw(float deltaTime) {
 	auto pipeline = scenario->getCampaign()->getGame()->getPipeline();
-	pipeline->setCameraPosition(camera.getPosition() * gridSize);
-	pipeline->setCameraZoom(camera.getZoom());
 	scene.draw(pipeline, deltaTime);
 	/*
 	auto debugMarker = scenario->getCampaign()->getGame()->getAssets()->getSprite("dot_marker");
@@ -161,8 +159,9 @@ MapHex* GameMap::tryGetHex(int x, int y) {
 }
 
 Point GameMap::getGridPosition(glm::vec2 screenPosition) {
+	auto camera = scene.getCamera();
 	//TODO: Android Studio complains about this, but it builds fine. Find a way to silence it?
-	auto position = screenPosition / camera.getZoom() + camera.getPosition() * gridSize;
+	auto position = screenPosition / camera->getZoom() + camera->getPosition() * gridSize;
 	position.x /= gridSize;
 	position.y /= gridSize;
 	//debugPosition = getScreenPosition(position);

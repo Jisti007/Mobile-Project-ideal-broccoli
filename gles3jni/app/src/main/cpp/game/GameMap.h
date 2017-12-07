@@ -45,7 +45,6 @@ public:
 	inline Scene* getScene() { return &scene; }
 	inline MapHex* getHex(int x, int y) { return hexes[y * width + x].get(); }
 	inline MapHex* tryGetHex(Point position) { return tryGetHex(position.x, position.y); }
-	inline Camera* getCamera() { return &camera; }
 	inline uint16_t getWidth() { return width; }
 	inline uint16_t getHeight() { return height; }
 	inline std::vector<std::unique_ptr<Unit>>& getUnits() { return units; }
@@ -64,7 +63,6 @@ private:
 	std::vector<std::unique_ptr<Unit>> units;
 	uint16_t width;
 	uint16_t height;
-	Camera camera;
 	//glm::vec2 debugPosition;
 
 	Actor* createActor(Sprite* sprite, glm::vec2 position, float depth);
