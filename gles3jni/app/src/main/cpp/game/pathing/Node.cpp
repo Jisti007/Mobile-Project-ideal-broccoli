@@ -76,6 +76,7 @@ void Node::initializePathfinder(BinaryHeap& openNodes, size_t graphSize) {
 	currentPathfinderRun++;
 	this->lastVisit = currentPathfinderRun;
 	this->pathLink = nullptr;
+	this->pathCost = 0;
 	openNodes.reserve(graphSize);
 	openNodes.add(this);
 }
