@@ -19,8 +19,9 @@ public:
 
 	virtual Sprite* getSprite() {return type->getSprite(); }
 
-	bool move(Path& path);
+	bool move(Path path);
 	bool moveTo(MapHex* destination);
+	bool canMoveTo(MapHex* destination);
 	void die();
 	void setHP(int hp);
 	void onBeginTurn();

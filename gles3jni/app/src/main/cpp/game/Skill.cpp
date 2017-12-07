@@ -17,7 +17,7 @@ float HPModification::evaluate(SkillUser* user, SkillTarget* target, float cost)
 	auto userUnit = static_cast<Unit*>(user);
 	auto targetUnit = static_cast<Unit*>(target);
 	if (userUnit->isFriendlyTowards(targetUnit)) {
-		return amount / cost;
+		return std::min(amount, targetUnit->getType()->getHP() - targetUnit->getHP()) / cost;
 	}
 	return -amount / cost;
 }
@@ -67,6 +67,9 @@ void Nudge::queue(SkillUser* user, SkillTarget* target) {
 	auto direction = glm::normalize(delta);
 	auto distance = sqrtf(glm::dot(delta, delta));
 	auto destinationPosition = originalPosition + this->distance * distance * direction;
+	if (destinationPosition.x == NAN || destinationPosition.y == NAN) {
+		destinationPosition = originalPosition;
+	}
 	auto first = scene->queueNew<MovementAnimation>(
 		sourceActor, scene, destinationPosition, false, 2.0f, false
 	);
