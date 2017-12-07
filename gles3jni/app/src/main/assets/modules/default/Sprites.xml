@@ -15,7 +15,10 @@
 		<Row y="424" h="115">
 			<Sprite id="ui_resource" x="10" w="720" />
 		</Row>
+		<Sprite id="ui_info" x="820" y="46" w="1000" h="650" />
 		<Sprite id="end_turn_button" x="12" y="550" w="260" h="260" />
+		<Sprite id="no_button" x="212" y="854" w="150" h="150" />
+		<Sprite id="yes_button" x="367" y="854" w="150" h="150" />
 		<Sprite id="faction_crest" x="340" y="570" w="240" h="260">
 			<SwappableColor r="255" g="255" b="255"/>
 			<SwappableColor r="0" g="0" b="160"/>

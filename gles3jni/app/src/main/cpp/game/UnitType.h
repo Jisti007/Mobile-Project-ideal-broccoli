@@ -15,8 +15,8 @@ public:
 	int getMaxSkillRange() const;
 
 	inline Sprite* getSprite() const { return sprite; }
-	inline int getHP() { return hp; }
-	inline int getDefense() { return defense; }
+	inline const int getHP() const { return hp; }
+	inline const int getDefense() const { return defense; }
 	inline const int getMovement() const { return movement; }
 	inline const SkillList& getSkills() const { return skills; };
 

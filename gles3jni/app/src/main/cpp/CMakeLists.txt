@@ -78,7 +78,6 @@ add_library(
 	game/states/ComputerGameState.cpp
 	game/states/GameState.cpp
 	game/states/IdleGameState.cpp
-	game/states/InfoGameState.cpp
 	game/states/MapGameState.cpp
 	game/states/PlayerAnimationGameState.cpp
 	game/states/PlayerGameState.cpp
@@ -88,6 +87,7 @@ add_library(
 	game/states/UnitSelectedGameState.cpp
 
 	game/ui/Button.cpp
+	game/ui/InfoPanel.cpp
 	game/ui/Label.cpp
 	game/ui/UIObject.cpp
 	game/ui/UISprite.cpp
