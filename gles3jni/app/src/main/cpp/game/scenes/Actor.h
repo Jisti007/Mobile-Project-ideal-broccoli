@@ -13,7 +13,7 @@ const int PROJECTILE_LAYER = 4;
 
 class Actor {
 public:
-	Actor(Sprite* sprite, glm::vec2 position, float depth, int layer);
+	Actor(Sprite* sprite, glm::vec2 position, float depth, int layer, bool visible = true);
 
 	virtual void draw(Pipeline* pipeline);
 
@@ -25,12 +25,15 @@ public:
 	inline float getDepth() { return depth; }
 	inline void setDepth(float depth) { this->depth = depth; }
 	inline int getLayer() { return layer; }
+	inline bool isVisible() { return visible; }
+	inline void setVisible(bool visible) { this->visible = visible; }
 
 private:
 	Sprite* sprite;
 	glm::vec2 position;
 	float depth = 0.0f;
 	int layer;
+	bool visible;
 };
 
 struct ActorSorter {

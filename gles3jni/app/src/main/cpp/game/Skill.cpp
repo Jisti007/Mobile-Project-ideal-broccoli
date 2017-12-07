@@ -2,6 +2,7 @@
 #include "Unit.h"
 #include "scenes/MovementAnimation.h"
 #include "scenes/DeathAnimation.h"
+#include "scenes/ActorVisibilityAnimation.h"
 
 HPModification::HPModification(int amount) {
 	this->amount = amount;
@@ -89,7 +90,8 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto sourceActor = getSourceActor(user, target);
 	auto sourcePosition = map->getScreenPosition(userUnit->getGridPosition());
 	auto destinationActor = getDestinationActor(user, target);
-	auto projectile = scene->addNew<Actor>(sprite, sourcePosition, 1.0f, PROJECTILE_LAYER);
+	auto projectile = scene->addNew<Actor>(sprite, sourcePosition, 1.0f, PROJECTILE_LAYER, false);
+	scene->queueNew<ActorVisibilityAnimation>(projectile, true, PROJECTILE_LAYER);
 	scene->queueNew<MovementAnimation>(projectile, destinationActor->getPosition(), speed);
 	scene->queueNew<DeathAnimation>(projectile, scene);
 }

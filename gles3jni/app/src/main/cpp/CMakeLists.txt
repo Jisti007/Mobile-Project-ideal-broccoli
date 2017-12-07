@@ -66,6 +66,7 @@ add_library(
 	game/pathing/Path.cpp
 
 	game/scenes/Actor.cpp
+	game/scenes/ActorVisibilityAnimation.cpp
 	game/scenes/Animation.cpp
 	game/scenes/DeathAnimation.cpp
 	game/scenes/MovementAnimation.cpp

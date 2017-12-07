@@ -25,6 +25,10 @@ bool Scene::animate(float deltaTime) {
 void Scene::draw(Pipeline* pipeline, float deltaTime) {
 	std::vector<Actor*> visibleActors;
 	for (auto& actor : actors) {
+		if (!actor->isVisible()) {
+			continue;
+		}
+
 		auto position = actor->getPosition();
 		auto sprite = actor->getSprite();
 		Rectangle spriteBounds(position - sprite->getSize() / 2.0f, sprite->getSize());
