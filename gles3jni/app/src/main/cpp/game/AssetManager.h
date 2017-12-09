@@ -55,6 +55,7 @@ private:
 	using PtrFunctionMap = FunctionMap<std::unique_ptr<T>(Node*)>;
 	PtrFunctionMap<Effect> effectFunctions;
 	PtrFunctionMap<SkillAnimation> animationFunctions;
+	PtrFunctionMap<BuffEffect> buffFunctions;
 
 	template <typename T>
 	using AssetMap = StringMap<std::unique_ptr<T>>;
@@ -96,6 +97,7 @@ private:
 	std::unique_ptr<Effect> loadHPModification(Node* node);
 	std::unique_ptr<SkillAnimation> loadNudge(Node* node);
 	std::unique_ptr<SkillAnimation> loadProjectile(Node* node);
+	std::unique_ptr<BuffEffect> loadResistance(Node* node);
 
 	class Node {
 	public:

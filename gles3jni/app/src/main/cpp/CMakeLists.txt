@@ -26,10 +26,12 @@ add_library(
 	gles3jni.cpp
 	game/AssetManager.cpp
 	game/Biome.cpp
+	game/Buff.cpp
 	game/Building.cpp
 	game/BuildingType.cpp
 	game/Camera.cpp
 	game/Campaign.cpp
+	game/DamageType.cpp
 	game/Faction.cpp
 	game/FileHelper.cpp
 	game/Font.cpp

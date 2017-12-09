@@ -2,17 +2,21 @@
 #define GLES3JNI_UNITTYPE_H
 
 #include "Skill.h"
+#include "Buff.h"
 
 class UnitType {
 public:
 	typedef std::vector<std::unique_ptr<Skill>> SkillList;
+	typedef std::vector<std::unique_ptr<Buff>> BuffList;
 
 	UnitType(
-		Sprite* sprite, std::string name, int hp, int defense, int movement, SkillList& skills
+		Sprite* sprite, std::string name, int hp, int defense, int movement,
+		SkillList& skills, BuffList& buffs
 	);
 
 	const std::vector<Skill*> getValidSkills(MapObject* user, MapObject* target) const;
 	int getMaxSkillRange() const;
+	int getDamageModifierAgainst(Damage* damage);
 
 	inline Sprite* getSprite() const { return sprite; }
 	inline const int getHP() const { return hp; }
@@ -23,9 +27,10 @@ public:
 
 private:
 	Sprite* sprite;
+	std::string name;
 	int hp, defense, movement;
 	SkillList skills;
-	std::string name;
+	BuffList buffs;
 };
 
 #endif //GLES3JNI_UNITTYPE_H

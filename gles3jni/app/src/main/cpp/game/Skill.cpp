@@ -4,11 +4,6 @@
 #include "scenes/DeathAnimation.h"
 #include "scenes/ActorVisibilityAnimation.h"
 
-DamageType::DamageType(const char* name, Sprite* sprite) {
-	this->name = name;
-	this->sprite = sprite;
-}
-
 Damage::Damage(DamageType* type, int amount) {
 	this->type = type;
 	this->amount = amount;
@@ -16,16 +11,22 @@ Damage::Damage(DamageType* type, int amount) {
 
 void Damage::apply(SkillUser* user, SkillTarget* target) {
 	auto targetUnit = static_cast<Unit*>(target);
-	targetUnit->modifyHP(-amount);
+	auto damage = calculateDamage(user, target);
+	targetUnit->modifyHP(-damage);
 }
 
 float Damage::evaluate(SkillUser* user, SkillTarget* target, float cost) {
 	auto userUnit = static_cast<Unit*>(user);
 	auto targetUnit = static_cast<Unit*>(target);
+	auto damage = calculateDamage(user, target);
 	if (userUnit->isFriendlyTowards(targetUnit)) {
-		return -amount / cost;
+		return -damage / cost;
 	}
-	return amount / cost;
+	return damage / cost;
+}
+
+int Damage::calculateDamage(SkillUser* user, SkillTarget* target) {
+	return -amount;
 }
 
 HPModification::HPModification(int amount) {
@@ -116,7 +117,7 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	auto userUnit = static_cast<Unit*>(user);
 	auto map = userUnit->getMap();
 	auto scene = map->getScene();
-	auto sourceActor = getSourceActor(user, target);
+	//auto sourceActor = getSourceActor(user, target);
 	auto sourcePosition = map->getScreenPosition(userUnit->getGridPosition());
 	auto destinationActor = getDestinationActor(user, target);
 	auto projectile = scene->addNew<Actor>(sprite, sourcePosition, 1.0f, PROJECTILE_LAYER, false);
@@ -128,7 +129,8 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 }
 
 Skill::Skill(
-	Sprite* sprite, std::string name, std::string description, TargetType targetType, int range, float cost,
+	Sprite* sprite, std::string name, std::string description,
+	TargetType targetType, int range, float cost,
 	EffectList& effects, AnimationList& animations
 ) {
 	this->sprite = sprite;

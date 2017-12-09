@@ -15,7 +15,7 @@ public:
 	virtual void zoom(float scaleFactor);
 private:
 	Unit* selectedUnit;
-	InfoPanel* infoPanel;
+	//InfoPanel* infoPanel;
 	void createUI();
 };
 

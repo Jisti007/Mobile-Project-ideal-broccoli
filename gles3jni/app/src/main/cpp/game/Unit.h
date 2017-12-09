@@ -27,6 +27,7 @@ public:
 	void onBeginTurn();
 	MapHex* getHex();
 	bool isFriendlyTowards(Unit* other);
+	int getDamageModifierAgainst(Damage* damage);
 
 	inline GameMap* getMap() { return map; }
 	//inline MapHex* getHex() { return map->tryGetHex(getGridPosition()); }

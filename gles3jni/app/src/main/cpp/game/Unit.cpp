@@ -115,10 +115,13 @@ void Unit::die() {
 }
 
 void Unit::setHP(int hp) {
-	this->hp = hp;
-	if (hp <= 0) {
+	auto maxHP = type->getHP();
+	if (hp > maxHP) {
+		hp = maxHP;
+	} else if (hp <= 0) {
 		die();
 	}
+	this->hp = hp;
 }
 
 void Unit::onBeginTurn() {
@@ -132,4 +135,8 @@ MapHex* Unit::getHex() {
 
 bool Unit::isFriendlyTowards(Unit* other) {
 	return getFaction() == other->getFaction();
+}
+
+int Unit::getDamageModifierAgainst(Damage* damage) {
+	return type->getDamageModifierAgainst(damage);
 }

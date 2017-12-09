@@ -7,8 +7,8 @@ BuildingSelectedGameState::BuildingSelectedGameState(Game* game, Building* selec
 
 void BuildingSelectedGameState::onPressHex(MapHex* pressedHex) {
 	auto scenario = game->getCampaign()->getScenario();
-	auto activeFaction = scenario->getActiveFaction();
-	auto map = scenario->getActiveMap();
+	//auto activeFaction = scenario->getActiveFaction();
+	//auto map = scenario->getActiveMap();
 	auto building = pressedHex->getBuilding();
 	if (building != nullptr){
 		if (building == selectedBuilding) {

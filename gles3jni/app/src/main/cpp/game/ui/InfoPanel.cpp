@@ -111,7 +111,10 @@ void InfoPanel::updateInfo(Unit* unit) {
 	auto exitButtonSprite = assetManager->getSprite("no_button");
 	auto exitButton = addNewChild<Button>(
 		exitButtonSprite,
-		glm::vec2{getRight() -  exitButtonSprite->getWidth() / 2, getTop() + exitButtonSprite->getHeight() / 2},
+		glm::vec2{
+			getRight() - exitButtonSprite->getWidth() / 2,
+			getTop() + exitButtonSprite->getHeight() / 2
+		},
 		glm::vec2{0,0}
 	);
 	//exitButton->setOnPress(std::bind(&Game::popState, game));

@@ -2,7 +2,8 @@
 #include "Unit.h"
 
 UnitType::UnitType(
-	Sprite* sprite, std::string name, int hp, int defense, int movement, SkillList& skills
+	Sprite* sprite, std::string name, int hp, int defense, int movement,
+	SkillList& skills, BuffList& buffs
 ) {
 	this->sprite = sprite;
 	this->name = name;
@@ -10,6 +11,7 @@ UnitType::UnitType(
 	this->defense = defense;
 	this->movement = movement;
 	this->skills = std::move(skills);
+	this->buffs = std::move(buffs);
 }
 
 const std::vector<Skill*> UnitType::getValidSkills(MapObject* user, MapObject* target) const {
@@ -31,4 +33,12 @@ int UnitType::getMaxSkillRange() const {
 		}
 	}
 	return max;
+}
+
+int UnitType::getDamageModifierAgainst(Damage* damage) {
+	int modifier = 0;
+	for (auto& buff : buffs) {
+		modifier += buff->getDamageModifierAgainst(damage);
+	}
+	return modifier;
 }

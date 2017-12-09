@@ -4,21 +4,12 @@
 #include "Sprite.h"
 #include "MapObject.h"
 #include "scenes/Scene.h"
+#include "DamageType.h"
 
 typedef MapObject SkillUser;
 typedef MapObject SkillTarget;
 
-class DamageType {
-public:
-	DamageType(const char* name, Sprite* sprite);
 
-	inline const char* getName() const { return name.c_str(); }
-	inline const Sprite* getSprite() const { return sprite; }
-
-private:
-	std::string name;
-	Sprite* sprite;
-};
 
 class Effect {
 public:
@@ -35,9 +26,14 @@ public:
 	virtual void apply(SkillUser* user, SkillTarget* target);
 	virtual float evaluate(SkillUser* user, SkillTarget* target, float cost);
 
+	inline const DamageType* getType() const { return type; }
+	inline const int getAmount() const { return amount; }
+
 private:
 	DamageType* type;
 	int amount;
+
+	int calculateDamage(SkillUser* user, SkillTarget* target);
 };
 
 class HPModification : public Effect {
@@ -129,7 +125,7 @@ public:
 	inline const TargetType getTargetType() const { return targetType; }
 	inline const int getRange() const { return range; }
 	inline const float getCost() const { return cost; }
-	inline const EffectList& getEffects() const {  return effects; }
+	inline const EffectList& getEffects() const { return effects; }
 
 private:
 	Sprite* sprite;

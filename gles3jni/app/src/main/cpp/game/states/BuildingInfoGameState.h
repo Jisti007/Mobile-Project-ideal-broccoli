@@ -16,7 +16,7 @@ public:
 	virtual void zoom(float scaleFactor);
 private:
 	Building* selectedBuilding;
-	InfoPanel* infoPanel;
+	//InfoPanel* infoPanel;
 	void createUI();
 };
 

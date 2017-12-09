@@ -29,6 +29,8 @@ AssetManager::AssetManager() {
 	animationFunctions["Nudge"] = std::bind(&AssetManager::loadNudge, this, _1);
 	animationFunctions["Projectile"] = std::bind(&AssetManager::loadProjectile, this, _1);
 
+	buffFunctions["Resistance"] = std::bind(&AssetManager::loadResistance, this, _1);
+
 	skillAnimationActors["user"] = SkillAnimation::Role::user;
 	skillAnimationActors["target"] = SkillAnimation::Role::target;
 
@@ -291,6 +293,7 @@ void AssetManager::loadUnitType(Node *node) {
 	auto defense = atoi(data->first_attribute("defense")->value());
 	auto movement = atoi(data->first_attribute("movement")->value());
 	UnitType::SkillList skills;
+	UnitType::BuffList buffs;
 
 	auto skillNode = node->getData()->first_node("Skills")->first_node("Skill");
 	while (skillNode) {
@@ -336,8 +339,34 @@ void AssetManager::loadUnitType(Node *node) {
 		skillNode = skillNode->next_sibling();
 	}
 
+	auto buffNode = data->first_node("Buffs")->first_node();
+	while (buffNode) {
+		auto buffName = buffNode->first_attribute("name")->value();
+		auto buffSprite = getSprite(buffNode->first_attribute("sprite")->value());
+		Buff::EffectList effects;
+
+		auto effectNode = buffNode->first_node();
+		while (effectNode) {
+			auto function = buffFunctions[effectNode->name()];
+			if (function) {
+				Node effectNode2(node->getDirectory(), effectNode);
+				auto effect = function(&effectNode2);
+				// Android Studio gives a false error. Compiles fine.
+				effects.push_back(std::move(effect));
+			}
+
+			effectNode = effectNode->next_sibling();
+		}
+
+		buffs.push_back(std::make_unique<Buff>(
+			effects, buffName, buffSprite
+		));
+
+		buffNode = data->next_sibling();
+	}
+
 	unitTypes[node->getID()] = std::make_unique<UnitType>(
-		sprite, name, hp, defense, movement, skills
+		sprite, name, hp, defense, movement, skills, buffs
 	);
 }
 
@@ -389,4 +418,10 @@ std::unique_ptr<SkillAnimation> AssetManager::loadProjectile(AssetManager::Node*
 	auto destination = skillAnimationActors[node->getData()->first_attribute("destination")->value()];
 	auto speed = (float)atof(node->getData()->first_attribute("speed")->value());
 	return std::unique_ptr<SkillAnimation>(new Projectile(sprite, source, destination, speed));
+}
+
+std::unique_ptr<BuffEffect> AssetManager::loadResistance(AssetManager::Node* node) {
+	auto type = getDamageType(node->getData()->first_attribute("type")->value());
+	auto amount = atoi(node->getData()->first_attribute("amount")->value());
+	return unique_ptr<BuffEffect>(new Resistance(type, amount));
 }
