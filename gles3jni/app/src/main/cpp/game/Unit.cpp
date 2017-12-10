@@ -111,7 +111,7 @@ bool Unit::canMoveTo(MapHex* destination) {
 void Unit::die() {
 	map->removeUnit(this);
 	auto scene = map->getScene();
-	scene->queueNew<DeathAnimation>(getActor(), scene);
+	scene->queueNew<DeathAnimation>(getActor(), scene, 1.0f);
 }
 
 void Unit::setHP(int hp) {

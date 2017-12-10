@@ -7,7 +7,7 @@
 
 class DeathAnimation : public Animation {
 public:
-	DeathAnimation(Actor* actor, Scene* scene, bool blocking = true);
+	DeathAnimation(Actor* actor, Scene* scene, float duration, bool blocking = true);
 
 protected:
 	virtual bool onAnimate(float deltaTime);
@@ -15,6 +15,7 @@ protected:
 private:
 	Actor* actor;
 	Scene* scene;
+	float duration;
 };
 
 #endif //GLES3JNI_DEATHANIMATION_H

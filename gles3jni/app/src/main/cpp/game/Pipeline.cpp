@@ -38,6 +38,7 @@ const int MAX_COLOR_SWAPS = 4;
 const float COLOR_SWAP_TOLERANCE = 0.25 / 255.0;
 
 uniform sampler2D sampler;
+uniform vec4 instanceColor;
 uniform vec3 ambientColor;
 uniform vec3 sourceColors[MAX_COLOR_SWAPS];
 uniform vec3 destinationColors[MAX_COLOR_SWAPS];
@@ -59,7 +60,7 @@ void main(){
 		}
 	}
 
-	outColor *= vec4(ambientColor, 1.0);
+	outColor *= instanceColor * vec4(ambientColor, 1.0);
 }
 )glsl";
 
@@ -89,6 +90,7 @@ void Pipeline::initialize() {
 	}
 
 	ambientColorLocation = glGetUniformLocation(getProgram(), "ambientColor");
+	instanceColorLocation = glGetUniformLocation(getProgram(), "instanceColor");
 	instancePositionLocation = glGetUniformLocation(getProgram(), "instancePosition");
 	instanceScaleLocation = glGetUniformLocation(getProgram(), "instanceScale");
 	sourceColorsLocation = glGetUniformLocation(getProgram(), "sourceColors");
@@ -111,34 +113,19 @@ void Pipeline::beginDraw() {
 	setAmbientColor({1.0f, 1.0f, 1.0f});
 }
 
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale) {
-	draw(sprite, position, 0, scale);
-	/*
-	glUniform2f(instancePositionLocation, position.x, position.y);
-	glUniform1f(instanceScaleLocation, scale);
-	auto texture = sprite->getTexture()->getHandle();
-	if (texture != lastTexture) {
-		glBindTexture(GL_TEXTURE_2D, texture);
-		lastTexture = texture;
-	}
-	auto mesh = sprite->getMesh();
-	auto vertexArray = mesh->getVertexArray();
-	if (vertexArray != lastVertexArray) {
-		glBindVertexArray(vertexArray);
-		lastVertexArray = vertexArray;
-	}
-
-	glDrawElements(GL_TRIANGLES, (GLsizei) mesh->getIndexCount(), GL_UNSIGNED_SHORT, 0);
-	glUniform1i(numberOfColorSwapsLocation, 0);
-	*/
-}
-
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors) {
-	draw(sprite, position, destinationColors, 1);
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale, glm::vec4 color) {
+	draw(sprite, position, 0, scale, color);
 }
 
 void Pipeline::draw(
-	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, float scale
+	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, glm::vec4 color
+) {
+	draw(sprite, position, destinationColors, 1, color);
+}
+
+void Pipeline::draw(
+	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors,
+	float scale, glm::vec4 color
 ) {
 	auto numberOfColorSwaps = (GLint)std::min(
 		sprite->getSwappableColors().size(), destinationColors.size()
@@ -154,7 +141,7 @@ void Pipeline::draw(
 		(GLfloat*)destinationColors.data()
 	);
 
-	draw(sprite, position, numberOfColorSwaps, scale);
+	draw(sprite, position, numberOfColorSwaps, scale, color);
 }
 
 void Pipeline::endDraw() {
@@ -196,8 +183,12 @@ bool Pipeline::isVisible(Rectangle rectangle) {
 	return viewportBounds.overlaps(rectangle);
 }
 
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps, float scale) {
+void Pipeline::draw(
+	Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps,
+	float scale, glm::vec4 color
+) {
 	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
+	glUniform4f(instanceColorLocation, color.r, color.g, color.b, color.a);
 	glUniform2f(instancePositionLocation, position.x, position.y);
 	glUniform1f(instanceScaleLocation, scale);
 	auto texture = sprite->getTexture()->getHandle();

@@ -17,11 +17,13 @@ public:
 
 	virtual void draw(Pipeline* pipeline);
 
-	inline void setPosition(glm::vec2 position) { this->position = position; }
-	inline void offsetPosition(glm::vec2 delta) { this->position += delta; }
-	inline glm::vec2 getPosition() { return position; }
 	inline Sprite* getSprite() { return sprite; }
 	inline void setSprite(Sprite* sprite) { this->sprite = sprite; }
+	inline glm::vec2 getPosition() { return position; }
+	inline void setPosition(glm::vec2 position) { this->position = position; }
+	inline void offsetPosition(glm::vec2 delta) { this->position += delta; }
+	inline glm::vec4 getColor() { return color; }
+	inline void setColor(glm::vec4 color) { this->color = color; }
 	inline float getDepth() { return depth; }
 	inline void setDepth(float depth) { this->depth = depth; }
 	inline int getLayer() { return layer; }
@@ -31,6 +33,7 @@ public:
 private:
 	Sprite* sprite;
 	glm::vec2 position;
+	glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f};
 	float depth = 0.0f;
 	int layer;
 	bool visible;

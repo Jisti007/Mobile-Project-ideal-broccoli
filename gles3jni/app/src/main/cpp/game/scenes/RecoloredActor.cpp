@@ -7,5 +7,5 @@ RecoloredActor::RecoloredActor(
 }
 
 void RecoloredActor::draw(Pipeline* pipeline) {
-	pipeline->draw(getSprite(), getPosition(), colors);
+	pipeline->draw(getSprite(), getPosition(), colors, getColor());
 }

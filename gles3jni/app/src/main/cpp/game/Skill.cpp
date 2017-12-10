@@ -126,7 +126,7 @@ void Projectile::queue(SkillUser* user, SkillTarget* target) {
 	scene->queueNew<MovementAnimation>(
 		projectile, scene, destinationActor->getPosition(), false, speed
 	);
-	scene->queueNew<DeathAnimation>(projectile, scene);
+	scene->queueNew<DeathAnimation>(projectile, scene, 0.0f);
 }
 
 Skill::Skill(
