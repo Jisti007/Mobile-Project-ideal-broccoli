@@ -19,14 +19,14 @@ void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {
 		costSoFar += link->getCost(selectedUnit, costSoFar);
 		auto hex = static_cast<MapHex*>(link->getDestination());
 		auto position = hex->getActor()->getPosition();
+		glm::vec4 color(1.0f, 0.0f, 0.0f, 0.75f);
 		if (costSoFar <= selectedUnit->getMovement()) {
-			pipeline->setAmbientColor({1.0f, 1.0f, 0.0f});
-		} else {
-			pipeline->setAmbientColor({1.0f, 0.0f, 0.0f});
+			color = {1.0f, 1.0f, 0.0f, 0.75f};
+			//pipeline->setAmbientColor({1.0f, 1.0f, 0.0f});
 		}
-		pipeline->draw(pathMarker, position);
+		pipeline->draw(pathMarker, position, 1.0f, color);
 	}
-	pipeline->setAmbientColor({1.0f, 1.0f, 1.0f});
+	//pipeline->setAmbientColor({1.0f, 1.0f, 1.0f});
 	GameState::draw(pipeline, deltaTime);
 }
 
