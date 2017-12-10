@@ -28,13 +28,15 @@ void ResourcePanel::updateResources(Scenario* scenario) {
 		auto resourceUISprite = playerResource->getSprite();
 		auto resourceIcon = new UISprite(
 			resourceUISprite,
-			glm::vec2{getLeft() + resourceOffset, getTop() - getSprite()->getHeight() / 2.0f},
-			0.4f
+			Transform2D{
+				Translation{getLeft() + resourceOffset, getTop() - getSprite()->getHeight() / 2.0f},
+				Scale{0.4f, 0.4f}
+			}
 		);
 		std::unique_ptr<UIObject> resourceIconPointer(resourceIcon);
 		addChild(resourceIconPointer);
 
-		resourceOffset += resourceUISprite->getWidth() * resourceIcon->getScale();
+		resourceOffset += resourceUISprite->getWidth() * resourceIcon->getScale().x;
 
 		auto resourceAmount = playerResources[playerResource];
 		std::stringstream resourceString;

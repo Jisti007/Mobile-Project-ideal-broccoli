@@ -16,7 +16,7 @@ public:
 	void destroy();
 	void beginDraw();
 	void draw(
-		Sprite* sprite, glm::vec2 position, float scale = 1.0f,
+		Sprite* sprite, glm::vec2 position, glm::vec2 scale = {1.0f, 1.0f},
 		glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
 	);
 	void draw(
@@ -24,8 +24,8 @@ public:
 		glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
 	);
 	void draw(
-		Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, float scale,
-		glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
+		Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors,
+		glm::vec2 scale, glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
 	);
 	void endDraw();
 	void setAmbientColor(glm::vec3 color);
@@ -56,7 +56,7 @@ private:
 
 	void draw(
 		Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps,
-		float scale = 1.0f, glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
+		glm::vec2 scale = {1.0f, 1.0f}, glm::vec4 color = {1.0f, 1.0f, 1.0f, 1.0f}
 	);
 	GLuint createShader(const char* source, GLenum type);
 	void deleteShader(GLuint* shader);

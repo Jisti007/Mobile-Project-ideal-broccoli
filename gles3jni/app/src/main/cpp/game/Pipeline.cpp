@@ -10,7 +10,7 @@ precision lowp samplerCube;
 uniform vec2 cameraSize;
 uniform vec2 cameraPosition;
 uniform vec2 instancePosition;
-uniform float instanceScale;
+uniform vec2 instanceScale;
 
 layout(location = 0) in vec2 vertexPosition;
 layout(location = 1) in vec2 vertexTexture;
@@ -18,7 +18,10 @@ layout(location = 1) in vec2 vertexTexture;
 out vec2 fragmentTexture;
 
 void main(){
-	vec2 position = vertexPosition * instanceScale + instancePosition - cameraPosition;
+	vec2 position = vertexPosition;
+	position.x *= instanceScale.x;
+	position.y *= instanceScale.y;
+	position += instancePosition - cameraPosition;
 	position.x = position.x / cameraSize.x;
 	position.y = position.y / cameraSize.y;
 
@@ -113,19 +116,19 @@ void Pipeline::beginDraw() {
 	setAmbientColor({1.0f, 1.0f, 1.0f});
 }
 
-void Pipeline::draw(Sprite* sprite, glm::vec2 position, float scale, glm::vec4 color) {
+void Pipeline::draw(Sprite* sprite, glm::vec2 position, glm::vec2 scale, glm::vec4 color) {
 	draw(sprite, position, 0, scale, color);
 }
 
 void Pipeline::draw(
 	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors, glm::vec4 color
 ) {
-	draw(sprite, position, destinationColors, 1, color);
+	draw(sprite, position, destinationColors, glm::vec2(1.0f, 1.0f), color);
 }
 
 void Pipeline::draw(
 	Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors,
-	float scale, glm::vec4 color
+	glm::vec2 scale, glm::vec4 color
 ) {
 	auto numberOfColorSwaps = (GLint)std::min(
 		sprite->getSwappableColors().size(), destinationColors.size()
@@ -185,12 +188,12 @@ bool Pipeline::isVisible(Rectangle rectangle) {
 
 void Pipeline::draw(
 	Sprite* sprite, glm::vec2 position, GLint numberOfColorSwaps,
-	float scale, glm::vec4 color
+	glm::vec2 scale, glm::vec4 color
 ) {
 	glUniform1i(numberOfColorSwapsLocation, numberOfColorSwaps);
 	glUniform4f(instanceColorLocation, color.r, color.g, color.b, color.a);
 	glUniform2f(instancePositionLocation, position.x, position.y);
-	glUniform1f(instanceScaleLocation, scale);
+	glUniform2f(instanceScaleLocation, scale.x, scale.y);
 	auto texture = sprite->getTexture()->getHandle();
 	if (texture != lastTexture) {
 		glBindTexture(GL_TEXTURE_2D, texture);

@@ -12,11 +12,11 @@ public:
 	virtual ~GameState();
 
 	virtual void recreateUI();
-	virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime) {};
 	virtual void draw(Pipeline* pipeline, float deltaTime);
-	virtual void move(float dx, float dy) = 0;
+	virtual void move(float dx, float dy) {};
 	virtual bool press(float x, float y) { return uiRoot->press({x, y}); }
-	virtual void zoom(float scaleFactor) = 0;
+	virtual void zoom(float scaleFactor) {};
 
 protected:
 	Game* game;

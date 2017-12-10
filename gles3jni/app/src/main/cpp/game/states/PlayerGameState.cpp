@@ -52,10 +52,15 @@ void PlayerGameState::createUI() {
 	auto crestSprite = assets->getSprite("faction_crest");
 	auto colors = scenario->getActiveFaction()->getColors();
 	uiRoot->addNewChild<RecoloredUISprite>(
-		crestSprite, glm::vec2{
-			0 - resourcePanelSprite->getWidth() / 2.0f - crestSprite->getWidth() / 2.0f,
-			viewport.getTop() - crestSprite->getHeight() * 0.5f / 2.0f},
-		0.5f, colors
+		crestSprite,
+		Transform2D{
+			glm::vec2{
+				0 - resourcePanelSprite->getWidth() / 2.0f - crestSprite->getWidth() / 2.0f,
+				viewport.getTop() - crestSprite->getHeight() * 0.5f / 2.0f
+			},
+		    glm::vec2{0.5f, 0.5f}
+		},
+		colors
 	);
 }
 

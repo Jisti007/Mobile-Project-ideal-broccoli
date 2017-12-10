@@ -20,8 +20,10 @@ void InfoPanel::updateInfo(Unit* unit) {
 	auto unitUISprite = unitType->getSprite();
 	auto unitIcon = addNewChild<UISprite>(
 		unitUISprite,
-		glm::vec2{0 - infoPanelSprite->getWidth() / 3, 0},
-		2.4f
+		Transform2D{
+			Translation{0 - infoPanelSprite->getWidth() / 3, 0},
+			Scale{2.4f, 2.4}
+		}
 	);
 
 	auto unitName = unitType->getName();
@@ -78,8 +80,10 @@ void InfoPanel::updateInfo(Unit* unit) {
 		auto skillSprite = skill->getSprite();
 		auto skillIcon = addNewChild<UISprite>(
 			skillSprite,
-			glm::vec2{0,movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
-			0.75f
+			Transform2D{
+				Translation{0, movementLabel->getBottom() - movementLabel->getSize().y - skillOffset},
+				Scale{0.75f, 0.75f}
+			}
 		);
 
 		//TODO: Make this a bit smoother
@@ -130,8 +134,10 @@ void InfoPanel::updateInfo(Building* building) {
 	auto buildingUISprite = buildingType->getSprite();
 	auto buildingIcon = addNewChild<UISprite>(
 		buildingUISprite,
-		glm::vec2{0 - infoPanelSprite->getWidth() / 3, 0},
-		2.4f
+		Transform2D{
+			Translation{0 - infoPanelSprite->getWidth() / 3, 0},
+			Scale{2.4f, 2.4f}
+		}
 	);
 
 	auto buildingName = "not actual building name";

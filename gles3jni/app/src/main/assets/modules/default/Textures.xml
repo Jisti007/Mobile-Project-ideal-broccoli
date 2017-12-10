@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Texture
+		id="pixel"
+		path="textures/Pixel.png"
+	/>
+	<Texture
 		id="units"
 		path="textures/Units.png"
 	/>

@@ -10,8 +10,8 @@ class RecoloredUISprite : public UISprite {
 public:
 	RecoloredUISprite(Sprite* sprite, glm::vec2 position, std::vector<glm::vec3> destinationColors);
 	RecoloredUISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size, std::vector<glm::vec3> destinationColors);
-	RecoloredUISprite(Sprite* sprite, glm::vec2 position, float scale,  std::vector<glm::vec3> destinationColors);
-	RecoloredUISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size, float scale,  std::vector<glm::vec3> destinationColors);
+	RecoloredUISprite(Sprite* sprite, Transform2D transform, std::vector<glm::vec3> destinationColors);
+	RecoloredUISprite(Sprite* sprite, glm::vec2 position, glm::vec2 size, glm::vec2 scale,  std::vector<glm::vec3> destinationColors);
 	virtual ~RecoloredUISprite();
 
 	virtual void onDraw(Pipeline* pipeline);

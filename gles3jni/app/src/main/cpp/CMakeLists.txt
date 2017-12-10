@@ -51,6 +51,7 @@ add_library(
 	game/Skill.cpp
 	game/Sprite.cpp
 	game/Texture.cpp
+	game/Transform2D.cpp
 	game/Unit.cpp
 	game/UnitType.cpp
 	game/WeightedList.cpp
@@ -81,6 +82,7 @@ add_library(
 	game/states/ComputerGameState.cpp
 	game/states/GameState.cpp
 	game/states/IdleGameState.cpp
+	game/states/MainMenuGameState.cpp
 	game/states/MapGameState.cpp
 	game/states/PlayerAnimationGameState.cpp
 	game/states/PlayerGameState.cpp
@@ -92,10 +94,11 @@ add_library(
 	game/ui/Button.cpp
 	game/ui/InfoPanel.cpp
 	game/ui/Label.cpp
-	game/ui/UIObject.cpp
-	game/ui/UISprite.cpp
 	game/ui/RecoloredUISprite.cpp
 	game/ui/ResourcePanel.cpp
+	game/ui/UIObject.cpp
+	game/ui/UISprite.cpp
+	game/ui/UITexture.cpp
 )
 
 # Include libraries needed for gles3jni lib

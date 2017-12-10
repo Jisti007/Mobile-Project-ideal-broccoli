@@ -24,7 +24,7 @@ void PathSelectedGameState::draw(Pipeline* pipeline, float deltaTime) {
 			color = {1.0f, 1.0f, 0.0f, 0.75f};
 			//pipeline->setAmbientColor({1.0f, 1.0f, 0.0f});
 		}
-		pipeline->draw(pathMarker, position, 1.0f, color);
+		pipeline->draw(pathMarker, position, {1.0f, 1.0f}, color);
 	}
 	//pipeline->setAmbientColor({1.0f, 1.0f, 1.0f});
 	GameState::draw(pipeline, deltaTime);

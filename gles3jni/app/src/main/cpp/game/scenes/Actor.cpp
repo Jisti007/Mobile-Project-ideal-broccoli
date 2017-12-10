@@ -9,6 +9,6 @@ Actor::Actor(Sprite* sprite, glm::vec2 position, float depth, int layer, bool vi
 }
 
 void Actor::draw(Pipeline* pipeline) {
-	pipeline->draw(sprite, position, 1.0f, color);
+	pipeline->draw(sprite, position, {1.0f, 1.0f}, color);
 }
 
