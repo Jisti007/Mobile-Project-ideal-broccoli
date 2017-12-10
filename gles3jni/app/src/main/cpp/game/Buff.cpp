@@ -1,7 +1,8 @@
 #include "Buff.h"
 
 Resistance::Resistance(DamageType* type, int amount) {
-
+	this->type = type;
+	this->amount = amount;
 }
 
 int Resistance::getDamageModifierAgainst(Damage* damage) {

@@ -26,7 +26,8 @@ float Damage::evaluate(SkillUser* user, SkillTarget* target, float cost) {
 }
 
 int Damage::calculateDamage(SkillUser* user, SkillTarget* target) {
-	return -amount;
+	auto targetUnit = static_cast<Unit*>(target);
+	return amount + targetUnit->getDamageModifierAgainst(this);
 }
 
 HPModification::HPModification(int amount) {
