@@ -68,7 +68,7 @@ void AssetManager::unloadAll() {
 void AssetManager::reloadAll() {
 	for (auto& texture : textures) {
 		if (texture.second != nullptr) {
-			texture.second->initialize();
+			texture.second->reload();
 		}
 	}
 	for (auto& sprite : sprites) {
@@ -116,7 +116,10 @@ void AssetManager::loadXml(const char *directory, const char *fileName, function
 }
 
 void AssetManager::handleModuleNode(Node *node) {
-	moduleFunctions[node->getName()](node);
+	auto function = moduleFunctions[node->getName()];
+	if (function) {
+		function(node);
+	}
 }
 
 void AssetManager::loadAssets(Node *node) {
@@ -124,7 +127,10 @@ void AssetManager::loadAssets(Node *node) {
 }
 
 void AssetManager::handleAssetNode(Node *node) {
-	assetFunctions[node->getName()](node);
+	auto function = assetFunctions[node->getName()];
+	if (function) {
+		function(node);
+	}
 }
 
 void AssetManager::loadTexture(Node *node) {
@@ -138,7 +144,6 @@ void AssetManager::loadSprite(AssetManager::Node *node) {
 	auto texture = textures[node->getTexture()].get();
 	loadSpriteUsing(node, texture, "");
 }
-
 
 void AssetManager::loadSpriteUsing(AssetManager::Node* node, Texture* texture, const char* prefix) {
 	int y = atoi(node->getY());
@@ -258,13 +263,12 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 	stbtt_pack_context stbttPackContext;
 	int width = atoi(data->first_attribute("textureWidth")->value());
 	int height = atoi(data->first_attribute("textureHeight")->value());
-	static const int channels = 1;
-	std::vector<unsigned char> pixels(static_cast<size_t>(width * height * channels));
-	stbtt_PackBegin(&stbttPackContext, pixels.data(), width, height, 0, 1, nullptr);
+	std::vector<unsigned char> packedBuffer(static_cast<size_t>(width * height));
+	stbtt_PackBegin(&stbttPackContext, packedBuffer.data(), width, height, 0, 1, nullptr);
 	//stbtt_PackSetOversampling(&stbttPackContext, 4, 4);
 
 	auto textureId = data->first_attribute("textureID")->value();
-	Texture* texture = new Texture(textureId, width, height, channels);
+	Texture* texture = new Texture(textureId, width, height, 4);
 	float fontSize = static_cast<float>(atof(data->first_attribute("size")->value()));
 	auto rangeNode = data->first_node("Range");
 	while (rangeNode) {
@@ -306,7 +310,16 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 
 	stbtt_PackEnd(&stbttPackContext);
 
-	texture->initialize(pixels.data());
+	int stride = 4;
+	std::vector<unsigned char> pixels(static_cast<size_t>(width * height * stride));
+	for (int i = 0; i < packedBuffer.size(); i++) {
+		pixels[stride * i] = 0xFF;
+		pixels[stride * i + 1] = 0xFF;
+		pixels[stride * i + 2] = 0xFF;
+		pixels[stride * i + 3] = packedBuffer[i];
+	}
+	texture->setPixels(pixels.data());
+	texture->reload();
 	textures[textureId] = std::unique_ptr<Texture>(texture);
 	fonts[node->getID()] = std::make_unique<Font>(mappings, fontSize);
 }

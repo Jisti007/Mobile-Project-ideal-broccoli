@@ -12,7 +12,6 @@
 class InfoPanel : public UISprite {
 public:
 	InfoPanel(Sprite* sprite, glm::vec2 position, Font* font, AssetManager* assetManager, Game* game);
-	~InfoPanel();
 
 	void updateInfo(Unit* unit);
 	void updateInfo(Building* building);
