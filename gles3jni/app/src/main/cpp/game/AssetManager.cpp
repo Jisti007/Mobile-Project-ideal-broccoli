@@ -3,6 +3,12 @@
 #include <sstream>
 #include <iostream>
 
+#define STB_RECT_PACK_IMPLEMENTATION
+#include "../stb_rect_pack.h"
+#define STB_TRUETYPE_IMPLEMENTATION
+#include "../stb_truetype.h"
+
+
 using namespace std;
 using namespace rapidxml;
 using placeholders::_1;
@@ -17,6 +23,7 @@ AssetManager::AssetManager() {
 	assetFunctions["SpriteSheet"] = std::bind(&AssetManager::loadSpriteSheet, this, _1);
 	assetFunctions["DamageType"] = std::bind(&AssetManager::loadDamageType, this, _1);
 	assetFunctions["Font"] = std::bind(&AssetManager::loadFont, this, _1);
+	assetFunctions["TrueTypeFont"] = std::bind(&AssetManager::loadTrueTypeFont, this, _1);
 	assetFunctions["Hex"] = std::bind(&AssetManager::loadHexType, this, _1);
 	assetFunctions["Biome"] = std::bind(&AssetManager::loadBiome, this, _1);
 	assetFunctions["Unit"] = std::bind(&AssetManager::loadUnitType, this, _1);
@@ -225,21 +232,91 @@ void AssetManager::loadDamageType(AssetManager::Node* node) {
 }
 
 void AssetManager::loadFont(AssetManager::Node* node) {
-	std::unordered_map<char, Sprite*> mappings;
+	std::unordered_map<char, Character> mappings;
 	auto mappingNode = node->getData()->first_node("SpriteMapping");
 	while(mappingNode){
 		auto mappingChar = mappingNode->first_attribute("char")->value()[0];
 		auto sprite = sprites[mappingNode->first_attribute("sprite")->value()].get();
-
-		mappings[mappingChar] = sprite;
+		auto advance = 0.0f;
+		mappings[mappingChar] = Character{sprite, advance};
 		mappingNode = mappingNode->next_sibling();
 	}
 	fonts[node->getID()] = std::make_unique<Font>(mappings);
 }
 
+void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
+	std::unordered_map<char, Character> mappings;
+	auto data = node->getData();
+
+	static const size_t bufferSize = 1 << 20;
+	unsigned char ttfBuffer[bufferSize];
+	std::stringstream path;
+	path << node->getDirectory() << "/";
+	path << data->first_attribute("path")->value();
+	auto file = fopen(path.str().c_str(), "rb");
+	if (!file) {
+		return;
+	}
+	fread(ttfBuffer, sizeof(unsigned char), bufferSize, file);
+	fclose(file);
+
+	stbtt_pack_context stbttPackContext;
+	static const int width = 512;
+	static const int height = 512;
+	std::vector<unsigned char> pixels(width * height);
+	stbtt_PackBegin(&stbttPackContext, pixels.data(), width, height, 0, 1, nullptr);
+
+	Texture* texture = new Texture(width, height);
+	float fontSize = static_cast<float>(atof(data->first_attribute("size")->value()));
+	auto rangeNode = data->first_node("Range");
+	while (rangeNode) {
+		auto first = atoi(rangeNode->first_attribute("first")->value());
+		auto count = atoi(rangeNode->first_attribute("count")->value());
+
+		std::vector<stbtt_packedchar> packedChars(static_cast<size_t>(count));
+		stbtt_PackFontRange(
+			&stbttPackContext, ttfBuffer, 0, fontSize, first, count, packedChars.data()
+		);
+		auto last = first + count;
+		for (auto i = first; i < last; i++) {
+			char c = static_cast<char>(i);
+			std::stringstream spriteId;
+			spriteId << data->first_attribute("id")->value();
+			spriteId << "_" << c;
+			auto packedChar = packedChars[i];
+			int x = packedChar.x0;
+			int y = packedChar.y0;
+			int w = packedChar.x1 - x;
+			int h = packedChar.y1 - y;
+			auto xOffset = static_cast<int>(packedChar.xoff);
+			auto yOffset = static_cast<int>(packedChar.yoff);
+
+			auto sprite = new Sprite(
+				spriteId.str().c_str(), texture,
+				x, y, w, h, xOffset, yOffset,
+				std::vector<glm::vec3>()
+			);
+			sprites[spriteId.str().c_str()] = std::unique_ptr<Sprite>(sprite);
+			//float x, y;
+			//stbtt_aligned_quad quadInfo;
+			//stbtt_GetPackedQuad(packedChars.data(), width, height, i, &x, &y, &quadInfo, 1);
+			mappings[c] = Character{sprite, packedChar.xadvance};
+		}
+		rangeNode = rangeNode->next_sibling();
+	}
+
+	texture->initialize(pixels.data());
+	auto textureId = data->first_attribute("textureID")->value();
+	textures[textureId] = std::unique_ptr<Texture>(texture);
+
+	stbtt_PackEnd(&stbttPackContext);
+
+	fonts[node->getID()] = std::make_unique<Font>(mappings);
+}
+
 void AssetManager::loadHexType(Node *node) {
 	auto data = node->getData();
-	auto sprite = sprites[node->getSprite()].get();
+	auto sprite = getSprite(node->getSprite());
 	auto movementCost = (float)atof(node->getMovementCost());
 	WeightedList<Decoration> decorations;
 	int minDecorations = 0;
