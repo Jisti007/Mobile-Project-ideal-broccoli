@@ -22,7 +22,21 @@ void BuildingInfoGameState::createUI() {
 	    assets,
 	    game
 	);
-	infoPanel->updateInfo(selectedBuilding);
+
+	auto map = game->getCampaign()->getScenario()->getActiveMap();
+
+	if (selectedBuilding->getType()->getRecruitments().empty()) {
+		infoPanel->updateInfo(selectedBuilding);
+	} else {
+		auto testPanelSprite = assets->getSprite("faction_crest");
+		auto testPanel = uiRoot->addNewChild<InfoPanel>(
+			testPanelSprite, glm::vec2{
+				0,0},
+			assets->getFont("default"),
+			assets,
+			game
+		);
+	}
 }
 
 void BuildingInfoGameState::move(float dx, float dy) {
