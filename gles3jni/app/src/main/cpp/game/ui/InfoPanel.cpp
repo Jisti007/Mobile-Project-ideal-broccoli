@@ -125,6 +125,40 @@ void InfoPanel::updateInfo(Building* building) {
 }
 
 void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitment) {
+	updateInfo(building);
+
+	int recruitOffset = 0;
+
+	for (auto& recruit : recruitment){
+
+		auto recruitSprite = recruit.getUnitType()->getSprite();
+		auto recruitButton = addNewChild<Button>(
+				recruitSprite, glm::vec2{
+						0 + recruitOffset, infoLabel->getBottom()
+				}
+		);
+
+		/*auto recruitCall = std::bind(
+				&GameMap::createUnit, building->getGridPosition(),
+				recruit.getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());*/
+		/*std::function<void()> recruitCall = std::bind(
+				&GameMap::createUnit, building->getGridPosition(),
+				recruit.getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());
+*/
+		/*recruitButton->setOnPress(std::bind(&GameMap::createUnit, game, std::placeholders::_1));
+		recruitButton->setOnPress(recruitCall);*/
+
+		/*skillButton->setOnPress(
+				std::bind(&TargetSelectedGameState::skillButton_onPress, this, std::placeholders::_1
+				));
+		skillButton->setOnPressArgs(skill);
+*/
+		recruitOffset += recruitSprite->getWidth();
+	}
+
+}
+
+InfoPanel::~InfoPanel() {
 
 }
 
