@@ -10,6 +10,10 @@ class Recruitment {
 public:
 	Recruitment(UnitType* unitType, int time, std::vector<ResourceAmount> resourceCosts);
 
+	inline const UnitType* getUnitType() const { return unitType; }
+	inline const int getTime() const { return time; }
+	inline const std::vector<ResourceAmount> getResourceCosts() const { return resourceCosts; }
+
 private:
 	UnitType* unitType;
 	int time;
