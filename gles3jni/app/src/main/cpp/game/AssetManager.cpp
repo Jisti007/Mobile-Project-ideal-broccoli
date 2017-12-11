@@ -472,10 +472,30 @@ void AssetManager::loadBuildingType(Node *node) {
 		productionNode = productionNode->next_sibling("ResourceProduction");
 	}
 
-	/*std::vector<std::pair<Unit*, int>> recruitment;
+	std::vector<Recruitment> recruitments;
 	auto recruitmentNode = node ->getData()->first_node("Recruitment");
-	*/
-	buildingTypes[node->getID()] = std::make_unique<BuildingType>(sprite, name, description, resourceProductions);
+	while (recruitmentNode) {
+		auto unit = recruitmentNode->first_attribute("unit")->value();
+		auto time = atoi(recruitmentNode->first_attribute("time")->value());
+
+		std::vector<ResourceAmount> resourceCosts;
+		auto resourceCostNode = recruitmentNode->first_node("ResourceCost");
+		while (resourceCostNode) {
+			auto id = resourceCostNode->first_attribute("id")->value();
+			auto amount = atoi(resourceCostNode->first_attribute("amount")->value());
+
+			resourceCosts.push_back(ResourceAmount(getResource(id), amount));
+			resourceCostNode = resourceCostNode->next_sibling();
+		}
+
+		recruitments.push_back(
+			Recruitment(getUnitType(unit), time, resourceCosts)
+		);
+		recruitmentNode = recruitmentNode->next_sibling("Recruitment");
+	}
+
+	buildingTypes[node->getID()] = std::make_unique<BuildingType>(
+		sprite, name, description, resourceProductions, recruitments);
 }
 
 void AssetManager::loadResource(Node *node) {
