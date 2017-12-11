@@ -46,7 +46,7 @@ void ResourcePanel::updateResources(Scenario* scenario) {
 			resourceString.str().c_str(),
 			font,
 			glm::vec2{getLeft() + resourceOffset, getTop() - getSprite()->getHeight() / 2.0f},
-			glm::vec2{0,0}
+			glm::vec2{resourceUISprite->getWidth(),resourceUISprite->getHeight()*1.1f}
 		);
 		std::unique_ptr<UIObject> resourceAmountLabelPointer(resourceAmountLabel);
 		addChild(resourceAmountLabelPointer);

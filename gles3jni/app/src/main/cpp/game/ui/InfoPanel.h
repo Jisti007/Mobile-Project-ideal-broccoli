@@ -17,20 +17,14 @@ public:
 	void updateInfo();
 	void updateInfo(Unit* unit);
 	void updateInfo(Building* building);
-	void newStringLabel(std::string textString, int skillOffset);
-	void newStringLabel(std::string textString, int value, int skillOffset);
-	void newStringLabel(std::string textString, float value, int skillOffset);
 
 private:
 	Font* font;
 	AssetManager* assetManager;
 	Game* game;
 
-	Label* nameLabel;
-	Label* descriptionLabel;
-	Label* hpLabel;
-	Label* defenseLabel;
-	Label* movementLabel;
+	Label* infoLabel;
+	Label* skillLabel;
 };
 
 
