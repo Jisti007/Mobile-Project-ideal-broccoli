@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Assets>
+	<TrueTypeFont
+		id="default"
+		textureID="default_font_texture"
+		path="LiberationSans-Regular.ttf"
+		size="32"
+	>
+		<Range first="0" count="128"/> <!-- Basic Latin -->
+	</TrueTypeFont>
+</Assets>

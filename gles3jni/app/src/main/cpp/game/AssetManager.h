@@ -87,6 +87,7 @@ private:
 	void loadSpriteSheet(Node* node);
 	void loadDamageType(Node* node);
 	void loadFont(Node* node);
+	void loadTrueTypeFont(Node* node);
 	void loadHexType(Node* node);
 	void loadBiome(Node* node);
 	void loadUnitType(Node* node);

@@ -6,10 +6,13 @@
 
 class Texture {
 public:
+	Texture(int width, int height);
+	Texture(unsigned char* pixels, int width, int height);
 	Texture(const char* id, const char *filePath);
 	virtual ~Texture();
 
 	void initialize();
+	void initialize(unsigned char* pixels);
 
 	inline const GLuint getHandle() const { return handle; }
 	inline const int getWidth() const { return width; }

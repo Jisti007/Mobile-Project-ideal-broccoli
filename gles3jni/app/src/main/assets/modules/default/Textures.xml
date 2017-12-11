@@ -24,10 +24,10 @@
 		id="resource"
 	    path="textures/Resource.png"
 	/>
-	<Texture
+	<!-- Texture
 		id="font"
 	    path="textures/Font.png"
-	/>
+	/-->
 	<Texture
 		id="markers"
 		path="textures/Markers.png"

@@ -3,6 +3,15 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb_image.h"
 
+Texture::Texture(int width, int height) {
+	this->width = width;
+	this->height = height;
+}
+
+Texture::Texture(unsigned char* pixels, int width, int height) : Texture(width, height) {
+	initialize(pixels);
+}
+
 Texture::Texture(const char* id, const char* filePath) {
 	this->id = id;
 	this->filePath = filePath;
@@ -22,7 +31,11 @@ void Texture::destroy() {
 
 void Texture::initialize() {
 	stbi_uc* pixels = stbi_load(filePath.c_str(), &width, &height, &channels, STBI_rgb_alpha);
+	initialize(pixels);
+	stbi_image_free(pixels);
+}
 
+void Texture::initialize(unsigned char* pixels) {
 	glGenTextures(1, &handle);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, handle);
@@ -34,6 +47,4 @@ void Texture::initialize() {
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
-
-	stbi_image_free(pixels);
 }

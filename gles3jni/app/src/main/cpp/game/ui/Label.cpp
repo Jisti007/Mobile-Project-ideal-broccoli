@@ -14,7 +14,7 @@ void Label::onDraw(Pipeline* pipeline) {
 	while(text[i] != '\0') {
 		char c = text[i];
 
-		Sprite* sprite = font->getSprite(c);
+		Sprite* sprite = font->getCharacter(c).sprite;
 		pipeline->draw(sprite, offset);
 		offset.x += sprite->getWidth()+5;
 		i++;
