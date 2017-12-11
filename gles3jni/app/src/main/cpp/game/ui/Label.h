@@ -14,9 +14,9 @@ public:
 private:
 	Font* font;
 	std::string text;
-	glm::vec2 originalPosition;
-	Sprite* lastSprite;
-	glm::vec2 lastPosition;
+	//glm::vec2 originalPosition;
+	//Sprite* lastSprite;
+	//glm::vec2 lastPosition;
 };
 
 #endif //GLES3JNI_LABEL_H

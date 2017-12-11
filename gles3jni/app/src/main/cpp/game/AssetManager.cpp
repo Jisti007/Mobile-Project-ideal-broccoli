@@ -242,7 +242,8 @@ void AssetManager::loadFont(AssetManager::Node* node) {
 		mappings[mappingChar] = Character{sprite, advance};
 		mappingNode = mappingNode->next_sibling();
 	}
-	fonts[node->getID()] = std::make_unique<Font>(mappings);
+	auto size = static_cast<float>(atof(node->getData()->first_attribute("size")->value()));
+	fonts[node->getID()] = std::make_unique<Font>(mappings, size);
 }
 
 void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
@@ -282,7 +283,7 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 			spriteId << data->first_attribute("spritePrefix")->value();
 			spriteId << c;
 			auto packedChar = packedChars[i];
-			auto xOffset = static_cast<int>(packedChar.xoff);
+			auto xOffset = static_cast<int>(-packedChar.xoff);
 			auto yOffset = static_cast<int>(packedChar.yoff);
 			float quadX, quadY;
 			stbtt_aligned_quad quad;
@@ -307,7 +308,7 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 
 	texture->initialize(pixels.data());
 	textures[textureId] = std::unique_ptr<Texture>(texture);
-	fonts[node->getID()] = std::make_unique<Font>(mappings);
+	fonts[node->getID()] = std::make_unique<Font>(mappings, fontSize);
 }
 
 void AssetManager::loadHexType(Node *node) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
-	<Font id="default" kerning="0">
+	<Font id="default" kerning="0" size="32">
 		<SpriteMapping char="A" sprite="default_font_A"/>
 		<SpriteMapping char="B" sprite="default_font_B"/>
 		<SpriteMapping char="C" sprite="default_font_C"/>

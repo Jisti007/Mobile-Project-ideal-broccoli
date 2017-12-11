@@ -7,7 +7,7 @@
 		textureHeight="512"
 		spritePrefix="default_font_sprite_"
 		path="LiberationSans-Regular.ttf"
-		size="64"
+		size="32"
 	>
 		<Range first="0" last="126"/> <!-- Basic Latin -->
 	</TrueTypeFont>
