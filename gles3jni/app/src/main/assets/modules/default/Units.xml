@@ -8,6 +8,9 @@
 		defense="2"
 		movement="5"
 	>
+		<Upkeep>
+			<Resource id="gold" amount="10"/>
+		</Upkeep>
 		<Skills>
 			<Skill
 				sprite="attack"
@@ -60,6 +63,9 @@
 		defense="2"
 		movement="5"
 	>
+		<Upkeep>
+			<Resource id="gold" amount="10"/>
+		</Upkeep>
 		<Skills>
 			<Skill
 				sprite="attack"
@@ -97,6 +103,9 @@
 		defense="2"
 		movement="8"
 	>
+		<Upkeep>
+			<Resource id="gold" amount="10"/>
+		</Upkeep>
 		<Skills>
 			<Skill
 				sprite="attack"
@@ -134,6 +143,9 @@
 		defense="5"
 		movement="3"
 	>
+		<Upkeep>
+			<Resource id="gold" amount="10"/>
+		</Upkeep>
 		<Skills>
 			<Skill
 				sprite="attack"

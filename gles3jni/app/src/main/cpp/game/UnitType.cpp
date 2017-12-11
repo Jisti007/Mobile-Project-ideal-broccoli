@@ -3,7 +3,7 @@
 
 UnitType::UnitType(
 	Sprite* sprite, std::string name, int hp, int defense, int movement,
-	SkillList& skills, BuffList& buffs
+	SkillList& skills, BuffList& buffs, ResourceAmountList upkeep
 ) {
 	this->sprite = sprite;
 	this->name = name;
@@ -12,6 +12,7 @@ UnitType::UnitType(
 	this->movement = movement;
 	this->skills = std::move(skills);
 	this->buffs = std::move(buffs);
+	this->upkeep = upkeep;
 }
 
 const std::vector<Skill*> UnitType::getValidSkills(MapObject* user, MapObject* target) const {

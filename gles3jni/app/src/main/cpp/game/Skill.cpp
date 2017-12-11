@@ -153,6 +153,7 @@ void Skill::use(SkillUser* user, SkillTarget* target) {
 	}
 	auto userUnit = static_cast<Unit*>(user);
 	userUnit->modifyMovement(-getCost());
+	userUnit->getMap()->finishRemovingUnits();
 }
 
 float Skill::evaluate(SkillUser* user, SkillTarget* target, float extraCost) {

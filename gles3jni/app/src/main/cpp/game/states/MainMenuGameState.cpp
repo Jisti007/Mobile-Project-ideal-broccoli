@@ -1,6 +1,7 @@
 #include "MainMenuGameState.h"
 #include "../ui/UITexture.h"
 #include "IdleGameState.h"
+#include "PlayerAnimationGameState.h"
 
 MainMenuGameState::MainMenuGameState(Game* game) : GameState(game) {
 	createUI();
@@ -32,5 +33,5 @@ void MainMenuGameState::createUI() {
 }
 
 void MainMenuGameState::testButton_onPress(void* args) {
-	game->changeToNew<IdleGameState>(game);
+	game->changeToNew<PlayerAnimationGameState>(game, nullptr);
 }

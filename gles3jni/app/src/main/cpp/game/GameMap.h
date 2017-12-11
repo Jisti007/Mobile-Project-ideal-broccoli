@@ -30,6 +30,7 @@ public:
 	void onBeginTurn();
 	Unit* createUnit(Point position, UnitType* type, Faction* faction);
 	void removeUnit(Unit* unit);
+	void finishRemovingUnits();
 	Building* createBuilding(Point position, BuildingType* type, Faction* faction);
 	/// Returns nullptr if out of bounds. Otherwise returns the hex at the given grid coordinates.
 	MapHex* tryGetHex(int x, int y);
@@ -61,6 +62,7 @@ private:
 	std::vector<std::unique_ptr<MapHex>> hexes;
 	std::vector<std::unique_ptr<Building>> buildings;
 	std::vector<std::unique_ptr<Unit>> units;
+	std::vector<Unit*> removedUnits;
 	uint16_t width;
 	uint16_t height;
 	//glm::vec2 debugPosition;

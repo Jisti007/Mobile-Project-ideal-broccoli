@@ -18,6 +18,7 @@ private:
 };
 
 typedef std::pair<Resource*, int> ResourceAmount;
+typedef std::vector<ResourceAmount> ResourceAmountList;
 
 struct ResourceSorter {
 	inline bool operator() (const Resource* struct1, const Resource* struct2)

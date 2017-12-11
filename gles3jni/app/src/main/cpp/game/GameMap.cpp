@@ -98,12 +98,13 @@ void GameMap::draw(float deltaTime) {
 }
 
 void GameMap::onBeginTurn() {
-	for (auto& unit : units) {
-		unit->onBeginTurn();
-	}
 	for (auto& building : buildings) {
 		building->onBeginTurn(this);
 	}
+	for (auto& unit : units) {
+		unit->onBeginTurn();
+	}
+	finishRemovingUnits();
 }
 
 Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
@@ -125,14 +126,34 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 }
 
 void GameMap::removeUnit(Unit* unit) {
-	auto unitHex = getHex(unit->getGridX(), unit->getGridY());
-	unitHex->setUnit(nullptr);
-	for (int i = 0; i < units.size(); i++) {
-		if (units[i].get() == unit) {
-			units.erase(units.begin() + i);
-			break;
+	removedUnits.push_back(unit);
+	/*
+	if (immediately) {
+		auto unitHex = getHex(unit->getGridX(), unit->getGridY());
+		unitHex->setUnit(nullptr);
+		for (int i = 0; i < units.size(); i++) {
+			if (units[i].get() == unit) {
+				units.erase(units.begin() + i);
+				break;
+			}
 		}
 	}
+	*/
+}
+
+void GameMap::finishRemovingUnits() {
+	for (auto& removedUnit : removedUnits) {
+		for (int i = 0; i < units.size(); i++) {
+			auto unit = units[i].get();
+			if (unit == removedUnit) {
+				unit->getHex()->setUnit(nullptr);
+				units[i] = std::move(units[units.size() - 1]);
+				units.pop_back();
+				break;
+			}
+		}
+	}
+	removedUnits.clear();
 }
 
 Building* GameMap::createBuilding(Point position, BuildingType* type, Faction* faction) {

@@ -8,6 +8,7 @@ DeathAnimation::DeathAnimation(Actor* actor, Scene* scene, float duration, bool 
 }
 
 bool DeathAnimation::onAnimate(float deltaTime) {
+	scene->getCamera()->setTarget(actor->getPosition() / 128.0f);
 	auto color = actor->getColor();
 	if (duration > 0) {
 		color.a -= deltaTime / duration;

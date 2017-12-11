@@ -3,6 +3,7 @@
 
 #include "Skill.h"
 #include "Buff.h"
+#include "Resource.h"
 
 class UnitType {
 public:
@@ -11,7 +12,7 @@ public:
 
 	UnitType(
 		Sprite* sprite, std::string name, int hp, int defense, int movement,
-		SkillList& skills, BuffList& buffs
+		SkillList& skills, BuffList& buffs, ResourceAmountList upkeep
 	);
 
 	const std::vector<Skill*> getValidSkills(MapObject* user, MapObject* target) const;
@@ -24,6 +25,7 @@ public:
 	inline const int getDefense() const { return defense; }
 	inline const int getMovement() const { return movement; }
 	inline const SkillList& getSkills() const { return skills; };
+	inline const ResourceAmountList& getUpkeep() const { return upkeep; }
 
 private:
 	Sprite* sprite;
@@ -31,6 +33,7 @@ private:
 	int hp, defense, movement;
 	SkillList skills;
 	BuffList buffs;
+	ResourceAmountList upkeep;
 };
 
 #endif //GLES3JNI_UNITTYPE_H

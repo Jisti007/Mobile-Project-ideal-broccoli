@@ -368,6 +368,16 @@ void AssetManager::loadUnitType(Node *node) {
 	auto movement = atoi(data->first_attribute("movement")->value());
 	UnitType::SkillList skills;
 	UnitType::BuffList buffs;
+	ResourceAmountList upkeep;
+
+	auto upkeepResourceNode = data->first_node("Upkeep")->first_node("Resource");
+	while (upkeepResourceNode) {
+		auto resource = getResource(upkeepResourceNode->first_attribute("id")->value());
+		auto amount = atoi(upkeepResourceNode->first_attribute("amount")->value());
+		upkeep.push_back({resource, -amount});
+
+		upkeepResourceNode = upkeepResourceNode->next_sibling();
+	}
 
 	auto skillNode = node->getData()->first_node("Skills")->first_node("Skill");
 	while (skillNode) {
@@ -440,7 +450,7 @@ void AssetManager::loadUnitType(Node *node) {
 	}
 
 	unitTypes[node->getID()] = std::make_unique<UnitType>(
-		sprite, name, hp, defense, movement, skills, buffs
+		sprite, name, hp, defense, movement, skills, buffs, upkeep
 	);
 }
 

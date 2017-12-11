@@ -42,36 +42,7 @@ bool Unit::move(Path path) {
 		}
 		return true;
 	}
-	/*
-	MapHex* destination = nullptr;
-	auto pathCost = 0.0f;
-	for (auto& nextLink : path.getLinks()) {
-		auto linkCost = nextLink->getCost(this, pathCost);
-		pathCost += linkCost;
-		if (pathCost > getMovement()) {
-			break;
-		}
-		auto nextHex = static_cast<MapHex*>(nextLink->getDestination());
-		if (canMoveTo(nextHex)) {
-			destination = nextHex;
-		}
-	}
-	if (destination != nullptr && moveTo(destination)) {
-		pathCost = 0.0f;
-		auto scene = getMap()->getScene();
-		for (auto& nextLink : path.getLinks()) {
-			modifyMovement(-nextLink->getCost(this, pathCost));
-			auto nextHex = static_cast<MapHex*>(nextLink->getDestination());
-			scene->queueNew<MovementAnimation>(
-				getActor(), scene, nextHex->getActor()->getPosition(), true
-			);
-			if (nextHex == destination) {
-				break;
-			}
-		}
-		return true;
-	}
-	*/
+
 	return false;
 }
 
@@ -127,6 +98,15 @@ void Unit::setHP(int hp) {
 void Unit::onBeginTurn() {
 	//movable = true;
 	movementRemaining = getType()->getMovement();
+
+	auto activeFaction = getMap()->getScenario()->getActiveFaction();
+	if (getFaction() == activeFaction) {
+		for (auto& upkeepResourceAmount : getType()->getUpkeep()) {
+			if (!getFaction()->modifyResource(upkeepResourceAmount)) {
+				die();
+			}
+		}
+	}
 }
 
 MapHex* Unit::getHex() {
