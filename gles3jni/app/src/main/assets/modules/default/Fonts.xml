@@ -3,9 +3,12 @@
 	<TrueTypeFont
 		id="default"
 		textureID="default_font_texture"
+		textureWidth="512"
+		textureHeight="512"
+		spritePrefix="default_font_sprite_"
 		path="LiberationSans-Regular.ttf"
-		size="32"
+		size="64"
 	>
-		<Range first="0" count="128"/> <!-- Basic Latin -->
+		<Range first="0" last="126"/> <!-- Basic Latin -->
 	</TrueTypeFont>
 </Assets>

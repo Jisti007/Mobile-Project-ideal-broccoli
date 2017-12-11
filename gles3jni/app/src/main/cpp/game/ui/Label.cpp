@@ -11,7 +11,7 @@ void Label::onDraw(Pipeline* pipeline) {
 	//int maxRowHeight = 0;
 	glm::vec2 offset = getPosition();
 
-	while(text[i] != '\0') {
+	while(text.size() > 0 && text[i] != '\0') {
 		char c = text[i];
 
 		Sprite* sprite = font->getCharacter(c).sprite;
