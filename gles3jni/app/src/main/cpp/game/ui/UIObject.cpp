@@ -17,11 +17,21 @@ void UIObject::setOnPress(std::function<void(void*)> onPress) {
 }
 
 bool UIObject::press(glm::vec2 position) {
+	auto childIterator = children.rbegin();
+	while (childIterator != children.rend()) {
+		if ((*childIterator)->press(position)) {
+			return true;
+		}
+
+		childIterator++;
+	}
+	/*
 	for (auto& child : children) {
 		if (child->press(position)) {
 			return true;
 		}
 	}
+	*/
 	if (getRectangle().contains(position)) {
 		if (onPress) {
 			onPress(onPressArgs);

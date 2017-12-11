@@ -6,8 +6,8 @@
 
 class Texture {
 public:
-	Texture(int width, int height);
-	Texture(unsigned char* pixels, int width, int height);
+	Texture(const char* id, int width, int height, int channels);
+	Texture(const char* id, unsigned char* pixels, int width, int height, int channels);
 	Texture(const char* id, const char *filePath);
 	virtual ~Texture();
 

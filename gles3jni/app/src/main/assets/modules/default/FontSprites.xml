@@ -35,7 +35,7 @@
 			<!-- TODO: ADD OFFSET
 			<Sprite id="Å" x="99"  w="18" y_offset="4" />
 			<Sprite id="Ä" x="123" w="18" y_offset="4" />
-			<Sprite id="Ö" x="148" w="24" y_offset="4" />
+Spriterite id="Ö" x="148" w="24" y_offset="4" />
 			 -->
 		</Row>
 		<Row y="88" h="23">
@@ -72,7 +72,7 @@
 			<!--
 			<Sprite id="å" x="20" w="13" />
 			<Sprite id="ä" x="41" w="13" />
-			<Sprite id="ö" x="62" w="14" />
+Spriterite id="ö" x="62" w="14" />
 			-->
 		</Row>
 		<Row y="172" h="18">

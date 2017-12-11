@@ -11,11 +11,13 @@ struct Character {
 
 class Font {
 public:
-	Font(std::unordered_map<char, Character> mappings);
+	Font(std::unordered_map<char, Character> mappings, float size);
 	inline Character getCharacter(char character){ return mappings[character]; }
+	inline const float getSize() const { return size; }
 
 private:
 	std::unordered_map<char, Character> mappings;
+	float size;
 };
 
 #endif //GLES3JNI_FONT_H

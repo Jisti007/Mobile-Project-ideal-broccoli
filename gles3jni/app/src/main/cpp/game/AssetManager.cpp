@@ -242,77 +242,73 @@ void AssetManager::loadFont(AssetManager::Node* node) {
 		mappings[mappingChar] = Character{sprite, advance};
 		mappingNode = mappingNode->next_sibling();
 	}
-	fonts[node->getID()] = std::make_unique<Font>(mappings);
+	auto size = static_cast<float>(atof(node->getData()->first_attribute("size")->value()));
+	fonts[node->getID()] = std::make_unique<Font>(mappings, size);
 }
 
 void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 	std::unordered_map<char, Character> mappings;
 	auto data = node->getData();
 
-	static const size_t bufferSize = 1 << 20;
-	unsigned char ttfBuffer[bufferSize];
 	std::stringstream path;
 	path << node->getDirectory() << "/";
 	path << data->first_attribute("path")->value();
-	auto file = fopen(path.str().c_str(), "rb");
-	if (!file) {
-		return;
-	}
-	fread(ttfBuffer, sizeof(unsigned char), bufferSize, file);
-	fclose(file);
+	auto ttfBuffer = FileHelper::ReadBinary(path.str().c_str());
 
 	stbtt_pack_context stbttPackContext;
-	static const int width = 512;
-	static const int height = 512;
-	std::vector<unsigned char> pixels(width * height);
+	int width = atoi(data->first_attribute("textureWidth")->value());
+	int height = atoi(data->first_attribute("textureHeight")->value());
+	static const int channels = 1;
+	std::vector<unsigned char> pixels(static_cast<size_t>(width * height * channels));
 	stbtt_PackBegin(&stbttPackContext, pixels.data(), width, height, 0, 1, nullptr);
+	//stbtt_PackSetOversampling(&stbttPackContext, 4, 4);
 
-	Texture* texture = new Texture(width, height);
+	auto textureId = data->first_attribute("textureID")->value();
+	Texture* texture = new Texture(textureId, width, height, channels);
 	float fontSize = static_cast<float>(atof(data->first_attribute("size")->value()));
 	auto rangeNode = data->first_node("Range");
 	while (rangeNode) {
 		auto first = atoi(rangeNode->first_attribute("first")->value());
-		auto count = atoi(rangeNode->first_attribute("count")->value());
+		auto last = atoi(rangeNode->first_attribute("last")->value());
+		auto count = last - first;
 
 		std::vector<stbtt_packedchar> packedChars(static_cast<size_t>(count));
 		stbtt_PackFontRange(
-			&stbttPackContext, ttfBuffer, 0, fontSize, first, count, packedChars.data()
+			&stbttPackContext, (unsigned char*)ttfBuffer.data(), 0, fontSize,
+			first, count, packedChars.data()
 		);
-		auto last = first + count;
 		for (auto i = first; i < last; i++) {
 			char c = static_cast<char>(i);
 			std::stringstream spriteId;
-			spriteId << data->first_attribute("id")->value();
-			spriteId << "_" << c;
+			spriteId << data->first_attribute("spritePrefix")->value();
+			spriteId << c;
 			auto packedChar = packedChars[i];
-			int x = packedChar.x0;
-			int y = packedChar.y0;
-			int w = packedChar.x1 - x;
-			int h = packedChar.y1 - y;
-			auto xOffset = static_cast<int>(packedChar.xoff);
+			auto xOffset = static_cast<int>(-packedChar.xoff);
 			auto yOffset = static_cast<int>(packedChar.yoff);
-
+			float quadX, quadY;
+			stbtt_aligned_quad quad;
+			stbtt_GetPackedQuad(packedChars.data(), width, height, i, &quadX, &quadY, &quad, 1);
+			auto spriteWidth = quad.x1 - quad.x0;
+			auto spriteHeight = quad.y1 - quad.y0;
 			auto sprite = new Sprite(
 				spriteId.str().c_str(), texture,
-				x, y, w, h, xOffset, yOffset,
+				spriteWidth, spriteHeight,
+				xOffset, yOffset,
+				quad.s0, quad.s1,
+				quad.t0, quad.t1,
 				std::vector<glm::vec3>()
 			);
 			sprites[spriteId.str().c_str()] = std::unique_ptr<Sprite>(sprite);
-			//float x, y;
-			//stbtt_aligned_quad quadInfo;
-			//stbtt_GetPackedQuad(packedChars.data(), width, height, i, &x, &y, &quadInfo, 1);
 			mappings[c] = Character{sprite, packedChar.xadvance};
 		}
 		rangeNode = rangeNode->next_sibling();
 	}
 
-	texture->initialize(pixels.data());
-	auto textureId = data->first_attribute("textureID")->value();
-	textures[textureId] = std::unique_ptr<Texture>(texture);
-
 	stbtt_PackEnd(&stbttPackContext);
 
-	fonts[node->getID()] = std::make_unique<Font>(mappings);
+	texture->initialize(pixels.data());
+	textures[textureId] = std::unique_ptr<Texture>(texture);
+	fonts[node->getID()] = std::make_unique<Font>(mappings, fontSize);
 }
 
 void AssetManager::loadHexType(Node *node) {

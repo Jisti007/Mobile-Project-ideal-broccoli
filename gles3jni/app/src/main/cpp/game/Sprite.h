@@ -12,6 +12,14 @@ public:
 		const char* id, Texture* texture, int x, int y, int w, int h, int xOffset, int yOffset,
 		std::vector<glm::vec3> swappableColors
 	);
+	Sprite(
+		const char* id, Texture* texture,
+		float width, float height,
+		float xOffset, float yOffset,
+		float textureLeft, float textureRight,
+		float textureTop, float textureBottom,
+		std::vector<glm::vec3> swappableColors
+	);
 
 	inline void reload() { mesh.reload(); }
 	inline Texture* getTexture() const { return texture; }
