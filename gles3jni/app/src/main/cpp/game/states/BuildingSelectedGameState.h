@@ -8,10 +8,16 @@ class BuildingSelectedGameState : public IdleGameState {
 public:
 	BuildingSelectedGameState(Game* game, Building* selectedBuilding);
 
+	virtual void recreateUI();
+
 protected:
+	virtual void onPressHex(MapHex* pressedHex);
+
+private:
 	Building* selectedBuilding;
 
-	virtual void onPressHex(MapHex* pressedHex);
+	void createUI();
+	void exitStateButton_onPress(void* args);
 };
 
 

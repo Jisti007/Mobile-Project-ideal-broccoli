@@ -3,32 +3,61 @@
 	<Building
 		id="test"
 		sprite="test_building"
+		name="Test building"
+		description="hello I am a test"
 	>
 		<Recruitment unit="test" time="0">
 			<ResourceCost id="gold" amount="100"/>
 		</Recruitment>
 	</Building>
 	<Building
+		id="capital"
+		sprite="capital_building"
+		name="Capital Building"
+		description="Main hub of your people. Recruit units here."
+	>
+		<Recruitment unit="wizard" time="0">
+			<ResourceCost id="gold" amount="100"/>
+			<ResourceCost id="crystal" amount="2"/>
+		</Recruitment>
+		<Recruitment unit="scout" time="0">
+			<ResourceCost id="gold" amount="50"/>
+			<ResourceCost id="food" amount="25"/>
+		</Recruitment>
+		<Recruitment unit="knight" time="0">
+			<ResourceCost id="gold" amount="250"/>
+			<ResourceCost id="food" amount="50"/>
+		</Recruitment>
+	</Building>
+	<Building
 		id="gold"
 		sprite="gold_building"
+		name="Gold Mine"
+		description="While you own this, you gain gold every turn"
 	>
 		<ResourceProduction resource="gold" amount="25" />
 	</Building>
 	<Building
 		id="food"
 		sprite="food_building"
+		name="Granary"
+		description="While you own this, you gain food every turn"
 	>
 		<ResourceProduction resource="food" amount="30" />
 	</Building>
 	<Building
 		id="material"
 		sprite="material_building"
+		name="Builder's Hall"
+		description="While you own this, you gain building materials every turn"
 	>
 		<ResourceProduction resource="material" amount="10" />
 	</Building>
 	<Building
 		id="crystal"
 		sprite="crystal_building"
+		name="Crystal Mine"
+		description="While you own this, you gain crystals every turn"
 	>
 		<ResourceProduction resource="crystal" amount="2" />
 	</Building>

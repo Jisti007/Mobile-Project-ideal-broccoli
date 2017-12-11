@@ -1,5 +1,6 @@
 #include "AssetManager.h"
 #include "FileHelper.h"
+#include "Unit.h"
 #include <sstream>
 #include <iostream>
 
@@ -372,6 +373,9 @@ void AssetManager::loadUnitType(Node *node) {
 
 void AssetManager::loadBuildingType(Node *node) {
 	auto sprite = sprites[node->getSprite()].get();
+	auto data = node->getData();
+	auto name = data->first_attribute("name")->value();
+	auto description = data->first_attribute("description")->value();
 
 	std::vector<std::pair<Resource*, int>> resourceProductions;
 	auto productionNode = node->getData()->first_node("ResourceProduction");
@@ -385,7 +389,10 @@ void AssetManager::loadBuildingType(Node *node) {
 		productionNode = productionNode->next_sibling("ResourceProduction");
 	}
 
-	buildingTypes[node->getID()] = std::make_unique<BuildingType>(sprite, resourceProductions);
+	/*std::vector<std::pair<Unit*, int>> recruitment;
+	auto recruitmentNode = node ->getData()->first_node("Recruitment");
+	*/
+	buildingTypes[node->getID()] = std::make_unique<BuildingType>(sprite, name, description, resourceProductions);
 }
 
 void AssetManager::loadResource(Node *node) {

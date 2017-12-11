@@ -5,4 +5,19 @@
 		name="Magic"
 		sprite="attack"
 	/>
+	<DamageType
+		id="pierce"
+		name="Pierce"
+		sprite="attack"
+	/>
+	<DamageType
+		id="slash"
+		name="Slash"
+		sprite="attack"
+	/>
+	<DamageType
+		id="crush"
+		name="Crush"
+		sprite="attack"
+	/>
 </Assets>

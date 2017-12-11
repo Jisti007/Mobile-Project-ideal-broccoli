@@ -8,6 +8,21 @@
 		<SwappableColor r="113" g="62" b="0"/>
 	</Sprite>
 
+	<Sprite id="wizard" texture="units" x="0" y="0" yOffset="-16" w="192" h="192" >
+		<SwappableColor r="0" g="0" b="244"/>
+		<SwappableColor r="113" g="62" b="0"/>
+	</Sprite>
+
+	<Sprite id="scout" texture="units" x="192" y="0" yOffset="-16" w="192" h="192" >
+		<SwappableColor r="0" g="130" b="0"/>
+		<SwappableColor r="113" g="62" b="0"/>
+	</Sprite>
+
+	<Sprite id="knight" texture="units" x="0" y="192" yOffset="-16" w="192" h="192" >
+		<SwappableColor r="255" g="255" b="255"/>
+		<SwappableColor r="255" g="0" b="0"/>
+	</Sprite>
+
 	<SpriteSheet texture="ui">
 		<Row y="0" h="110">
 			<Sprite id="test_button" x="0"   w="360" />
@@ -81,6 +96,10 @@
 		<Row y="256" h="256" yOffset="-15">
 			<Sprite id="crystal_building"  x="0" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
+			</Sprite>
+			<Sprite id="capital_building"  x="256" w="256">
+				<SwappableColor r="255" g="255" b="255"/>
+				<SwappableColor r="0" g="0" b="255"/>
 			</Sprite>
 		</Row>
 	</SpriteSheet>

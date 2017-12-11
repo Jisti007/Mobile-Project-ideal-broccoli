@@ -27,6 +27,7 @@ private:
 	Game* game;
 
 	Label* nameLabel;
+	Label* descriptionLabel;
 	Label* hpLabel;
 	Label* defenseLabel;
 	Label* movementLabel;

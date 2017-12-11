@@ -140,7 +140,8 @@ void InfoPanel::updateInfo(Building* building) {
 		}
 	);
 
-	auto buildingName = "not actual building name";
+	auto buildingName = buildingType->getName();
+	auto buildingDescription = buildingType->getDescription();
 
 	std::stringstream nameString;
 	nameString << buildingName;
@@ -151,6 +152,16 @@ void InfoPanel::updateInfo(Building* building) {
 		glm::vec2{0,infoPanelSprite->getHeight() / 3.0f},
 		glm::vec2{100,20}
 	);
+
+	std::stringstream descriptionString;
+	descriptionString << buildingDescription;
+
+	/*descriptionLabel = addNewChild<Label>(
+		descriptionString.str().c_str(),
+		font,
+		glm::vec2{0,infoPanelSprite->getHeight() / 3.0f - nameLabel->getSize().y},
+		glm::vec2{100,20}
+	);*/
 
 	/*
 	std::stringstream skillString;

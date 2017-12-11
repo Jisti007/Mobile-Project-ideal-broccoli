@@ -52,4 +52,116 @@
 			</Buff>
 		</Buffs>
 	</Unit>
+	<!--<Unit
+		id="wizard"
+		name="Novice Wizard"
+		sprite="wizard"
+		hp="10"
+		defense="2"
+		movement="5"
+	>
+		<Skills>
+			<Skill
+				sprite="attack"
+				name="Magic Missile"
+				description="Short range projectile"
+				target="enemy"
+				range="2"
+				cost="2"
+			>
+				<Effects>
+					<Damage type="magic" amount="5" />
+				</Effects>
+				<Animations>
+					<Nudge source="user" destination="target" distance="0.25"/>
+					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+				</Animations>
+			</Skill>
+		</Skills>
+		<Buffs>
+			<Buff
+				name="Spellcaster robes"
+				sprite="attack"
+			>
+				<Resistance type="magic" amount="2" />
+				<Resistance type="pierce" amount="-2" />
+				<Resistance type="slash" amount="-1" />
+			</Buff>
+		</Buffs>
+	</Unit>-->
+	<!--<Unit
+		id="scout"
+		name="Ranger Scout"
+		sprite="scout"
+		hp="5"
+		defense="2"
+		movement="8"
+	>
+		<Skills>
+			<Skill
+				sprite="attack"
+				name="Steady shot"
+				description="Long range bow attack"
+				target="enemy"
+				range="4"
+				cost="2"
+			>
+				<Effects>
+					<Damage type="pierce" amount="4" />
+				</Effects>
+				<Animations>
+					<Nudge source="user" destination="target" distance="0.25"/>
+					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+				</Animations>
+			</Skill>
+		</Skills>
+		<Buffs>
+			<Buff
+				name="Ranger tunic"
+				sprite="attack"
+			>
+				<Resistance type="magic" amount="3" />
+				<Resistance type="slash" amount="-2" />
+				<Resistance type="crush" amount="-1" />
+			</Buff>
+		</Buffs>
+	</Unit>-->
+	<!--<Unit
+		id="knight"
+		name="Knight of the Realm"
+		sprite="knight"
+		hp="15"
+		defense="5"
+		movement="3"
+	>
+		<Skills>
+			<Skill
+				sprite="attack"
+				name="Noble strike"
+				description="Melee range slashing attack"
+				target="enemy"
+				range="1"
+				cost="2"
+			>
+				<Effects>
+					<Damage type="slash" amount="5" />
+				</Effects>
+				<Animations>
+					<Nudge source="user" destination="target" distance="0.25"/>
+					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
+				</Animations>
+			</Skill>
+		</Skills>
+		<Buffs>
+			<Buff
+				name="Heavy armor"
+				sprite="attack"
+			>
+				<Resistance type="slash" amount="3" />
+				<Resistance type="crush" amount="3" />
+				<Resistance type="pierce" amount="-2" />
+				<Resistance type="magic" amount="-1" />
+			</Buff>
+		</Buffs>
+	</Unit>-->
 </Assets>
