@@ -52,7 +52,7 @@
 			</Buff>
 		</Buffs>
 	</Unit>
-	<!--<Unit
+	<Unit
 		id="wizard"
 		name="Novice Wizard"
 		sprite="wizard"
@@ -88,7 +88,7 @@
 				<Resistance type="slash" amount="-1" />
 			</Buff>
 		</Buffs>
-	</Unit>-->
+	</Unit>
 	<!--<Unit
 		id="scout"
 		name="Ranger Scout"

@@ -10,6 +10,6 @@
 	<LoadAssets path="Biomes.xml" />
 	<LoadAssets path="Units.xml" />
 	<LoadAssets path="Buildings.xml" />
-	<!-- LoadAssets path="FontSprites.xml" /-->
-	<LoadAssets path="Fonts.xml" />
+	<LoadAssets path="FontSprites.xml" />
+	<LoadAssets path="Font.xml" />
 </Module>

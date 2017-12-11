@@ -440,7 +440,7 @@ void AssetManager::loadUnitType(Node *node) {
 			effects, buffName, buffSprite
 		));
 
-		buffNode = data->next_sibling();
+		buffNode = buffNode->next_sibling();
 	}
 
 	unitTypes[node->getID()] = std::make_unique<UnitType>(
