@@ -7,10 +7,6 @@ InfoPanel::InfoPanel(Sprite* sprite, glm::vec2 position, Font* font, AssetManage
 	this->game = game;
 }
 
-InfoPanel::~InfoPanel() {
-
-}
-
 void InfoPanel::updateInfo(Unit* unit) {
 	getChildren().clear();
 
@@ -127,3 +123,8 @@ void InfoPanel::updateInfo(Building* building) {
 	//exitButton->setOnPress(std::bind(&Game::popState, game));
 
 }
+
+void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitment) {
+
+}
+

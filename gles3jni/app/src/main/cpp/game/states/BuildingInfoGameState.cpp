@@ -23,19 +23,12 @@ void BuildingInfoGameState::createUI() {
 	    game
 	);
 
-	auto map = game->getCampaign()->getScenario()->getActiveMap();
+	auto recruitments = selectedBuilding->getType()->getRecruitments();
 
-	if (selectedBuilding->getType()->getRecruitments().empty()) {
+	if (recruitments.empty()) {
 		infoPanel->updateInfo(selectedBuilding);
 	} else {
-		auto testPanelSprite = assets->getSprite("faction_crest");
-		auto testPanel = uiRoot->addNewChild<InfoPanel>(
-			testPanelSprite, glm::vec2{
-				0,0},
-			assets->getFont("default"),
-			assets,
-			game
-		);
+		infoPanel->updateInfo(selectedBuilding, recruitments);
 	}
 }
 

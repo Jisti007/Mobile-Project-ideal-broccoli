@@ -14,9 +14,9 @@ public:
 	InfoPanel(Sprite* sprite, glm::vec2 position, Font* font, AssetManager* assetManager, Game* game);
 	~InfoPanel();
 
-	void updateInfo();
 	void updateInfo(Unit* unit);
 	void updateInfo(Building* building);
+	void updateInfo(Building* building, std::vector<Recruitment> recruitment);
 
 private:
 	Font* font;
