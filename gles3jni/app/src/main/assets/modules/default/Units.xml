@@ -89,7 +89,7 @@
 			</Buff>
 		</Buffs>
 	</Unit>
-	<!--<Unit
+	<Unit
 		id="scout"
 		name="Ranger Scout"
 		sprite="scout"
@@ -125,8 +125,8 @@
 				<Resistance type="crush" amount="-1" />
 			</Buff>
 		</Buffs>
-	</Unit>-->
-	<!--<Unit
+	</Unit>
+	<Unit
 		id="knight"
 		name="Knight of the Realm"
 		sprite="knight"
@@ -163,5 +163,5 @@
 				<Resistance type="magic" amount="-1" />
 			</Buff>
 		</Buffs>
-	</Unit>-->
+	</Unit>
 </Assets>
