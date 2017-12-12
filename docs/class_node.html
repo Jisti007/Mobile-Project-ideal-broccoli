@@ -62,6 +62,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -89,10 +90,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa0840c3cb5c7159be6d992adecd2097c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af76889d57cc721f3de9820a0a2ea4990"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#af76889d57cc721f3de9820a0a2ea4990">getHeuristic</a> (<a class="el" href="class_node.html">Node</a> *destination)=0</td></tr>
 <tr class="separator:af76889d57cc721f3de9820a0a2ea4990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a869ddcb3bb5c5adcf9cbdde97020597a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a869ddcb3bb5c5adcf9cbdde97020597a">compareTo</a> (<a class="el" href="class_comparable.html">Comparable</a> *other)</td></tr>
+<tr class="memitem:ae7589876df6045d9ac16f436c497911c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_path.html">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#ae7589876df6045d9ac16f436c497911c">findShortestPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent, size_t graphSize=128)</td></tr>
+<tr class="separator:ae7589876df6045d9ac16f436c497911c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a377b0db36c403ac9af8f49160318cd45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_path.html">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a377b0db36c403ac9af8f49160318cd45">findNearest</a> (<a class="el" href="class_agent.html">Agent</a> *agent, std::function&lt; bool(<a class="el" href="class_node.html">Node</a> *)&gt; condition, size_t graphSize=128)</td></tr>
+<tr class="separator:a377b0db36c403ac9af8f49160318cd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343762dcb1f2ed5c12fbf300f7af0dc8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_node.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a343762dcb1f2ed5c12fbf300f7af0dc8">findAllNodes</a> (<a class="el" href="class_agent.html">Agent</a> *agent, float maxPathCost, size_t graphSize=128)</td></tr>
+<tr class="separator:a343762dcb1f2ed5c12fbf300f7af0dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0fe60757f8cc76d9eaede37c8bb70aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_path.html">Path</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#af0fe60757f8cc76d9eaede37c8bb70aa">buildPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent)</td></tr>
+<tr class="separator:af0fe60757f8cc76d9eaede37c8bb70aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a869ddcb3bb5c5adcf9cbdde97020597a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a869ddcb3bb5c5adcf9cbdde97020597a">compareTo</a> (<a class="el" href="class_comparable.html">Comparable</a> *other)</td></tr>
 <tr class="separator:a869ddcb3bb5c5adcf9cbdde97020597a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92cdff51452d08468d0d89cdd33920d6"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_link.html">Link</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a92cdff51452d08468d0d89cdd33920d6">findShortestPath</a> (<a class="el" href="class_node.html">Node</a> *destination, <a class="el" href="class_agent.html">Agent</a> *agent, size_t graphSize=128)</td></tr>
-<tr class="separator:a92cdff51452d08468d0d89cdd33920d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_comparable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_comparable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_comparable.html">Comparable</a></td></tr>
 <tr class="memitem:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_comparable.html#a5bfe7437bd0027fd02ce22f608fce92a">~Comparable</a> ()</td></tr>
 <tr class="separator:a5bfe7437bd0027fd02ce22f608fce92a inherit pub_methods_class_comparable"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,6 +108,21 @@ Public Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a7ee37be2fa495cd14fafab523f1d54e2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_link.html">Link</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a7ee37be2fa495cd14fafab523f1d54e2">links</a></td></tr>
 <tr class="separator:a7ee37be2fa495cd14fafab523f1d54e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:adec68c84dd4f8b2c6cee506e3788260a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#adec68c84dd4f8b2c6cee506e3788260a">initializePathfinder</a> (<a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;openNodes, size_t graphSize)</td></tr>
+<tr class="separator:adec68c84dd4f8b2c6cee506e3788260a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae28ac26a585a07004d25249b189ea17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#aae28ac26a585a07004d25249b189ea17">visitNeighbors</a> (<a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;openNodes, <a class="el" href="class_agent.html">Agent</a> *agent)</td></tr>
+<tr class="separator:aae28ac26a585a07004d25249b189ea17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71095ebb2cdddf9fc14f112bbf2b2b49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a71095ebb2cdddf9fc14f112bbf2b2b49">visitNeighbors</a> (<a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;openNodes, <a class="el" href="class_agent.html">Agent</a> *agent, <a class="el" href="class_node.html">Node</a> *destination)</td></tr>
+<tr class="separator:a71095ebb2cdddf9fc14f112bbf2b2b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944c86b2a8f6ed310ebb467235d84303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a944c86b2a8f6ed310ebb467235d84303">tryReset</a> ()</td></tr>
+<tr class="separator:a944c86b2a8f6ed310ebb467235d84303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ab14e79c7af06d85b02cf51fbe895a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a82ab14e79c7af06d85b02cf51fbe895a">tryOpen</a> (<a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;openNodes, <a class="el" href="class_link.html">Link</a> *link, <a class="el" href="class_agent.html">Agent</a> *agent)</td></tr>
+<tr class="separator:a82ab14e79c7af06d85b02cf51fbe895a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe4bbb922eb5b9aafcaf0568feeb83e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a3fe4bbb922eb5b9aafcaf0568feeb83e">tryReposition</a> (<a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;openNodes, <a class="el" href="class_link.html">Link</a> *link, <a class="el" href="class_agent.html">Agent</a> *agent)</td></tr>
+<tr class="separator:a3fe4bbb922eb5b9aafcaf0568feeb83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -159,6 +181,35 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af0fe60757f8cc76d9eaede37c8bb70aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0fe60757f8cc76d9eaede37c8bb70aa">&#9670;&nbsp;</a></span>buildPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_path.html">Path</a> Node::buildPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>destination</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Should only be called after pathfinding has finished and before it is called again. findShortestPath uses this function automatically, but it can be useful after findAllNodes. Returns an empty path if the node wasn't visited in the preceding pathfinding run. </p>
+
+</div>
+</div>
 <a id="a869ddcb3bb5c5adcf9cbdde97020597a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a869ddcb3bb5c5adcf9cbdde97020597a">&#9670;&nbsp;</a></span>compareTo()</h2>
 
@@ -187,14 +238,88 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a92cdff51452d08468d0d89cdd33920d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92cdff51452d08468d0d89cdd33920d6">&#9670;&nbsp;</a></span>findShortestPath()</h2>
+<a id="a343762dcb1f2ed5c12fbf300f7af0dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343762dcb1f2ed5c12fbf300f7af0dc8">&#9670;&nbsp;</a></span>findAllNodes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt; <a class="el" href="class_link.html">Link</a> * &gt; Node::findShortestPath </td>
+          <td class="memname">std::vector&lt; <a class="el" href="class_node.html">Node</a> * &gt; Node::findAllNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>maxPathCost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>graphSize</em> = <code>128</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphSize</td><td>The estimated number of nodes traversed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a377b0db36c403ac9af8f49160318cd45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a377b0db36c403ac9af8f49160318cd45">&#9670;&nbsp;</a></span>findNearest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_path.html">Path</a> Node::findNearest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; bool(<a class="el" href="class_node.html">Node</a> *)&gt;&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>graphSize</em> = <code>128</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7589876df6045d9ac16f436c497911c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7589876df6045d9ac16f436c497911c">&#9670;&nbsp;</a></span>findShortestPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_path.html">Path</a> Node::findShortestPath </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>destination</em>, </td>
@@ -218,6 +343,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graphSize</td><td>The estimated number of nodes traversed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -244,8 +375,232 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>An estimate of how far the destination is from this node. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_map_hex.html#a11ee24c7dbc725fbd7dab7be64600209">MapHex</a>.</p>
+
+</div>
+</div>
+<a id="adec68c84dd4f8b2c6cee506e3788260a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec68c84dd4f8b2c6cee506e3788260a">&#9670;&nbsp;</a></span>initializePathfinder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::initializePathfinder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;&#160;</td>
+          <td class="paramname"><em>openNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>graphSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82ab14e79c7af06d85b02cf51fbe895a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ab14e79c7af06d85b02cf51fbe895a">&#9670;&nbsp;</a></span>tryOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::tryOpen </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;&#160;</td>
+          <td class="paramname"><em>openNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_link.html">Link</a> *&#160;</td>
+          <td class="paramname"><em>link</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fe4bbb922eb5b9aafcaf0568feeb83e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe4bbb922eb5b9aafcaf0568feeb83e">&#9670;&nbsp;</a></span>tryReposition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::tryReposition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;&#160;</td>
+          <td class="paramname"><em>openNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_link.html">Link</a> *&#160;</td>
+          <td class="paramname"><em>link</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a944c86b2a8f6ed310ebb467235d84303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944c86b2a8f6ed310ebb467235d84303">&#9670;&nbsp;</a></span>tryReset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::tryReset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae28ac26a585a07004d25249b189ea17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae28ac26a585a07004d25249b189ea17">&#9670;&nbsp;</a></span>visitNeighbors() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::visitNeighbors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;&#160;</td>
+          <td class="paramname"><em>openNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71095ebb2cdddf9fc14f112bbf2b2b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71095ebb2cdddf9fc14f112bbf2b2b49">&#9670;&nbsp;</a></span>visitNeighbors() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node::visitNeighbors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_binary_heap.html">BinaryHeap</a> &amp;&#160;</td>
+          <td class="paramname"><em>openNodes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_agent.html">Agent</a> *&#160;</td>
+          <td class="paramname"><em>agent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

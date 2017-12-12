@@ -86,8 +86,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a103d98c8ebfe9faee715dc5694523a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0162c72eb5b39c04b7d14fb5415f6cdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a0162c72eb5b39c04b7d14fb5415f6cdb">draw</a> (float deltaTime)</td></tr>
 <tr class="separator:a0162c72eb5b39c04b7d14fb5415f6cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af59b11b6dc9e1c0fdfa8c816a70afdfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#af59b11b6dc9e1c0fdfa8c816a70afdfc">onBeginTurn</a> ()</td></tr>
+<tr class="separator:af59b11b6dc9e1c0fdfa8c816a70afdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaadecff417c99a48a1cd2e66fd88cb3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#aaadecff417c99a48a1cd2e66fd88cb3f">createUnit</a> (<a class="el" href="struct_point.html">Point</a> position, <a class="el" href="class_unit_type.html">UnitType</a> *type, <a class="el" href="class_faction.html">Faction</a> *faction)</td></tr>
 <tr class="separator:aaadecff417c99a48a1cd2e66fd88cb3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e72948afd8943e54032c6b2d5b9db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ae3e72948afd8943e54032c6b2d5b9db7">removeUnit</a> (<a class="el" href="class_unit.html">Unit</a> *<a class="el" href="_skill_8h.html#a0d59972970c855496cb4c877501e668fa0309f85ec7cb2822fcbbbb4904ae697e">unit</a>)</td></tr>
+<tr class="separator:ae3e72948afd8943e54032c6b2d5b9db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292ea159d1806416a5f1a68c854b7d3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a292ea159d1806416a5f1a68c854b7d3f">finishRemovingUnits</a> ()</td></tr>
+<tr class="separator:a292ea159d1806416a5f1a68c854b7d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2a93899b236c8304f8409cf4c4ceb44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_building.html">Building</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ae2a93899b236c8304f8409cf4c4ceb44">createBuilding</a> (<a class="el" href="struct_point.html">Point</a> position, <a class="el" href="class_building_type.html">BuildingType</a> *type, <a class="el" href="class_faction.html">Faction</a> *faction)</td></tr>
 <tr class="separator:ae2a93899b236c8304f8409cf4c4ceb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c9f979e21c9211f1ae1618f09256cff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2c9f979e21c9211f1ae1618f09256cff">tryGetHex</a> (int x, int y)</td></tr>
@@ -102,18 +108,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:affe2652ecab285245ae7e2774d9c52b5"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#affe2652ecab285245ae7e2774d9c52b5">getScreenPosition</a> (glm::vec2 hexPosition)</td></tr>
 <tr class="memdesc:affe2652ecab285245ae7e2774d9c52b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the given hex position to screen coordinates.  <a href="#affe2652ecab285245ae7e2774d9c52b5">More...</a><br /></td></tr>
 <tr class="separator:affe2652ecab285245ae7e2774d9c52b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc6de4762f3876f05f31a3fe339409c"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2dc6de4762f3876f05f31a3fe339409c">getScreenPosition</a> (<a class="el" href="struct_point.html">Point</a> gridPosition)</td></tr>
+<tr class="separator:a2dc6de4762f3876f05f31a3fe339409c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a406d953565c61618e7239a65771db3c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scenario.html">Scenario</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a406d953565c61618e7239a65771db3c3">getScenario</a> ()</td></tr>
+<tr class="separator:a406d953565c61618e7239a65771db3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afc6815850b8be4bf0d1c7825702b02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a5afc6815850b8be4bf0d1c7825702b02">getScene</a> ()</td></tr>
 <tr class="separator:a5afc6815850b8be4bf0d1c7825702b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26d37d0192d7ab26f10785cc081019f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a26d37d0192d7ab26f10785cc081019f3">getHex</a> (int x, int y)</td></tr>
 <tr class="separator:a26d37d0192d7ab26f10785cc081019f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad02dd520c4f08c76fe3c94a9102cfd3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad02dd520c4f08c76fe3c94a9102cfd3f">tryGetHex</a> (<a class="el" href="struct_point.html">Point</a> position)</td></tr>
 <tr class="separator:ad02dd520c4f08c76fe3c94a9102cfd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99ea6c65c8da270ae6894cab6741a64e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a99ea6c65c8da270ae6894cab6741a64e">getCamera</a> ()</td></tr>
-<tr class="separator:a99ea6c65c8da270ae6894cab6741a64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d2b30e705de99d03e5b479ca38b6d91"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2d2b30e705de99d03e5b479ca38b6d91">getWidth</a> ()</td></tr>
 <tr class="separator:a2d2b30e705de99d03e5b479ca38b6d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7d63a46103943b6dcb3772d22bf66e4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad7d63a46103943b6dcb3772d22bf66e4">getHeight</a> ()</td></tr>
 <tr class="separator:ad7d63a46103943b6dcb3772d22bf66e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292a3a605f33b336593c4d01aaa69b5d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_unit.html">Unit</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a292a3a605f33b336593c4d01aaa69b5d">getUnits</a> ()</td></tr>
+<tr class="separator:a292a3a605f33b336593c4d01aaa69b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -126,10 +136,6 @@ Static Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a73791647ab9f7298ff7f14faa5098bbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a73791647ab9f7298ff7f14faa5098bbb">createActor</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, float depth)</td></tr>
-<tr class="separator:a73791647ab9f7298ff7f14faa5098bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2173d13ddc6680996f3882f940e2e9aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a2173d13ddc6680996f3882f940e2e9aa">createActor</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, std::vector&lt; glm::vec3 &gt; colors, float depth)</td></tr>
-<tr class="separator:a2173d13ddc6680996f3882f940e2e9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0de88300a253f8a9ec7dc784b2bf950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ad0de88300a253f8a9ec7dc784b2bf950">initializeHexes</a> ()</td></tr>
 <tr class="separator:ad0de88300a253f8a9ec7dc784b2bf950"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b59219f8cc93091307fcac351b5e63c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a5b59219f8cc93091307fcac351b5e63c">initializeRegions</a> (int count)</td></tr>
@@ -159,14 +165,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae4f4b0677dd413b6e45f69c28bef4a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20a5fbe47341112f2b515e539c66d469"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_unit.html">Unit</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a20a5fbe47341112f2b515e539c66d469">units</a></td></tr>
 <tr class="separator:a20a5fbe47341112f2b515e539c66d469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87cdf5d2dcd9bfd511916e07052bd234"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_unit.html">Unit</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a87cdf5d2dcd9bfd511916e07052bd234">removedUnits</a></td></tr>
+<tr class="separator:a87cdf5d2dcd9bfd511916e07052bd234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a827aedef06be5c3115eeea3ac8e68b72"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a827aedef06be5c3115eeea3ac8e68b72">width</a></td></tr>
 <tr class="separator:a827aedef06be5c3115eeea3ac8e68b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37c9c83ab73f37508753f45cbc9594d5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a37c9c83ab73f37508753f45cbc9594d5">height</a></td></tr>
 <tr class="separator:a37c9c83ab73f37508753f45cbc9594d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5004693ddf0a979bd379fc1a32f5ab8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a5004693ddf0a979bd379fc1a32f5ab8f">camera</a></td></tr>
-<tr class="separator:a5004693ddf0a979bd379fc1a32f5ab8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462412cd51f2afd21c143dc294a67d65"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#a462412cd51f2afd21c143dc294a67d65">debugPosition</a></td></tr>
-<tr class="separator:a462412cd51f2afd21c143dc294a67d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae71e5694cf19612fcaa4c1e21b03b71"></a>
@@ -238,96 +242,6 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a73791647ab9f7298ff7f14faa5098bbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73791647ab9f7298ff7f14faa5098bbb">&#9670;&nbsp;</a></span>createActor() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_actor.html">Actor</a> * GameMap::createActor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::vec2&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>depth</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2173d13ddc6680996f3882f940e2e9aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2173d13ddc6680996f3882f940e2e9aa">&#9670;&nbsp;</a></span>createActor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_actor.html">Actor</a> * GameMap::createActor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::vec2&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; glm::vec3 &gt;&#160;</td>
-          <td class="paramname"><em>colors</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>depth</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ae2a93899b236c8304f8409cf4c4ceb44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2a93899b236c8304f8409cf4c4ceb44">&#9670;&nbsp;</a></span>createBuilding()</h2>
 
@@ -476,6 +390,23 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a292ea159d1806416a5f1a68c854b7d3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292ea159d1806416a5f1a68c854b7d3f">&#9670;&nbsp;</a></span>finishRemovingUnits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::finishRemovingUnits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a103d98c8ebfe9faee715dc5694523a20"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a103d98c8ebfe9faee715dc5694523a20">&#9670;&nbsp;</a></span>generate()</h2>
 
@@ -489,31 +420,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a99ea6c65c8da270ae6894cab6741a64e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99ea6c65c8da270ae6894cab6741a64e">&#9670;&nbsp;</a></span>getCamera()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_camera.html">Camera</a>* GameMap::getCamera </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -654,6 +560,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a406d953565c61618e7239a65771db3c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a406d953565c61618e7239a65771db3c3">&#9670;&nbsp;</a></span>getScenario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scenario.html">Scenario</a>* GameMap::getScenario </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5afc6815850b8be4bf0d1c7825702b02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5afc6815850b8be4bf0d1c7825702b02">&#9670;&nbsp;</a></span>getScene()</h2>
 
@@ -680,7 +611,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="affe2652ecab285245ae7e2774d9c52b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affe2652ecab285245ae7e2774d9c52b5">&#9670;&nbsp;</a></span>getScreenPosition() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#affe2652ecab285245ae7e2774d9c52b5">&#9670;&nbsp;</a></span>getScreenPosition() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -699,8 +630,26 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2dc6de4762f3876f05f31a3fe339409c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc6de4762f3876f05f31a3fe339409c">&#9670;&nbsp;</a></span>getScreenPosition() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 GameMap::getScreenPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_point.html">Point</a>&#160;</td>
+          <td class="paramname"><em>gridPosition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0b997749d8585a6b4173a1d3f174949c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b997749d8585a6b4173a1d3f174949c">&#9670;&nbsp;</a></span>getScreenPosition() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b997749d8585a6b4173a1d3f174949c">&#9670;&nbsp;</a></span>getScreenPosition() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -729,6 +678,31 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a292a3a605f33b336593c4d01aaa69b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292a3a605f33b336593c4d01aaa69b5d">&#9670;&nbsp;</a></span>getUnits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_unit.html">Unit</a>&gt; &gt;&amp; GameMap::getUnits </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -845,6 +819,41 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af59b11b6dc9e1c0fdfa8c816a70afdfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af59b11b6dc9e1c0fdfa8c816a70afdfc">&#9670;&nbsp;</a></span>onBeginTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::onBeginTurn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3e72948afd8943e54032c6b2d5b9db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3e72948afd8943e54032c6b2d5b9db7">&#9670;&nbsp;</a></span>removeUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::removeUnit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_unit.html">Unit</a> *&#160;</td>
+          <td class="paramname"><em>unit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2c9f979e21c9211f1ae1618f09256cff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c9f979e21c9211f1ae1618f09256cff">&#9670;&nbsp;</a></span>tryGetHex() <span class="overload">[1/2]</span></h2>
 
@@ -913,50 +922,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_building.html">Building</a>&gt; &gt; GameMap::buildings</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5004693ddf0a979bd379fc1a32f5ab8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5004693ddf0a979bd379fc1a32f5ab8f">&#9670;&nbsp;</a></span>camera</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_camera.html">Camera</a> GameMap::camera</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a462412cd51f2afd21c143dc294a67d65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a462412cd51f2afd21c143dc294a67d65">&#9670;&nbsp;</a></span>debugPosition</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec2 GameMap::debugPosition</td>
         </tr>
       </table>
   </td>
@@ -1067,6 +1032,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;<a class="el" href="class_map_region.html">MapRegion</a>&gt; GameMap::regions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87cdf5d2dcd9bfd511916e07052bd234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87cdf5d2dcd9bfd511916e07052bd234">&#9670;&nbsp;</a></span>removedUnits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_unit.html">Unit</a>*&gt; GameMap::removedUnits</td>
         </tr>
       </table>
   </td>

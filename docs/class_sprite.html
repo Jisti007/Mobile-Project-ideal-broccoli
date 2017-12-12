@@ -74,6 +74,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac5f5ecc78c5f7ee7908c5d202d03260e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#ac5f5ecc78c5f7ee7908c5d202d03260e">Sprite</a> (const char *<a class="el" href="class_sprite.html#a83f441d0dc80c048e94d464a74eae396">id</a>, <a class="el" href="class_texture.html">Texture</a> *<a class="el" href="class_sprite.html#a3d42412fa0ae1138f7f7bcf4e8d85110">texture</a>, int x, int y, int w, int h, int xOffset, int yOffset, std::vector&lt; glm::vec3 &gt; <a class="el" href="class_sprite.html#a0a11b213bedf3a2adc210d660a0b29e8">swappableColors</a>)</td></tr>
 <tr class="separator:ac5f5ecc78c5f7ee7908c5d202d03260e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa951c98d3c54a9e5b19608e0861d95ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#aa951c98d3c54a9e5b19608e0861d95ba">Sprite</a> (const char *<a class="el" href="class_sprite.html#a83f441d0dc80c048e94d464a74eae396">id</a>, <a class="el" href="class_texture.html">Texture</a> *<a class="el" href="class_sprite.html#a3d42412fa0ae1138f7f7bcf4e8d85110">texture</a>, float <a class="el" href="class_sprite.html#a0a3364944c5e361fc9e7ae406224d682">width</a>, float <a class="el" href="class_sprite.html#a1f07c8f2080c193759aec0e13503d7ab">height</a>, float xOffset, float yOffset, float textureLeft, float textureRight, float textureTop, float textureBottom, std::vector&lt; glm::vec3 &gt; <a class="el" href="class_sprite.html#a0a11b213bedf3a2adc210d660a0b29e8">swappableColors</a>)</td></tr>
+<tr class="separator:aa951c98d3c54a9e5b19608e0861d95ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a679597e8517454a28bcd3db3b281115d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#a679597e8517454a28bcd3db3b281115d">reload</a> ()</td></tr>
 <tr class="separator:a679597e8517454a28bcd3db3b281115d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2c9622a0353ce1930e469d5fffce529"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite.html#ad2c9622a0353ce1930e469d5fffce529">getTexture</a> () const</td></tr>
@@ -106,7 +108,7 @@ Private Attributes</h2></td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac5f5ecc78c5f7ee7908c5d202d03260e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5f5ecc78c5f7ee7908c5d202d03260e">&#9670;&nbsp;</a></span>Sprite()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f5ecc78c5f7ee7908c5d202d03260e">&#9670;&nbsp;</a></span>Sprite() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,6 +160,88 @@ Private Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>yOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; glm::vec3 &gt;&#160;</td>
+          <td class="paramname"><em>swappableColors</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa951c98d3c54a9e5b19608e0861d95ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa951c98d3c54a9e5b19608e0861d95ba">&#9670;&nbsp;</a></span>Sprite() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Sprite::Sprite </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>xOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>yOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>textureLeft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>textureRight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>textureTop</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>textureBottom</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

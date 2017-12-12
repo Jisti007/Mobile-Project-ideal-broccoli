@@ -61,6 +61,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_camera-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -76,15 +77,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a01f94c3543f56ede7af49dc778f19331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1897942d0ccf91052386388a497349f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ad1897942d0ccf91052386388a497349f">~Camera</a> ()</td></tr>
 <tr class="separator:ad1897942d0ccf91052386388a497349f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a9f789d49dc49569f0455157f5aa3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9">move</a> (glm::vec2 <a class="el" href="class_camera.html#ab1427fe342c2a550b5eea064311cc473">position</a>)</td></tr>
-<tr class="memdesc:a3a9f789d49dc49569f0455157f5aa3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the camera to the target location.  <a href="#a3a9f789d49dc49569f0455157f5aa3b9">More...</a><br /></td></tr>
-<tr class="separator:a3a9f789d49dc49569f0455157f5aa3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfa25e9a9791ab285b1c619c40c5bea7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7">moveBy</a> (glm::vec2 delta)</td></tr>
-<tr class="memdesc:abfa25e9a9791ab285b1c619c40c5bea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsets the camera from its current position by "delta" amount.  <a href="#abfa25e9a9791ab285b1c619c40c5bea7">More...</a><br /></td></tr>
-<tr class="separator:abfa25e9a9791ab285b1c619c40c5bea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17dfaaa16ee6fb42ce7c03c8ca196a2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a17dfaaa16ee6fb42ce7c03c8ca196a2f">setZoom</a> (float <a class="el" href="class_camera.html#a21fc9e142b104d8e94126657abaa075f">zoom</a>)</td></tr>
 <tr class="memdesc:a17dfaaa16ee6fb42ce7c03c8ca196a2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new value for how much the view should be scaled.  <a href="#a17dfaaa16ee6fb42ce7c03c8ca196a2f">More...</a><br /></td></tr>
 <tr class="separator:a17dfaaa16ee6fb42ce7c03c8ca196a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a793f9f0edff8984a65d7d908e0ff481c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a793f9f0edff8984a65d7d908e0ff481c">update</a> (float deltaTime)</td></tr>
+<tr class="separator:a793f9f0edff8984a65d7d908e0ff481c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6628404766f5ca99066d58e119720c6c"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a6628404766f5ca99066d58e119720c6c">getPosition</a> ()</td></tr>
 <tr class="memdesc:a6628404766f5ca99066d58e119720c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position of the camera as a 2D vector.  <a href="#a6628404766f5ca99066d58e119720c6c">More...</a><br /></td></tr>
 <tr class="separator:a6628404766f5ca99066d58e119720c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,6 +89,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a41b1fdd5cf545986358116d6820b1cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac640ce5841a5ca86a79ed6cda33b9d41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ac640ce5841a5ca86a79ed6cda33b9d41">setMaxPosition</a> (glm::vec2 <a class="el" href="class_camera.html#a28fdd256455d98a1bbf6d93f6f3db4a6">maxPosition</a>)</td></tr>
 <tr class="separator:ac640ce5841a5ca86a79ed6cda33b9d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cc06f9ccdc813c5d3e2c298eb479ef1"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a1cc06f9ccdc813c5d3e2c298eb479ef1">getTarget</a> ()</td></tr>
+<tr class="separator:a1cc06f9ccdc813c5d3e2c298eb479ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b706cad820edaafc12b768b5c63d06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a69b706cad820edaafc12b768b5c63d06">setTarget</a> (glm::vec2 <a class="el" href="class_camera.html#ace01d1e3d95c7c2404cc714e3f46e882">target</a>)</td></tr>
+<tr class="separator:a69b706cad820edaafc12b768b5c63d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785ba677a890e7016cddfd0337bd4e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a785ba677a890e7016cddfd0337bd4e62">modifyTarget</a> (glm::vec2 delta)</td></tr>
+<tr class="separator:a785ba677a890e7016cddfd0337bd4e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7c46d026313f6faefdcfdb5094ea8cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ae7c46d026313f6faefdcfdb5094ea8cb">getX</a> ()</td></tr>
 <tr class="memdesc:ae7c46d026313f6faefdcfdb5094ea8cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the x-coordinate of the camera.  <a href="#ae7c46d026313f6faefdcfdb5094ea8cb">More...</a><br /></td></tr>
 <tr class="separator:ae7c46d026313f6faefdcfdb5094ea8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,6 +108,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae1fdb56d02624ef8965707c28a8eb088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies the zoom value by the given multiplier.  <a href="#ae1fdb56d02624ef8965707c28a8eb088">More...</a><br /></td></tr>
 <tr class="separator:ae1fdb56d02624ef8965707c28a8eb088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3a9f789d49dc49569f0455157f5aa3b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a3a9f789d49dc49569f0455157f5aa3b9">move</a> (glm::vec2 <a class="el" href="class_camera.html#ab1427fe342c2a550b5eea064311cc473">position</a>)</td></tr>
+<tr class="memdesc:a3a9f789d49dc49569f0455157f5aa3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the camera to the target location.  <a href="#a3a9f789d49dc49569f0455157f5aa3b9">More...</a><br /></td></tr>
+<tr class="separator:a3a9f789d49dc49569f0455157f5aa3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfa25e9a9791ab285b1c619c40c5bea7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#abfa25e9a9791ab285b1c619c40c5bea7">moveBy</a> (glm::vec2 delta)</td></tr>
+<tr class="memdesc:abfa25e9a9791ab285b1c619c40c5bea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offsets the camera from its current position by "delta" amount.  <a href="#abfa25e9a9791ab285b1c619c40c5bea7">More...</a><br /></td></tr>
+<tr class="separator:abfa25e9a9791ab285b1c619c40c5bea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ab1427fe342c2a550b5eea064311cc473"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ab1427fe342c2a550b5eea064311cc473">position</a> = {0, 0}</td></tr>
@@ -113,6 +125,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ada97fbe1963a9d03dca25d09e92a8ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28fdd256455d98a1bbf6d93f6f3db4a6"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a28fdd256455d98a1bbf6d93f6f3db4a6">maxPosition</a> = {100, 100}</td></tr>
 <tr class="separator:a28fdd256455d98a1bbf6d93f6f3db4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace01d1e3d95c7c2404cc714e3f46e882"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ace01d1e3d95c7c2404cc714e3f46e882">target</a> = {0, 0}</td></tr>
+<tr class="separator:ace01d1e3d95c7c2404cc714e3f46e882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cc3033585c186ec8219d6117a0bd1d"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ac0cc3033585c186ec8219d6117a0bd1d">velocity</a> = {0, 0}</td></tr>
+<tr class="separator:ac0cc3033585c186ec8219d6117a0bd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21fc9e142b104d8e94126657abaa075f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a21fc9e142b104d8e94126657abaa075f">zoom</a> = 1.0f</td></tr>
 <tr class="memdesc:a21fc9e142b104d8e94126657abaa075f"><td class="mdescLeft">&#160;</td><td class="mdescRight">How much the view is scaled, as a simple multiplier.  <a href="#a21fc9e142b104d8e94126657abaa075f">More...</a><br /></td></tr>
 <tr class="separator:a21fc9e142b104d8e94126657abaa075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +199,31 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the position of the camera as a 2D vector. </p>
+
+</div>
+</div>
+<a id="a1cc06f9ccdc813c5d3e2c298eb479ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc06f9ccdc813c5d3e2c298eb479ef1">&#9670;&nbsp;</a></span>getTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Camera::getTarget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -267,11 +308,40 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a785ba677a890e7016cddfd0337bd4e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785ba677a890e7016cddfd0337bd4e62">&#9670;&nbsp;</a></span>modifyTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::modifyTarget </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3a9f789d49dc49569f0455157f5aa3b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a9f789d49dc49569f0455157f5aa3b9">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Camera::move </td>
@@ -281,6 +351,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Moves the camera to the target location. </p>
@@ -292,6 +367,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Camera::moveBy </td>
@@ -301,6 +379,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Offsets the camera from its current position by "delta" amount. </p>
@@ -387,6 +470,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a69b706cad820edaafc12b768b5c63d06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b706cad820edaafc12b768b5c63d06">&#9670;&nbsp;</a></span>setTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::setTarget </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a17dfaaa16ee6fb42ce7c03c8ca196a2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17dfaaa16ee6fb42ce7c03c8ca196a2f">&#9670;&nbsp;</a></span>setZoom()</h2>
 
@@ -404,6 +513,24 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a new value for how much the view should be scaled. </p>
+
+</div>
+</div>
+<a id="a793f9f0edff8984a65d7d908e0ff481c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793f9f0edff8984a65d7d908e0ff481c">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -507,6 +634,50 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">glm::vec2 Camera::position = {0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace01d1e3d95c7c2404cc714e3f46e882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace01d1e3d95c7c2404cc714e3f46e882">&#9670;&nbsp;</a></span>target</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Camera::target = {0, 0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0cc3033585c186ec8219d6117a0bd1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cc3033585c186ec8219d6117a0bd1d">&#9670;&nbsp;</a></span>velocity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Camera::velocity = {0, 0}</td>
         </tr>
       </table>
   </td>

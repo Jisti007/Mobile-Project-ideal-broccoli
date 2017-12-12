@@ -83,12 +83,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3059fbbdb1821ccd7deee8bf0d49ba77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e6a2b4005bb48e7928040d522ef1a74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a8e6a2b4005bb48e7928040d522ef1a74">beginDraw</a> ()</td></tr>
 <tr class="separator:a8e6a2b4005bb48e7928040d522ef1a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c07fc427e5644ed74b8189be7c269c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a93c07fc427e5644ed74b8189be7c269c">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, float scale=1.0f)</td></tr>
-<tr class="separator:a93c07fc427e5644ed74b8189be7c269c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69e2a417b8d5777c11d5bf36d0048dad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a69e2a417b8d5777c11d5bf36d0048dad">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, std::vector&lt; glm::vec3 &gt; destinationColors)</td></tr>
-<tr class="separator:a69e2a417b8d5777c11d5bf36d0048dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc10f1cf5ae5e121b7e6c269f538350d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#adc10f1cf5ae5e121b7e6c269f538350d">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, glm::vec2 scale={1.0f, 1.0f}, glm::vec4 color={1.0f, 1.0f, 1.0f, 1.0f})</td></tr>
+<tr class="separator:adc10f1cf5ae5e121b7e6c269f538350d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a894036d85bee9a616cc8d5803a1e143f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a894036d85bee9a616cc8d5803a1e143f">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, std::vector&lt; glm::vec3 &gt; destinationColors, glm::vec4 color={1.0f, 1.0f, 1.0f, 1.0f})</td></tr>
+<tr class="separator:a894036d85bee9a616cc8d5803a1e143f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aba3151fc02c2031423d4ce5a4a7990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a0aba3151fc02c2031423d4ce5a4a7990">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, std::vector&lt; glm::vec3 &gt; destinationColors, glm::vec2 scale, glm::vec4 color={1.0f, 1.0f, 1.0f, 1.0f})</td></tr>
+<tr class="separator:a0aba3151fc02c2031423d4ce5a4a7990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a20d0da3c07f08276058e72d4012ff8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a7a20d0da3c07f08276058e72d4012ff8">endDraw</a> ()</td></tr>
 <tr class="separator:a7a20d0da3c07f08276058e72d4012ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61480158d8b38bd0aa6d73af565d74ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a61480158d8b38bd0aa6d73af565d74ae">setAmbientColor</a> (glm::vec3 color)</td></tr>
+<tr class="separator:a61480158d8b38bd0aa6d73af565d74ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ac8712c6d81acedc0cb49ab70ce18f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a6ac8712c6d81acedc0cb49ab70ce18f5">setCameraPosition</a> (glm::vec2 position)</td></tr>
 <tr class="separator:a6ac8712c6d81acedc0cb49ab70ce18f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3afb08f847cce8edbdcef08761cff91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a3afb08f847cce8edbdcef08761cff91b">setCameraZoom</a> (float zoom)</td></tr>
@@ -104,6 +108,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:a01ce8bafe9afa5d936a1c9d460f22807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a01ce8bafe9afa5d936a1c9d460f22807">draw</a> (<a class="el" href="class_sprite.html">Sprite</a> *sprite, glm::vec2 position, GLint numberOfColorSwaps, glm::vec2 scale={1.0f, 1.0f}, glm::vec4 color={1.0f, 1.0f, 1.0f, 1.0f})</td></tr>
+<tr class="separator:a01ce8bafe9afa5d936a1c9d460f22807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b08f1cee6613c60bca5bde2579bbda2"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a6b08f1cee6613c60bca5bde2579bbda2">createShader</a> (const char *source, GLenum type)</td></tr>
 <tr class="separator:a6b08f1cee6613c60bca5bde2579bbda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a171de6cafdea4a00d1a23bedc1fa63b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a171de6cafdea4a00d1a23bedc1fa63b5">deleteShader</a> (GLuint *shader)</td></tr>
@@ -121,6 +127,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:acdf6fe161adcf4e4d39e66cba8873d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac16f368b971d6ed8c92dbb9824ee0cae"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#ac16f368b971d6ed8c92dbb9824ee0cae">lastVertexArray</a> = 0</td></tr>
 <tr class="separator:ac16f368b971d6ed8c92dbb9824ee0cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1180ae09615f726ac60562a6d330947e"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a1180ae09615f726ac60562a6d330947e">ambientColorLocation</a></td></tr>
+<tr class="separator:a1180ae09615f726ac60562a6d330947e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15472353935a0b17cd810d9c99d1dfe4"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a15472353935a0b17cd810d9c99d1dfe4">instanceColorLocation</a></td></tr>
+<tr class="separator:a15472353935a0b17cd810d9c99d1dfe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7aee16a3e8cb60299c175417c8dca531"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#a7aee16a3e8cb60299c175417c8dca531">instancePositionLocation</a></td></tr>
 <tr class="separator:a7aee16a3e8cb60299c175417c8dca531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af577831454edd7cb48c074ef1b5c8dad"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pipeline.html#af577831454edd7cb48c074ef1b5c8dad">instanceScaleLocation</a></td></tr>
@@ -270,8 +280,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a93c07fc427e5644ed74b8189be7c269c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93c07fc427e5644ed74b8189be7c269c">&#9670;&nbsp;</a></span>draw() <span class="overload">[1/2]</span></h2>
+<a id="adc10f1cf5ae5e121b7e6c269f538350d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc10f1cf5ae5e121b7e6c269f538350d">&#9670;&nbsp;</a></span>draw() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,8 +301,14 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em> = <code>1.0f</code>&#160;</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>scale</em> = <code>{1.0f,&#160;1.0f}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -304,8 +320,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a69e2a417b8d5777c11d5bf36d0048dad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69e2a417b8d5777c11d5bf36d0048dad">&#9670;&nbsp;</a></span>draw() <span class="overload">[2/2]</span></h2>
+<a id="a894036d85bee9a616cc8d5803a1e143f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a894036d85bee9a616cc8d5803a1e143f">&#9670;&nbsp;</a></span>draw() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +342,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::vector&lt; glm::vec3 &gt;&#160;</td>
-          <td class="paramname"><em>destinationColors</em>&#160;</td>
+          <td class="paramname"><em>destinationColors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -334,6 +356,106 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0aba3151fc02c2031423d4ce5a4a7990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aba3151fc02c2031423d4ce5a4a7990">&#9670;&nbsp;</a></span>draw() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pipeline::draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; glm::vec3 &gt;&#160;</td>
+          <td class="paramname"><em>destinationColors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01ce8bafe9afa5d936a1c9d460f22807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ce8bafe9afa5d936a1c9d460f22807">&#9670;&nbsp;</a></span>draw() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pipeline::draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
+          <td class="paramname"><em>sprite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLint&#160;</td>
+          <td class="paramname"><em>numberOfColorSwaps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>scale</em> = <code>{1.0f,&#160;1.0f}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{1.0f,&#160;1.0f,&#160;1.0f,&#160;1.0f}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -440,6 +562,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a61480158d8b38bd0aa6d73af565d74ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61480158d8b38bd0aa6d73af565d74ae">&#9670;&nbsp;</a></span>setAmbientColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Pipeline::setAmbientColor </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec3&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6ac8712c6d81acedc0cb49ab70ce18f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ac8712c6d81acedc0cb49ab70ce18f5">&#9670;&nbsp;</a></span>setCameraPosition()</h2>
 
@@ -505,6 +645,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1180ae09615f726ac60562a6d330947e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1180ae09615f726ac60562a6d330947e">&#9670;&nbsp;</a></span>ambientColorLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint Pipeline::ambientColorLocation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac4532c483bc0110680556b7d9b85ec27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4532c483bc0110680556b7d9b85ec27">&#9670;&nbsp;</a></span>cameraPosition</h2>
 
@@ -582,6 +744,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">GLuint Pipeline::fragmentShader</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15472353935a0b17cd810d9c99d1dfe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15472353935a0b17cd810d9c99d1dfe4">&#9670;&nbsp;</a></span>instanceColorLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLint Pipeline::instanceColorLocation</td>
         </tr>
       </table>
   </td>

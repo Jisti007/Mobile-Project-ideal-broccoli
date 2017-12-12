@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unvisited',['unvisited',['../_node_8h.html#a8c61272fccb797a8d283bb4ac2d86cdda7fc5c694a226faa9d2e8ce37d31d4c2b',1,'Node.h']]]
+  ['friendly',['friendly',['../_skill_8h.html#a0d59972970c855496cb4c877501e668fa6ce1d4978e891722f7c50e868bc8ad78',1,'Skill.h']]]
 ];

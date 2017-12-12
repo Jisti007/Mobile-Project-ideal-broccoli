@@ -61,10 +61,10 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="class_map_game_state-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">MapGameState Class Reference</div>  </div>
+<div class="title">MapGameState Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -75,7 +75,18 @@ Inheritance diagram for MapGameState:</div>
  <div class="center">
   <img src="class_map_game_state.png" usemap="#MapGameState_map" alt=""/>
   <map id="MapGameState_map" name="MapGameState_map">
-<area href="class_game_state.html" alt="GameState" shape="rect" coords="0,0,97,24"/>
+<area href="class_game_state.html" alt="GameState" shape="rect" coords="352,0,518,24"/>
+<area href="class_player_game_state.html" alt="PlayerGameState" shape="rect" coords="352,112,518,136"/>
+<area href="class_animation_game_state.html" alt="AnimationGameState" shape="rect" coords="88,168,254,192"/>
+<area href="class_building_info_game_state.html" alt="BuildingInfoGameState" shape="rect" coords="264,168,430,192"/>
+<area href="class_idle_game_state.html" alt="IdleGameState" shape="rect" coords="440,168,606,192"/>
+<area href="class_unit_info_game_state.html" alt="UnitInfoGameState" shape="rect" coords="616,168,782,192"/>
+<area href="class_computer_game_state.html" alt="ComputerGameState" shape="rect" coords="0,224,166,248"/>
+<area href="class_player_animation_game_state.html" alt="PlayerAnimationGameState" shape="rect" coords="176,224,342,248"/>
+<area href="class_building_selected_game_state.html" alt="BuildingSelectedGameState" shape="rect" coords="352,224,518,248"/>
+<area href="class_unit_selected_game_state.html" alt="UnitSelectedGameState" shape="rect" coords="528,224,694,248"/>
+<area href="class_path_selected_game_state.html" alt="PathSelectedGameState" shape="rect" coords="440,280,606,304"/>
+<area href="class_target_selected_game_state.html" alt="TargetSelectedGameState" shape="rect" coords="616,280,782,304"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -85,8 +96,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3c0c43a423e82e5cf9a4e9431d49ccca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab63bb6915f8b57809f677c7570dcef27"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#ab63bb6915f8b57809f677c7570dcef27">~MapGameState</a> ()</td></tr>
 <tr class="separator:ab63bb6915f8b57809f677c7570dcef27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a318de5119503d9b950261f707c054e62"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a318de5119503d9b950261f707c054e62">update</a> (float deltaTime)</td></tr>
-<tr class="separator:a318de5119503d9b950261f707c054e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad0f52b3529c5a67c481eafc784b12ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#aad0f52b3529c5a67c481eafc784b12ec">draw</a> (<a class="el" href="class_pipeline.html">Pipeline</a> *pipeline, float deltaTime)</td></tr>
 <tr class="separator:aad0f52b3529c5a67c481eafc784b12ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc77877f24145ec10d64e1ad68bf341c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#adc77877f24145ec10d64e1ad68bf341c">move</a> (float dx, float dy)</td></tr>
@@ -100,19 +109,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab0a50af4416535fc9ed4462015de9bc3 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae623df5042cd0c17daa3394fdcb397b3 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#ae623df5042cd0c17daa3394fdcb397b3">~GameState</a> ()</td></tr>
 <tr class="separator:ae623df5042cd0c17daa3394fdcb397b3 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9e259e6594819168a8f928258195ad4 inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#ad9e259e6594819168a8f928258195ad4">recreateUI</a> ()</td></tr>
+<tr class="separator:ad9e259e6594819168a8f928258195ad4 inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f00ae43b9a302a8514609ce312a0d4b inherit pub_methods_class_game_state"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_state.html#a7f00ae43b9a302a8514609ce312a0d4b">update</a> (float deltaTime)</td></tr>
+<tr class="separator:a7f00ae43b9a302a8514609ce312a0d4b inherit pub_methods_class_game_state"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a987fcdfcde90bb253d88e2ddd67851cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_resource_panel.html">ResourcePanel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a987fcdfcde90bb253d88e2ddd67851cc">resourcePanel</a></td></tr>
-<tr class="separator:a987fcdfcde90bb253d88e2ddd67851cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6420d9779872303ead83e100aa4ae2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit.html">Unit</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a4d6420d9779872303ead83e100aa4ae2">selectedUnit</a> = nullptr</td></tr>
-<tr class="separator:a4d6420d9779872303ead83e100aa4ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7893d904562dffe850dd67aa1116de29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a7893d904562dffe850dd67aa1116de29">pressedHex</a> = nullptr</td></tr>
-<tr class="separator:a7893d904562dffe850dd67aa1116de29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2328c8bf8d8bb8fa34f68de4cd9f1658"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a2328c8bf8d8bb8fa34f68de4cd9f1658">animatingEvent</a> = false</td></tr>
-<tr class="separator:a2328c8bf8d8bb8fa34f68de4cd9f1658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c3d0057b90c24db02e98523fc401c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a52c3d0057b90c24db02e98523fc401c2">fastAnimation</a> = false</td></tr>
-<tr class="separator:a52c3d0057b90c24db02e98523fc401c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a692a15c15ad67aba208bb338917c303c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_game_state.html#a692a15c15ad67aba208bb338917c303c">onPressHex</a> (<a class="el" href="class_map_hex.html">MapHex</a> *<a class="el" href="_skill_8h.html#a0d59972970c855496cb4c877501e668fa6000f7a8e67e4e0beb7b8ebe93452243">hex</a>)=0</td></tr>
+<tr class="separator:a692a15c15ad67aba208bb338917c303c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -203,6 +208,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_state.html#aab50aafce67a149d6cf4f7e70f85d96f">GameState</a>.</p>
 
+<p>Reimplemented in <a class="el" href="class_path_selected_game_state.html#a3c796bbf40625682c75a420f6d55d440">PathSelectedGameState</a>.</p>
+
 </div>
 </div>
 <a id="adc77877f24145ec10d64e1ad68bf341c"></a>
@@ -239,7 +246,37 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_game_state.html#a189d4ec387073e70d332a82421845cb2">GameState</a>.</p>
+<p>Reimplemented from <a class="el" href="class_game_state.html#a30f46c7516ad38828d80b7d411bca8f8">GameState</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_building_info_game_state.html#a9ecda9452c397db85b4c34ef3512ba3d">BuildingInfoGameState</a>, <a class="el" href="class_unit_info_game_state.html#af9f6741c242286d5704cfbe9f74afd1c">UnitInfoGameState</a>, and <a class="el" href="class_target_selected_game_state.html#a20c2470319fc34042a2e2a769050f3b0">TargetSelectedGameState</a>.</p>
+
+</div>
+</div>
+<a id="a692a15c15ad67aba208bb338917c303c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692a15c15ad67aba208bb338917c303c">&#9670;&nbsp;</a></span>onPressHex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MapGameState::onPressHex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_hex.html">MapHex</a> *&#160;</td>
+          <td class="paramname"><em>hex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_player_game_state.html#aa8afed11ddd14de484478ffab03edced">PlayerGameState</a>, <a class="el" href="class_unit_selected_game_state.html#a26a75b0144b4ef2c878b25751f813c98">UnitSelectedGameState</a>, <a class="el" href="class_building_selected_game_state.html#a8fd0367ffa96c99393fb311b71429ee8">BuildingSelectedGameState</a>, and <a class="el" href="class_path_selected_game_state.html#a4ad8a904d557358d7530412364b5e616">PathSelectedGameState</a>.</p>
 
 </div>
 </div>
@@ -279,33 +316,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_game_state.html#a536fb76956559b49d8a2a0fa4ee54bd6">GameState</a>.</p>
 
-</div>
-</div>
-<a id="a318de5119503d9b950261f707c054e62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a318de5119503d9b950261f707c054e62">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MapGameState::update </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>deltaTime</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_game_state.html#a360521bb5b371ea942a9e4e2ba1e8145">GameState</a>.</p>
+<p>Reimplemented in <a class="el" href="class_building_info_game_state.html#a8f48183d7e0fcaae278228b7ae4b1d8b">BuildingInfoGameState</a>, <a class="el" href="class_unit_info_game_state.html#ab187ad696d17a3e97f2866577df0ea2b">UnitInfoGameState</a>, and <a class="el" href="class_animation_game_state.html#ae2f9d48d5396c93e4f4ed54809ed826c">AnimationGameState</a>.</p>
 
 </div>
 </div>
@@ -333,118 +344,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_game_state.html#a96c1521b0bdd0452645ebdafe663e4ef">GameState</a>.</p>
+<p>Reimplemented from <a class="el" href="class_game_state.html#abffbf90ba0ab067dc04a05efdb7731a3">GameState</a>.</p>
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2328c8bf8d8bb8fa34f68de4cd9f1658"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2328c8bf8d8bb8fa34f68de4cd9f1658">&#9670;&nbsp;</a></span>animatingEvent</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool MapGameState::animatingEvent = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a52c3d0057b90c24db02e98523fc401c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c3d0057b90c24db02e98523fc401c2">&#9670;&nbsp;</a></span>fastAnimation</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool MapGameState::fastAnimation = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7893d904562dffe850dd67aa1116de29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7893d904562dffe850dd67aa1116de29">&#9670;&nbsp;</a></span>pressedHex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_map_hex.html">MapHex</a>* MapGameState::pressedHex = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a987fcdfcde90bb253d88e2ddd67851cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a987fcdfcde90bb253d88e2ddd67851cc">&#9670;&nbsp;</a></span>resourcePanel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_resource_panel.html">ResourcePanel</a>* MapGameState::resourcePanel</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4d6420d9779872303ead83e100aa4ae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d6420d9779872303ead83e100aa4ae2">&#9670;&nbsp;</a></span>selectedUnit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_unit.html">Unit</a>* MapGameState::selectedUnit = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Reimplemented in <a class="el" href="class_building_info_game_state.html#a0dfba7d71c65faad06d213ad6f9b741e">BuildingInfoGameState</a>, and <a class="el" href="class_unit_info_game_state.html#a66f5d0f26b79b00067598a54c487a256">UnitInfoGameState</a>.</p>
 
 </div>
 </div>

@@ -61,6 +61,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_animation-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Animation Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -74,18 +76,104 @@ Inheritance diagram for Animation:</div>
  <div class="center">
   <img src="class_animation.png" usemap="#Animation_map" alt=""/>
   <map id="Animation_map" name="Animation_map">
-<area href="class_movement_animation.html" alt="MovementAnimation" shape="rect" coords="0,56,125,80"/>
+<area href="class_actor_visibility_animation.html" alt="ActorVisibilityAnimation" shape="rect" coords="0,56,145,80"/>
+<area href="class_death_animation.html" alt="DeathAnimation" shape="rect" coords="155,56,300,80"/>
+<area href="class_movement_animation.html" alt="MovementAnimation" shape="rect" coords="310,56,455,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1d2b78da45b27c6dbac51b2094205a3f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a1d2b78da45b27c6dbac51b2094205a3f">animate</a> (float deltaTime)=0</td></tr>
-<tr class="separator:a1d2b78da45b27c6dbac51b2094205a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03f3b88eff85048fff92bdd322c0a7af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a03f3b88eff85048fff92bdd322c0a7af">Animation</a> (bool <a class="el" href="class_animation.html#a2dd831f46341390f3dae773e1ce8992b">blocking</a>=true)</td></tr>
+<tr class="separator:a03f3b88eff85048fff92bdd322c0a7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937854d66ff77f5cf0a086d95b03d81a"><td class="memTemplParams" colspan="2">template&lt;class T , typename... Args&gt; </td></tr>
+<tr class="memitem:a937854d66ff77f5cf0a086d95b03d81a"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_animation.html#a937854d66ff77f5cf0a086d95b03d81a">chainNew</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a937854d66ff77f5cf0a086d95b03d81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b158fd2a178228776e2225823c25b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#af5b158fd2a178228776e2225823c25b8">animate</a> (float deltaTime)</td></tr>
+<tr class="memdesc:af5b158fd2a178228776e2225823c25b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the animation and all chained animations have finished.  <a href="#af5b158fd2a178228776e2225823c25b8">More...</a><br /></td></tr>
+<tr class="separator:af5b158fd2a178228776e2225823c25b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e7b91495afcdd1382a894f56c84d64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_animation.html">Animation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#ac3e7b91495afcdd1382a894f56c84d64">getNext</a> ()</td></tr>
+<tr class="separator:ac3e7b91495afcdd1382a894f56c84d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684f9e4d2e4e39282cbc59821e6a1471"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a684f9e4d2e4e39282cbc59821e6a1471">isBlocking</a> ()</td></tr>
+<tr class="separator:a684f9e4d2e4e39282cbc59821e6a1471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a84484f85aeac1803e67e62c836ec3bb9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a84484f85aeac1803e67e62c836ec3bb9">onAnimate</a> (float deltaTime)=0</td></tr>
+<tr class="memdesc:a84484f85aeac1803e67e62c836ec3bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the animation has finished.  <a href="#a84484f85aeac1803e67e62c836ec3bb9">More...</a><br /></td></tr>
+<tr class="separator:a84484f85aeac1803e67e62c836ec3bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4156de4c8b71e0cd09c3782d6c0e684c"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_animation.html">Animation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a4156de4c8b71e0cd09c3782d6c0e684c">next</a></td></tr>
+<tr class="separator:a4156de4c8b71e0cd09c3782d6c0e684c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd831f46341390f3dae773e1ce8992b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a2dd831f46341390f3dae773e1ce8992b">blocking</a></td></tr>
+<tr class="separator:a2dd831f46341390f3dae773e1ce8992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1170889964a9c5ee8ca167e164126bf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animation.html#a1170889964a9c5ee8ca167e164126bf0">finished</a> = false</td></tr>
+<tr class="separator:a1170889964a9c5ee8ca167e164126bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a03f3b88eff85048fff92bdd322c0a7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03f3b88eff85048fff92bdd322c0a7af">&#9670;&nbsp;</a></span>Animation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Animation::Animation </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>blocking</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1d2b78da45b27c6dbac51b2094205a3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d2b78da45b27c6dbac51b2094205a3f">&#9670;&nbsp;</a></span>animate()</h2>
+<a id="af5b158fd2a178228776e2225823c25b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b158fd2a178228776e2225823c25b8">&#9670;&nbsp;</a></span>animate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Animation::animate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the animation and all chained animations have finished. </p>
+
+</div>
+</div>
+<a id="a937854d66ff77f5cf0a086d95b03d81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a937854d66ff77f5cf0a086d95b03d81a">&#9670;&nbsp;</a></span>chainNew()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T * Animation::chainNew </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3e7b91495afcdd1382a894f56c84d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e7b91495afcdd1382a894f56c84d64">&#9670;&nbsp;</a></span>getNext()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -94,7 +182,57 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool Animation::animate </td>
+          <td class="memname"><a class="el" href="class_animation.html">Animation</a>* Animation::getNext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a684f9e4d2e4e39282cbc59821e6a1471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684f9e4d2e4e39282cbc59821e6a1471">&#9670;&nbsp;</a></span>isBlocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Animation::isBlocking </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84484f85aeac1803e67e62c836ec3bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84484f85aeac1803e67e62c836ec3bb9">&#9670;&nbsp;</a></span>onAnimate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Animation::onAnimate </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>deltaTime</em></td><td>)</td>
@@ -103,17 +241,87 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_movement_animation.html#a6bea35a29276adcfdaf187d77516401e">MovementAnimation</a>.</p>
+<p>Returns true if the animation has finished. </p>
+
+<p>Implemented in <a class="el" href="class_movement_animation.html#aae6d3947402394767f266d7ad25d016b">MovementAnimation</a>, <a class="el" href="class_death_animation.html#ab377b7d94095b730b18afac491a419e9">DeathAnimation</a>, and <a class="el" href="class_actor_visibility_animation.html#abbaaf7b7f98755a0ca1b8284958f0cfa">ActorVisibilityAnimation</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2dd831f46341390f3dae773e1ce8992b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd831f46341390f3dae773e1ce8992b">&#9670;&nbsp;</a></span>blocking</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Animation::blocking</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1170889964a9c5ee8ca167e164126bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1170889964a9c5ee8ca167e164126bf0">&#9670;&nbsp;</a></span>finished</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Animation::finished = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4156de4c8b71e0cd09c3782d6c0e684c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4156de4c8b71e0cd09c3782d6c0e684c">&#9670;&nbsp;</a></span>next</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_animation.html">Animation</a>&gt; Animation::next</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>gles3jni/app/src/main/cpp/game/scenes/<a class="el" href="_animation_8h_source.html">Animation.h</a></li>
+<li>gles3jni/app/src/main/cpp/game/scenes/<a class="el" href="_animation_8cpp.html">Animation.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

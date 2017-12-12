@@ -78,8 +78,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a83ef1c6c68945eb21dcc104196b06a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5862fdcb533089f0c02d04092bddbb71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a5862fdcb533089f0c02d04092bddbb71">modifyResource</a> (<a class="el" href="class_resource.html">Resource</a> *resource, int amount)</td></tr>
 <tr class="separator:a5862fdcb533089f0c02d04092bddbb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a380b0d826e5255ff816622621e7e178d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a380b0d826e5255ff816622621e7e178d">modifyResource</a> (<a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> amount)</td></tr>
+<tr class="separator:a380b0d826e5255ff816622621e7e178d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1bcaa7905c85b20cc2742105ff2a8f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a4f1bcaa7905c85b20cc2742105ff2a8f">subtractResource</a> (<a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> amount)</td></tr>
+<tr class="separator:a4f1bcaa7905c85b20cc2742105ff2a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeda4156406fcffa235359f99ee9e418"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#abeda4156406fcffa235359f99ee9e418">modifyResources</a> (std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;resourceAmounts)</td></tr>
+<tr class="separator:abeda4156406fcffa235359f99ee9e418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a493c0433926bf037103fb7096d2337a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a493c0433926bf037103fb7096d2337a7">hasResources</a> (std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;resourceAmounts)</td></tr>
+<tr class="separator:a493c0433926bf037103fb7096d2337a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5344f41c389f9f0fbe50061bf5ed076e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a5344f41c389f9f0fbe50061bf5ed076e">hasResources</a> (const std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;resourceAmounts)</td></tr>
+<tr class="separator:a5344f41c389f9f0fbe50061bf5ed076e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ed1b8636d66b1ebade8f08c749959c4"><td class="memItemLeft" align="right" valign="top">const std::unordered_map&lt; <a class="el" href="class_resource.html">Resource</a> *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a8ed1b8636d66b1ebade8f08c749959c4">getResources</a> () const</td></tr>
 <tr class="separator:a8ed1b8636d66b1ebade8f08c749959c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1dbc8b956aae06d784c696bf006af2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a4e1dbc8b956aae06d784c696bf006af2">hasResource</a> (<a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> resourceAmount)</td></tr>
+<tr class="separator:a4e1dbc8b956aae06d784c696bf006af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a302367858679b7700c27bcdd2582e91b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; glm::vec3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#a302367858679b7700c27bcdd2582e91b">getColors</a> () const</td></tr>
 <tr class="separator:a302367858679b7700c27bcdd2582e91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc539c4d786bb06d88318fa691a69963"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_faction.html#abc539c4d786bb06d88318fa691a69963">isPlayer</a> ()</td></tr>
@@ -183,6 +195,68 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4e1dbc8b956aae06d784c696bf006af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1dbc8b956aae06d784c696bf006af2">&#9670;&nbsp;</a></span>hasResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::hasResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a>&#160;</td>
+          <td class="paramname"><em>resourceAmount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a493c0433926bf037103fb7096d2337a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a493c0433926bf037103fb7096d2337a7">&#9670;&nbsp;</a></span>hasResources() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::hasResources </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>resourceAmounts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5344f41c389f9f0fbe50061bf5ed076e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5344f41c389f9f0fbe50061bf5ed076e">&#9670;&nbsp;</a></span>hasResources() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::hasResources </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>resourceAmounts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abc539c4d786bb06d88318fa691a69963"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc539c4d786bb06d88318fa691a69963">&#9670;&nbsp;</a></span>isPlayer()</h2>
 
@@ -209,7 +283,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a5862fdcb533089f0c02d04092bddbb71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5862fdcb533089f0c02d04092bddbb71">&#9670;&nbsp;</a></span>modifyResource()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5862fdcb533089f0c02d04092bddbb71">&#9670;&nbsp;</a></span>modifyResource() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,6 +304,42 @@ Private Attributes</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a380b0d826e5255ff816622621e7e178d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a380b0d826e5255ff816622621e7e178d">&#9670;&nbsp;</a></span>modifyResource() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::modifyResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a>&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abeda4156406fcffa235359f99ee9e418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeda4156406fcffa235359f99ee9e418">&#9670;&nbsp;</a></span>modifyResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::modifyResources </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>resourceAmounts</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -258,6 +368,24 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f1bcaa7905c85b20cc2742105ff2a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1bcaa7905c85b20cc2742105ff2a8f">&#9670;&nbsp;</a></span>subtractResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Faction::subtractResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_resource_8h.html#aba8efd11df041f56dbed9b4551a777f5">ResourceAmount</a>&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

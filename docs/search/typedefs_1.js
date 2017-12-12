@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clock',['Clock',['../class_game.html#a073d4a15a8ce6c024ebe2657e97540c2',1,'Game']]]
+  ['bufflist',['BuffList',['../class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d',1,'UnitType']]]
 ];

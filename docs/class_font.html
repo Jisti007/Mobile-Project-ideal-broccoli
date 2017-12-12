@@ -72,19 +72,23 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a849e397d39a570706de0e78352c8edc1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#a849e397d39a570706de0e78352c8edc1">Font</a> (std::unordered_map&lt; char, <a class="el" href="class_sprite.html">Sprite</a> *&gt; mapping)</td></tr>
-<tr class="separator:a849e397d39a570706de0e78352c8edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8698bc94945d9e938e98c160b43a09f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#a8698bc94945d9e938e98c160b43a09f0">getSprite</a> (char character)</td></tr>
-<tr class="separator:a8698bc94945d9e938e98c160b43a09f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba0c9c7f95419449a61f57473d639aff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#aba0c9c7f95419449a61f57473d639aff">Font</a> (std::unordered_map&lt; char, <a class="el" href="struct_character.html">Character</a> &gt; <a class="el" href="class_font.html#a08e7af5ba684eacd4e41e24f053d1187">mappings</a>, float <a class="el" href="class_font.html#a80354d57ca83270956a34a45162c0bbd">size</a>)</td></tr>
+<tr class="separator:aba0c9c7f95419449a61f57473d639aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4b282eef8d34b4f81ec030499a941b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_character.html">Character</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#aa4b282eef8d34b4f81ec030499a941b5">getCharacter</a> (char character)</td></tr>
+<tr class="separator:aa4b282eef8d34b4f81ec030499a941b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada4b8907f358416d5fcd7861e31cfea8"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#ada4b8907f358416d5fcd7861e31cfea8">getSize</a> () const</td></tr>
+<tr class="separator:ada4b8907f358416d5fcd7861e31cfea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8f948db35a3b3e933e1b107bc1a4394b"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; char, <a class="el" href="class_sprite.html">Sprite</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#a8f948db35a3b3e933e1b107bc1a4394b">mappings</a></td></tr>
-<tr class="separator:a8f948db35a3b3e933e1b107bc1a4394b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e7af5ba684eacd4e41e24f053d1187"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; char, <a class="el" href="struct_character.html">Character</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#a08e7af5ba684eacd4e41e24f053d1187">mappings</a></td></tr>
+<tr class="separator:a08e7af5ba684eacd4e41e24f053d1187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80354d57ca83270956a34a45162c0bbd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font.html#a80354d57ca83270956a34a45162c0bbd">size</a></td></tr>
+<tr class="separator:a80354d57ca83270956a34a45162c0bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a849e397d39a570706de0e78352c8edc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a849e397d39a570706de0e78352c8edc1">&#9670;&nbsp;</a></span>Font()</h2>
+<a id="aba0c9c7f95419449a61f57473d639aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba0c9c7f95419449a61f57473d639aff">&#9670;&nbsp;</a></span>Font()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -92,9 +96,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Font::Font </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; char, <a class="el" href="class_sprite.html">Sprite</a> *&gt;&#160;</td>
-          <td class="paramname"><em>mapping</em></td><td>)</td>
+          <td class="paramtype">std::unordered_map&lt; char, <a class="el" href="struct_character.html">Character</a> &gt;&#160;</td>
+          <td class="paramname"><em>mappings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -102,8 +116,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8698bc94945d9e938e98c160b43a09f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8698bc94945d9e938e98c160b43a09f0">&#9670;&nbsp;</a></span>getSprite()</h2>
+<a id="aa4b282eef8d34b4f81ec030499a941b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4b282eef8d34b4f81ec030499a941b5">&#9670;&nbsp;</a></span>getCharacter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +126,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_sprite.html">Sprite</a>* Font::getSprite </td>
+          <td class="memname"><a class="el" href="struct_character.html">Character</a> Font::getCharacter </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>character</em></td><td>)</td>
@@ -128,9 +142,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8f948db35a3b3e933e1b107bc1a4394b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f948db35a3b3e933e1b107bc1a4394b">&#9670;&nbsp;</a></span>mappings</h2>
+<a id="ada4b8907f358416d5fcd7861e31cfea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada4b8907f358416d5fcd7861e31cfea8">&#9670;&nbsp;</a></span>getSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +152,55 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt;char, <a class="el" href="class_sprite.html">Sprite</a>*&gt; Font::mappings</td>
+          <td class="memname">const float Font::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a08e7af5ba684eacd4e41e24f053d1187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e7af5ba684eacd4e41e24f053d1187">&#9670;&nbsp;</a></span>mappings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;char, <a class="el" href="struct_character.html">Character</a>&gt; Font::mappings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80354d57ca83270956a34a45162c0bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80354d57ca83270956a34a45162c0bbd">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Font::size</td>
         </tr>
       </table>
   </td>

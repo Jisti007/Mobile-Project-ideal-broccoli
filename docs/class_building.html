@@ -87,6 +87,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab675c6a382e110b84031956cda708439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ae5faae2dec5d1fda5538ea08228c0d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building.html#a2ae5faae2dec5d1fda5538ea08228c0d">getSprite</a> ()</td></tr>
 <tr class="separator:a2ae5faae2dec5d1fda5538ea08228c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844159e95925fda39904e3f445c5510a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building.html#a844159e95925fda39904e3f445c5510a">onBeginTurn</a> (<a class="el" href="class_game_map.html">GameMap</a> *map)</td></tr>
+<tr class="separator:a844159e95925fda39904e3f445c5510a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8906caeeb72fd69f3e0b284112fcc5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building.html#ab8906caeeb72fd69f3e0b284112fcc5a">setFaction</a> (<a class="el" href="class_faction.html">Faction</a> *<a class="el" href="class_building.html#a4330539e8240cccd8f634db349b5bc2e">faction</a>)</td></tr>
+<tr class="separator:ab8906caeeb72fd69f3e0b284112fcc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e9f74497ce2598a9f2075284a723c9a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_building_type.html">BuildingType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building.html#a7e9f74497ce2598a9f2075284a723c9a">getType</a> () const</td></tr>
 <tr class="separator:a7e9f74497ce2598a9f2075284a723c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5803cdd19425dab94cadda5e18e4c18"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_faction.html">Faction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_building.html#ad5803cdd19425dab94cadda5e18e4c18">getFaction</a> () const</td></tr>
@@ -96,6 +100,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae06479f6095fd54700ca5d60f69de5b6 inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa601344267a49df197e841fcbd732209 inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#aa601344267a49df197e841fcbd732209">~MapObject</a> ()</td></tr>
 <tr class="separator:aa601344267a49df197e841fcbd732209 inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce682543635e9ae1aaabca44dc0865c inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a6ce682543635e9ae1aaabca44dc0865c">getDistance</a> (<a class="el" href="class_map_object.html">MapObject</a> *other)</td></tr>
+<tr class="separator:a6ce682543635e9ae1aaabca44dc0865c inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f75e9c0a4d98d9a50c355884916260b inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a5f75e9c0a4d98d9a50c355884916260b">getActor</a> ()</td></tr>
 <tr class="separator:a5f75e9c0a4d98d9a50c355884916260b inherit pub_methods_class_map_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadac819110977c48ac0fba87eca223ba inherit pub_methods_class_map_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#aadac819110977c48ac0fba87eca223ba">setActor</a> (<a class="el" href="class_actor.html">Actor</a> *<a class="el" href="class_map_object.html#a21a95fa6b96d4db4db1d4a4cb12ed53f">actor</a>)</td></tr>
@@ -262,6 +268,42 @@ Additional Inherited Members</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a844159e95925fda39904e3f445c5510a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844159e95925fda39904e3f445c5510a">&#9670;&nbsp;</a></span>onBeginTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Building::onBeginTurn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_game_map.html">GameMap</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8906caeeb72fd69f3e0b284112fcc5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8906caeeb72fd69f3e0b284112fcc5a">&#9670;&nbsp;</a></span>setFaction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Building::setFaction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_faction.html">Faction</a> *&#160;</td>
+          <td class="paramname"><em>faction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

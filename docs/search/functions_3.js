@@ -1,14 +1,22 @@
 var searchData=
 [
+  ['calculatedamage',['calculateDamage',['../class_damage.html#a196b3d1c3e8b40012c4429ecb1726bb1',1,'Damage']]],
   ['camera',['Camera',['../class_camera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera']]],
   ['campaign',['Campaign',['../class_campaign.html#a816f4f2e69b439a344a0df1e32fc08d5',1,'Campaign']]],
   ['cancel',['cancel',['../class_attack.html#adef6fa22b84236e77d6c3ae7c82d2784',1,'Attack::cancel()'],['../class_movement.html#a4b5e574a4ca399e15beee542283b0d73',1,'Movement::cancel()'],['../class_scenario_event.html#a8db1e72621485d0a74e925ec4d3f681c',1,'ScenarioEvent::cancel()']]],
+  ['canmoveto',['canMoveTo',['../class_unit.html#aa6d3a8174128684c48dcc30f01ba9efe',1,'Unit']]],
+  ['chainnew',['chainNew',['../class_animation.html#a937854d66ff77f5cf0a086d95b03d81a',1,'Animation']]],
+  ['changestate',['changeState',['../class_game.html#a0c30b31db290716400c005b6c81ca01b',1,'Game']]],
+  ['changetonew',['changeToNew',['../class_game.html#a4ee18209da822896a4aa81514d7a2952',1,'Game']]],
   ['clear',['clear',['../class_binary_heap.html#ac252a8fe290f08089774a346b9bfdf4d',1,'BinaryHeap::clear()'],['../class_scene.html#a70e5b1218abb729d70d9f41b107017f9',1,'Scene::clear()'],['../class_weighted_list.html#aa4052758bfe1d56cd2362b5eade8accb',1,'WeightedList::clear()']]],
+  ['cleardecorations',['clearDecorations',['../class_map_hex.html#a16c31650f2089d0945055806b2a96a2e',1,'MapHex']]],
   ['compareto',['compareTo',['../class_comparable.html#afdb7ceebeb435fd71eacfb8a7fb8c479',1,'Comparable::compareTo()'],['../class_node.html#a869ddcb3bb5c5adcf9cbdde97020597a',1,'Node::compareTo()']]],
+  ['computergamestate',['ComputerGameState',['../class_computer_game_state.html#a88d8e5c70206abb6a603b0bec866e89f',1,'ComputerGameState']]],
   ['contains',['contains',['../class_rectangle.html#a8100e6cf7e61c5a72b91a29b5c8f2182',1,'Rectangle']]],
   ['count',['count',['../class_binary_heap.html#a2d74c95fee0fe720af80adcc43886489',1,'BinaryHeap::count()'],['../class_weighted_list.html#a81cfe8890f024d647993b69c141acbf3',1,'WeightedList::count()']]],
-  ['createactor',['createActor',['../class_game_map.html#a73791647ab9f7298ff7f14faa5098bbb',1,'GameMap::createActor(Sprite *sprite, glm::vec2 position, float depth)'],['../class_game_map.html#a2173d13ddc6680996f3882f940e2e9aa',1,'GameMap::createActor(Sprite *sprite, glm::vec2 position, std::vector&lt; glm::vec3 &gt; colors, float depth)']]],
   ['createbuilding',['createBuilding',['../class_game_map.html#ae2a93899b236c8304f8409cf4c4ceb44',1,'GameMap']]],
+  ['createdecorations',['createDecorations',['../class_map_hex.html#a20788d989531f8de941a8f51c96aa83e',1,'MapHex']]],
   ['createshader',['createShader',['../class_pipeline.html#a6b08f1cee6613c60bca5bde2579bbda2',1,'Pipeline']]],
+  ['createui',['createUI',['../class_building_info_game_state.html#ae4fe5f8a371af86594c2292d93414ea1',1,'BuildingInfoGameState::createUI()'],['../class_building_selected_game_state.html#a993d53fb5c30d7e1ecf1386cc3dbf36e',1,'BuildingSelectedGameState::createUI()'],['../class_game_state.html#a19f25d7eb0bbf8a5861d25886196a25b',1,'GameState::createUI()'],['../class_idle_game_state.html#ab248bad2ad878f1a6523e19b83a57fba',1,'IdleGameState::createUI()'],['../class_main_menu_game_state.html#ada54d838f714d2ba6908b2e595408fd4',1,'MainMenuGameState::createUI()'],['../class_player_game_state.html#a7185a5eea8631246b67920ddfce93a57',1,'PlayerGameState::createUI()'],['../class_target_selected_game_state.html#ae73f4467add42b761f4bc0039fdfd971',1,'TargetSelectedGameState::createUI()'],['../class_unit_info_game_state.html#a6f5ce622ec4aa62594f6850aa2dca51e',1,'UnitInfoGameState::createUI()'],['../class_unit_selected_game_state.html#adc791d695dbb633fa2ba507b4d778a9e',1,'UnitSelectedGameState::createUI()']]],
   ['createunit',['createUnit',['../class_game_map.html#aaadecff417c99a48a1cd2e66fd88cb3f',1,'GameMap']]]
 ];

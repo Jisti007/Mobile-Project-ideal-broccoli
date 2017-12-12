@@ -62,6 +62,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_map_object-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -90,6 +91,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa601344267a49df197e841fcbd732209"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3881fea264291ba07e0172d1cd3246cc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a3881fea264291ba07e0172d1cd3246cc">getSprite</a> ()=0</td></tr>
 <tr class="separator:a3881fea264291ba07e0172d1cd3246cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce682543635e9ae1aaabca44dc0865c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a6ce682543635e9ae1aaabca44dc0865c">getDistance</a> (<a class="el" href="class_map_object.html">MapObject</a> *other)</td></tr>
+<tr class="separator:a6ce682543635e9ae1aaabca44dc0865c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f75e9c0a4d98d9a50c355884916260b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a5f75e9c0a4d98d9a50c355884916260b">getActor</a> ()</td></tr>
 <tr class="separator:a5f75e9c0a4d98d9a50c355884916260b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadac819110977c48ac0fba87eca223ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#aadac819110977c48ac0fba87eca223ba">setActor</a> (<a class="el" href="class_actor.html">Actor</a> *<a class="el" href="class_map_object.html#a21a95fa6b96d4db4db1d4a4cb12ed53f">actor</a>)</td></tr>
@@ -108,9 +111,14 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a0d3a76d4816097941bbfb5208b81cab6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a0d3a76d4816097941bbfb5208b81cab6">gridY</a></td></tr>
 <tr class="separator:a0d3a76d4816097941bbfb5208b81cab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a50d90cc403486ddbffd30a91eb8ffc1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_point3_d.html">Point3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a50d90cc403486ddbffd30a91eb8ffc1e">getCubePosition</a> ()</td></tr>
+<tr class="separator:a50d90cc403486ddbffd30a91eb8ffc1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a21a95fa6b96d4db4db1d4a4cb12ed53f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a21a95fa6b96d4db4db1d4a4cb12ed53f">actor</a> = nullptr</td></tr>
+<tr class="memitem:a21a95fa6b96d4db4db1d4a4cb12ed53f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_actor.html">Actor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_object.html#a21a95fa6b96d4db4db1d4a4cb12ed53f">actor</a></td></tr>
 <tr class="separator:a21a95fa6b96d4db4db1d4a4cb12ed53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -189,6 +197,49 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a50d90cc403486ddbffd30a91eb8ffc1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d90cc403486ddbffd30a91eb8ffc1e">&#9670;&nbsp;</a></span>getCubePosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_point3_d.html">Point3D</a> MapObject::getCubePosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ce682543635e9ae1aaabca44dc0865c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ce682543635e9ae1aaabca44dc0865c">&#9670;&nbsp;</a></span>getDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MapObject::getDistance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_object.html">MapObject</a> *&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -332,7 +383,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_actor.html">Actor</a>* MapObject::actor = nullptr</td>
+          <td class="memname"><a class="el" href="class_actor.html">Actor</a>* MapObject::actor</td>
         </tr>
       </table>
   </td>

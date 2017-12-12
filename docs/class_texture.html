@@ -73,12 +73,16 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09b74fe4a769d09eb0dc6ce263fb21e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a09b74fe4a769d09eb0dc6ce263fb21e8">Texture</a> (const char *<a class="el" href="class_texture.html#a2561506eb38c9514c0af65c6041ef8f6">id</a>, const char *<a class="el" href="class_texture.html#a291f56ca05d3e97dc584dd37fe8c66ef">filePath</a>)</td></tr>
+<tr class="memitem:aa342c72ce9bd7baa63f25e42bf13931e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aa342c72ce9bd7baa63f25e42bf13931e">Texture</a> (const char *<a class="el" href="class_texture.html#a2561506eb38c9514c0af65c6041ef8f6">id</a>, int <a class="el" href="class_texture.html#a06a0246cb31343557c3441c5733349cd">width</a>, int <a class="el" href="class_texture.html#ad37c395c65ff8bde86230908027a6fcd">height</a>, int <a class="el" href="class_texture.html#a69c58068e4b82a86d24e8c797705d515">channels</a>)</td></tr>
+<tr class="separator:aa342c72ce9bd7baa63f25e42bf13931e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b74fe4a769d09eb0dc6ce263fb21e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a09b74fe4a769d09eb0dc6ce263fb21e8">Texture</a> (const char *<a class="el" href="class_texture.html#a2561506eb38c9514c0af65c6041ef8f6">id</a>, const char *filePath)</td></tr>
 <tr class="separator:a09b74fe4a769d09eb0dc6ce263fb21e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a> ()</td></tr>
 <tr class="separator:a09c4bcb7462f64c1d20fa69dba3cee8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26451a093dfccfd4b4ce58b9bd3c7189"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a26451a093dfccfd4b4ce58b9bd3c7189">initialize</a> ()</td></tr>
-<tr class="separator:a26451a093dfccfd4b4ce58b9bd3c7189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4b1d49b5127d88b783ea7afafc42cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ac4b1d49b5127d88b783ea7afafc42cdf">setPixels</a> (unsigned char *<a class="el" href="class_texture.html#aea90b7d97a5e52bdc309161ecea414aa">pixels</a>)</td></tr>
+<tr class="separator:ac4b1d49b5127d88b783ea7afafc42cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ec16fd90e1a812b04f9df129e6b193"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aa6ec16fd90e1a812b04f9df129e6b193">reload</a> ()</td></tr>
+<tr class="separator:aa6ec16fd90e1a812b04f9df129e6b193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfdb814d042c86a3522d1a9fa10e952"><td class="memItemLeft" align="right" valign="top">const GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a7cfdb814d042c86a3522d1a9fa10e952">getHandle</a> () const</td></tr>
 <tr class="separator:a7cfdb814d042c86a3522d1a9fa10e952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9842e562b0f355f36edac7ab09507a3"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#af9842e562b0f355f36edac7ab09507a3">getWidth</a> () const</td></tr>
@@ -97,18 +101,58 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a2561506eb38c9514c0af65c6041ef8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dfbb81653c1d0a74ff75006ed7c25a8"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a1dfbb81653c1d0a74ff75006ed7c25a8">handle</a> = 0</td></tr>
 <tr class="separator:a1dfbb81653c1d0a74ff75006ed7c25a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea90b7d97a5e52bdc309161ecea414aa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aea90b7d97a5e52bdc309161ecea414aa">pixels</a></td></tr>
+<tr class="separator:aea90b7d97a5e52bdc309161ecea414aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06a0246cb31343557c3441c5733349cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a06a0246cb31343557c3441c5733349cd">width</a></td></tr>
 <tr class="separator:a06a0246cb31343557c3441c5733349cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad37c395c65ff8bde86230908027a6fcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ad37c395c65ff8bde86230908027a6fcd">height</a></td></tr>
 <tr class="separator:ad37c395c65ff8bde86230908027a6fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c58068e4b82a86d24e8c797705d515"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a69c58068e4b82a86d24e8c797705d515">channels</a></td></tr>
 <tr class="separator:a69c58068e4b82a86d24e8c797705d515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a291f56ca05d3e97dc584dd37fe8c66ef"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a291f56ca05d3e97dc584dd37fe8c66ef">filePath</a></td></tr>
-<tr class="separator:a291f56ca05d3e97dc584dd37fe8c66ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa342c72ce9bd7baa63f25e42bf13931e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa342c72ce9bd7baa63f25e42bf13931e">&#9670;&nbsp;</a></span>Texture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Texture::Texture </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channels</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a09b74fe4a769d09eb0dc6ce263fb21e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09b74fe4a769d09eb0dc6ce263fb21e8">&#9670;&nbsp;</a></span>Texture()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b74fe4a769d09eb0dc6ce263fb21e8">&#9670;&nbsp;</a></span>Texture() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,16 +305,34 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a26451a093dfccfd4b4ce58b9bd3c7189"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26451a093dfccfd4b4ce58b9bd3c7189">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="aa6ec16fd90e1a812b04f9df129e6b193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6ec16fd90e1a812b04f9df129e6b193">&#9670;&nbsp;</a></span>reload()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Texture::initialize </td>
+          <td class="memname">void Texture::reload </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4b1d49b5127d88b783ea7afafc42cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4b1d49b5127d88b783ea7afafc42cdf">&#9670;&nbsp;</a></span>setPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Texture::setPixels </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>pixels</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -290,28 +352,6 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Texture::channels</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a291f56ca05d3e97dc584dd37fe8c66ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a291f56ca05d3e97dc584dd37fe8c66ef">&#9670;&nbsp;</a></span>filePath</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string Texture::filePath</td>
         </tr>
       </table>
   </td>
@@ -378,6 +418,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::string Texture::id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea90b7d97a5e52bdc309161ecea414aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea90b7d97a5e52bdc309161ecea414aa">&#9670;&nbsp;</a></span>pixels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;unsigned char&gt; Texture::pixels</td>
         </tr>
       </table>
   </td>

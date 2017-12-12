@@ -1,19 +1,7 @@
 var searchData=
 [
-  ['mapgamestate_2ecpp',['MapGameState.cpp',['../_map_game_state_8cpp.html',1,'']]],
-  ['mapgamestate_2eh',['MapGameState.h',['../_map_game_state_8h.html',1,'']]],
-  ['maphex_2ecpp',['MapHex.cpp',['../_map_hex_8cpp.html',1,'']]],
-  ['maphex_2eh',['MapHex.h',['../_map_hex_8h.html',1,'']]],
-  ['mapobject_2ecpp',['MapObject.cpp',['../_map_object_8cpp.html',1,'']]],
-  ['mapobject_2eh',['MapObject.h',['../_map_object_8h.html',1,'']]],
-  ['mapregion_2ecpp',['MapRegion.cpp',['../_map_region_8cpp.html',1,'']]],
-  ['mapregion_2eh',['MapRegion.h',['../_map_region_8h.html',1,'']]],
-  ['mesh_2ecpp',['Mesh.cpp',['../_mesh_8cpp.html',1,'']]],
-  ['mesh_2eh',['Mesh.h',['../_mesh_8h.html',1,'']]],
-  ['movement_2ecpp',['Movement.cpp',['../_movement_8cpp.html',1,'']]],
-  ['movement_2eh',['Movement.h',['../_movement_8h.html',1,'']]],
-  ['movementanimation_2ecpp',['MovementAnimation.cpp',['../_movement_animation_8cpp.html',1,'']]],
-  ['movementanimation_2eh',['MovementAnimation.h',['../_movement_animation_8h.html',1,'']]],
-  ['movementlink_2ecpp',['MovementLink.cpp',['../_movement_link_8cpp.html',1,'']]],
-  ['movementlink_2eh',['MovementLink.h',['../_movement_link_8h.html',1,'']]]
+  ['idlegamestate_2ecpp',['IdleGameState.cpp',['../_idle_game_state_8cpp.html',1,'']]],
+  ['idlegamestate_2eh',['IdleGameState.h',['../_idle_game_state_8h.html',1,'']]],
+  ['infopanel_2ecpp',['InfoPanel.cpp',['../_info_panel_8cpp.html',1,'']]],
+  ['infopanel_2eh',['InfoPanel.h',['../_info_panel_8h.html',1,'']]]
 ];

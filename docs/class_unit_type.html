@@ -60,6 +60,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_unit_type-members.html">List of all members</a>  </div>
@@ -70,23 +71,89 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_unit_type_8h_source.html">UnitType.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:afbb84e092ce2450e202f60be53f1d0e4"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_skill.html">Skill</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a></td></tr>
+<tr class="separator:afbb84e092ce2450e202f60be53f1d0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f532c70cd6a0853d73810e6f10329d"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; std::unique_ptr&lt; <a class="el" href="class_buff.html">Buff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">BuffList</a></td></tr>
+<tr class="separator:aa6f532c70cd6a0853d73810e6f10329d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d11faab12b8ee66423a63a2414e668f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a6d11faab12b8ee66423a63a2414e668f">UnitType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_unit_type.html#a6e361b921f79f39f082a761feb271ba1">sprite</a>)</td></tr>
-<tr class="separator:a6d11faab12b8ee66423a63a2414e668f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b72d6463ffb729f9cf8b6b5cb3688b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a0b72d6463ffb729f9cf8b6b5cb3688b0">~UnitType</a> ()</td></tr>
-<tr class="separator:a0b72d6463ffb729f9cf8b6b5cb3688b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6dfbabe3eb5e8d84187fbf91b231d50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#af6dfbabe3eb5e8d84187fbf91b231d50">UnitType</a> (<a class="el" href="class_sprite.html">Sprite</a> *<a class="el" href="class_unit_type.html#a6e361b921f79f39f082a761feb271ba1">sprite</a>, std::string <a class="el" href="class_unit_type.html#a19023abf3317471c41283f2ae935fa9b">name</a>, int <a class="el" href="class_unit_type.html#a9ba148c66a4deba00b315c2727989e6c">hp</a>, int <a class="el" href="class_unit_type.html#aa67525ca2f5d6c089e85f017e8decf0f">defense</a>, int <a class="el" href="class_unit_type.html#adbd48f22def4a7a00be1ce96bfae8875">movement</a>, <a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a> &amp;<a class="el" href="class_unit_type.html#a8e07304a72afa2b995deddaeca717b67">skills</a>, <a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">BuffList</a> &amp;<a class="el" href="class_unit_type.html#ae4081bfc0c4882ea578f873cd90b7df1">buffs</a>, <a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a> <a class="el" href="class_unit_type.html#a01a825848babd7dc971889a393824f36">upkeep</a>)</td></tr>
+<tr class="separator:af6dfbabe3eb5e8d84187fbf91b231d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e0c200391c0889a54bd1376989099d8"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_skill.html">Skill</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a6e0c200391c0889a54bd1376989099d8">getValidSkills</a> (<a class="el" href="class_map_object.html">MapObject</a> *user, <a class="el" href="class_map_object.html">MapObject</a> *target) const</td></tr>
+<tr class="separator:a6e0c200391c0889a54bd1376989099d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac48e151fe48fd31b0ab9af7d1bb0293"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#aac48e151fe48fd31b0ab9af7d1bb0293">getMaxSkillRange</a> () const</td></tr>
+<tr class="separator:aac48e151fe48fd31b0ab9af7d1bb0293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecdcd43df57bd878f8ed88defaecc22"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#acecdcd43df57bd878f8ed88defaecc22">getDamageModifierAgainst</a> (<a class="el" href="class_damage.html">Damage</a> *damage)</td></tr>
+<tr class="separator:acecdcd43df57bd878f8ed88defaecc22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4fb91abbe5f1982764c447251e31cf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#aa4fb91abbe5f1982764c447251e31cf8">getSprite</a> () const</td></tr>
 <tr class="separator:aa4fb91abbe5f1982764c447251e31cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe318dad80f3cfaeede335b2a219654d"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#afe318dad80f3cfaeede335b2a219654d">getHP</a> () const</td></tr>
+<tr class="separator:afe318dad80f3cfaeede335b2a219654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33120a57cc70fa03bc900d7ab1609d4f"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a33120a57cc70fa03bc900d7ab1609d4f">getName</a> () const</td></tr>
+<tr class="separator:a33120a57cc70fa03bc900d7ab1609d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a345d287f7d08c3152c790d8f83e9e95c"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a345d287f7d08c3152c790d8f83e9e95c">getDefense</a> () const</td></tr>
+<tr class="separator:a345d287f7d08c3152c790d8f83e9e95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e70edb496de26dd6fdd8b024dd8033d"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a2e70edb496de26dd6fdd8b024dd8033d">getMovement</a> () const</td></tr>
+<tr class="separator:a2e70edb496de26dd6fdd8b024dd8033d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a6aec92bf0a645b61faae8f4aabba1c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a6a6aec92bf0a645b61faae8f4aabba1c">getSkills</a> () const</td></tr>
+<tr class="separator:a6a6aec92bf0a645b61faae8f4aabba1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340eaa07ec67a36318aa55ff08ceb2f4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a340eaa07ec67a36318aa55ff08ceb2f4">getUpkeep</a> () const</td></tr>
+<tr class="separator:a340eaa07ec67a36318aa55ff08ceb2f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a6e361b921f79f39f082a761feb271ba1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a6e361b921f79f39f082a761feb271ba1">sprite</a></td></tr>
 <tr class="separator:a6e361b921f79f39f082a761feb271ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19023abf3317471c41283f2ae935fa9b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a19023abf3317471c41283f2ae935fa9b">name</a></td></tr>
+<tr class="separator:a19023abf3317471c41283f2ae935fa9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba148c66a4deba00b315c2727989e6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a9ba148c66a4deba00b315c2727989e6c">hp</a></td></tr>
+<tr class="separator:a9ba148c66a4deba00b315c2727989e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67525ca2f5d6c089e85f017e8decf0f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#aa67525ca2f5d6c089e85f017e8decf0f">defense</a></td></tr>
+<tr class="separator:aa67525ca2f5d6c089e85f017e8decf0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd48f22def4a7a00be1ce96bfae8875"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#adbd48f22def4a7a00be1ce96bfae8875">movement</a></td></tr>
+<tr class="separator:adbd48f22def4a7a00be1ce96bfae8875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e07304a72afa2b995deddaeca717b67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a8e07304a72afa2b995deddaeca717b67">skills</a></td></tr>
+<tr class="separator:a8e07304a72afa2b995deddaeca717b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4081bfc0c4882ea578f873cd90b7df1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">BuffList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#ae4081bfc0c4882ea578f873cd90b7df1">buffs</a></td></tr>
+<tr class="separator:ae4081bfc0c4882ea578f873cd90b7df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a825848babd7dc971889a393824f36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_unit_type.html#a01a825848babd7dc971889a393824f36">upkeep</a></td></tr>
+<tr class="separator:a01a825848babd7dc971889a393824f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aa6f532c70cd6a0853d73810e6f10329d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f532c70cd6a0853d73810e6f10329d">&#9670;&nbsp;</a></span>BuffList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_buff.html">Buff</a>&gt; &gt; <a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">UnitType::BuffList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbb84e092ce2450e202f60be53f1d0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb84e092ce2450e202f60be53f1d0e4">&#9670;&nbsp;</a></span>SkillList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::vector&lt;std::unique_ptr&lt;<a class="el" href="class_skill.html">Skill</a>&gt; &gt; <a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">UnitType::SkillList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6d11faab12b8ee66423a63a2414e668f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d11faab12b8ee66423a63a2414e668f">&#9670;&nbsp;</a></span>UnitType()</h2>
+<a id="af6dfbabe3eb5e8d84187fbf91b231d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6dfbabe3eb5e8d84187fbf91b231d50">&#9670;&nbsp;</a></span>UnitType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -95,25 +162,54 @@ Private Attributes</h2></td></tr>
           <td class="memname">UnitType::UnitType </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_sprite.html">Sprite</a> *&#160;</td>
-          <td class="paramname"><em>sprite</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"><em>sprite</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0b72d6463ffb729f9cf8b6b5cb3688b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b72d6463ffb729f9cf8b6b5cb3688b0">&#9670;&nbsp;</a></span>~UnitType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">UnitType::~UnitType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>defense</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>movement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a> &amp;&#160;</td>
+          <td class="paramname"><em>skills</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">BuffList</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a>&#160;</td>
+          <td class="paramname"><em>upkeep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -121,6 +217,166 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="acecdcd43df57bd878f8ed88defaecc22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecdcd43df57bd878f8ed88defaecc22">&#9670;&nbsp;</a></span>getDamageModifierAgainst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UnitType::getDamageModifierAgainst </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_damage.html">Damage</a> *&#160;</td>
+          <td class="paramname"><em>damage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a345d287f7d08c3152c790d8f83e9e95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345d287f7d08c3152c790d8f83e9e95c">&#9670;&nbsp;</a></span>getDefense()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int UnitType::getDefense </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe318dad80f3cfaeede335b2a219654d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe318dad80f3cfaeede335b2a219654d">&#9670;&nbsp;</a></span>getHP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int UnitType::getHP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac48e151fe48fd31b0ab9af7d1bb0293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac48e151fe48fd31b0ab9af7d1bb0293">&#9670;&nbsp;</a></span>getMaxSkillRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UnitType::getMaxSkillRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e70edb496de26dd6fdd8b024dd8033d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e70edb496de26dd6fdd8b024dd8033d">&#9670;&nbsp;</a></span>getMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int UnitType::getMovement </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33120a57cc70fa03bc900d7ab1609d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33120a57cc70fa03bc900d7ab1609d4f">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string UnitType::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a6aec92bf0a645b61faae8f4aabba1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a6aec92bf0a645b61faae8f4aabba1c">&#9670;&nbsp;</a></span>getSkills()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a>&amp; UnitType::getSkills </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa4fb91abbe5f1982764c447251e31cf8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4fb91abbe5f1982764c447251e31cf8">&#9670;&nbsp;</a></span>getSprite()</h2>
 
@@ -146,7 +402,192 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a340eaa07ec67a36318aa55ff08ceb2f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340eaa07ec67a36318aa55ff08ceb2f4">&#9670;&nbsp;</a></span>getUpkeep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a>&amp; UnitType::getUpkeep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e0c200391c0889a54bd1376989099d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e0c200391c0889a54bd1376989099d8">&#9670;&nbsp;</a></span>getValidSkills()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="class_skill.html">Skill</a> * &gt; UnitType::getValidSkills </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_map_object.html">MapObject</a> *&#160;</td>
+          <td class="paramname"><em>user</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_map_object.html">MapObject</a> *&#160;</td>
+          <td class="paramname"><em>target</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae4081bfc0c4882ea578f873cd90b7df1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4081bfc0c4882ea578f873cd90b7df1">&#9670;&nbsp;</a></span>buffs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_unit_type.html#aa6f532c70cd6a0853d73810e6f10329d">BuffList</a> UnitType::buffs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa67525ca2f5d6c089e85f017e8decf0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67525ca2f5d6c089e85f017e8decf0f">&#9670;&nbsp;</a></span>defense</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UnitType::defense</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ba148c66a4deba00b315c2727989e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba148c66a4deba00b315c2727989e6c">&#9670;&nbsp;</a></span>hp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UnitType::hp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adbd48f22def4a7a00be1ce96bfae8875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd48f22def4a7a00be1ce96bfae8875">&#9670;&nbsp;</a></span>movement</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int UnitType::movement</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19023abf3317471c41283f2ae935fa9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19023abf3317471c41283f2ae935fa9b">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string UnitType::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e07304a72afa2b995deddaeca717b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e07304a72afa2b995deddaeca717b67">&#9670;&nbsp;</a></span>skills</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_unit_type.html#afbb84e092ce2450e202f60be53f1d0e4">SkillList</a> UnitType::skills</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6e361b921f79f39f082a761feb271ba1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e361b921f79f39f082a761feb271ba1">&#9670;&nbsp;</a></span>sprite</h2>
 
@@ -158,6 +599,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_sprite.html">Sprite</a>* UnitType::sprite</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01a825848babd7dc971889a393824f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a825848babd7dc971889a393824f36">&#9670;&nbsp;</a></span>upkeep</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_resource_8h.html#a516aa4ef67053cd73273d634f4fe55cb">ResourceAmountList</a> UnitType::upkeep</td>
         </tr>
       </table>
   </td>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nodefunction',['NodeFunction',['../class_asset_manager.html#a681158dc461420e008e0f88312bf10e9',1,'AssetManager']]]
+  ['effectlist',['EffectList',['../class_buff.html#afdc5016db05840079c8fcecbd087dc2d',1,'Buff::EffectList()'],['../class_skill.html#a943a9a449f87e134b8d3619f6c42b997',1,'Skill::EffectList()']]]
 ];
