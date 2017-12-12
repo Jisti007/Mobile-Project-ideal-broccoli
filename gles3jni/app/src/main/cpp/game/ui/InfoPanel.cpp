@@ -138,6 +138,13 @@ void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitm
 				}
 		);
 
+		BuildingRecruitment buildingRecruit;
+		buildingRecruit.recruit = &recruit;
+		buildingRecruit.building = building;
+		recruitmentList.push_back(buildingRecruit);
+
+		recruitButton->setOnPress(std::bind(&InfoPanel::recruitButton_onPress, this, std::placeholders::_1));
+		recruitButton->setOnPressArgs(&recruitmentList.back());
 		/*auto recruitCall = std::bind(
 				&GameMap::createUnit, building->getGridPosition(),
 				recruit.getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());*/
@@ -156,4 +163,11 @@ void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitm
 		recruitOffset += recruitSprite->getWidth();
 	}
 
+}
+
+void InfoPanel::recruitButton_onPress(void* recruitArg) {
+	auto recruit = static_cast<BuildingRecruitment*>(recruitArg);
+	game->getCampaign()->getScenario()->getActiveMap()->createUnit(
+		recruit->building->getGridPosition(), recruit->recruit->getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());
+	//TODO  on press exit infopanel
 }

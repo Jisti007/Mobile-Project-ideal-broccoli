@@ -10,7 +10,7 @@ class Recruitment {
 public:
 	Recruitment(UnitType* unitType, int time, std::vector<ResourceAmount> resourceCosts);
 
-	inline const UnitType* getUnitType() const { return unitType; }
+	inline UnitType* getUnitType() const { return unitType; }
 	inline const int getTime() const { return time; }
 	inline const std::vector<ResourceAmount> getResourceCosts() const { return resourceCosts; }
 
@@ -31,7 +31,7 @@ public:
 	inline const std::vector<ResourceAmount> getResourceProductions() const { return resourceProductions; }
 	inline const std::string getName() const { return name; };
 	inline const std::string getDescription() const { return description; };
-	inline const std::vector<Recruitment> getRecruitments() const { return recruitments; };
+	inline const std::vector<Recruitment>& getRecruitments() const { return recruitments; };
 
 private:
 	Sprite* sprite;

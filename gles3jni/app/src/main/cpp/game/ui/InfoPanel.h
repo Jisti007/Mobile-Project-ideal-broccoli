@@ -9,6 +9,11 @@
 #include <sstream>
 #include "../states/UnitSelectedGameState.h"
 
+struct BuildingRecruitment {
+	Building* building;
+	Recruitment* recruit;
+};
+
 class InfoPanel : public UISprite {
 public:
 	InfoPanel(Sprite* sprite, glm::vec2 position, Font* font, AssetManager* assetManager, Game* game);
@@ -21,9 +26,12 @@ private:
 	Font* font;
 	AssetManager* assetManager;
 	Game* game;
+	std::vector<BuildingRecruitment> recruitmentList;
 
 	Label* infoLabel;
 	Label* skillLabel;
+
+	void recruitButton_onPress(void* recruitArg);
 };
 
 
