@@ -1,5 +1,6 @@
 #include "IdleGameState.h"
 #include "../ui/Button.h"
+#include "../ui/UITexture.h"
 
 IdleGameState::IdleGameState(Game* game) : PlayerGameState(game) {
 	createUI();

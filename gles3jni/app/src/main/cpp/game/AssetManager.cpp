@@ -289,7 +289,8 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 			auto packedChar = packedChars[i];
 			auto xOffset = static_cast<int>(packedChar.xoff);
 			auto yOffset = static_cast<int>(packedChar.yoff);
-			float quadX, quadY;
+			float quadX = 0.0f;
+			float quadY = 0.0f;
 			stbtt_aligned_quad quad;
 			stbtt_GetPackedQuad(packedChars.data(), width, height, i, &quadX, &quadY, &quad, 1);
 			auto spriteWidth = quad.x1 - quad.x0;
