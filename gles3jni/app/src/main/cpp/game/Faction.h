@@ -15,8 +15,15 @@ public:
 
 	bool modifyResource(Resource* resource, int amount);
 	bool modifyResource(ResourceAmount amount);
+	bool subtractResource(ResourceAmount amount);
+	bool modifyResources(std::vector<ResourceAmount>& resourceAmounts);
+	bool hasResources(std::vector<ResourceAmount>& resourceAmounts);
+	bool hasResources(const std::vector<ResourceAmount>& resourceAmounts);
 
 	inline const std::unordered_map<Resource*, int> getResources() const { return resources; }
+	inline bool hasResource(ResourceAmount resourceAmount) {
+		return resources[resourceAmount.first] >= resourceAmount.second;
+	}
 	//inline const std::vector<Building*>& getBuildings() { return buildings; };
 	inline const std::vector<glm::vec3> getColors() const { return colors; }
 	inline bool isPlayer() { return player; }
