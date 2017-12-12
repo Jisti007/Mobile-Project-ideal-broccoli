@@ -10,8 +10,14 @@
 #include "../states/UnitSelectedGameState.h"
 
 struct BuildingRecruitment {
+	BuildingRecruitment(Building* building, Recruitment recruitment) :
+		recruitment(recruitment)
+	{
+		this->building = building;
+	}
+
 	Building* building;
-	Recruitment* recruit;
+	Recruitment recruitment;
 };
 
 class InfoPanel : public UISprite {
@@ -20,13 +26,12 @@ public:
 
 	void updateInfo(Unit* unit);
 	void updateInfo(Building* building);
-	void updateInfo(Building* building, std::vector<Recruitment> recruitment);
 
 private:
 	Font* font;
 	AssetManager* assetManager;
 	Game* game;
-	std::vector<BuildingRecruitment> recruitmentList;
+	std::vector<std::unique_ptr<BuildingRecruitment>> recruitmentList;
 
 	Label* infoLabel;
 	Label* skillLabel;

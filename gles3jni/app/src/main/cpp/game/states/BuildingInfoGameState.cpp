@@ -21,14 +21,7 @@ void BuildingInfoGameState::createUI() {
 		assets,
 		game
 	);
-
-	auto recruitments = selectedBuilding->getType()->getRecruitments();
-
-	if (recruitments.empty()) {
-		infoPanel->updateInfo(selectedBuilding);
-	} else {
-		infoPanel->updateInfo(selectedBuilding, recruitments);
-	}
+	infoPanel->updateInfo(selectedBuilding);
 }
 
 void BuildingInfoGameState::move(float dx, float dy) {

@@ -53,6 +53,7 @@ void Game::step() {
 		state->update(deltaTime.count());
 		pipeline.beginDraw();
 		state->draw(&pipeline, deltaTime.count());
+		oldStates.clear();
 		pipeline.endDraw();
 	}
 	previousTime = currentTime;
@@ -74,14 +75,14 @@ void Game::pushState(std::unique_ptr<GameState>& state) {
 
 void Game::popState() {
 	if (states.size() > 1) {
-		oldState = std::move(states.back());
+		oldStates.push_back(std::move(states.back()));
 		states.pop_back();
 	}
 }
 
 void Game::changeState(std::unique_ptr<GameState>& state) {
 	if (states.size() > 0) {
-		oldState = std::move(states.back());
+		oldStates.push_back(std::move(states.back()));
 		states.pop_back();
 	}
 	pushState(state);

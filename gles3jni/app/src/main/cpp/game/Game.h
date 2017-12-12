@@ -38,11 +38,11 @@ public:
 
 private:
 	std::vector<std::unique_ptr<GameState>> states;
+	std::vector<std::unique_ptr<GameState>> oldStates;
 	Pipeline pipeline;
 	AssetManager assetManager;
 	std::unique_ptr<Campaign> campaign;
 	TimePoint previousTime;
-	std::unique_ptr<GameState> oldState;
 };
 
 template<class State, typename... Args>

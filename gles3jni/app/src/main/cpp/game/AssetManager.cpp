@@ -287,7 +287,7 @@ void AssetManager::loadTrueTypeFont(AssetManager::Node* node) {
 			spriteId << data->first_attribute("spritePrefix")->value();
 			spriteId << c;
 			auto packedChar = packedChars[i];
-			auto xOffset = static_cast<int>(-packedChar.xoff);
+			auto xOffset = static_cast<int>(packedChar.xoff);
 			auto yOffset = static_cast<int>(packedChar.yoff);
 			float quadX, quadY;
 			stbtt_aligned_quad quad;

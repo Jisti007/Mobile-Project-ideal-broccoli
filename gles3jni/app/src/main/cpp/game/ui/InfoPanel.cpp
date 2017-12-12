@@ -122,52 +122,33 @@ void InfoPanel::updateInfo(Building* building) {
 	);
 	//exitButton->setOnPress(std::bind(&Game::popState, game));
 
-}
-
-void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitment) {
-	updateInfo(building);
-
+	recruitmentList.clear();
 	int recruitOffset = 0;
-
-	for (auto& recruit : recruitment){
-
+	for (auto& recruit : building->getType()->getRecruitments()) {
 		auto recruitSprite = recruit.getUnitType()->getSprite();
 		auto recruitButton = addNewChild<Button>(
-				recruitSprite, glm::vec2{
-						0 + recruitOffset, infoLabel->getBottom()
-				}
+			recruitSprite, glm::vec2{
+				0 + recruitOffset, infoLabel->getBottom()
+			}
 		);
 
-		BuildingRecruitment buildingRecruit;
-		buildingRecruit.recruit = &recruit;
-		buildingRecruit.building = building;
-		recruitmentList.push_back(buildingRecruit);
+		auto buildingRecruit = std::make_unique<BuildingRecruitment>(
+			building, recruit
+		);
+		recruitmentList.push_back(std::move(buildingRecruit));
 
 		recruitButton->setOnPress(std::bind(&InfoPanel::recruitButton_onPress, this, std::placeholders::_1));
-		recruitButton->setOnPressArgs(&recruitmentList.back());
-		/*auto recruitCall = std::bind(
-				&GameMap::createUnit, building->getGridPosition(),
-				recruit.getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());*/
-		/*std::function<void()> recruitCall = std::bind(
-				&GameMap::createUnit, building->getGridPosition(),
-				recruit.getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());
-*/
-		/*recruitButton->setOnPress(std::bind(&GameMap::createUnit, game, std::placeholders::_1));
-		recruitButton->setOnPress(recruitCall);*/
+		recruitButton->setOnPressArgs(recruitmentList.back().get());
 
-		/*skillButton->setOnPress(
-				std::bind(&TargetSelectedGameState::skillButton_onPress, this, std::placeholders::_1
-				));
-		skillButton->setOnPressArgs(skill);
-*/
 		recruitOffset += recruitSprite->getWidth();
 	}
-
 }
 
 void InfoPanel::recruitButton_onPress(void* recruitArg) {
 	auto recruit = static_cast<BuildingRecruitment*>(recruitArg);
 	game->getCampaign()->getScenario()->getActiveMap()->createUnit(
-		recruit->building->getGridPosition(), recruit->recruit->getUnitType(), game->getCampaign()->getScenario()->getActiveFaction());
-	//TODO  on press exit infopanel
+		recruit->building->getGridPosition(), recruit->recruitment.getUnitType(),
+		game->getCampaign()->getScenario()->getActiveFaction()
+	);
+	game->changeToNew<IdleGameState>(game);
 }
