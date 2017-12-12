@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Building
-		id="test"
-		sprite="test_building"
-		name="Test building"
-		description="hello I am a test"
-	>
-		<Recruitment unit="test" time="0">
-			<ResourceCost id="gold" amount="100"/>
-		</Recruitment>
-	</Building>
-	<Building
 		id="capital"
 		sprite="capital_building"
 		name="Capital Building"

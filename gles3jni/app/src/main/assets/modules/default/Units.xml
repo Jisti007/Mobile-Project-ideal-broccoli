@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Assets>
 	<Unit
-		id="test"
-		name="Test Wizard"
-		sprite="test_unit"
+		id="wizard"
+		name="Novice Wizard"
+		sprite="wizard"
 		hp="10"
 		defense="2"
 		movement="5"
@@ -21,8 +21,7 @@
 				cost="2"
 			>
 				<Effects>
-					<Damage type="magic" amount="5" />
-					<!-- HPModification amount="-3" /-->
+					<Damage type="magic" amount="7" />
 				</Effects>
 				<Animations>
 					<Nudge source="user" destination="target" distance="0.25"/>
@@ -48,50 +47,11 @@
 		</Skills>
 		<Buffs>
 			<Buff
-				name="Magic Resistance"
-				sprite="attack"
-			>
-				<Resistance type="magic" amount="2" />
-			</Buff>
-		</Buffs>
-	</Unit>
-	<Unit
-		id="wizard"
-		name="Novice Wizard"
-		sprite="wizard"
-		hp="10"
-		defense="2"
-		movement="5"
-	>
-		<Upkeep>
-			<Resource id="gold" amount="10"/>
-		</Upkeep>
-		<Skills>
-			<Skill
-				sprite="attack"
-				name="Magic Missile"
-				description="Short range projectile"
-				target="enemy"
-				range="2"
-				cost="2"
-			>
-				<Effects>
-					<Damage type="magic" amount="5" />
-				</Effects>
-				<Animations>
-					<Nudge source="user" destination="target" distance="0.25"/>
-					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
-				</Animations>
-			</Skill>
-		</Skills>
-		<Buffs>
-			<Buff
 				name="Spellcaster robes"
 				sprite="attack"
 			>
-				<Resistance type="magic" amount="2" />
-				<Resistance type="pierce" amount="-2" />
-				<Resistance type="slash" amount="-1" />
+				<Resistance type="magic" amount="4" />
+				<Resistance type="slash" amount="1" />
 			</Buff>
 		</Buffs>
 	</Unit>
@@ -116,7 +76,7 @@
 				cost="2"
 			>
 				<Effects>
-					<Damage type="pierce" amount="4" />
+					<Damage type="pierce" amount="6" />
 				</Effects>
 				<Animations>
 					<Nudge source="user" destination="target" distance="0.25"/>
@@ -129,9 +89,8 @@
 				name="Ranger tunic"
 				sprite="attack"
 			>
-				<Resistance type="magic" amount="3" />
-				<Resistance type="slash" amount="-2" />
-				<Resistance type="crush" amount="-1" />
+				<Resistance type="magic" amount="5" />
+				<Resistance type="crush" amount="1" />
 			</Buff>
 		</Buffs>
 	</Unit>
@@ -139,9 +98,9 @@
 		id="knight"
 		name="Knight of the Realm"
 		sprite="knight"
-		hp="15"
+		hp="25"
 		defense="5"
-		movement="3"
+		movement="4"
 	>
 		<Upkeep>
 			<Resource id="gold" amount="10"/>
@@ -156,11 +115,10 @@
 				cost="2"
 			>
 				<Effects>
-					<Damage type="slash" amount="5" />
+					<Damage type="slash" amount="8" />
 				</Effects>
 				<Animations>
 					<Nudge source="user" destination="target" distance="0.25"/>
-					<Projectile sprite="dot_marker" source="user" destination="target" speed="4.0"/>
 				</Animations>
 			</Skill>
 		</Skills>
@@ -169,10 +127,8 @@
 				name="Heavy armor"
 				sprite="attack"
 			>
-				<Resistance type="slash" amount="3" />
-				<Resistance type="crush" amount="3" />
-				<Resistance type="pierce" amount="-2" />
-				<Resistance type="magic" amount="-1" />
+				<Resistance type="slash" amount="5" />
+				<Resistance type="crush" amount="5" />
 			</Buff>
 		</Buffs>
 	</Unit>

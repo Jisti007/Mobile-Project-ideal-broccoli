@@ -28,8 +28,7 @@ void PlayerGameState::onPressHex(MapHex* hex) {
 	auto building = hex->getBuilding();
 	if (unit != nullptr && unit->getFaction() == activeFaction) {
 		game->changeToNew<UnitSelectedGameState>(game, unit);
-	}
-	if (building != nullptr && building->getFaction() == activeFaction) {
+	} else if (building != nullptr && building->getFaction() == activeFaction) {
 		game->changeToNew<BuildingSelectedGameState>(game, building);
 	}
 }

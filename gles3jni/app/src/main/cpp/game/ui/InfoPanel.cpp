@@ -146,9 +146,10 @@ void InfoPanel::updateInfo(Building* building) {
 
 void InfoPanel::recruitButton_onPress(void* recruitArg) {
 	auto recruit = static_cast<BuildingRecruitment*>(recruitArg);
-	game->getCampaign()->getScenario()->getActiveMap()->createUnit(
+	auto scenario = game->getCampaign()->getScenario();
+	scenario->getActiveMap()->createUnit(
 		recruit->building->getGridPosition(), recruit->recruitment.getUnitType(),
-		game->getCampaign()->getScenario()->getActiveFaction()
+		scenario->getActiveFaction()
 	);
 	game->changeToNew<IdleGameState>(game);
 }
