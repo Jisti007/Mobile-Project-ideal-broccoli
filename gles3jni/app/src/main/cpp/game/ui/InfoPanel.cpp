@@ -123,22 +123,21 @@ void InfoPanel::updateInfo(Building* building) {
 	//exitButton->setOnPress(std::bind(&Game::popState, game));
 
 	recruitmentList.clear();
+	recruitmentList.reserve(building->getType()->getRecruitments().size());
 	int recruitOffset = 0;
 	for (auto& recruit : building->getType()->getRecruitments()) {
+		recruitmentList.emplace_back(building, recruit);
+
 		auto recruitSprite = recruit.getUnitType()->getSprite();
 		auto recruitButton = addNewChild<Button>(
 			recruitSprite, glm::vec2{
 				0 + recruitOffset, infoLabel->getBottom()
 			}
 		);
-
-		auto buildingRecruit = std::make_unique<BuildingRecruitment>(
-			building, recruit
+		recruitButton->setOnPress(std::bind(
+			&InfoPanel::recruitButton_onPress, this, std::placeholders::_1)
 		);
-		recruitmentList.push_back(std::move(buildingRecruit));
-
-		recruitButton->setOnPress(std::bind(&InfoPanel::recruitButton_onPress, this, std::placeholders::_1));
-		recruitButton->setOnPressArgs(recruitmentList.back().get());
+		recruitButton->setOnPressArgs(&recruitmentList.back());
 
 		recruitOffset += recruitSprite->getWidth();
 	}

@@ -55,8 +55,8 @@ void GameMap::generate() {
 	unitList.add(wizardUnit, 10);
 	unitList.add(scoutUnit, 15);
 	unitList.add(knightUnit, 15);
+	unitList.add(nullptr, 1000);
 
-	// TODO: Make a system for displaying all non-hardcoded resources the active player possesses.
 	//BuildingType* testBuilding = assets->getBuildingType("test");
 	BuildingType* goldBuilding = assets->getBuildingType("gold");
 	BuildingType* foodBuilding = assets->getBuildingType("food");
@@ -76,17 +76,21 @@ void GameMap::generate() {
 	for (uint16_t y = 0; y < width; y++) {
 		for (uint16_t x = 0; x < height; x++) {
 			auto hex = getHex(x, y);
+			/*
 			auto actor = createActor(
 				hex->getSprite(), getHexPosition(x, y), -Random::generateFloat()
+			);
+			*/
+			auto actor = getScene()->addNew<Actor>(
+				hex->getSprite(), getScreenPosition(x, y), -Random::generateFloat(), HEX_LAYER
 			);
 			hex->setActor(actor);
 			hex->clearDecorations();
 			hex->createDecorations();
 
 			if (hex->getType() != water) {
-				auto rn = rand() % 100;
-				if (rn > 95) {
-					auto unitType = unitList.getRandom();
+				auto unitType = unitList.getRandom();
+				if (unitType != nullptr) {
 					auto faction = scenario->getFaction(rand() % scenario->getFactionCount());
 					createUnit({x, y}, unitType, faction);
 				}
@@ -128,7 +132,11 @@ Unit* GameMap::createUnit(Point position, UnitType* type, Faction* faction) {
 
 	auto x = position.x;
 	auto y = position.y;
-	auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 1.0f);
+	//auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 1.0f);
+	auto actorPosition = getScreenPosition(x, y);
+	auto actor = getScene()->addNew<RecoloredActor>(
+		type->getSprite(), actorPosition, -actorPosition.y, UNIT_LAYER, faction->getColors()
+	);
 	auto unit = new Unit(
 		hex->getGridX(), hex->getGridY(), type, faction, this
 	);
@@ -177,7 +185,11 @@ Building* GameMap::createBuilding(Point position, BuildingType* type, Faction* f
 
 	auto x = position.x;
 	auto y = position.y;
-	auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 0.5f);
+	//auto actor = createActor(type->getSprite(), getHexPosition(x, y), faction->getColors(), 0.5f);
+	auto actorPosition = getScreenPosition(x, y);
+	auto actor = getScene()->addNew<RecoloredActor>(
+		type->getSprite(), actorPosition, -actorPosition.y, BUILDING_LAYER, faction->getColors()
+	);
 	auto building = new Building(
 		hex->getGridX(), hex->getGridY(), type, faction
 	);
@@ -241,6 +253,7 @@ glm::vec2 GameMap::getScreenPosition(glm::vec2 hexPosition) {
 	return gridSize * hexPosition;
 }
 
+/*
 Actor* GameMap::createActor(Sprite* sprite, glm::vec2 position, float depth) {
 	auto actor = new Actor(sprite, getScreenPosition(position), depth, HEX_LAYER);
 	auto actorPointer = std::unique_ptr<Actor>(actor);
@@ -256,6 +269,7 @@ Actor* GameMap::createActor(
 	scene.addActor(actorPointer);
 	return actor;
 }
+*/
 
 void GameMap::initializeHexes() {
 	hexes.clear();

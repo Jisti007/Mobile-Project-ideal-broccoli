@@ -23,7 +23,10 @@ bool MovementAnimation::onAnimate(float deltaTime) {
 		destinationReached = true;
 	} else {
 		auto direction = glm::normalize(deltaPosition);
-		actor->offsetPosition(direction * movementDistance);
+		auto nextPosition = actor->getPosition() + movementDistance * direction;
+		actor->setDepth(-nextPosition.y);
+		actor->setPosition(nextPosition);
+		//actor->offsetPosition(direction * movementDistance);
 	}
 	if (follows) {
 		scene->getCamera()->setTarget(actor->getPosition() / 128.0f);

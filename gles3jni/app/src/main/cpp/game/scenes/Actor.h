@@ -43,13 +43,15 @@ struct ActorSorter {
 	inline bool operator() (Actor* a, Actor* b) {
 		if (a->getLayer() < b->getLayer()) {
 			return true;
+		} else if (a->getLayer() == b->getLayer()) {
+			return a->getDepth() < b->getDepth();
 		}
-/*
+		/*
 		if (a->getSprite()->getTexture() < b->getSprite()->getTexture()) {
 			return true;
 		}
-*/
-		return a->getDepth() < b->getDepth();
+		*/
+		return false;
 	}
 };
 

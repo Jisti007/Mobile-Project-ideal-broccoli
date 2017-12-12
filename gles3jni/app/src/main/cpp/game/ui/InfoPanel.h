@@ -31,7 +31,7 @@ private:
 	Font* font;
 	AssetManager* assetManager;
 	Game* game;
-	std::vector<std::unique_ptr<BuildingRecruitment>> recruitmentList;
+	std::vector<BuildingRecruitment> recruitmentList;
 
 	Label* infoLabel;
 	Label* skillLabel;
