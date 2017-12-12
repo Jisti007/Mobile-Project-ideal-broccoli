@@ -96,7 +96,7 @@ void InfoPanel::updateInfo(Building* building) {
 		buildingUISprite,
 		Transform2D{
 			Translation{0 - infoPanelSprite->getWidth() / 3 + buildingUISprite->getSize().x / 3.0f, 0},
-			Scale{2.4f, 2.4}
+			Scale{2.0f, 2.0}
 		}
 	);
 

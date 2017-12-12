@@ -85,17 +85,21 @@
 			</Sprite>
 			<Sprite id="gold_building"     x="256" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
+				<SwappableColor r="0" g="0" b="255"/>
 			</Sprite>
 			<Sprite id="food_building"     x="512" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
+				<SwappableColor r="0" g="0" b="255"/>
 			</Sprite>
 			<Sprite id="material_building" x="768" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
+				<SwappableColor r="0" g="0" b="255"/>
 			</Sprite>
 		</Row>
 		<Row y="256" h="256" yOffset="-15">
 			<Sprite id="crystal_building"  x="0" w="256">
 				<SwappableColor r="255" g="255" b="255"/>
+				<SwappableColor r="0" g="0" b="255"/>
 			</Sprite>
 			<Sprite id="capital_building"  x="256" w="256">
 				<SwappableColor r="255" g="255" b="255"/>

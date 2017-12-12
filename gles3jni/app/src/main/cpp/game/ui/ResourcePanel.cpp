@@ -45,8 +45,8 @@ void ResourcePanel::updateResources(Scenario* scenario) {
 		auto resourceAmountLabel = new Label(
 			resourceString.str().c_str(),
 			font,
-			glm::vec2{getLeft() + resourceOffset, getTop() - getSprite()->getHeight() / 2.0f},
-			glm::vec2{resourceUISprite->getWidth(),resourceUISprite->getHeight()*1.1f}
+			glm::vec2{resourceIcon->getRight() - 60, getTop() - resourceIcon->getSprite()->getHeight() / 2.5f},
+			glm::vec2{resourceUISprite->getWidth() * 2.0f / 1.2f,resourceUISprite->getHeight() * 2.0f}
 		);
 		std::unique_ptr<UIObject> resourceAmountLabelPointer(resourceAmountLabel);
 		addChild(resourceAmountLabelPointer);
