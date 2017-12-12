@@ -9,7 +9,5 @@ var searchData=
   ['skill_2ecpp',['Skill.cpp',['../_skill_8cpp.html',1,'']]],
   ['skill_2eh',['Skill.h',['../_skill_8h.html',1,'']]],
   ['sprite_2ecpp',['Sprite.cpp',['../_sprite_8cpp.html',1,'']]],
-  ['sprite_2eh',['Sprite.h',['../_sprite_8h.html',1,'']]],
-  ['stb_5frect_5fpack_2eh',['stb_rect_pack.h',['../stb__rect__pack_8h.html',1,'']]],
-  ['stb_5ftruetype_2eh',['stb_truetype.h',['../stb__truetype_8h.html',1,'']]]
+  ['sprite_2eh',['Sprite.h',['../_sprite_8h.html',1,'']]]
 ];

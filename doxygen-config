@@ -875,7 +875,9 @@ RECURSIVE              = YES
 
 EXCLUDE                = gles3jni/app/src/main/cpp/glm/ \
 						 gles3jni/app/src/main/cpp/rapidxml.hpp \
-						 gles3jni/app/src/main/cpp/stb_image.h
+						 gles3jni/app/src/main/cpp/stb_image.h \
+						 gles3jni/app/src/main/cpp/stb_rect_pack.h \
+						 gles3jni/app/src/main/cpp/stb_truetype.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
