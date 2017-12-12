@@ -19,3 +19,33 @@ bool Faction::modifyResource(Resource* resource, int amount) {
 bool Faction::modifyResource(ResourceAmount amount) {
 	return modifyResource(amount.first, amount.second);
 }
+
+bool Faction::subtractResource(ResourceAmount amount) {
+	return modifyResource(ResourceAmount{amount.first, -amount.second});
+}
+
+bool Faction::modifyResources(std::vector<ResourceAmount>& resourceAmounts) {
+	for (auto resourceAmount : resourceAmounts) {
+		modifyResource(resourceAmount);
+	}
+}
+
+bool Faction::hasResources(std::vector<ResourceAmount>& resourceAmounts) {
+	for (auto& resourceAmount : resourceAmounts) {
+		if (!hasResource(resourceAmount)) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool Faction::hasResources(const std::vector<ResourceAmount>& resourceAmounts) {
+	for (auto& resourceAmount : resourceAmounts) {
+		if (!hasResource(resourceAmount)) {
+			return false;
+		}
+	}
+
+	return true;
+}

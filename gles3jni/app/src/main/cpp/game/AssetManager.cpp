@@ -388,7 +388,7 @@ void AssetManager::loadUnitType(Node *node) {
 	while (upkeepResourceNode) {
 		auto resource = getResource(upkeepResourceNode->first_attribute("id")->value());
 		auto amount = atoi(upkeepResourceNode->first_attribute("amount")->value());
-		upkeep.push_back({resource, -amount});
+		upkeep.push_back({resource, amount});
 
 		upkeepResourceNode = upkeepResourceNode->next_sibling();
 	}

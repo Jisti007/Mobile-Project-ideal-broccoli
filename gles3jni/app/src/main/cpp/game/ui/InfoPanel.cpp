@@ -147,9 +147,18 @@ void InfoPanel::updateInfo(Building* building) {
 void InfoPanel::recruitButton_onPress(void* recruitArg) {
 	auto recruit = static_cast<BuildingRecruitment*>(recruitArg);
 	auto scenario = game->getCampaign()->getScenario();
+	auto faction = scenario->getActiveFaction();
+	auto resourceCosts = recruit->recruitment.getResourceCosts();
+	if (!faction->hasResources(resourceCosts)) {
+		return;
+	}
+	for (auto& resourceCost : resourceCosts) {
+		faction->subtractResource(resourceCost);
+	}
+	//faction->modifyResources(resourceCosts);
+
 	scenario->getActiveMap()->createUnit(
-		recruit->building->getGridPosition(), recruit->recruitment.getUnitType(),
-		scenario->getActiveFaction()
+		recruit->building->getGridPosition(), recruit->recruitment.getUnitType(), faction
 	);
 	game->changeToNew<IdleGameState>(game);
 }

@@ -101,9 +101,11 @@ void Unit::onBeginTurn() {
 
 	auto activeFaction = getMap()->getScenario()->getActiveFaction();
 	if (getFaction() == activeFaction) {
-		for (auto& upkeepResourceAmount : getType()->getUpkeep()) {
-			if (!getFaction()->modifyResource(upkeepResourceAmount)) {
-				die();
+		if (!getFaction()->hasResources(getType()->getUpkeep())) {
+			die();
+		} else {
+			for (auto& upkeepResourceAmount : getType()->getUpkeep()) {
+				getFaction()->subtractResource(upkeepResourceAmount);
 			}
 		}
 	}

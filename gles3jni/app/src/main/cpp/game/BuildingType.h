@@ -12,7 +12,7 @@ public:
 
 	inline UnitType* getUnitType() const { return unitType; }
 	inline const int getTime() const { return time; }
-	inline const std::vector<ResourceAmount> getResourceCosts() const { return resourceCosts; }
+	inline std::vector<ResourceAmount> getResourceCosts() const { return resourceCosts; }
 
 private:
 	UnitType* unitType;
