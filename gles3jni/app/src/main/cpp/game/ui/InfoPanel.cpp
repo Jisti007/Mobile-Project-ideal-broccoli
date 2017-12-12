@@ -157,8 +157,3 @@ void InfoPanel::updateInfo(Building* building, std::vector<Recruitment> recruitm
 	}
 
 }
-
-InfoPanel::~InfoPanel() {
-
-}
-
